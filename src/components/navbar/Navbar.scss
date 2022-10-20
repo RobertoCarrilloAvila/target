@@ -1,0 +1,27 @@
+@use "../../shared.scss" as shared;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 26px;
+  align-items: center;
+  align-content: center;
+  height: 40px;
+  
+  .navbar-item {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: #{shared.$sm}) {
+  .navbar {
+    .navbar-item {
+      display: none;
+    }
+
+    .navbar-item:first-child {
+      display: block;
+    }
+  }
+}
