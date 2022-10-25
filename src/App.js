@@ -1,9 +1,9 @@
 import "./App.scss";
-import Navbar from "./components/navbar/Navbar";
+import Login from "./components/Login/Login";
 
 function App() {
   return (
-    <Navbar />
+    <Login />
   );
 }
 
