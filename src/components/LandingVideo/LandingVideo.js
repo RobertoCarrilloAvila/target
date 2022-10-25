@@ -1,4 +1,4 @@
-import "./LandingVideo.scss"
+import "./LandingVideo.scss";
 
 const LandingVideo = () => {
   return (
@@ -23,7 +23,7 @@ const LandingVideo = () => {
         </li>
       </ul>
     </div>
-  )
-}
+  );
+};
 
 export default LandingVideo;

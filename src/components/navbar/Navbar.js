@@ -1,7 +1,7 @@
-import "./Navbar.scss"
+import "./Navbar.scss";
 
 const Navbar = ({ className }) => {
-  const image_color = className.includes("blue") ? "white" : "black"
+  const image_color = className.includes("blue") ? "white" : "black";
 
   return (
     <nav className={`navbar ${className}`}>
@@ -12,14 +12,14 @@ const Navbar = ({ className }) => {
       />
 
       <h1 className="navbar-item navbar-title">TARGET</h1>
-      
+
       <img
         className="navbar-item navbar-icon-right"
         src={`/assets/icons/pin_${image_color}.svg`}
         alt="pin"
       />
     </nav>
-  )
-}
+  );
+};
 
 export default Navbar;
