@@ -32,7 +32,7 @@
   }
 }
 
-@media (min-width: #{shared.$sm}) {
+@media (min-width: #{shared.$md}) {
   .navbar {
     .navbar-item {
       display: none;
