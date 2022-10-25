@@ -1,14 +1,16 @@
 import './Login.scss'
 
 import Navbar from "../Navbar/Navbar"
+import LandingVideo from '../LandingVideo/LandingVideo'
 import FormInput from '../FormInput/FormInput'
 
 const Login = () => {
   return (
     <div className="login">
-      <Navbar className="white" />
 
       <section className="container">
+        <Navbar className="white" />
+
         <div className="login-header-img">
           <img src="assets/smilies.svg" alt="smiles" />
           <h2>Target MVD</h2>
@@ -28,9 +30,7 @@ const Login = () => {
         </form>
       </section>
 
-      <section className="preview">
-        <button className="btn">Create a Target</button>
-      </section>
+      <LandingVideo />
     </div>
   )
 }

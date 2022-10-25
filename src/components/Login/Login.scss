@@ -6,7 +6,6 @@
 
   .container {
     width: 50%;
-    margin-top: 60px;
     flex-grow: 1;
 
     .login-header-img {
@@ -71,13 +70,5 @@
     display: none;
     width: 50%;
     flex-grow: 1;
-  }
-}
-
-@media (min-width: #{shared.$md}) {
-  .login {
-    .preview {
-      display: block;
-    }
   }
 }
