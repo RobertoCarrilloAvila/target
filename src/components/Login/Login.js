@@ -28,6 +28,13 @@ const Login = () => {
 
           <button type="submit" id="login-submit" className='btn'>Sign In</button>
         </form>
+
+        <a className='forgot-password' href="#">Forgot your password?</a>
+
+        <a id='facebook-signup' >
+          connect with facebook
+        </a>
+        <a className='email-signup' href="#">Sign up</a>
       </section>
 
       <LandingVideo />

@@ -21,22 +21,25 @@
       h2 {
         text-align: center;
         margin-top: 15px;
-        font-size: 14px;
-        letter-spacing: 2px;
-        line-height: 16.5px;
         font-weight: 600;
       }
     }
 
     .login-header-text {
-      display: none;
       margin-top: 1rem;
       text-align: center;
+      width: 100%;
+      font-size: 14px;
+      line-height: 26px;
+      max-width: 320px;
+      margin: 0 auto;
 
       &>span {
+        font-weight: 600;
         display: block;
-        width: 100%;
         font-weight: bold;
+        font-size: 18px;
+        line-height: 32px;
       }
     }
 
@@ -64,11 +67,100 @@
       text-align: center;
       font-weight: 600;
     }
+
+    .forgot-password {
+      display: block;
+      margin: 0 auto;
+      width: fit-content;
+      margin-top: 1rem;
+      font-size: 11px;
+      line-height: 13px;
+      text-align: center;
+      font-weight: 600;
+      color: shared.$black-color;
+      text-decoration: none;
+    }
+
+    #facebook-signup {
+      display: block;
+      position: relative;
+      width: 100%;
+      margin-top: 3.5rem;
+      text-align: center;
+      font-size: 12px;
+      line-height: 14px;
+      letter-spacing: 2.4px;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding-bottom: 11px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        border: 0.5px solid shared.$black-color;
+        width: 20%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+
+    .email-signup {
+      display: block;
+      margin: 0 auto;
+      margin-top: 1rem;
+      font-size: 11px;
+      line-height: 13px;
+      letter-spacing: 1.65px;
+      color: shared.$black-color;
+      text-align: center;
+      text-decoration: none;
+      text-align: center;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
   }
 
   .preview {
     display: none;
     width: 50%;
     flex-grow: 1;
+  }
+}
+
+@media (max-width: #{shared.$md}) {
+  .login {
+    .login-header-img {
+      h2 {
+        font-size: 14px;
+        letter-spacing: 2px;
+        line-height: 16.5px;
+      }
+    }
+
+    .login-header-text {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: #{shared.$md}) {
+  .login {
+    .login-header-img {
+      h2 {
+        font-size: 20px;
+        line-height: 23px;
+        letter-spacing: 3px;
+      }
+    }
+
+    .login-header-text {
+      display: block;
+    }
+
+    #login-submit {
+      width: 100%;
+    }
   }
 }
