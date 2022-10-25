@@ -6,11 +6,19 @@
   padding: 0 26px;
   align-items: center;
   align-content: center;
-  height: 40px;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: shared.$blue-color;
   
   .navbar-item {
     margin: 0;
-    font-size: 1.25rem;
+    font-size: 20px;
+    letter-spacing: 3px;
+    line-height: 23.44px;
+    color: shared.$white-color;
   }
 }
 
