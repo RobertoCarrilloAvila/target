@@ -16,7 +16,7 @@
         width: 60%;
         display: block;
         margin: 0 auto;
-        max-width: 124px;
+        max-width: 133px;
       }
 
       h2 {
@@ -74,7 +74,7 @@
   }
 }
 
-@media (min-width: #{shared.$sm}) {
+@media (min-width: #{shared.$md}) {
   .login {
     .preview {
       display: block;

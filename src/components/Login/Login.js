@@ -6,11 +6,11 @@ import FormInput from '../FormInput/FormInput'
 const Login = () => {
   return (
     <div className="login">
-      <Navbar />
+      <Navbar className="white" />
 
       <section className="container">
         <div className="login-header-img">
-          <img src="/assets/profile.png" alt="smiles" />
+          <img src="assets/smilies.svg" alt="smiles" />
           <h2>Target MVD</h2>
         </div>
 

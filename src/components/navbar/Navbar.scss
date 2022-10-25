@@ -11,14 +11,28 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: shared.$blue-color;
-  
+
   .navbar-item {
     margin: 0;
     font-size: 20px;
     letter-spacing: 3px;
     line-height: 23.44px;
-    color: shared.$white-color;
+  }
+
+  &.blue {
+    background-color: shared.$blue-color;
+
+    .navbar-item {
+      color: shared.$white-color;
+    }
+  }
+
+  &.white {
+    background-color: shared.$white-color;
+
+    .navbar-item {
+      color: shared.$black-color;
+    }
   }
 }
 
@@ -26,10 +40,10 @@
   .navbar {
     .navbar-item {
       display: none;
-    }
 
-    .navbar-item:first-child {
-      display: block;
+      &:first-child {
+        display: block;
+      }
     }
   }
 }
