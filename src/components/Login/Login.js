@@ -3,8 +3,44 @@ import "./Login.scss";
 import Navbar from "../Navbar/Navbar";
 import LandingVideo from "../LandingVideo/LandingVideo";
 import FormInput from "../FormInput/FormInput";
+import { useState } from "react";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleEmailChange = (value) => {
+    setEmail(value);
+  };
+
+  const handlePasswordChange = (value) => {
+    setPassword(value);
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    const requestParams = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        "user": { 
+            "email": email, 
+            "password": password
+        }
+      })
+    };
+
+    const response = await fetch(`${process.env.REACT_APP_API_HOST}/api/v1/users/sign_in`, requestParams);
+    // const data = await response.json();
+    const headers = response.headers;
+
+    sessionStorage.setItem("access-token", headers.get("access-token"));
+    sessionStorage.setItem("client", headers.get("client"));
+    sessionStorage.setItem("expiry", headers.get("expiry"));
+    sessionStorage.setItem("uid", headers.get("uid"));
+  }
+
   return (
     <div className="login">
       <section className="container">
@@ -22,13 +58,27 @@ const Login = () => {
           interest.
         </p>
 
-        <form className="login-form">
-          <FormInput type="text" id="email" name="email" label="Email" />
+        <form
+          className="login-form"
+          onSubmit={handleSubmit}
+        >
+
+          <FormInput
+            type="email"
+            id="email"
+            name="email"
+            label="Email"
+            onChange={handleEmailChange}
+            value={email}
+          />
+
           <FormInput
             type="password"
             id="password"
             name="password"
             label="Password"
+            onChange={handlePasswordChange}
+            value={password}
           />
 
           <button type="submit" id="login-submit" className="btn">
