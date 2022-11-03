@@ -1,0 +1,45 @@
+@use "../../shared.scss" as shared;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 26px;
+  align-items: center;
+  align-content: center;
+  height: 60px;
+
+  .navbar-item {
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: 3px;
+    line-height: 23.44px;
+  }
+
+  &.blue {
+    background-color: shared.$blue-color;
+
+    .navbar-item {
+      color: shared.$white-color;
+    }
+  }
+
+  &.white {
+    background-color: shared.$white-color;
+
+    .navbar-item {
+      color: shared.$black-color;
+    }
+  }
+}
+
+@media (min-width: #{shared.$md}) {
+  .navbar {
+    .navbar-item {
+      display: none;
+
+      &:first-child {
+        display: block;
+      }
+    }
+  }
+}

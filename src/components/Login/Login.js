@@ -5,6 +5,8 @@ import LandingVideo from "../LandingVideo/LandingVideo";
 import FormInput from "../FormInput/FormInput";
 import { useState } from "react";
 
+import smiles from "../../assets/smilies.svg";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -47,7 +49,7 @@ const Login = () => {
         <Navbar className="white" />
 
         <div className="login-header-img">
-          <img src="assets/smilies.svg" alt="smiles" />
+          <img src={smiles} alt="smiles" />
           <h2>Target MVD</h2>
         </div>
 
