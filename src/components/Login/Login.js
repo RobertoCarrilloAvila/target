@@ -3,6 +3,7 @@ import "./Login.scss";
 import Navbar from "../Navbar/Navbar";
 import LandingVideo from "../LandingVideo/LandingVideo";
 import FormInput from "../FormInput/FormInput";
+import UserService from "../../services/userService";
 import { useState } from "react";
 
 import smiles from "../../assets/smilies.svg";
@@ -22,25 +23,14 @@ const Login = () => {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const requestParams = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        "user": { 
-            "email": email, 
-            "password": password
-        }
-      })
-    };
+    const response = await UserService.login({
+      user: {
+        email: email,
+        password: password
+      }
+    });
 
-    const response = await fetch(`${process.env.REACT_APP_API_HOST}/api/v1/users/sign_in`, requestParams);
-    // const data = await response.json();
-    const headers = response.headers;
-
-    sessionStorage.setItem("access-token", headers.get("access-token"));
-    sessionStorage.setItem("client", headers.get("client"));
-    sessionStorage.setItem("expiry", headers.get("expiry"));
-    sessionStorage.setItem("uid", headers.get("uid"));
+    console.log(response);
   }
 
   return (
