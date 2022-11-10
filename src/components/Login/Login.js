@@ -18,7 +18,7 @@ const Login = () => {
 
   const handlePasswordChange = (value) => {
     setPassword(value);
-  }
+  };
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -26,8 +26,8 @@ const Login = () => {
     const response = await UserService.login({
       user: {
         email: email,
-        password: password
-      }
+        password: password,
+      },
     });
 
     console.log(response);
@@ -50,11 +50,7 @@ const Login = () => {
           interest.
         </p>
 
-        <form
-          className="login-form"
-          onSubmit={handleSubmit}
-        >
-
+        <form className="login-form" onSubmit={handleSubmit}>
           <FormInput
             type="email"
             id="email"

@@ -1,10 +1,10 @@
 import "./FormInput.scss";
 
 const FormInput = (props) => {
-  const handleChange = event => {
+  const handleChange = (event) => {
     const text = event.target.value;
     props.onChange(text);
-  }
+  };
 
   return (
     <div className="form-input">

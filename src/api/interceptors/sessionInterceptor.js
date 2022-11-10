@@ -1,13 +1,13 @@
-import humps from 'humps';
+import humps from "humps";
 
-import httpClient, { CONTENT_TYPE, MULTIPART_FORM_DATA } from '../httpClient';
+import httpClient, { CONTENT_TYPE, MULTIPART_FORM_DATA } from "../httpClient";
 
-const ACCESS_TOKEN = 'access-token';
-const UID = 'uid';
-const CLIENT = 'client';
+const ACCESS_TOKEN = "access-token";
+const UID = "uid";
+const CLIENT = "client";
 
 export default () => {
-  httpClient.interceptors.request.use(request => {
+  httpClient.interceptors.request.use((request) => {
     const session = JSON.parse(sessionStorage.getItem("currentUser"));
     const { data, headers } = request;
     if (session) {
@@ -28,7 +28,7 @@ export default () => {
   });
 
   httpClient.interceptors.response.use(
-    async response => {
+    async (response) => {
       const { data, headers } = response;
       const token = headers[ACCESS_TOKEN];
       if (token) {
@@ -43,12 +43,12 @@ export default () => {
 
       return response;
     },
-    error => {
+    (error) => {
       if (error.response && error.response.status === 401) {
         sessionStorage.removeItem("currentUser");
       }
 
       return Promise.reject(error);
-    },
+    }
   );
 };
