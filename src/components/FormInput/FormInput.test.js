@@ -1,4 +1,4 @@
-import { logRoles, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import FormInput from "./FormInput";
 
 test("formInput has a label", () => {
