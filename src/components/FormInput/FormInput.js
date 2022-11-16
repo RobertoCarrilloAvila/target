@@ -8,9 +8,7 @@ const FormInput = ({ id, label, type, value, name, placeholder = "", onChange}) 
 
   return (
     <div className="form-input">
-      <label className="form-input-label" htmlFor={id}>
-        {label}
-      </label>
+      {label && <label className="form-input-label" htmlFor={id}>{label}</label>}
       <input
         className="form-input-input"
         type={type}
