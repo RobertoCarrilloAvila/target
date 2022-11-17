@@ -29,8 +29,6 @@ const Login = () => {
         password: password,
       },
     });
-
-    console.log(response);
   }
 
   return (
