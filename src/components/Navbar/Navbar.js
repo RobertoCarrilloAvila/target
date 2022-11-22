@@ -5,13 +5,13 @@ import pinBlack from "../../assets/icons/pin_black.svg";
 import pinWhite from "../../assets/icons/pin_white.svg";
 
 const Navbar = ({ className }) => {
-  const isWhite = className.includes("blue");
+  const blueNavbar = className.includes("blue");
 
   return (
     <nav className={`navbar ${className}`}>
       <img
         className="navbar-item navbar-icon-left"
-        src={isWhite ? menuWhite : menuBlack}
+        src={blueNavbar ? menuWhite : menuBlack}
         alt="hamburger menu"
       />
 
@@ -19,7 +19,7 @@ const Navbar = ({ className }) => {
 
       <img
         className="navbar-item navbar-icon-right"
-        src={isWhite ? pinWhite : pinBlack}
+        src={blueNavbar ? pinWhite : pinBlack}
         alt="pin"
       />
     </nav>
