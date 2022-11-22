@@ -77,7 +77,7 @@ const Login = () => {
         </a>
 
         <a id="facebook-signup">connect with facebook</a>
-        <a className="email-signup" href="#">
+        <a className="email-signup" href="/sign_up">
           Sign up
         </a>
       </section>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import Navbar from "components/Navbar/Navbar";
 import FormInput from "components/FormInput/FormInput";
 import LandingVideo from "components/LandingVideo/LandingVideo";
@@ -44,6 +46,8 @@ const SignUp = () => {
             Sign Up
           </button>
         </form>
+
+        <Link to="/" className="email-login">Sign In</Link>
       </section>
 
       <LandingVideo />
