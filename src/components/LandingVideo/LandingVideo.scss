@@ -1,0 +1,46 @@
+@use "../../shared.scss" as shared;
+
+.landing-video {
+  display: none;
+  width: 50%;
+  flex-grow: 1;
+  background-color: shared.$blue-color;
+  min-height: 100vh;
+  justify-content: center;
+
+  #preview {
+    display: block;
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    object-fit: cover;
+    margin: 0 auto;
+    margin-bottom: -70px;
+  }
+
+  .appstore {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  .social {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+
+    &>.social-item {
+      margin: 0 10px;
+    }
+  }
+}
+
+@media (min-width: #{shared.$md}) {
+  .landing-video {
+    display: flex;
+    flex-direction: column;
+  }
+}

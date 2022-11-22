@@ -1,0 +1,17 @@
+@use "./shared.scss" as shared;
+
+// classes
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem;
+  background-color: shared.$black-color;
+  color: shared.$white-color;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+}
