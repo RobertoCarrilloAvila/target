@@ -23,7 +23,7 @@ const Login = () => {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const response = await UserService.login({
+    await UserService.login({
       user: {
         email: email,
         password: password,
