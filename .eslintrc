@@ -32,10 +32,6 @@
       }
     }
   },
-  "globals": {
-    "process": true,
-    "sessionStorage": true
-  },
   "env": {
     "browser": true, // Browser global variables like `window` etc.
     "commonjs": true, // CommonJS global variables and CommonJS scoping.Allows require, exports and module.
