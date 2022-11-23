@@ -26,9 +26,14 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "settings": {
-      "react": {
-        "version": "detect"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "src/"]
       }
     }
   },
