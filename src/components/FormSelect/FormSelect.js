@@ -1,6 +1,6 @@
 import "./FormSelect.scss"
 
-const FormSelect = ({ id, label, values, name, placeholder = "", onChange}) => {
+const FormSelect = ({ id, label, value, options, name, className= "", placeholder = "", onChange, ...rest}) => {
   const handleChange = (event) => {
     const text = event.target.value;
     onChange(text);
@@ -10,16 +10,17 @@ const FormSelect = ({ id, label, values, name, placeholder = "", onChange}) => {
     <div className="form-input">
       {label && <label className="form-input-label" htmlFor={id}>{label}</label>}
       <select
-        className="form-input-select"
+        className={`form-input-select ${className}`}
         name={name}
         id={id}
-        placeholder={placeholder}
+        value={value}
         onChange={handleChange}
         onBlur={handleChange}
+        {...rest}
       >
-        <option value="" disabled selected>{placeholder}</option>
+        <option value="" disabled>{placeholder}</option>
         {
-          values.map((value) => {
+          options.map((value) => {
             return <option value={value}>{value}</option>
           })
         }
