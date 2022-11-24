@@ -15,21 +15,18 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "eslint-config-prettier": "^8.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.{js, jsx}\"",
-    "format:check": "prettier --check \"src/**/*.{js, jsx}\""
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "format:check": "prettier --check \"src/**/*.{js, jsx}\"",
+    "lint": "eslint -c .eslintrc --ext .js,.jsx .",
+    "lint:fix": "npm run lint -- --fix"
   },
   "browserslist": {
     "production": [

@@ -23,7 +23,7 @@ const Login = () => {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const response = await UserService.login({
+    await UserService.login({
       user: {
         email: email,
         password: password,
@@ -72,12 +72,12 @@ const Login = () => {
           </button>
         </form>
 
-        <a className="forgot-password" href="#">
+        <a className="forgot-password" href="/">
           Forgot your password?
         </a>
 
-        <a id="facebook-signup">connect with facebook</a>
-        <a className="email-signup" href="#">
+        <a id="facebook-signup" href="/">connect with facebook</a>
+        <a className="email-signup" href="/">
           Sign up
         </a>
       </section>
