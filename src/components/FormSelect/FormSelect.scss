@@ -1,0 +1,39 @@
+@use "../../shared.scss" as shared;
+
+.form-input {
+  display: inline-block;
+  width: 100%;
+  min-width: 100px;
+
+  .form-input-label {
+    display: block;
+    width: 100%;
+    color: shared.$black-color;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: center;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .form-input-select {
+    display: block;
+    width: 100%;
+    margin-top: 3px;
+    font-size: 10px;
+    padding: 12px 2px;
+    line-height: 12px;
+    text-align: center;
+    border: 0.5px solid shared.$black-color;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    box-sizing: border-box;
+    text-transform: uppercase;
+
+    &::placeholder {
+      color: shared.$gray-color;
+      text-transform: uppercase;
+    }
+  }
+}
