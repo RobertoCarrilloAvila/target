@@ -21,7 +21,7 @@ const FormSelect = ({ id, label, value, options, name, className= "", placeholde
         <option value="" disabled>{placeholder}</option>
         {
           options.map((value) => {
-            return <option value={value}>{value}</option>
+            return <option key={value} value={value}>{value}</option>
           })
         }
       </select>

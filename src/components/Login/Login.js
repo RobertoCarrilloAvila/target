@@ -76,7 +76,7 @@ const Login = () => {
           Forgot your password?
         </a>
 
-        <a id="facebook-signup">connect with facebook</a>
+        <a id="facebook-signup" href="/sign_up">connect with facebook</a>
         <a className="email-signup" href="/sign_up">
           Sign up
         </a>
