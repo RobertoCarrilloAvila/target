@@ -80,43 +80,43 @@ const SignUp = () => {
               type="text"
               id="name"
               name="name"
-              label="Name"
+              label="name"
               value={name}
               onChange={handleNameChange}
-              required="true"
+              required={true}
             />
   
             <FormInput
               type="email"
               id="email"
               name="email"
-              label="Email"
+              label="email"
               value={email}
               onChange={handleEmailChange}
-              required="true"
+              required={true}
             />
   
             <FormInput
               type="password"
               id="password"
               name="password"
-              label="Password"
+              label="password"
               placeholder="min. 6 characters long"
               value={password}
               onChange={handlePasswordChange}
               minLength="6"
-              required="true"
+              required={true}
             />
   
             <FormInput
               type="password"
               id="password_confirmation"
               name="password_confirmation"
-              label="Confirm Password"
+              label="confirm password"
               value={passwordConfirmation}
               onChange={handlePasswordConfirmationChange}
               minLength="6"
-              required="true"
+              required={true}
             />
   
             <FormSelect
@@ -127,7 +127,7 @@ const SignUp = () => {
               placeholder="select your gender"
               value={gender}
               onChange={handleGenderChange}
-              required="true"
+              required={true}
             />
   
             <button type="submit" id="sign-up-submit" className="btn">
