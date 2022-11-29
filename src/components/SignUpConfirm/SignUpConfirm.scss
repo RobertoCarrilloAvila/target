@@ -1,0 +1,64 @@
+@use "../../shared.scss" as shared;
+
+.sign-up-confirm {
+  display: flex;
+
+  .container {
+    width: 50%;
+    flex-grow: 1;
+
+    .sign-up-content {
+      margin-top: 20%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 10%;
+
+      img {
+        width: 60%;
+        display: block;
+        margin: 0 auto;
+        max-width: 133px;
+        margin-bottom: 13px;
+      }
+
+      p {
+        text-align: center;
+      }
+
+      .sign-up-yey {
+        font-size: 21px;
+        line-height: 25px;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 22px;
+        font-weight: bold;
+      }
+
+      .sign-up-step {
+        font-size: 18px;
+        line-height: 21px;
+        font-weight: shared.$semibold;
+        margin-top: 0;
+        margin-bottom: 13px;
+      }
+
+      .sign-up-title {
+        font-size: 20px;
+        line-height: 23px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+        margin-top: 0;
+        margin-bottom: 33px;
+      }
+
+      .sign-up-confirm-account {
+        font-size: 14px;
+        line-height: 26px;
+        margin: 0;
+      }
+    }
+  }
+}
