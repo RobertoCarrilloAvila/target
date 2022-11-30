@@ -62,7 +62,7 @@ const SignUp = () => {
               name="name"
               label="name"
               value={name}
-              onChange={(value) => setName(value)}
+              onChange={setName}
               required={true}
             />
   
@@ -72,7 +72,7 @@ const SignUp = () => {
               name="email"
               label="email"
               value={email}
-              onChange={(value) => setEmail(value)}
+              onChange={setEmail}
               required={true}
             />
   
@@ -83,7 +83,7 @@ const SignUp = () => {
               label="password"
               placeholder="min. 6 characters long"
               value={password}
-              onChange={(value) => setPassword(value)}
+              onChange={setPassword}
               minLength="6"
               required={true}
             />
@@ -94,7 +94,7 @@ const SignUp = () => {
               name="password_confirmation"
               label="confirm password"
               value={passwordConfirmation}
-              onChange={(value) => setPasswordConfirmation(value)}
+              onChange={setPasswordConfirmation}
               minLength="6"
               required={true}
             />
@@ -106,7 +106,7 @@ const SignUp = () => {
               options={GENDER_OPTIONS}
               placeholder="select your gender"
               value={gender}
-              onChange={(value) => setGender(value)}
+              onChange={setGender}
               required={true}
             />
   
