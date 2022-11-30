@@ -1,6 +1,6 @@
 import "./FormInput.scss";
 
-const FormInput = ({ id, label, type, value, name, placeholder = "", onChange}) => {
+const FormInput = ({ id, label, type, value, name, className = "", placeholder = "", onChange, ...rest}) => {
   const handleChange = (event) => {
     const text = event.target.value;
     onChange(text);
@@ -10,7 +10,7 @@ const FormInput = ({ id, label, type, value, name, placeholder = "", onChange}) 
     <div className="form-input">
       {label && <label className="form-input-label" htmlFor={id}>{label}</label>}
       <input
-        className="form-input-input"
+        className={`form-input-input ${className}`}
         type={type}
         value={value}
         name={name}
@@ -18,6 +18,7 @@ const FormInput = ({ id, label, type, value, name, placeholder = "", onChange}) 
         placeholder={placeholder}
         onChange={handleChange}
         onBlur={handleChange}
+        {...rest}
       />
     </div>
   );
