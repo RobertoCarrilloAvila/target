@@ -19,26 +19,6 @@ const SignUp = () => {
   const [gender, setGender] = useState("");
   const [redirect, setRedirect] = useState(false);
 
-  const handleNameChange = (value) => {
-    setName(value);
-  };
-
-  const handleEmailChange = (value) => {
-    setEmail(value);
-  };
-
-  const handlePasswordChange = (value) => {
-    setPassword(value);
-  };
-
-  const handlePasswordConfirmationChange = (value) => {
-    setPasswordConfirmation(value);
-  };
-
-  const handleGenderChange = (value) => {
-    setGender(value);
-  };
-
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -82,7 +62,7 @@ const SignUp = () => {
               name="name"
               label="name"
               value={name}
-              onChange={handleNameChange}
+              onChange={(value) => setName(value)}
               required={true}
             />
   
@@ -92,7 +72,7 @@ const SignUp = () => {
               name="email"
               label="email"
               value={email}
-              onChange={handleEmailChange}
+              onChange={(value) => setEmail(value)}
               required={true}
             />
   
@@ -103,7 +83,7 @@ const SignUp = () => {
               label="password"
               placeholder="min. 6 characters long"
               value={password}
-              onChange={handlePasswordChange}
+              onChange={(value) => setPassword(value)}
               minLength="6"
               required={true}
             />
@@ -114,7 +94,7 @@ const SignUp = () => {
               name="password_confirmation"
               label="confirm password"
               value={passwordConfirmation}
-              onChange={handlePasswordConfirmationChange}
+              onChange={(value) => setPasswordConfirmation(value)}
               minLength="6"
               required={true}
             />
@@ -126,7 +106,7 @@ const SignUp = () => {
               options={GENDER_OPTIONS}
               placeholder="select your gender"
               value={gender}
-              onChange={handleGenderChange}
+              onChange={(value) => setGender(value)}
               required={true}
             />
   
