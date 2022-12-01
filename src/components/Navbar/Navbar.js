@@ -7,21 +7,42 @@ import pinWhite from "../../assets/icons/pin_white.svg";
 const Navbar = ({ className }) => {
   const blueNavbar = className.includes("blue");
 
+  const toggleMenu = (event) => {
+    const target_id = event.currentTarget.dataset.target;
+    const menu = document.getElementById(target_id);
+    menu.classList.toggle("show");
+  };
+
   return (
     <nav className={`navbar ${className}`}>
-      <img
-        className="navbar-item navbar-icon-left"
-        src={blueNavbar ? menuWhite : menuBlack}
-        alt="hamburger menu"
-      />
+      <button onClick={toggleMenu} data-target="navbar-collapsable-menu">
+        <img
+          className="navbar-item navbar-icon-left"
+          src={blueNavbar ? menuWhite : menuBlack}
+          alt="hamburger menu"
+        />
+      </button>
+
+      <div id="navbar-collapsable-menu">
+        <ul className="navbar-menu">
+          <li className="navbar-menu-item">
+            <a href="#about" className="navbar-link">About</a>
+          </li>
+          <li className="navbar-menu-item">
+            <a href="#contact" className="navbar-link">contact</a>
+          </li>
+        </ul>
+      </div>
 
       <h1 className="navbar-item navbar-title">TARGET</h1>
 
-      <img
-        className="navbar-item navbar-icon-right"
-        src={blueNavbar ? pinWhite : pinBlack}
-        alt="pin"
-      />
+      <button>
+        <img
+          className="navbar-item navbar-icon-right"
+          src={blueNavbar ? pinWhite : pinBlack}
+          alt="pin"
+        />
+      </button>
     </nav>
   );
 };
