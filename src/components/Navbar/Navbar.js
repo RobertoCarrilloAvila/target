@@ -15,7 +15,7 @@ const Navbar = ({ className }) => {
 
   return (
     <nav className={`navbar ${className}`}>
-      <button onClick={toggleMenu} data-target="navbar-collapsable-menu">
+      <button onClick={toggleMenu} data-target="navbar-collapsible-menu">
         <img
           className="navbar-item navbar-icon-left"
           src={blueNavbar ? menuWhite : menuBlack}
@@ -23,7 +23,7 @@ const Navbar = ({ className }) => {
         />
       </button>
 
-      <div id="navbar-collapsable-menu">
+      <div id="navbar-collapsible-menu">
         <ul className="navbar-menu">
           <li className="navbar-menu-item">
             <a href="#about" className="navbar-link">About</a>
