@@ -20,7 +20,7 @@
       h2 {
         text-align: center;
         margin-top: 15px;
-        font-weight: 600;
+        font-weight: shared.$semibold;
         font-size: 14px;
         letter-spacing: 2px;
         line-height: 16.5px;
@@ -38,7 +38,7 @@
       display: none;
 
       &>span {
-        font-weight: 600;
+        font-weight: shared.$semibold;
         display: block;
         font-weight: bold;
         font-size: 18px;
@@ -68,7 +68,7 @@
       line-height: 13px;
       letter-spacing: 1.5px;
       text-align: center;
-      font-weight: 600;
+      font-weight: shared.$semibold;
     }
 
     .forgot-password {
@@ -79,7 +79,7 @@
       font-size: 11px;
       line-height: 13px;
       text-align: center;
-      font-weight: 600;
+      font-weight: shared.$semibold;
       color: shared.$black-color;
       text-decoration: none;
     }
@@ -96,6 +96,7 @@
       font-weight: bold;
       text-transform: uppercase;
       padding-bottom: 11px;
+      color: shared.$black-color;
 
       &:after {
         content: "";
@@ -118,7 +119,7 @@
       color: shared.$black-color;
       text-align: center;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: shared.$semibold;
       text-transform: uppercase;
     }
   }
