@@ -15,7 +15,7 @@ const About = () => (
         <h2>What&apos;s TARGET?</h2>
       </div>
 
-      <p className="about-content">
+      <p className="about-description" role="contentinfo">
         Cat ipsum dolor sit amet, scratch the furniture.
         Spit up on light gray carpet instead of adjacent
         linoleum cough furball yet lounge in doorway but

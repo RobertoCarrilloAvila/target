@@ -27,7 +27,7 @@
       }
     }
 
-    .about-content {
+    .about-description {
       font-size: 14px;
       line-height: 26px;
       margin: 27px auto;
@@ -51,7 +51,7 @@
 @media (min-width: #{shared.$md}) {
   .about {
     .container {
-      .about-content {
+      .about-description {
         margin: 27px auto;
         padding: 0 86px;
         text-align: justify;
