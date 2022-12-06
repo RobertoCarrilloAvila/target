@@ -3,6 +3,7 @@ import Navbar from "components/Navbar/Navbar";
 import LandingVideo from "components/LandingVideo/LandingVideo";
 
 import "./About.scss";
+import { Link } from "react-router-dom";
 
 const About = () => (
   <div className="about">
@@ -32,8 +33,10 @@ const About = () => (
         like nothing happened Gate keepers of hell and destroy couch,
         so find empty spot in cupboard and sleep all day groom yourself
         4 hours - checked, have your beauty sleep 18 hours - checked,
-        be fabulous for the rest of the day - checked!. 
+        be fabulous for the rest of the day - checked!.
       </p>
+
+      <Link to="/" id="about-get-start" className="btn">get started!</Link>
     </section>
 
     <LandingVideo />
