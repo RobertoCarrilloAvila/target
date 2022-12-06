@@ -12,3 +12,9 @@ test("has 2 images for mobile", () => {
   const images = screen.getAllByRole("img");
   expect(images).toHaveLength(2);
 });
+
+test("has collapsible menu", () => {
+  render(<Navbar className="blue" />);
+  const menu = screen.getByRole("button", { name: "hamburger menu" });
+  expect(menu).toBeInTheDocument();
+});

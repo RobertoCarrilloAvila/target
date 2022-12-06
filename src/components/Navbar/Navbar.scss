@@ -6,13 +6,54 @@
   padding: 0 26px;
   align-items: center;
   align-content: center;
-  height: 60px;
+  height: shared.$navbar-height;
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+  }
 
   .navbar-item {
     margin: 0;
     font-size: 20px;
     letter-spacing: 3px;
     line-height: 23.44px;
+  }
+
+  #navbar-collapsible-menu {
+    position: absolute;
+    padding: 0 26px;
+    top: 40px;
+    left: 0;
+    right: 0;
+    display: none;
+
+    &.show {
+      display: block;
+    }
+
+    .navbar-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      .navbar-menu-item {
+
+        &>a {
+          color: shared.$black-color;
+          text-decoration: none;
+          font-size: 14px;
+          line-height: 16px;
+          letter-spacing: 2px;
+        }
+      }
+    }
   }
 
   &.blue {
@@ -40,6 +81,13 @@
       &:first-child {
         display: block;
       }
+    }
+
+    .navbar-collapsable-menu {
+      position: absolute;
+      top: 20px;
+      left: 53px;
+      padding: 0;
     }
   }
 }
