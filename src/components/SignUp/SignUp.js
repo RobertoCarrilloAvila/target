@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useTranslation } from 'react-i18next';
 
 import UserService from "../../services/userService";
 import Navbar from "components/Navbar/Navbar";
@@ -11,6 +12,8 @@ import SignUpConfirm from "components/SignUpConfirm/SignUpConfirm";
 import "./SignUp.scss";
 
 const SignUp = () => {
+  const { t } = useTranslation();
+
   const GENDER_OPTIONS = ["male", "female"];
 
   const [name, setName] = useState("");
@@ -53,14 +56,14 @@ const SignUp = () => {
       <section className="container">
         <Navbar className="white" />
 
-        <h1 id="sign-up-title">Sign Up</h1>
+        <h1 id="sign-up-title">{t("sign-up.title")}</h1>
 
         <form className="sign-up-form" onSubmit={handleSubmit}>
           <FormInput
             type="text"
             id="name"
             name="name"
-            label="name"
+            label={t("sign-up.name")}
             value={name}
             onChange={setName}
             required={true}
@@ -70,7 +73,7 @@ const SignUp = () => {
             type="email"
             id="email"
             name="email"
-            label="email"
+            label={t("sign-up.email")}
             value={email}
             onChange={setEmail}
             required={true}
@@ -80,7 +83,7 @@ const SignUp = () => {
             type="password"
             id="password"
             name="password"
-            label="password"
+            label={t("sign-up.password")}
             placeholder="min. 6 characters long"
             value={password}
             onChange={setPassword}
@@ -92,7 +95,7 @@ const SignUp = () => {
             type="password"
             id="password_confirmation"
             name="password_confirmation"
-            label="confirm password"
+            label={t("sign-up.confirm-password")}
             value={passwordConfirmation}
             onChange={setPasswordConfirmation}
             minLength="6"
@@ -102,7 +105,7 @@ const SignUp = () => {
           <FormSelect
             id="gender"
             name="gender"
-            label="gender"
+            label={t("sign-up.gender")}
             options={GENDER_OPTIONS}
             placeholder="select your gender"
             value={gender}
@@ -111,11 +114,11 @@ const SignUp = () => {
           />
 
           <button type="submit" id="sign-up-submit" className="btn">
-            Sign Up
+            {t("sign-up.submit")}
           </button>
         </form>
 
-        <Link to="/" className="email-login">Sign In</Link>
+        <Link to="/" className="email-login">{t("sign-up.login")}</Link>
       </section>
 
       <LandingVideo />

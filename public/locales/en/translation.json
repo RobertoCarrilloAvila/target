@@ -14,5 +14,15 @@
     "forgot-password": "Forgot your password?",
     "connect-with-facebook": "connect with facebook",
     "sign-up": "Sign up"
+  },
+  "sign-up": {
+    "title": "Sign Up",
+    "name": "name",
+    "email": "email",
+    "password": "password",
+    "confirm-password": "confirm password",
+    "gender": "gender",
+    "submit": "Sign Up",
+    "login": "Sign In"
   }
 }
