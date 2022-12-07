@@ -24,5 +24,12 @@
     "gender": "gender",
     "submit": "Sign Up",
     "login": "Sign In"
+  },
+  "sign-up-confirm": {
+    "yey": "Yey!",
+    "subtitle": "Only one more step to start enjoying",
+    "title": "target",
+    "instruction1": "We've sent an email to confirm your account.",
+    "instruction2": "Please check your inbox."
   }
 }
