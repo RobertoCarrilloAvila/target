@@ -24,6 +24,10 @@
     font-size: 20px;
     letter-spacing: 3px;
     line-height: 23.44px;
+
+    &.navbar-title {
+      text-transform: uppercase;
+    }
   }
 
   #navbar-collapsible-menu {

@@ -1,4 +1,9 @@
 {
+  "navbar": {
+    "title": "target",
+    "about": "About",
+    "contact": "Contact"
+  },
   "login": {
     "title": "Target MVD",
     "header-subtitle": "Find people near you & Connect",
