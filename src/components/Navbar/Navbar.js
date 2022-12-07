@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import menuBlack from "../../assets/icons/menu_black.svg";
-import menuWhite from "../../assets/icons/menu_white.svg";
-import pinBlack from "../../assets/icons/pin_black.svg";
-import pinWhite from "../../assets/icons/pin_white.svg";
+import menuBlack from "assets/icons/menu_black.svg";
+import menuWhite from "assets/icons/menu_white.svg";
+import pinBlack from "assets/icons/pin_black.svg";
+import pinWhite from "assets/icons/pin_white.svg";
 
 import "./Navbar.scss";
 
