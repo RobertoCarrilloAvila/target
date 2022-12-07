@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import menuBlack from "../../assets/icons/menu_black.svg";
@@ -30,7 +31,7 @@ const Navbar = ({ className }) => {
       <div id="navbar-collapsible-menu">
         <ul className="navbar-menu">
           <li className="navbar-menu-item">
-            <a href="#about" className="navbar-link">{t("navbar.about")}</a>
+            <Link to="/about" className="navbar-link">{t("navbar.about")}</Link>
           </li>
           <li className="navbar-menu-item">
             <a href="#contact" className="navbar-link">{t("navbar.contact")}</a>
