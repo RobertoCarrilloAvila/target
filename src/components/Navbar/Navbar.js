@@ -38,7 +38,7 @@ const Navbar = ({ className }) => {
         </ul>
       </div>
 
-      <h1 className="navbar-item navbar-title text-uppercase">{t("navbar.title")}</h1>
+      <h1 className="navbar-item navbar-title">{t("navbar.title")}</h1>
 
       <button>
         <img
