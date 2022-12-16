@@ -1,14 +1,18 @@
 import { useState } from "react";
+import { useTranslation } from 'react-i18next';
 
 import smiles from "../../assets/smilies.svg";
 import UserService from "../../services/userService";
+
 import Navbar from "components/Navbar/Navbar";
 import LandingVideo from "components/LandingVideo/LandingVideo";
 import FormInput from "components/FormInput/FormInput";
+
 import "./Login.scss";
 
 
 const Login = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -38,14 +42,12 @@ const Login = () => {
 
         <div className="login-header-img">
           <img src={smiles} alt="smiles" />
-          <h2>Target MVD</h2>
+          <h2>{t('login.title')}</h2>
         </div>
 
         <p className="login-header-text">
-          <span>Find people near you & Connect</span>
-          Create a target wherever on the map, specify your interest: Travel,
-          Dating, Music, etc and start conecting with others who share your
-          interest.
+          <span>{t("login.header-subtitle")}</span>
+          {t("login.header-description")}
         </p>
 
         <form className="login-form" onSubmit={handleSubmit}>
@@ -53,7 +55,7 @@ const Login = () => {
             type="email"
             id="email"
             name="email"
-            label="Email"
+            label={t("login.email")}
             onChange={handleEmailChange}
             value={email}
           />
@@ -62,23 +64,23 @@ const Login = () => {
             type="password"
             id="password"
             name="password"
-            label="Password"
+            label={t("login.password")}
             onChange={handlePasswordChange}
             value={password}
           />
 
           <button type="submit" id="login-submit" className="btn">
-            Sign In
+            {t("login.sign-in")}
           </button>
         </form>
 
         <a className="forgot-password" href="/">
-          Forgot your password?
+          {t("login.forgot-password")}
         </a>
 
-        <a id="facebook-signup" href="/sign_up">connect with facebook</a>
+        <a id="facebook-signup" href="/sign_up">{t("login.connect-with-facebook")}</a>
         <a className="email-signup" href="/sign_up">
-          Sign up
+          {t("login.sign-up")}
         </a>
       </section>
 

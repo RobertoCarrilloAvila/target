@@ -1,8 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.scss";
+import "./i18n";
+
 import Login from "./components/Login/Login";
 import SignUp from "components/SignUp/SignUp";
 import About from "components/About/About";
+
+import "./App.scss";
 
 function App() {
   return(
