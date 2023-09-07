@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import menuBlack from "../../assets/icons/menu_black.svg";
 import menuWhite from "../../assets/icons/menu_white.svg";
@@ -26,7 +27,7 @@ const Navbar = ({ className }) => {
       <div id="navbar-collapsible-menu">
         <ul className="navbar-menu">
           <li className="navbar-menu-item">
-            <a href="#about" className="navbar-link">About</a>
+            <Link to="/about" className="navbar-link">about</Link>
           </li>
           <li className="navbar-menu-item">
             <a href="#contact" className="navbar-link">contact</a>
