@@ -1,0 +1,22 @@
+.contact-modal-form{
+  input, textarea{
+    margin-bottom: 26px;
+    font-size: 0.6rem;
+  }
+
+  textarea{
+    min-height: 155px;
+  }
+
+  label{
+    font-size: 0.6rem;
+  }
+
+  #submit-contact-form{
+    display: block;
+    margin: 5px auto;
+    width: 185px;
+    height: 37px;
+    font-size: 0.6rem;
+  }
+}
