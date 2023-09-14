@@ -5,7 +5,7 @@ import smiles from "../../assets/smilies.svg";
 import close from "../../assets/icons/close.svg";
 import "./Modal.scss";
 
-const Modal = ({ children, toggleModal }) => {
+const Modal = ({ children, title, toggleModal }) => {
   const elRef = useRef(null);
   if (!elRef.current) {
     elRef.current = document.createElement("div");
@@ -26,7 +26,7 @@ const Modal = ({ children, toggleModal }) => {
             <img src={close} alt="close" />
           </button>
           <img className="modal-header-img" src={smiles} alt="smiles" />
-          <h2 className="modal-header-title">Don&apos;t be shy, drop us a line!</h2>
+          <h2 className="modal-header-title">{title}</h2>
           <div className="modal-body">
             {children}
           </div>
