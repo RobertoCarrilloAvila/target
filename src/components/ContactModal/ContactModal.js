@@ -27,10 +27,10 @@ const ContactModal = ({ toggleModal }) => {
     
     if(!event.target.checkValidity()) return;
 
-    const body = {
-      email: email,
-      body: message
-    };
+    // const body = {
+    //   email: email,
+    //   body: message
+    // };
 
     try {
       // await QuestionsService.send_question(body);
