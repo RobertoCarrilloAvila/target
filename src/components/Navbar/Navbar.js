@@ -33,7 +33,7 @@ const Navbar = ({ className }) => {
       </button>
 
       {
-        showmenu ? (
+        showmenu && (
           <div id="navbar-collapsible-menu">
             <ul className="navbar-menu">
               <li className="navbar-menu-item">
@@ -44,13 +44,13 @@ const Navbar = ({ className }) => {
               </li>
             </ul>
           </div>
-        ) : null
+        )
       }
 
       {
-        showContactModal ? (
+        showContactModal && (
           <ContactModal toggleModal={toggleContactModal} />
-        ) : null
+        )
       }
 
       <h1 className="navbar-item navbar-title">TARGET</h1>
