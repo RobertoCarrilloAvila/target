@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import './ContactModal.scss';
-// import QuestionsService from "../../services/QuestionsService";
+import QuestionsService from "../../services/QuestionsService";
 import Modal from "components/Modal/Modal";
 import FormInput from "components/FormInput/FormInput";
 
@@ -27,13 +27,13 @@ const ContactModal = ({ toggleModal }) => {
     
     if(!event.target.checkValidity()) return;
 
-    // const body = {
-    //   email: email,
-    //   body: message
-    // };
+    const body = {
+      email: email,
+      body: message
+    };
 
     try {
-      // await QuestionsService.send_question(body);
+      await QuestionsService.send_question(body);
       setSuccess(true);
     } catch (error) {
       const { response: {data: {errors}} } = error;
