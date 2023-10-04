@@ -1,0 +1,49 @@
+@use "../../shared.scss" as shared;
+
+.contact-modal-form{
+  input, textarea{
+    margin-bottom: 26px;
+    font-size: 0.6rem;
+  }
+
+  textarea{
+    min-height: 155px;
+  }
+
+  label{
+    font-size: 0.6rem;
+  }
+
+  #submit-contact-form{
+    display: block;
+    margin: 5px auto;
+    width: 185px;
+    height: 37px;
+    font-size: 0.6rem;
+  }
+
+  .contact-modal-form{
+    width: 100%;
+    max-width: 433px;
+    margin: 0 auto;
+  }
+}
+
+.contact-modal-success{
+  margin-top: 100px;
+
+  .contact-modal-success-title{
+    color: shared.$black-color;
+    text-align: center;
+    font-size: 1.12rem;
+    font-weight: 600;
+  }
+  
+  .contact-modal-success-text{
+    color: shared.$black-color;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    min-height: 155px;
+  }
+}

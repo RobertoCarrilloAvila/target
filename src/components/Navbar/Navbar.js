@@ -1,16 +1,25 @@
+import { Link } from "react-router-dom";
+import { useState } from "react";
+
 import "./Navbar.scss";
 import menuBlack from "../../assets/icons/menu_black.svg";
 import menuWhite from "../../assets/icons/menu_white.svg";
 import pinBlack from "../../assets/icons/pin_black.svg";
 import pinWhite from "../../assets/icons/pin_white.svg";
+import ContactModal from "components/ContactModal/ContactModal";
 
 const Navbar = ({ className }) => {
+  const [showmenu, setShowMenu] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
   const blueNavbar = className.includes("blue");
 
-  const toggleMenu = (event) => {
-    const target_id = event.currentTarget.dataset.target;
-    const menu = document.getElementById(target_id);
-    menu.classList.toggle("show");
+  const toggleMenu = () => {
+    setShowMenu(!showmenu);
+  };
+
+  const toggleContactModal = () => {
+    setShowMenu(false);
+    setShowContactModal(!showContactModal);
   };
 
   return (
@@ -23,16 +32,26 @@ const Navbar = ({ className }) => {
         />
       </button>
 
-      <div id="navbar-collapsible-menu">
-        <ul className="navbar-menu">
-          <li className="navbar-menu-item">
-            <a href="#about" className="navbar-link">About</a>
-          </li>
-          <li className="navbar-menu-item">
-            <a href="#contact" className="navbar-link">contact</a>
-          </li>
-        </ul>
-      </div>
+      {
+        showmenu && (
+          <div id="navbar-collapsible-menu">
+            <ul className="navbar-menu">
+              <li className="navbar-menu-item">
+                <Link to="/about" className="navbar-link">about</Link>
+              </li>
+              <li className="navbar-menu-item">
+                <button onClick={toggleContactModal} className="navbar-link">contact</button>
+              </li>
+            </ul>
+          </div>
+        )
+      }
+
+      {
+        showContactModal && (
+          <ContactModal toggleModal={toggleContactModal} />
+        )
+      }
 
       <h1 className="navbar-item navbar-title">TARGET</h1>
 
