@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
+import PrivatePaths from "components/Constants/PrivatePaths";
 
 import smiles from "../../assets/smilies.svg";
 import UserService from "../../services/userService";
@@ -11,6 +14,8 @@ import "./Login.scss";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [authError, setAuthError] = useState("");
+  const nav = useNavigate();
 
   const handleEmailChange = (value) => {
     setEmail(value);
@@ -23,12 +28,12 @@ const Login = () => {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    await UserService.login({
-      user: {
-        email: email,
-        password: password,
-      },
-    });
+    const loged_in = await UserService.login(email, password)
+    if (loged_in) {
+      nav(PrivatePaths.HOME);
+    } else {
+      setAuthError(true);
+    }
   }
 
   return (
@@ -48,6 +53,10 @@ const Login = () => {
           interest.
         </p>
 
+        {authError && (
+          <p className="login-header-error-message">Invalid login credentials. Please try again.</p>
+        )}
+
         <form className="login-form" onSubmit={handleSubmit}>
           <FormInput
             type="email"
@@ -56,6 +65,7 @@ const Login = () => {
             label="Email"
             onChange={handleEmailChange}
             value={email}
+            error={!!authError}
           />
 
           <FormInput
@@ -65,6 +75,7 @@ const Login = () => {
             label="Password"
             onChange={handlePasswordChange}
             value={password}
+            error={!!authError}
           />
 
           <button type="submit" id="login-submit" className="btn">
