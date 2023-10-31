@@ -7,7 +7,7 @@
 # @global-owner1 and @global-owner2 will be requested for
 # review when someone opens a pull request.
 
-*       @jpirazusta @marcos09 @tobicorradi @Ivan-Encinas
+*       @jpirazusta @marcos09 @tobicorradi @Ivan-Encinas @afmicc @flomosq @bmarcio20
 
 
 # Order is important; the last matching pattern takes the most
