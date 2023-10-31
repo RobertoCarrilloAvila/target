@@ -1,0 +1,71 @@
+@use "../../shared.scss" as shared;
+
+.welcome {
+  display: flex;
+
+  .container {
+    width: 357px;
+    height: 100%;
+
+    strong {
+      text-transform: uppercase;
+      font-weight: shared.$bold;
+    }
+
+    .welcome-img {
+      display: block;
+      width: 133px;
+      height: auto;
+      margin: 78px auto 0 auto;
+    }
+
+    #welcome-title {
+      font-size: 20px;
+      text-align: center;
+      margin-top: 17px;
+      color: shared.$black-color;
+      font-weight: shared.$normal;
+    }
+
+    #welcome-subtitle {
+      font-size: 18px;
+      text-align: center;
+      font-weight: shared.$semibold;
+      color: shared.$black-color;
+    }
+
+    .welcome-instructions-text {
+      margin-top: 58px;
+      list-style: none;
+      padding: 0 40px;
+
+      li {
+        font-size: 14px;
+        color: shared.$black-color;
+        line-height: 26px;
+        position: relative;
+        margin-left: 20px;
+        margin-bottom: 20px;
+
+        &::before {
+          content: "\2022";
+          color: shared.$blue-color;
+          font-weight: shared.$bold;
+          position: absolute;
+          left: -20px;
+          font-size: 40px;
+        }
+      }
+    }
+
+    .welcome-button {
+      width: 185px;
+      display: block;
+      margin: 90px auto 70px auto;
+      padding: 15px 0;
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 1.65px;
+    }
+  }
+}
