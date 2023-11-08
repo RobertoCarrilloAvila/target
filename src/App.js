@@ -4,7 +4,7 @@ import PublicPaths from "components/Constants/PublicPaths";
 import PrivatePaths from "components/Constants/PrivatePaths";
 
 import "./App.scss";
-import Login from "./components/Login/Login";
+import Login from "components/Login/Login";
 import SignUp from "components/SignUp/SignUp";
 import About from "components/About/About";
 import Welcome from "components/Welcome/Welcome";
