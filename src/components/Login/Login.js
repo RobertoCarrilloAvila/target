@@ -14,8 +14,8 @@ import "./Login.scss";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [authError, setAuthError] = useState("");
-  const nav = useNavigate();
+  const [hasAuthError, setHasAuthError] = useState(false);
+  const navigate = useNavigate();
 
   const handleEmailChange = (value) => {
     setEmail(value);
@@ -28,11 +28,11 @@ const Login = () => {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const loged_in = await UserService.login(email, password)
-    if (loged_in) {
-      nav(PrivatePaths.HOME);
+    const loggedIn = await UserService.login(email, password)
+    if (loggedIn) {
+      navigate(PrivatePaths.HOME);
     } else {
-      setAuthError(true);
+      setHasAuthError(true);
     }
   }
 
@@ -53,7 +53,7 @@ const Login = () => {
           interest.
         </p>
 
-        {authError && (
+        {hasAuthError && (
           <p className="login-header-error-message">Invalid login credentials. Please try again.</p>
         )}
 
@@ -65,7 +65,7 @@ const Login = () => {
             label="Email"
             onChange={handleEmailChange}
             value={email}
-            error={!!authError}
+            error={hasAuthError}
           />
 
           <FormInput
@@ -75,7 +75,7 @@ const Login = () => {
             label="Password"
             onChange={handlePasswordChange}
             value={password}
-            error={!!authError}
+            error={hasAuthError}
           />
 
           <button type="submit" id="login-submit" className="btn">
