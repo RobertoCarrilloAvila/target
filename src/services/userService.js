@@ -26,7 +26,7 @@ const UserService = {
         }
       });
   
-      if (response.status === HttpStatuses.SUCESS) {
+      if (response.status === HttpStatuses.SUCCESS) {
         setAuthTokens(response);
         return true;
       } else {
