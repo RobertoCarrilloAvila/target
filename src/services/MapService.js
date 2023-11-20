@@ -9,6 +9,7 @@ const loadMapApi = async () => {
   });
 
   await loader.load();
+  // eslint-disable-next-line no-undef
   return google.maps;
 };
 

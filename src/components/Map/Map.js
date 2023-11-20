@@ -7,8 +7,7 @@ const Map = () => {
 
   useEffect(() => {
     const initializeMap = async () => {
-      const map = await createMap("map");
-      setMap(map);
+      setMap(await createMap("map"));
       setCurrentLocationAsCenter(map);
     };
 

@@ -17,7 +17,7 @@ const Welcome = () => {
 
         <ul className="welcome__instructions-text">
           <li>Create a  target  by clicking wherever on the map, specify  the ratio and and a topic: Travel, Dating, Music, etc. </li>
-          <li><strong className="welcome--bold">target</strong> will  start a chat whenever you've a match. You can always dismiss a conversation if you're not interested.</li>
+          <li><strong className="welcome--bold">target</strong> will  start a chat whenever you&lsquo;ve a match. You can always dismiss a conversation if you&lsquo;re not interested.</li>
         </ul>
 
         <Link to="/home" className="welcome__button btn">ok; got it!</Link>
