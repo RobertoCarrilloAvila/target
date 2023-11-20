@@ -3,75 +3,76 @@
 .welcome {
   display: flex;
 
-  .container {
+  &__container {
     width: 357px;
     height: 100%;
     flex-grow: 1;
 
-    strong {
-      text-transform: uppercase;
-      font-weight: shared.$bold;
-    }
+  }
 
-    .welcome-img {
-      display: block;
-      width: 133px;
-      height: auto;
-      margin: 78px auto 0 auto;
-    }
+  &__bold {
+    text-transform: uppercase;
+    font-weight: shared.$bold;
+  }
 
-    #welcome-title {
-      font-size: 20px;
-      text-align: center;
-      margin-top: 17px;
+  &__img {
+    display: block;
+    width: 133px;
+    height: auto;
+    margin: 78px auto 0 auto;
+  }
+
+  &__title {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 17px;
+    color: shared.$black-color;
+    font-weight: shared.$normal;
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    text-align: center;
+    font-weight: shared.$semibold;
+    color: shared.$black-color;
+  }
+
+  &__instructions-text {
+    margin-top: 58px;
+    list-style: none;
+    padding: 0 40px;
+
+    li {
+      font-size: 14px;
       color: shared.$black-color;
-      font-weight: shared.$normal;
-    }
+      line-height: 26px;
+      position: relative;
+      margin-left: 20px;
+      margin-bottom: 20px;
 
-    #welcome-subtitle {
-      font-size: 18px;
-      text-align: center;
-      font-weight: shared.$semibold;
-      color: shared.$black-color;
-    }
-
-    .welcome-instructions-text {
-      margin-top: 58px;
-      list-style: none;
-      padding: 0 40px;
-
-      li {
-        font-size: 14px;
-        color: shared.$black-color;
-        line-height: 26px;
-        position: relative;
-        margin-left: 20px;
-        margin-bottom: 20px;
-
-        &::before {
-          content: "\2022";
-          color: shared.$blue-color;
-          font-weight: shared.$bold;
-          position: absolute;
-          left: -20px;
-          font-size: 40px;
-        }
+      &::before {
+        content: "\2022";
+        color: shared.$blue-color;
+        font-weight: shared.$bold;
+        position: absolute;
+        left: -20px;
+        font-size: 40px;
       }
-    }
-
-    .welcome-button {
-      width: 185px;
-      display: block;
-      margin: 90px auto 70px auto;
-      padding: 15px 0;
-      text-decoration: none;
-      font-size: 11px;
-      letter-spacing: 1.65px;
     }
   }
 
+  &__button {
+    width: 185px;
+    display: block;
+    margin: 90px auto 70px auto;
+    padding: 15px 0;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 1.65px;
+  }
+
   @media (min-width: #{shared.$md}) {
-    .container {
+    &__container {
       flex-grow: 0;
     }
   }
