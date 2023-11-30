@@ -8,7 +8,7 @@ import FormInput from "components/FormInput/FormInput";
 const ContactModal = ({ toggleModal }) => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [success, setSuccess] = useState(true);
+  const [success, setSuccess] = useState(false);
 
   const modalTitle = () => {
     return !success ? "Don't be shy, drop us a line!" : null;
