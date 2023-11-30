@@ -8,7 +8,7 @@ import FormInput from "components/FormInput/FormInput";
 const ContactModal = ({ toggleModal }) => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState(true);
 
   const modalTitle = () => {
     return !success ? "Don't be shy, drop us a line!" : null;
@@ -45,12 +45,12 @@ const ContactModal = ({ toggleModal }) => {
     <Modal toggleModal={toggleModal} title={modalTitle()}>
       {
         success ? (
-          <div className="contact-modal-success">
-            <h2 className="contact-modal-success-title">Thanks for getting in touch!</h2>
-            <p className="contact-modal-success-text">We&apos;ll get back to you as soon as we can.</p>
+          <div className="contact-modal__success">
+            <h2 className="contact-modal__success-title">Thanks for getting in touch!</h2>
+            <p className="contact-modal__success-text">We&apos;ll get back to you as soon as we can.</p>
           </div>
         ) : (
-          <form className="contact-modal-form" onSubmit={handleSubmit}>
+          <form className="contact-modal__form" onSubmit={handleSubmit}>
             <FormInput
               type="email"
               id="email"
@@ -71,7 +71,7 @@ const ContactModal = ({ toggleModal }) => {
               required={true}
             />
 
-            <button type="submit" id="submit-contact-form" className="btn">
+            <button type="submit" className="contact-modal__submit btn">
               Send
             </button>
           </form>
