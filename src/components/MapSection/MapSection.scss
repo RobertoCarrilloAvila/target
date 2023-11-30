@@ -1,0 +1,13 @@
+@use "../../shared.scss" as shared;
+
+.map-section {
+  display: none;
+  flex-grow: 1;
+  height: 100vh;
+}
+
+@media (min-width: #{shared.$md}) {
+  .map-section {
+    display: block;
+  }
+}

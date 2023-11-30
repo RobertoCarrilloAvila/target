@@ -122,6 +122,15 @@
       font-weight: shared.$semibold;
       text-transform: uppercase;
     }
+
+    .login-header-error-message {
+      text-align: center;
+      color: shared.$red-color;
+      font-size: 15px;
+      text-transform: capitalize;
+      margin-bottom: -15px;
+      margin-top: 20px;
+    }
   }
 
   .preview {
