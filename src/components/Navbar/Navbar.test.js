@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 test("has className", () => {
   render(<Navbar className="blue" />);
   const navbar = screen.getByRole("navigation");
-  expect(navbar).toHaveClass("blue");
+  expect(navbar).toHaveClass("navbar--blue");
 });
 
 test("has 2 images for mobile", () => {
