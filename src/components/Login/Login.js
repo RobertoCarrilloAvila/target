@@ -38,15 +38,15 @@ const Login = () => {
 
   return (
     <div className="login">
-      <section className="container">
+      <section className="login__container">
         <Navbar className="white" />
 
-        <div className="login-header-img">
+        <div className="login__header-img">
           <img src={smiles} alt="smiles" />
           <h2>Target MVD</h2>
         </div>
 
-        <p className="login-header-text">
+        <p className="login__header-text">
           <span>Find people near you & Connect</span>
           Create a target wherever on the map, specify your interest: Travel,
           Dating, Music, etc and start conecting with others who share your
@@ -54,10 +54,10 @@ const Login = () => {
         </p>
 
         {hasAuthError && (
-          <p className="login-header-error-message">Invalid login credentials. Please try again.</p>
+          <p className="login__header-error-message">Invalid login credentials. Please try again.</p>
         )}
 
-        <form className="login-form" onSubmit={handleSubmit}>
+        <form className="login__form" onSubmit={handleSubmit}>
           <FormInput
             type="email"
             id="email"
@@ -78,17 +78,17 @@ const Login = () => {
             error={hasAuthError}
           />
 
-          <button type="submit" id="login-submit" className="btn">
+          <button type="submit" className="login__submit btn">
             Sign In
           </button>
         </form>
 
-        <a className="forgot-password" href="/">
+        <a className="login__forgot-password" href="/">
           Forgot your password?
         </a>
 
-        <a id="facebook-signup" href="/sign_up">connect with facebook</a>
-        <a className="email-signup" href="/sign_up">
+        <a className="login__facebook-signup" href="/sign_up">connect with facebook</a>
+        <a className="login__email-signup" href="/sign_up">
           Sign up
         </a>
       </section>
