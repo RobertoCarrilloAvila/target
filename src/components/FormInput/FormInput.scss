@@ -5,7 +5,7 @@
   width: 100%;
   min-width: 100px;
 
-  .form-input-label {
+  &__label {
     display: block;
     width: 100%;
     color: shared.$black-color;
@@ -17,7 +17,7 @@
     font-weight: shared.$semibold;
   }
 
-  .form-input-input {
+  &__input {
     display: block;
     width: 100%;
     margin-top: 3px;
