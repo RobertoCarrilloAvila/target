@@ -8,9 +8,9 @@ const FormSelect = ({ id, label, value, options, name, className= "", placeholde
 
   return (
     <div className="form-input">
-      {label && <label className="form-input-label" htmlFor={id}>{label}</label>}
+      {label && <label className="form-input__label" htmlFor={id}>{label}</label>}
       <select
-        className={`form-input-select ${className}`}
+        className={`form-input__select ${className}`}
         name={name}
         id={id}
         value={value}
