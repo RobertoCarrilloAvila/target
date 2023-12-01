@@ -8,7 +8,7 @@
   min-height: 100vh;
   justify-content: center;
 
-  #preview {
+  &__preview {
     display: block;
     width: 100%;
     max-width: 550px;
@@ -18,23 +18,23 @@
     margin-bottom: -70px;
   }
 
-  .appstore {
+  &__appstore {
     display: block;
     width: fit-content;
     margin: 0 auto;
   }
 
-  .social {
+  &__social {
     list-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     padding: 0;
+  }
 
-    &>.social-item {
-      margin: 0 10px;
-    }
+  &__social-item {
+    margin: 0 10px;
   }
 }
 
