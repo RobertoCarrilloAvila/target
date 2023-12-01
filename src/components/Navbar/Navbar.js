@@ -23,10 +23,10 @@ const Navbar = ({ className }) => {
   };
 
   return (
-    <nav className={`navbar ${className}`}>
-      <button onClick={toggleMenu} data-target="navbar-collapsible-menu">
+    <nav className={`navbar navbar--${className}`}>
+      <button onClick={toggleMenu} data-target="navbar__collapsible-menu">
         <img
-          className="navbar-item navbar-icon-left"
+          className="navbar__item"
           src={blueNavbar ? menuWhite : menuBlack}
           alt="hamburger menu"
         />
@@ -34,13 +34,13 @@ const Navbar = ({ className }) => {
 
       {
         showmenu && (
-          <div id="navbar-collapsible-menu">
-            <ul className="navbar-menu">
-              <li className="navbar-menu-item">
-                <Link to="/about" className="navbar-link">about</Link>
+          <div className="navbar__collapsible-menu">
+            <ul className="navbar__menu">
+              <li className="navbar__menu-item">
+                <Link to="/about" className="navbar__link">about</Link>
               </li>
-              <li className="navbar-menu-item">
-                <button onClick={toggleContactModal} className="navbar-link">contact</button>
+              <li className="navbar__menu-item">
+                <button onClick={toggleContactModal} className="navbar__link">contact</button>
               </li>
             </ul>
           </div>
@@ -53,11 +53,11 @@ const Navbar = ({ className }) => {
         )
       }
 
-      <h1 className="navbar-item navbar-title">TARGET</h1>
+      <h1 className="navbar__item navbar__title">TARGET</h1>
 
       <button>
         <img
-          className="navbar-item navbar-icon-right"
+          className="navbar__item"
           src={blueNavbar ? pinWhite : pinBlack}
           alt="pin"
         />
