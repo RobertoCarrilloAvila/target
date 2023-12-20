@@ -71,7 +71,7 @@ const ContactModal = ({ toggleModal }) => {
               required={true}
             />
 
-            <button type="submit" className="contact-modal__submit btn">
+            <button type="submit" className="contact-modal__form-submit btn">
               Send
             </button>
           </form>

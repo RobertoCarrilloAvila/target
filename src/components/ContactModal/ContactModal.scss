@@ -14,14 +14,14 @@
     label{
       font-size: 0.6rem;
     }
-  }
 
-  &__submit{
-    display: block;
-    margin: 5px auto;
-    width: 185px;
-    height: 37px;
-    font-size: 0.6rem;
+    &-submit{
+      display: block;
+      margin: 5px auto;
+      width: 185px;
+      height: 37px;
+      font-size: 0.6rem;
+    }
   }
 
   &__success{
