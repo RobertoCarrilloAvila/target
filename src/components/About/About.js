@@ -7,15 +7,15 @@ import { Link } from "react-router-dom";
 
 const About = () => (
   <div className="about">
-    <section className="container">
+    <section className="about__container">
       <Navbar className="white" />
 
-      <div className="about-header-img">
+      <div className="about__header-img">
         <img src={smiles} alt="smiles" />
         <h2>What&apos;s TARGET?</h2>
       </div>
 
-      <p className="about-description" role="contentinfo">
+      <p className="about__description" role="contentinfo">
         Cat ipsum dolor sit amet, scratch the furniture.
         Spit up on light gray carpet instead of adjacent
         linoleum cough furball yet lounge in doorway but
@@ -36,7 +36,7 @@ const About = () => (
         be fabulous for the rest of the day - checked!.
       </p>
 
-      <Link to="/" id="about-get-start" className="btn">get started!</Link>
+      <Link to="/" className="btn about__get-start">get started!</Link>
     </section>
 
     <LandingVideo />

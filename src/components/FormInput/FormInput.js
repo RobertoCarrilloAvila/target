@@ -8,10 +8,10 @@ const FormInput = ({ id, label, type, value, name, className = "", placeholder =
 
   return (
     <div className="form-input">
-      {label && <label className="form-input-label" htmlFor={id}>{label}</label>}
+      {label && <label className="form-input__label" htmlFor={id}>{label}</label>}
       {type === "textarea" ? (
         <textarea
-          className={`form-input-input ${className}`}
+          className={`form-input__input ${className}`}
           value={value}
           name={name}
           id={id}
@@ -22,7 +22,7 @@ const FormInput = ({ id, label, type, value, name, className = "", placeholder =
         />
       ) : (
         <input
-          className={`form-input-input ${className}`}
+          className={`form-input__input ${className}`}
           type={type}
           value={value}
           name={name}

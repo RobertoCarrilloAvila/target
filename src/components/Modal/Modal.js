@@ -20,14 +20,14 @@ const Modal = ({ children, title, toggleModal }) => {
 
   return createPortal(
     <div className="modal">
-      <div className="modal-dialog">
-        <div className="modal-header">
-          <button onClick={toggleModal} className="modal-close-button">
+      <div className="modal__dialog">
+        <div className="modal__header">
+          <button onClick={toggleModal} className="modal__close-button">
             <img src={close} alt="close" />
           </button>
-          <img className="modal-header-img" src={smiles} alt="smiles" />
-          <h2 className="modal-header-title">{title}</h2>
-          <div className="modal-body">
+          <img className="modal__header-img" src={smiles} alt="smiles" />
+          <h2 className="modal__header-title">{title}</h2>
+          <div className="modal__body">
             {children}
           </div>
         </div>

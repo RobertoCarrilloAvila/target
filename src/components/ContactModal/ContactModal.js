@@ -45,12 +45,12 @@ const ContactModal = ({ toggleModal }) => {
     <Modal toggleModal={toggleModal} title={modalTitle()}>
       {
         success ? (
-          <div className="contact-modal-success">
-            <h2 className="contact-modal-success-title">Thanks for getting in touch!</h2>
-            <p className="contact-modal-success-text">We&apos;ll get back to you as soon as we can.</p>
+          <div className="contact-modal__success">
+            <h2 className="contact-modal__success-title">Thanks for getting in touch!</h2>
+            <p className="contact-modal__success-text">We&apos;ll get back to you as soon as we can.</p>
           </div>
         ) : (
-          <form className="contact-modal-form" onSubmit={handleSubmit}>
+          <form className="contact-modal__form" onSubmit={handleSubmit}>
             <FormInput
               type="email"
               id="email"
@@ -71,7 +71,7 @@ const ContactModal = ({ toggleModal }) => {
               required={true}
             />
 
-            <button type="submit" id="submit-contact-form" className="btn">
+            <button type="submit" className="contact-modal__form-submit btn">
               Send
             </button>
           </form>

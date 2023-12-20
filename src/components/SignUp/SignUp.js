@@ -50,12 +50,12 @@ const SignUp = () => {
 
   return (
     <div className="sign-up">
-      <section className="container">
+      <section className="sign-up__container">
         <Navbar className="white" />
 
-        <h1 id="sign-up-title">Sign Up</h1>
+        <h1 className="sign-up__title">Sign Up</h1>
 
-        <form className="sign-up-form" onSubmit={handleSubmit}>
+        <form className="sign-up__form" onSubmit={handleSubmit}>
           <FormInput
             type="text"
             id="name"
@@ -110,12 +110,12 @@ const SignUp = () => {
             required={true}
           />
 
-          <button type="submit" id="sign-up-submit" className="btn">
+          <button type="submit" className="sign-up__submit btn">
             Sign Up
           </button>
         </form>
 
-        <Link to="/" className="email-login">Sign In</Link>
+        <Link to="/" className="sign-up__email-login">Sign In</Link>
       </section>
 
       <LandingVideo />

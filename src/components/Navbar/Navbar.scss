@@ -8,6 +8,22 @@
   align-content: center;
   height: shared.$navbar-height;
 
+  &--blue {
+    background-color: shared.$blue-color;
+
+    .navbar__item {
+      color: shared.$white-color;
+    }
+  }
+
+  &--white {
+    background-color: shared.$white-color;
+
+    .navbar__item {
+      color: shared.$black-color;
+    }
+  }
+
   button {
     background: none;
     border: none;
@@ -19,54 +35,35 @@
     height: fit-content;
   }
 
-  .navbar-item {
+  &__item {
     margin: 0;
     font-size: 20px;
     letter-spacing: 3px;
     line-height: 23.44px;
   }
 
-  #navbar-collapsible-menu {
+  &__collapsible-menu {
     position: absolute;
     padding: 0 26px;
     top: 40px;
     left: 0;
     right: 0;
     display: block;
-
-    .navbar-menu {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-
-      .navbar-menu-item {
-
-        &>a.navbar-link, &>button.navbar-link {
-          color: shared.$black-color;
-          text-decoration: none;
-          font-size: 14px;
-          line-height: 16px;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-        }
-      }
-    }
   }
 
-  &.blue {
-    background-color: shared.$blue-color;
-
-    .navbar-item {
-      color: shared.$white-color;
-    }
+  &__menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
-  &.white {
-    background-color: shared.$white-color;
-
-    .navbar-item {
-      color: shared.$black-color;
-    }
+  &__link {
+    color: shared.$black-color;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
   }
 }
 

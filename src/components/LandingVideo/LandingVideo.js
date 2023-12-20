@@ -7,20 +7,20 @@ import twitter from "../../assets/icons/twitter.svg";
 
 const LandingVideo = () => (
   <div className="landing-video">
-    <img id="preview" src={iphone6} alt="iPhone6" />
+    <img className="landing-video__preview" src={iphone6} alt="iPhone6" />
 
-    <a href="https://www.apple.com/app-store/" className="appstore">
+    <a href="https://www.apple.com/app-store/" className="landing-video__appstore">
       <img src={appstore} alt="App Store" />
     </a>
 
-    <ul className="social">
-      <li className="social-item">
+    <ul className="landing-video__social">
+      <li className="landing-video__social-item">
         <a href="https://www.facebook.com/">
           <img src={facebook} alt="Facebook" />
         </a>
       </li>
 
-      <li className="social-item">
+      <li className="landing-video__social-item">
         <a href="https://twitter.com/">
           <img src={twitter} alt="Twitter" />
         </a>
