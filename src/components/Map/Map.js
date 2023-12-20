@@ -3,6 +3,7 @@ import { createMap, setCurrentLocationAsCenter } from "../../services/MapService
 import "./Map.scss";
 
 const Map = () => {
+  const MAP_ID = "map";
   const [map, setMap] = useState(null);
 
   useEffect(() => {
@@ -15,7 +16,7 @@ const Map = () => {
   }, []);
 
   return (
-    <div id="map"></div>
+    <div id={ MAP_ID }></div>
   );
 }
 
