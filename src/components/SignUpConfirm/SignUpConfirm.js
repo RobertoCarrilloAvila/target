@@ -11,9 +11,9 @@ const SignUpConfirm = () => (
 
       <div className="sign-up-confirm__content">
         <img src={smiles} alt="smiles" />
-        <h3 className="sign-up-confirm__yey">Yey!</h3>
+        <p className="sign-up-confirm__yey">Yey!</p>
         <p className="sign-up-confirm__step">Only one more step to start enjoying</p>
-        <h2 className="sign-up-confirm__title">target</h2>
+        <p className="sign-up-confirm__title">target</p>
         <p className="sign-up-confirm__account">
           We’ve sent an email to confirm your account.<br />
           Please check your inbox.
