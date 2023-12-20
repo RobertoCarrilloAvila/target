@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-import PrivatePaths from "components/Constants/PrivatePaths";
+import PrivatePaths from "../Constants/PrivatePaths";
 
 import smiles from "../../assets/smilies.svg";
 import UserService from "../../services/userService";
-import Navbar from "components/Navbar/Navbar";
-import LandingVideo from "components/LandingVideo/LandingVideo";
-import FormInput from "components/FormInput/FormInput";
+import Navbar from "../Navbar/Navbar";
+import LandingVideo from "../LandingVideo/LandingVideo";
+import FormInput from "../FormInput/FormInput";
 import "./Login.scss";
 
 

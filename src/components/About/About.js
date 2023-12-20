@@ -1,6 +1,6 @@
 import smiles from "../../assets/smilies.svg";
-import Navbar from "components/Navbar/Navbar";
-import LandingVideo from "components/LandingVideo/LandingVideo";
+import Navbar from "../Navbar/Navbar";
+import LandingVideo from "../LandingVideo/LandingVideo";
 
 import "./About.scss";
 import { Link } from "react-router-dom";

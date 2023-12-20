@@ -1,6 +1,6 @@
 import "./MapSection.scss";
 
-import Map from 'components/Map/Map'
+import Map from '../Map/Map'
 
 const MapSection = () => {
   return (
