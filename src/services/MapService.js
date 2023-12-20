@@ -1,6 +1,7 @@
 import { Loader } from "@googlemaps/js-api-loader";
 
 const VERSION = "weekly";
+const DEFAULT_MAP_CENTER = { lat: -34.397, lng: 150.644 };
 
 const loadMapApi = async () => {
   const loader = new Loader({
@@ -18,7 +19,7 @@ const createMap = async (elementId) => {
   const Map = googleMaps.Map;
 
   return new Map(document.getElementById(elementId), {
-    center: { lat: -34.397, lng: 150.644 },
+    center: DEFAULT_MAP_CENTER,
     zoom: 15,
     zoomControl: false,
     mapTypeControl: false,
