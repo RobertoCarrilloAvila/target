@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
-import smiles from "../../assets/smilies.svg";
-import close from "../../assets/icons/close.svg";
-import "./Modal.scss";
+import smiles from "assets/smilies.svg";
+import close from "assets/icons/close.svg";
+import "components/Modal/Modal.scss";
 
 const Modal = ({ children, title, toggleModal }) => {
   const elRef = useRef(null);

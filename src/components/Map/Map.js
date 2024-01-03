@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { createMap, setCurrentLocationAsCenter } from "../../services/MapService";
-import "./Map.scss";
+import { createMap, setCurrentLocationAsCenter } from "services/MapService";
+import "components/Map/Map.scss";
+
+const MAP_ID = "map";
 
 const Map = () => {
-  const MAP_ID = "map";
   const [map, setMap] = useState(null);
 
   useEffect(() => {

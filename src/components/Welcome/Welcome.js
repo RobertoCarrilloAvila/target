@@ -1,8 +1,8 @@
 
-import './Welcome.scss'
-import smiles from "../../assets/smilies.svg";
-import Navbar from '../Navbar/Navbar'
-import MapSection from '../MapSection/MapSection'
+import 'components/Welcome/Welcome.scss'
+import smiles from "assets/smilies.svg";
+import Navbar from 'components/Navbar/Navbar'
+import MapSection from 'components/MapSection/MapSection'
 import { Link } from 'react-router-dom';
 
 const Welcome = () => {

@@ -1,8 +1,8 @@
-import smiles from "../../assets/smilies.svg";
-import Navbar from "../Navbar/Navbar";
-import LandingVideo from "../LandingVideo/LandingVideo";
+import smiles from "assets/smilies.svg";
+import Navbar from "components/Navbar/Navbar";
+import LandingVideo from "components/LandingVideo/LandingVideo";
 
-import "./SignUpConfirm.scss";
+import "components/SignUpConfirm/SignUpConfirm.scss";
 
 const SignUpConfirm = () => (
   <div className="sign-up-confirm">

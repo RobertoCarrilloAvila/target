@@ -1,4 +1,4 @@
-import "./FormSelect.scss"
+import "components/FormSelect/FormSelect.scss";
 
 const FormSelect = ({ id, label, value, options, name, className= "", placeholder = "", onChange, ...rest}) => {
   const handleChange = (event) => {

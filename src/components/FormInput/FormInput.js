@@ -1,4 +1,4 @@
-import "./FormInput.scss";
+import "components/FormInput/FormInput.scss";
 
 const FormInput = ({ id, label, type, value, name, className = "", placeholder = "", onChange, ...rest }) => {
   const handleChange = (event) => {
