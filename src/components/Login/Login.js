@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 
 import PrivatePaths from "components/Constants/PrivatePaths";
 
-import smiles from "../../assets/smilies.svg";
-import UserService from "../../services/userService";
+import smiles from "assets/smilies.svg";
+import UserService from "services/userService";
 import Navbar from "components/Navbar/Navbar";
 import LandingVideo from "components/LandingVideo/LandingVideo";
 import FormInput from "components/FormInput/FormInput";
-import "./Login.scss";
+import "components/Login/Login.scss";
 
 
 const Login = () => {

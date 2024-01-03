@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-import UserService from "../../services/userService";
+import UserService from "services/userService";
 import Navbar from "components/Navbar/Navbar";
 import FormInput from "components/FormInput/FormInput";
 import FormSelect from "components/FormSelect/FormSelect";
 import LandingVideo from "components/LandingVideo/LandingVideo";
 import SignUpConfirm from "components/SignUpConfirm/SignUpConfirm";
 
-import "./SignUp.scss";
+import "components/SignUp/SignUp.scss";
 
 const SignUp = () => {
   const GENDER_OPTIONS = ["male", "female"];

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import './ContactModal.scss';
-import QuestionsService from "../../services/QuestionsService";
+import 'components/ContactModal/ContactModal.scss';
+import QuestionsService from "services/QuestionsService";
 import Modal from "components/Modal/Modal";
 import FormInput from "components/FormInput/FormInput";
 

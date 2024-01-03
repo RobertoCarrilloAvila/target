@@ -1,4 +1,4 @@
-import smiles from "../../assets/smilies.svg";
+import smiles from "assets/smilies.svg";
 import Navbar from "components/Navbar/Navbar";
 import LandingVideo from "components/LandingVideo/LandingVideo";
 

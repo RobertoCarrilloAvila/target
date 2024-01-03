@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-import "./Navbar.scss";
-import menuBlack from "../../assets/icons/menu_black.svg";
-import menuWhite from "../../assets/icons/menu_white.svg";
-import pinBlack from "../../assets/icons/pin_black.svg";
-import pinWhite from "../../assets/icons/pin_white.svg";
+import "components/Navbar/Navbar.scss";
+import menuBlack from "assets/icons/menu_black.svg";
+import menuWhite from "assets/icons/menu_white.svg";
+import pinBlack from "assets/icons/pin_black.svg";
+import pinWhite from "assets/icons/pin_white.svg";
 import ContactModal from "components/ContactModal/ContactModal";
 
 const Navbar = ({ className }) => {
