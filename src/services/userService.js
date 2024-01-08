@@ -4,6 +4,7 @@ import HttpStatuses from "api/HttpResponses";
 const ENDPOINTS = {
   SIGN_UP: "/users",
   LOGIN: "/users/sign_in",
+  LOGOUT: "/users/sign_out"
 };
 
 const setAuthTokens = (response) => {
@@ -40,6 +41,20 @@ const UserService = {
   signUp: async (request) => {
     const { data } = await client.post(ENDPOINTS.SIGN_UP, request);
     return data;
+  },
+  logOut: async () => {
+    try {
+      const response = await client.delete(ENDPOINTS.LOGOUT);
+
+      if (response.status === HttpStatuses.SUCCESS) {
+        sessionStorage.clear();
+      }
+    } catch (error) {
+      alert("Error logging out");
+    }
+  },
+  isLoggedIn: () => {
+    return sessionStorage.getItem('api-key-access-token') !== null;
   }
 };
 
