@@ -48,9 +48,12 @@ const UserService = {
 
       if (response.status === HttpStatuses.SUCCESS) {
         sessionStorage.clear();
+        return true;
       }
+
+      return false;
     } catch (error) {
-      alert("Error logging out");
+      return false;
     }
   },
   isLoggedIn: () => {

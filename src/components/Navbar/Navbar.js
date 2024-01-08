@@ -30,8 +30,12 @@ const Navbar = ({ className }) => {
   };
 
   const handleLogout = () => {
-    UserService.logOut();
-    navigate(PublicPaths.ROOT);
+    if (UserService.logOut()) {
+      navigate(PublicPaths.ROOT);
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+    
   }
 
   return (
