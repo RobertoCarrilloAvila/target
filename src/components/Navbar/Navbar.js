@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 import "components/Navbar/Navbar.scss";
 import menuBlack from "assets/icons/menu_black.svg";
@@ -7,10 +8,16 @@ import menuWhite from "assets/icons/menu_white.svg";
 import pinBlack from "assets/icons/pin_black.svg";
 import pinWhite from "assets/icons/pin_white.svg";
 import ContactModal from "components/ContactModal/ContactModal";
+import PublicPaths from "components/Constants/PublicPaths";
+
+import UserService from "services/userService";
 
 const Navbar = ({ className }) => {
   const [showmenu, setShowMenu] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
+  const [isLoggedIn] = useState(UserService.isLoggedIn());
+
+  const navigate = useNavigate();
   const blueNavbar = className.includes("blue");
 
   const toggleMenu = () => {
@@ -21,6 +28,11 @@ const Navbar = ({ className }) => {
     setShowMenu(false);
     setShowContactModal(!showContactModal);
   };
+
+  const handleLogout = () => {
+    UserService.logOut();
+    navigate(PublicPaths.ROOT);
+  }
 
   return (
     <nav className={`navbar navbar--${className}`}>
@@ -41,6 +53,13 @@ const Navbar = ({ className }) => {
               </li>
               <li className="navbar__menu-item">
                 <button onClick={toggleContactModal} className="navbar__link">contact</button>
+              </li>
+              <li className="navbar__menu-item">
+                {
+                  isLoggedIn && (
+                    <button className="navbar__link" onClick={handleLogout}>logout</button>
+                  )
+                }
               </li>
             </ul>
           </div>
