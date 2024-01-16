@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 
 import PrivatePaths from "components/Constants/PrivatePaths";
 
@@ -34,6 +34,10 @@ const Login = () => {
     } else {
       setHasAuthError(true);
     }
+  }
+
+  if (UserService.isLoggedIn()) {
+    return <Navigate to={PrivatePaths.HOME} />;
   }
 
   return (
