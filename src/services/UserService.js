@@ -1,4 +1,4 @@
-import client from "../api/httpClient";
+import client from "api/httpClient";
 import HttpStatuses from "api/HttpResponses";
 
 const ENDPOINTS = {
