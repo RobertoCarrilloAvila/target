@@ -4,7 +4,7 @@ import { useNavigate, Navigate } from 'react-router-dom';
 import PrivatePaths from "components/Constants/PrivatePaths";
 
 import smiles from "assets/smilies.svg";
-import UserService from "services/userService";
+import UserService from "services/UserService";
 import Navbar from "components/Navbar/Navbar";
 import LandingVideo from "components/LandingVideo/LandingVideo";
 import FormInput from "components/FormInput/FormInput";

@@ -9,7 +9,7 @@ import pinWhite from "assets/icons/pin_white.svg";
 import ContactModal from "components/ContactModal/ContactModal";
 import PublicPaths from "components/Constants/PublicPaths";
 
-import UserService from "services/userService";
+import UserService from "services/UserService";
 
 const Navbar = ({ className }) => {
   const [showmenu, setShowMenu] = useState(false);
