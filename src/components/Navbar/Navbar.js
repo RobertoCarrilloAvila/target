@@ -15,7 +15,6 @@ const Navbar = ({ className }) => {
   const [showmenu, setShowMenu] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isLoggedIn] = useState(UserService.isLoggedIn());
-
   const navigate = useNavigate();
   const blueNavbar = className.includes("blue");
 
@@ -28,8 +27,8 @@ const Navbar = ({ className }) => {
     setShowContactModal(!showContactModal);
   };
 
-  const handleLogout = () => {
-    if (UserService.logOut()) {
+  const handleLogout = async () => {
+    if (await UserService.logOut()) {
       navigate(PublicPaths.ROOT);
     } else {
       alert("Something went wrong. Please try again.");
