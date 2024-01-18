@@ -96,6 +96,7 @@ const UserService = {
     }
   },
   isLoggedIn: () => {
+    // return validToken() && UserService.profile();
     return validToken();
   }
 };
