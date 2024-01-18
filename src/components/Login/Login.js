@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Navigate } from 'react-router-dom';
 
 import PrivatePaths from "components/Constants/PrivatePaths";
@@ -16,6 +16,12 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [hasAuthError, setHasAuthError] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (UserService.isLoggedIn()) {
+      navigate(PrivatePaths.HOME);
+    }
+  })
 
   const handleEmailChange = (value) => {
     setEmail(value);
@@ -36,9 +42,6 @@ const Login = () => {
     }
   }
 
-  if (UserService.isLoggedIn()) {
-    return <Navigate to={PrivatePaths.HOME} />;
-  }
 
   return (
     <div className="login">
