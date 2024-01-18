@@ -53,9 +53,9 @@ const UserService = {
       if (response.status === HttpStatuses.SUCCESS) {
         setAuthTokens(response);
         return true;
-      } else {
-        return false;
       }
+
+      return false;
     } catch (error) {
       return false;
     }
@@ -69,12 +69,12 @@ const UserService = {
     try {
       const response = await client.delete(ENDPOINTS.LOGOUT);
 
-      if (!handleApiResponse(response)) return false;
-
       if (response.status === HttpStatuses.SUCCESS) {
         sessionStorage.clear();
         return true;
       }
+
+      handleApiResponse(response);
 
       return false;
     } catch (error) {
@@ -85,11 +85,12 @@ const UserService = {
     try {
       const response = await client.get(ENDPOINTS.PROFILE + userData().id);
 
-      if (!handleApiResponse(response)) return false;
-
       if (response.status === HttpStatuses.SUCCESS) {
         return response.data;
       }
+
+      handleApiResponse(response);
+      return false;
     } catch (error) {
       return false;
     }
