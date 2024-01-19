@@ -1,5 +1,5 @@
 const PrivatePaths = {
-  HOME: '/home/welcome'
+  HOME: '/home'
 }
 
 export default PrivatePaths
