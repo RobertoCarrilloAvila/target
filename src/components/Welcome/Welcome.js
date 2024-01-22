@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import smiles from "assets/smilies.svg";
 import 'components/Welcome/Welcome.scss';
 
