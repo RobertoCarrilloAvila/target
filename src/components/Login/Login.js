@@ -21,7 +21,7 @@ const Login = () => {
     if (UserService.isLoggedIn()) {
       navigate(PrivatePaths.HOME);
     }
-  })
+  }, [])
 
   const handleEmailChange = (value) => {
     setEmail(value);
