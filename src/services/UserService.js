@@ -1,9 +1,13 @@
-import client from "../api/httpClient";
+import sessionInterceptor from "api/interceptors/sessionInterceptor";
+import client from "api/httpClient";
 import HttpStatuses from "api/HttpResponses";
+
+sessionInterceptor();
 
 const ENDPOINTS = {
   SIGN_UP: "/users",
   LOGIN: "/users/sign_in",
+  PROFILE: "/users/",
   LOGOUT: "/users/sign_out"
 };
 
@@ -11,10 +15,29 @@ const setAuthTokens = (response) => {
   const accessToken = response.headers['access-token'] || '';
   const client = response.headers['client'] || '';
   const uid = response.headers['uid'] || '';
+  const userData = response.data.user || {};
 
   sessionStorage.setItem('api-key-access-token', accessToken);
   sessionStorage.setItem('api-key-client', client);
   sessionStorage.setItem('api-key-uid', uid);
+  sessionStorage.setItem('api-user', JSON.stringify(userData));
+}
+
+const userData = () => {
+  return JSON.parse(sessionStorage.getItem('api-user'));
+}
+
+const handleApiResponse = (response) => {
+  if (response.status === HttpStatuses.UNAUTHORIZED) {
+    sessionStorage.clear();
+    return false;
+  }
+
+  return true;
+};
+
+const validToken = () => {
+  return !!sessionStorage.getItem('api-key-access-token')
 }
 
 const UserService = {
@@ -30,9 +53,9 @@ const UserService = {
       if (response.status === HttpStatuses.SUCCESS) {
         setAuthTokens(response);
         return true;
-      } else {
-        return false;
       }
+
+      return false;
     } catch (error) {
       return false;
     }
@@ -51,13 +74,30 @@ const UserService = {
         return true;
       }
 
+      handleApiResponse(response);
+
+      return false;
+    } catch (error) {
+      return false;
+    }
+  },
+  profile: async () => {
+    try {
+      const response = await client.get(ENDPOINTS.PROFILE + userData().id);
+
+      if (response.status === HttpStatuses.SUCCESS) {
+        return response.data;
+      }
+
+      handleApiResponse(response);
       return false;
     } catch (error) {
       return false;
     }
   },
   isLoggedIn: () => {
-    return sessionStorage.getItem('api-key-access-token') !== null;
+    // return validToken() && UserService.profile();
+    return validToken();
   }
 };
 
