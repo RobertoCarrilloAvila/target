@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import 'components/Profile/Profile.scss';
 import profile from 'assets/profile.png';
 
