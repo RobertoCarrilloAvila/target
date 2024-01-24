@@ -19,7 +19,7 @@ const Home = () => {
       <div className="home__container">
         <Navbar className="white" />
 
-        <Component setDisplayedComponent={setDisplayedComponent} />
+        <Component onContinue={setDisplayedComponent} />
       </div>
 
       <MapSection />

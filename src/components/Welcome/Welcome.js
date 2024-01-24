@@ -2,7 +2,7 @@ import smiles from "assets/smilies.svg";
 import 'components/Welcome/Welcome.scss';
 
 
-const Welcome = ({ setDisplayedComponent }) => {
+const Welcome = ({ onContinue }) => {
   return (
     <div className="welcome">
       <img src={smiles} className="welcome__img" alt="smiles" />
@@ -16,7 +16,7 @@ const Welcome = ({ setDisplayedComponent }) => {
 
       <button
         className="welcome__button btn"
-        onClick={ () => setDisplayedComponent('Chat') }>
+        onClick={ () => onContinue('Chat') }>
           ok; got it!
       </button>
     </div>
