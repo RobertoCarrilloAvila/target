@@ -9,25 +9,17 @@ import Chat from 'components/Chat/Chat';
 const Home = () => {
   const [displayedComponent, setDisplayedComponent] = useState('Welcome');
 
-  const welcomeComponent = () => {
-    return <Welcome setDisplayedComponent={setDisplayedComponent} />;
-  }
-
-  const chatComponent = () => {
-    return <Chat setDisplayedComponent={setDisplayedComponent} />;
-  }
-
-  const components = {
-    Welcome: welcomeComponent,
-    Chat: chatComponent,
-  }
+  const Component = {
+    Welcome,
+    Chat
+  }[displayedComponent];
 
   return (
     <div className="home">
       <div className="home__container">
         <Navbar className="white" />
 
-        { components[displayedComponent]() }
+        <Component setDisplayedComponent={setDisplayedComponent} />
       </div>
 
       <MapSection />
