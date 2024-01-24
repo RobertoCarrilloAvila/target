@@ -3,8 +3,7 @@ import UserService from 'services/UserService';
 
 import PublicPaths from 'components/Constants/PublicPaths';
 
-const PrivateRoute = ({ children }) => {
-  return UserService.isLoggedIn() ? children : <Navigate to={PublicPaths.ROOT} />;
-}
+const PrivateRoute = ({ children }) =>
+  UserService.isLoggedIn() ? children : <Navigate to={PublicPaths.ROOT} />;
 
 export default PrivateRoute;
