@@ -17,7 +17,7 @@
     max-width: 810px;
     margin: 60px 27px;
     background-color: shared.$white-color;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.30);
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 30%);
   }
   
   &__close-button {
@@ -51,7 +51,7 @@
   }
   
   &__body {
-    padding: 22px 15px 47px 15px;
+    padding: 22px 15px 47px;
     max-width: 433px;
     margin: 0 auto;
   }

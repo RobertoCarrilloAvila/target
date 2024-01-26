@@ -7,11 +7,11 @@ $xl: 1200px;
 $xxl: 1400px;
 
 // colors
-$black-color: #000000;
+$black-color: #000;
 $gray-color: #A6A6A6;
-$white-color: #FFFFFF;
+$white-color: #FFF;
 $blue-color: #2FBCF7;
-$transparent-blue-color: rgba(42, 120, 152, 0.5);
+$transparent-blue-color: rgb(42 120 152 / 50%);
 $red-color: #EB2A2A;
 $orange-color: #F0C738;
 
@@ -19,5 +19,4 @@ $orange-color: #F0C738;
 $normal: 400;
 $semibold: 600;
 $bold: 700;
-
 $navbar-height: 60px;
