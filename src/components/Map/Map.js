@@ -1,24 +1,44 @@
-import { useState, useEffect } from "react";
-import { createMap, setCurrentLocationAsCenter } from "services/MapService";
+import { useState, useEffect } from 'react';
+import { GoogleMap, useLoadScript } from '@react-google-maps/api';
+import MapConfig from 'components/Constants/MapConfig';
+
 import "components/Map/Map.scss";
 
-const MAP_ID = "map";
-
 const Map = () => {
-  const [map, setMap] = useState(null);
+  const [currentLocation, setCurrentLocation] = useState(MapConfig.defaultLocation);
+  
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+  });
 
   useEffect(() => {
-    const initializeMap = async () => {
-      setMap(await createMap("map"));
-      setCurrentLocationAsCenter(map);
-    };
-
-    initializeMap();
+    navigator.geolocation.getCurrentPosition((position) => {
+      setCurrentLocation({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      });
+    });
   }, []);
 
+  if (loadError) {
+    return <div className='map__error'>Error loading maps</div>;
+  }
+
+  if (!isLoaded) {
+    return <div className='map__loading'>Loading maps</div>;
+  }
+
   return (
-    <div id={ MAP_ID }></div>
-  );
+    <div className="map">
+      <GoogleMap
+        mapContainerClassName="map__container"
+        center={currentLocation}
+        zoom={MapConfig.defaultZoom}
+      >
+
+      </GoogleMap>
+    </div>
+  )
 }
 
 export default Map;
