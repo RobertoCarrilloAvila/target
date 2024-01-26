@@ -1,0 +1,18 @@
+@use "../../shared.scss" as shared;
+
+.home {
+  display: flex;
+
+  &__container {
+    width: 357px;
+    height: 100%;
+    flex-grow: 1;
+
+  }
+
+  @media (min-width: #{shared.$md}) {
+    &__container {
+      flex-grow: 0;
+    }
+  }
+}

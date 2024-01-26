@@ -1,15 +1,6 @@
 @use "../../shared.scss" as shared;
 
 .welcome {
-  display: flex;
-
-  &__container {
-    width: 357px;
-    height: 100%;
-    flex-grow: 1;
-
-  }
-
   &__bold {
     text-transform: uppercase;
     font-weight: shared.$bold;
@@ -69,11 +60,5 @@
     text-decoration: none;
     font-size: 11px;
     letter-spacing: 1.65px;
-  }
-
-  @media (min-width: #{shared.$md}) {
-    &__container {
-      flex-grow: 0;
-    }
   }
 }

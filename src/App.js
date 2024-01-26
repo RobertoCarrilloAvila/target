@@ -8,7 +8,7 @@ import "App.scss";
 import Login from "components/Login/Login";
 import SignUp from "components/SignUp/SignUp";
 import About from "components/About/About";
-import Welcome from "components/Welcome/Welcome";
+import Home from "components/Home/Home";
 
 function App() {
   return(
@@ -22,7 +22,7 @@ function App() {
           path={PrivatePaths.HOME}
           element={
             <PrivateRoute>
-              <Welcome />
+              <Home />
             </PrivateRoute>
           }
         />

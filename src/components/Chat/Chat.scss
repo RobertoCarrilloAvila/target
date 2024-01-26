@@ -1,0 +1,95 @@
+@use "shared.scss" as shared;
+
+.chat {
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    margin: 0;
+    padding: 0  10px;
+  }
+
+  &__title {
+    color: shared.$black-color;
+    font-weight: shared.$semibold;
+    font-size: 13px;
+    letter-spacing: 1.95px;
+    text-align: center;
+    margin: 0;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 12px 0;
+    margin: 0;
+  }
+
+  &__message {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 15.5px 23px;
+    border-bottom: 0.5px solid shared.$black-color;
+
+    &:first-child {
+      border-top: 0.5px solid shared.$black-color;
+    }
+  }
+
+  &__avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+
+  &__message-preview {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &__message-author {
+    color: shared.$black-color;
+    font-weight: shared.$semibold;
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  &__message-text {
+    width: 100%;
+    color: shared.$black-color;
+    font-weight: shared.$normal;
+    font-size: 11.5px;
+    line-height: 20px;
+  }
+
+  &__message-icon {
+    width: 18px;
+    height: 23px;
+    position: relative;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__message-counter {
+    position: absolute;
+    top: -16px;
+    right: -10px;
+    color: shared.$white-color;
+    font-weight: shared.$bold;
+    font-size: 10px;
+    background-color: shared.$orange-color;
+    border-radius: 50%;
+    width: fit-content;
+    min-width: 16px;
+    min-height: 16px;
+    text-align: center;
+    line-height: 16px;
+  }
+}
