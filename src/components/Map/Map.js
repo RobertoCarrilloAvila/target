@@ -1,26 +1,23 @@
 import { useState, useEffect } from 'react';
 import { GoogleMap, useLoadScript } from '@react-google-maps/api';
+import MapConfig from 'components/Constants/MapConfig';
+
 import "components/Map/Map.scss";
 
-const defaultLocation = { lat: 19.432, lng: -99.133 };
-const defaultZoom = 12;
-
 const Map = () => {
-  const [currentLocation, setCurrentLocation] = useState(defaultLocation);
+  const [currentLocation, setCurrentLocation] = useState(MapConfig.defaultLocation);
   
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
   });
 
   useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setCurrentLocation({
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        });
+    navigator.geolocation.getCurrentPosition((position) => {
+      setCurrentLocation({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
       });
-    }
+    });
   }, []);
 
   if (loadError) {
@@ -36,7 +33,8 @@ const Map = () => {
       <GoogleMap
         mapContainerClassName="map__container"
         center={currentLocation}
-        zoom={defaultZoom} >
+        zoom={MapConfig.defaultZoom}
+      >
 
       </GoogleMap>
     </div>
