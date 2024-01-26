@@ -18,7 +18,9 @@
   },
   "devDependencies": {
     "eslint-config-prettier": "^8.3.0",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard-scss": "^11.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -28,7 +30,9 @@
     "format": "prettier --write \"src/**/*.{js, jsx}\"",
     "format:check": "prettier --check \"src/**/*.{js, jsx}\"",
     "lint": "eslint -c .eslintrc --ext .js,.jsx .",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "stylelint": "stylelint \"src/**/*.{css,scss}\"",
+    "stylelint:fix": "npm run stylelint -- --fix \"src/**/*.{css,scss}\""
   },
   "browserslist": {
     "production": [
