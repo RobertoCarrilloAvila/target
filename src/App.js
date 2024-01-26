@@ -11,7 +11,7 @@ import About from "components/About/About";
 import Home from "components/Home/Home";
 
 function App() {
-  return(
+  return (
     <BrowserRouter>
       <Routes>
         <Route path={PublicPaths.ROOT} element={<Login />} />

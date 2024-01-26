@@ -16,9 +16,7 @@ const Map = () => {
     initializeMap();
   }, []);
 
-  return (
-    <div id={ MAP_ID }></div>
-  );
-}
+  return <div id={MAP_ID}></div>;
+};
 
 export default Map;

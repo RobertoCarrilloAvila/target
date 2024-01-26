@@ -6,11 +6,11 @@ const CLIENT = "client";
 
 const headers = () => {
   return {
-    [ACCESS_TOKEN]: sessionStorage.getItem('api-key-access-token'),
-    [UID]: sessionStorage.getItem('api-key-uid'),
-    [CLIENT]: sessionStorage.getItem('api-key-client'),
-  }
-}
+    [ACCESS_TOKEN]: sessionStorage.getItem("api-key-access-token"),
+    [UID]: sessionStorage.getItem("api-key-uid"),
+    [CLIENT]: sessionStorage.getItem("api-key-client"),
+  };
+};
 
 export default () => {
   httpClient.interceptors.request.use((request) => {

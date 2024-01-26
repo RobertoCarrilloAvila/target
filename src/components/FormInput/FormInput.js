@@ -1,6 +1,16 @@
 import "components/FormInput/FormInput.scss";
 
-const FormInput = ({ id, label, type, value, name, className = "", placeholder = "", onChange, ...rest }) => {
+const FormInput = ({
+  id,
+  label,
+  type,
+  value,
+  name,
+  className = "",
+  placeholder = "",
+  onChange,
+  ...rest
+}) => {
   const handleChange = (event) => {
     const text = event.target.value;
     onChange(text);
@@ -8,7 +18,11 @@ const FormInput = ({ id, label, type, value, name, className = "", placeholder =
 
   return (
     <div className="form-input">
-      {label && <label className="form-input__label" htmlFor={id}>{label}</label>}
+      {label && (
+        <label className="form-input__label" htmlFor={id}>
+          {label}
+        </label>
+      )}
       {type === "textarea" ? (
         <textarea
           className={`form-input__input ${className}`}

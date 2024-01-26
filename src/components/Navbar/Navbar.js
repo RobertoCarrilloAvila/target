@@ -33,8 +33,7 @@ const Navbar = ({ className }) => {
     } else {
       alert("Something went wrong. Please try again.");
     }
-    
-  }
+  };
 
   return (
     <nav className={`navbar navbar--${className}`}>
@@ -46,33 +45,31 @@ const Navbar = ({ className }) => {
         />
       </button>
 
-      {
-        showmenu && (
-          <div className="navbar__collapsible-menu">
-            <ul className="navbar__menu">
-              <li className="navbar__menu-item">
-                <Link to="/about" className="navbar__link">about</Link>
-              </li>
-              <li className="navbar__menu-item">
-                <button onClick={toggleContactModal} className="navbar__link">contact</button>
-              </li>
-              <li className="navbar__menu-item">
-                {
-                  isLoggedIn && (
-                    <button className="navbar__link" onClick={handleLogout}>logout</button>
-                  )
-                }
-              </li>
-            </ul>
-          </div>
-        )
-      }
+      {showmenu && (
+        <div className="navbar__collapsible-menu">
+          <ul className="navbar__menu">
+            <li className="navbar__menu-item">
+              <Link to="/about" className="navbar__link">
+                about
+              </Link>
+            </li>
+            <li className="navbar__menu-item">
+              <button onClick={toggleContactModal} className="navbar__link">
+                contact
+              </button>
+            </li>
+            <li className="navbar__menu-item">
+              {isLoggedIn && (
+                <button className="navbar__link" onClick={handleLogout}>
+                  logout
+                </button>
+              )}
+            </li>
+          </ul>
+        </div>
+      )}
 
-      {
-        showContactModal && (
-          <ContactModal toggleModal={toggleContactModal} />
-        )
-      }
+      {showContactModal && <ContactModal toggleModal={toggleContactModal} />}
 
       <h1 className="navbar__item navbar__title">TARGET</h1>
 

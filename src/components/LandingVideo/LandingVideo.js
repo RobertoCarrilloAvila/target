@@ -9,7 +9,10 @@ const LandingVideo = () => (
   <div className="landing-video">
     <img className="landing-video__preview" src={iphone6} alt="iPhone6" />
 
-    <a href="https://www.apple.com/app-store/" className="landing-video__appstore">
+    <a
+      href="https://www.apple.com/app-store/"
+      className="landing-video__appstore"
+    >
       <img src={appstore} alt="App Store" />
     </a>
 

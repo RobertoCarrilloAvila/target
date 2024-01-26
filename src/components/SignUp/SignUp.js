@@ -23,7 +23,7 @@ const SignUp = () => {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    if(!event.target.checkValidity()) return;
+    if (!event.target.checkValidity()) return;
 
     const body = {
       user: {
@@ -31,18 +31,22 @@ const SignUp = () => {
         email: email,
         gender: gender,
         password: password,
-        password_confirmation: passwordConfirmation
-      }
+        password_confirmation: passwordConfirmation,
+      },
     };
 
     try {
       await UserService.signUp(body);
       setSuccess(true);
     } catch (error) {
-      const { response: {data: {errors}} } = error;
+      const {
+        response: {
+          data: { errors },
+        },
+      } = error;
       alert(errors.full_messages[0]);
     }
-  };
+  }
 
   if (success) {
     return <SignUpConfirm />;
@@ -115,7 +119,9 @@ const SignUp = () => {
           </button>
         </form>
 
-        <Link to="/" className="sign-up__email-login">Sign In</Link>
+        <Link to="/" className="sign-up__email-login">
+          Sign In
+        </Link>
       </section>
 
       <LandingVideo />

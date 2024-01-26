@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import PrivatePaths from "components/Constants/PrivatePaths";
 
@@ -9,7 +9,6 @@ import Navbar from "components/Navbar/Navbar";
 import LandingVideo from "components/LandingVideo/LandingVideo";
 import FormInput from "components/FormInput/FormInput";
 import "components/Login/Login.scss";
-
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -21,7 +20,7 @@ const Login = () => {
     if (UserService.isLoggedIn()) {
       navigate(PrivatePaths.HOME);
     }
-  }, [])
+  }, []);
 
   const handleEmailChange = (value) => {
     setEmail(value);
@@ -34,14 +33,13 @@ const Login = () => {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const loggedIn = await UserService.login(email, password)
+    const loggedIn = await UserService.login(email, password);
     if (loggedIn) {
       navigate(PrivatePaths.HOME);
     } else {
       setHasAuthError(true);
     }
   }
-
 
   return (
     <div className="login">
@@ -61,7 +59,9 @@ const Login = () => {
         </p>
 
         {hasAuthError && (
-          <p className="login__header-error-message">Invalid login credentials. Please try again.</p>
+          <p className="login__header-error-message">
+            Invalid login credentials. Please try again.
+          </p>
         )}
 
         <form className="login__form" onSubmit={handleSubmit}>
@@ -94,7 +94,9 @@ const Login = () => {
           Forgot your password?
         </a>
 
-        <a className="login__facebook-signup" href="/sign_up">connect with facebook</a>
+        <a className="login__facebook-signup" href="/sign_up">
+          connect with facebook
+        </a>
         <a className="login__email-signup" href="/sign_up">
           Sign up
         </a>

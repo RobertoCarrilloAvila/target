@@ -27,13 +27,12 @@ const Modal = ({ children, title, toggleModal }) => {
           </button>
           <img className="modal__header-img" src={smiles} alt="smiles" />
           <h2 className="modal__header-title">{title}</h2>
-          <div className="modal__body">
-            {children}
-          </div>
+          <div className="modal__body">{children}</div>
         </div>
       </div>
     </div>,
-    elRef.current);
-}
+    elRef.current
+  );
+};
 
 export default Modal;

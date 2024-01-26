@@ -26,21 +26,24 @@ const createMap = async (elementId) => {
     scaleControl: false,
     streetViewControl: false,
     rotateControl: false,
-    fullscreenControl: false
+    fullscreenControl: false,
   });
 };
 
 const setCurrentLocationAsCenter = (map) => {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const userLocation = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      };
-      map.setCenter(userLocation);
-    }, () => {
-      console.error("Error: The Geolocation service failed.");
-    });
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const userLocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+        map.setCenter(userLocation);
+      },
+      () => {
+        console.error("Error: The Geolocation service failed.");
+      }
+    );
   } else {
     console.error("Error: Your browser does not support geolocation.");
   }

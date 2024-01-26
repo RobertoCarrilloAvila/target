@@ -19,7 +19,7 @@ jobs:
           node-version: 14.16.0
       - name: Install packages
         run: npm ci
-      - name: Run code Linter
+      - name: Run Code Linter
         run: npm run format:check
       - name: Run Code Analysis
         run: npm run lint
