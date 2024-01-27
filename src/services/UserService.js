@@ -1,30 +1,30 @@
-import sessionInterceptor from "api/interceptors/sessionInterceptor";
-import client from "api/httpClient";
-import HttpStatuses from "api/HttpResponses";
+import sessionInterceptor from 'api/interceptors/sessionInterceptor';
+import client from 'api/httpClient';
+import HttpStatuses from 'api/HttpResponses';
 
 sessionInterceptor();
 
 const ENDPOINTS = {
-  SIGN_UP: "/users",
-  LOGIN: "/users/sign_in",
-  PROFILE: "/users/",
-  LOGOUT: "/users/sign_out",
+  SIGN_UP: '/users',
+  LOGIN: '/users/sign_in',
+  PROFILE: '/users/',
+  LOGOUT: '/users/sign_out',
 };
 
 const setAuthTokens = (response) => {
-  const accessToken = response.headers["access-token"] || "";
-  const client = response.headers["client"] || "";
-  const uid = response.headers["uid"] || "";
+  const accessToken = response.headers['access-token'] || '';
+  const client = response.headers['client'] || '';
+  const uid = response.headers['uid'] || '';
   const userData = response.data.user || {};
 
-  sessionStorage.setItem("api-key-access-token", accessToken);
-  sessionStorage.setItem("api-key-client", client);
-  sessionStorage.setItem("api-key-uid", uid);
-  sessionStorage.setItem("api-user", JSON.stringify(userData));
+  sessionStorage.setItem('api-key-access-token', accessToken);
+  sessionStorage.setItem('api-key-client', client);
+  sessionStorage.setItem('api-key-uid', uid);
+  sessionStorage.setItem('api-user', JSON.stringify(userData));
 };
 
 const userData = () => {
-  return JSON.parse(sessionStorage.getItem("api-user"));
+  return JSON.parse(sessionStorage.getItem('api-user'));
 };
 
 const handleApiResponse = (response) => {
@@ -37,7 +37,7 @@ const handleApiResponse = (response) => {
 };
 
 const validToken = () => {
-  return !!sessionStorage.getItem("api-key-access-token");
+  return !!sessionStorage.getItem('api-key-access-token');
 };
 
 const UserService = {

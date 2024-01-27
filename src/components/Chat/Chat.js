@@ -1,7 +1,7 @@
-import Profile from "components/Profile/Profile";
+import Profile from 'components/Profile/Profile';
 
-import "components/Chat/Chat.scss";
-import world from "assets/icons/world.svg";
+import 'components/Chat/Chat.scss';
+import world from 'assets/icons/world.svg';
 
 const Chat = () => {
   // TODO: load messages from API

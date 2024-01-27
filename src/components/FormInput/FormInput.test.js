@@ -1,19 +1,19 @@
-import { render, screen } from "@testing-library/react";
-import FormInput from "./FormInput";
+import { render, screen } from '@testing-library/react';
+import FormInput from './FormInput';
 
-test("formInput has a label", () => {
+test('formInput has a label', () => {
   render(<FormInput label="test-label" id="test-id" />);
-  const label = screen.getByText("test-label");
+  const label = screen.getByText('test-label');
   expect(label).toBeInTheDocument();
 });
 
-test("label for id propertie", () => {
+test('label for id propertie', () => {
   render(<FormInput label="test-label" id="test-id" />);
-  const label = screen.getByText("test-label");
-  expect(label).toHaveAttribute("for", "test-id");
+  const label = screen.getByText('test-label');
+  expect(label).toHaveAttribute('for', 'test-id');
 });
 
-test("formInput has an input", () => {
+test('formInput has an input', () => {
   render(
     <FormInput
       type="text"
@@ -24,6 +24,6 @@ test("formInput has an input", () => {
     />
   );
 
-  const input = screen.getByRole("textbox");
+  const input = screen.getByRole('textbox');
   expect(input).toBeInTheDocument();
 });

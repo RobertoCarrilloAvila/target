@@ -1,22 +1,22 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
-import "components/Navbar/Navbar.scss";
-import menuBlack from "assets/icons/menu_black.svg";
-import menuWhite from "assets/icons/menu_white.svg";
-import pinBlack from "assets/icons/pin_black.svg";
-import pinWhite from "assets/icons/pin_white.svg";
-import ContactModal from "components/ContactModal/ContactModal";
-import PublicPaths from "components/Constants/PublicPaths";
+import 'components/Navbar/Navbar.scss';
+import menuBlack from 'assets/icons/menu_black.svg';
+import menuWhite from 'assets/icons/menu_white.svg';
+import pinBlack from 'assets/icons/pin_black.svg';
+import pinWhite from 'assets/icons/pin_white.svg';
+import ContactModal from 'components/ContactModal/ContactModal';
+import PublicPaths from 'components/Constants/PublicPaths';
 
-import UserService from "services/UserService";
+import UserService from 'services/UserService';
 
 const Navbar = ({ className }) => {
   const [showmenu, setShowMenu] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isLoggedIn] = useState(UserService.isLoggedIn());
   const navigate = useNavigate();
-  const blueNavbar = className.includes("blue");
+  const blueNavbar = className.includes('blue');
 
   const toggleMenu = () => {
     setShowMenu(!showmenu);
@@ -31,7 +31,7 @@ const Navbar = ({ className }) => {
     if (await UserService.logOut()) {
       navigate(PublicPaths.ROOT);
     } else {
-      alert("Something went wrong. Please try again.");
+      alert('Something went wrong. Please try again.');
     }
   };
 

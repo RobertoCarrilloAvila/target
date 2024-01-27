@@ -1,23 +1,23 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
-import UserService from "services/UserService";
-import Navbar from "components/Navbar/Navbar";
-import FormInput from "components/FormInput/FormInput";
-import FormSelect from "components/FormSelect/FormSelect";
-import LandingVideo from "components/LandingVideo/LandingVideo";
-import SignUpConfirm from "components/SignUpConfirm/SignUpConfirm";
+import UserService from 'services/UserService';
+import Navbar from 'components/Navbar/Navbar';
+import FormInput from 'components/FormInput/FormInput';
+import FormSelect from 'components/FormSelect/FormSelect';
+import LandingVideo from 'components/LandingVideo/LandingVideo';
+import SignUpConfirm from 'components/SignUpConfirm/SignUpConfirm';
 
-import "components/SignUp/SignUp.scss";
+import 'components/SignUp/SignUp.scss';
 
 const SignUp = () => {
-  const GENDER_OPTIONS = ["male", "female"];
+  const GENDER_OPTIONS = ['male', 'female'];
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [gender, setGender] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const [gender, setGender] = useState('');
   const [success, setSuccess] = useState(false);
 
   async function handleSubmit(event) {

@@ -1,5 +1,5 @@
-import "components/Profile/Profile.scss";
-import profile from "assets/profile.png";
+import 'components/Profile/Profile.scss';
+import profile from 'assets/profile.png';
 
 const Profile = () => {
   return (

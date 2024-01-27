@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import "components/ContactModal/ContactModal.scss";
-import QuestionsService from "services/QuestionsService";
-import Modal from "components/Modal/Modal";
-import FormInput from "components/FormInput/FormInput";
+import 'components/ContactModal/ContactModal.scss';
+import QuestionsService from 'services/QuestionsService';
+import Modal from 'components/Modal/Modal';
+import FormInput from 'components/FormInput/FormInput';
 
 const ContactModal = ({ toggleModal }) => {
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
   const [success, setSuccess] = useState(false);
 
   const modalTitle = () => {

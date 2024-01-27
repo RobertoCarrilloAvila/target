@@ -1,4 +1,4 @@
-import "components/FormSelect/FormSelect.scss";
+import 'components/FormSelect/FormSelect.scss';
 
 const FormSelect = ({
   id,
@@ -6,8 +6,8 @@ const FormSelect = ({
   value,
   options,
   name,
-  className = "",
-  placeholder = "",
+  className = '',
+  placeholder = '',
   onChange,
   ...rest
 }) => {

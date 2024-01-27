@@ -1,4 +1,4 @@
-import "components/FormInput/FormInput.scss";
+import 'components/FormInput/FormInput.scss';
 
 const FormInput = ({
   id,
@@ -6,8 +6,8 @@ const FormInput = ({
   type,
   value,
   name,
-  className = "",
-  placeholder = "",
+  className = '',
+  placeholder = '',
   onChange,
   ...rest
 }) => {
@@ -23,7 +23,7 @@ const FormInput = ({
           {label}
         </label>
       )}
-      {type === "textarea" ? (
+      {type === 'textarea' ? (
         <textarea
           className={`form-input__input ${className}`}
           value={value}

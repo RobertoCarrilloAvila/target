@@ -1,9 +1,9 @@
-import smiles from "assets/smilies.svg";
-import Navbar from "components/Navbar/Navbar";
-import LandingVideo from "components/LandingVideo/LandingVideo";
+import smiles from 'assets/smilies.svg';
+import Navbar from 'components/Navbar/Navbar';
+import LandingVideo from 'components/LandingVideo/LandingVideo';
 
-import "./About.scss";
-import { Link } from "react-router-dom";
+import './About.scss';
+import { Link } from 'react-router-dom';
 
 const About = () => (
   <div className="about">

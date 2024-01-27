@@ -1,14 +1,14 @@
-import httpClient from "../httpClient";
+import httpClient from '../httpClient';
 
-const ACCESS_TOKEN = "access-token";
-const UID = "uid";
-const CLIENT = "client";
+const ACCESS_TOKEN = 'access-token';
+const UID = 'uid';
+const CLIENT = 'client';
 
 const headers = () => {
   return {
-    [ACCESS_TOKEN]: sessionStorage.getItem("api-key-access-token"),
-    [UID]: sessionStorage.getItem("api-key-uid"),
-    [CLIENT]: sessionStorage.getItem("api-key-client"),
+    [ACCESS_TOKEN]: sessionStorage.getItem('api-key-access-token'),
+    [UID]: sessionStorage.getItem('api-key-uid'),
+    [CLIENT]: sessionStorage.getItem('api-key-client'),
   };
 };
 

@@ -1,5 +1,5 @@
-import smiles from "assets/smilies.svg";
-import "components/Welcome/Welcome.scss";
+import smiles from 'assets/smilies.svg';
+import 'components/Welcome/Welcome.scss';
 
 const Welcome = ({ onContinue }) => {
   return (
@@ -13,7 +13,7 @@ const Welcome = ({ onContinue }) => {
       <ul className="welcome__instructions-text">
         <li>
           Create a target by clicking wherever on the map, specify the ratio and
-          and a topic: Travel, Dating, Music, etc.{" "}
+          and a topic: Travel, Dating, Music, etc.{' '}
         </li>
         <li>
           <strong className="welcome--bold">target</strong> will start a chat
@@ -24,7 +24,7 @@ const Welcome = ({ onContinue }) => {
 
       <button
         className="welcome__button btn"
-        onClick={() => onContinue("Chat")}
+        onClick={() => onContinue('Chat')}
       >
         ok; got it!
       </button>

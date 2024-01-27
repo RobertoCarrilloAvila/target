@@ -1,9 +1,9 @@
-import "components/LandingVideo/LandingVideo.scss";
+import 'components/LandingVideo/LandingVideo.scss';
 
-import appstore from "assets/appstore.png";
-import iphone6 from "assets/iphone6.png";
-import facebook from "assets/icons/facebook.svg";
-import twitter from "assets/icons/twitter.svg";
+import appstore from 'assets/appstore.png';
+import iphone6 from 'assets/iphone6.png';
+import facebook from 'assets/icons/facebook.svg';
+import twitter from 'assets/icons/twitter.svg';
 
 const LandingVideo = () => (
   <div className="landing-video">
