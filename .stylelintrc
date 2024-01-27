@@ -1,3 +1,4 @@
 {
-  "extends": "stylelint-config-idiomatic-order"
+  "extends": "stylelint-config-idiomatic-order",
+  "customSyntax": "postcss-scss"
 }
