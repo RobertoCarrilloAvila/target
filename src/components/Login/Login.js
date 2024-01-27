@@ -20,6 +20,7 @@ const Login = () => {
     if (UserService.isLoggedIn()) {
       navigate(PrivatePaths.HOME);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleEmailChange = (value) => {

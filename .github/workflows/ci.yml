@@ -22,7 +22,7 @@ jobs:
       - name: Run style linter
         run: npm run stylelint
       - name: Run Code Linter
-        run: npm run format:check
+        run: npm run format
       - name: Run Code Analysis
         run: npm run lint
       - name: Run Tests
