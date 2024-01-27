@@ -17,9 +17,9 @@
 
     &-submit{
       display: block;
-      margin: 5px auto;
       width: 185px;
       height: 37px;
+      margin: 5px auto;
       font-size: 0.6rem;
     }
   }
@@ -29,17 +29,17 @@
 
     &-title{
       color: shared.$black-color;
-      text-align: center;
       font-size: 1.12rem;
       font-weight: 600;
+      text-align: center;
     }
     
     &-text{
+      min-height: 155px;
       color: shared.$black-color;
       font-size: 1rem;
       font-weight: 400;
       text-align: center;
-      min-height: 155px;
     }
   }
 }

@@ -2,8 +2,8 @@
 
 .welcome {
   &__bold {
-    text-transform: uppercase;
     font-weight: shared.$bold;
+    text-transform: uppercase;
   }
 
   &__img {
@@ -14,51 +14,51 @@
   }
 
   &__title {
-    font-size: 20px;
-    text-align: center;
     margin-top: 17px;
     color: shared.$black-color;
+    font-size: 20px;
     font-weight: shared.$normal;
+    text-align: center;
   }
 
   &__subtitle {
-    font-size: 18px;
-    text-align: center;
-    font-weight: shared.$semibold;
     color: shared.$black-color;
+    font-size: 18px;
+    font-weight: shared.$semibold;
+    text-align: center;
   }
 
   &__instructions-text {
+    padding: 0 40px;
     margin-top: 58px;
     list-style: none;
-    padding: 0 40px;
 
     li {
-      font-size: 14px;
-      color: shared.$black-color;
-      line-height: 26px;
       position: relative;
-      margin-left: 20px;
       margin-bottom: 20px;
+      margin-left: 20px;
+      color: shared.$black-color;
+      font-size: 14px;
+      line-height: 26px;
 
       &::before {
-        content: "\2022";
-        color: shared.$blue-color;
-        font-weight: shared.$bold;
         position: absolute;
         left: -20px;
+        color: shared.$blue-color;
+        content: "\2022";
         font-size: 40px;
+        font-weight: shared.$bold;
       }
     }
   }
 
   &__button {
-    width: 185px;
     display: block;
-    margin: 90px auto 70px;
+    width: 185px;
     padding: 15px 0;
-    text-decoration: none;
+    margin: 90px auto 70px;
     font-size: 11px;
     letter-spacing: 1.65px;
+    text-decoration: none;
   }
 }

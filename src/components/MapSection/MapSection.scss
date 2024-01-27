@@ -2,8 +2,8 @@
 
 .map-section {
   display: none;
-  flex-grow: 1;
   height: 100vh;
+  flex-grow: 1;
 }
 
 @media (min-width: #{shared.$md}) {

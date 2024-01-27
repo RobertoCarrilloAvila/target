@@ -8,11 +8,11 @@
 .btn {
   display: inline-block;
   padding: 0.7rem;
+  border: 0;
   background-color: shared.$black-color;
   color: shared.$white-color;
-  font-size: 1rem;
-  text-transform: uppercase;
   cursor: pointer;
+  font-size: 1rem;
   text-align: center;
-  border: 0;
+  text-transform: uppercase;
 }
