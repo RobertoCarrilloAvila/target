@@ -19,6 +19,8 @@ jobs:
           node-version: 14.16.0
       - name: Install packages
         run: npm ci
+      - name: Run style linter
+        run: npm run stylelint
       - name: Run Code Linter
         run: npm run format:check
       - name: Run Code Analysis
