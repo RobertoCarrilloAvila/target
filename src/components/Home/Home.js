@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MapContext from 'contexts/MapContext';
 
 import 'components/Home/Home.scss';
 import Navbar from 'components/Navbar/Navbar';
@@ -8,6 +9,7 @@ import Chat from 'components/Chat/Chat';
 
 const Home = () => {
   const [displayedComponent, setDisplayedComponent] = useState('Welcome');
+  const [selectedLocation, setSelectedLocation] = useState(null);
 
   const Component = {
     Welcome,
@@ -15,15 +17,17 @@ const Home = () => {
   }[displayedComponent];
 
   return (
+      <MapContext.Provider value={{ selectedLocation, setSelectedLocation }}>
     <div className="home">
-      <div className="home__container">
-        <Navbar className="white" />
+        <div className="home__container">
+          <Navbar className="white" />
 
-        <Component onContinue={setDisplayedComponent} />
-      </div>
+          <Component onContinue={setDisplayedComponent} />
+        </div>
 
-      <MapSection />
+        <MapSection />
     </div>
+      </MapContext.Provider>
   );
 };
 
