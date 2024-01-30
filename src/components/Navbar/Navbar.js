@@ -11,7 +11,7 @@ import PublicPaths from 'components/Constants/PublicPaths';
 
 import UserService from 'services/UserService';
 
-const Navbar = ({ className }) => {
+const Navbar = ({ className, rightButton, leftButton }) => {
   const [showmenu, setShowMenu] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isLoggedIn] = useState(UserService.isLoggedIn());
@@ -35,8 +35,24 @@ const Navbar = ({ className }) => {
     }
   };
 
-  return (
-    <nav className={`navbar navbar--${className}`}>
+  const renderRightButton = () => {
+    if (rightButton) return rightButton;
+
+    return (
+      <button>
+        <img
+          className="navbar__item navbar__pin"
+          src={blueNavbar ? pinWhite : pinBlack}
+          alt="pin"
+        />
+      </button>
+    )
+  };
+
+  const renderleftButton = () => {
+    if (leftButton) return leftButton;
+
+    return (
       <button onClick={toggleMenu} data-target="navbar__collapsible-menu">
         <img
           className="navbar__item"
@@ -44,6 +60,12 @@ const Navbar = ({ className }) => {
           alt="hamburger menu"
         />
       </button>
+    )
+  };
+
+  return (
+    <nav className={`navbar navbar--${className}`}>
+      { renderleftButton() }
 
       {showmenu && (
         <div className="navbar__collapsible-menu">
@@ -65,6 +87,7 @@ const Navbar = ({ className }) => {
                 </button>
               )}
             </li>
+            
           </ul>
         </div>
       )}
@@ -73,13 +96,7 @@ const Navbar = ({ className }) => {
 
       <h1 className="navbar__item navbar__title">TARGET</h1>
 
-      <button>
-        <img
-          className="navbar__item"
-          src={blueNavbar ? pinWhite : pinBlack}
-          alt="pin"
-        />
-      </button>
+      { renderRightButton() }
     </nav>
   );
 };
