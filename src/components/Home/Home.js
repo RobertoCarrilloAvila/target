@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import 'components/Home/Home.scss'
+import 'components/Home/Home.scss';
 import Navbar from 'components/Navbar/Navbar';
 import MapSection from 'components/MapSection/MapSection';
 import Welcome from 'components/Welcome/Welcome';
@@ -11,7 +11,7 @@ const Home = () => {
 
   const Component = {
     Welcome,
-    Chat
+    Chat,
   }[displayedComponent];
 
   return (
@@ -24,7 +24,7 @@ const Home = () => {
 
       <MapSection />
     </div>
-  )
-}
+  );
+};
 
 export default Home;

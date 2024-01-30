@@ -1,5 +1,5 @@
 const PrivatePaths = {
-  HOME: '/home'
-}
+  HOME: '/home',
+};
 
-export default PrivatePaths
+export default PrivatePaths;

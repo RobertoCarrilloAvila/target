@@ -3,19 +3,19 @@
 .landing-video {
   display: none;
   width: 50%;
-  flex-grow: 1;
-  background-color: shared.$blue-color;
   min-height: 100vh;
+  flex-grow: 1;
   justify-content: center;
+  background-color: shared.$blue-color;
 
   &__preview {
     display: block;
     width: 100%;
     max-width: 550px;
     height: auto;
-    object-fit: cover;
     margin: 0 auto;
     margin-bottom: -70px;
+    object-fit: cover;
   }
 
   &__appstore {
@@ -25,12 +25,12 @@
   }
 
   &__social {
-    list-style: none;
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
+    align-items: center;
+    justify-content: center;
     padding: 0;
+    list-style: none;
 
     &-item {
       margin: 0 10px;

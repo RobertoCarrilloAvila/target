@@ -1,7 +1,7 @@
 const PublicPaths = {
   ROOT: '/',
   ABOUT: '/about',
-  SIGN_UP: '/sign_up'
-}
+  SIGN_UP: '/sign_up',
+};
 
-export default PublicPaths
+export default PublicPaths;

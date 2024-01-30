@@ -18,11 +18,12 @@ jobs:
         with:
           node-version: 14.16.0
       - name: Install packages
-        run: |
-          npm ci
+        run: npm ci
+      - name: Run style linter
+        run: npm run stylelint
+      - name: Run Code Linter
+        run: npm run format
       - name: Run Code Analysis
-        run: |
-          npm run lint
+        run: npm run lint
       - name: Run Tests
-        run: |
-          npm test
+        run: npm test

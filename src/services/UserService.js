@@ -1,14 +1,14 @@
-import sessionInterceptor from "api/interceptors/sessionInterceptor";
-import client from "api/httpClient";
-import HttpStatuses from "api/HttpResponses";
+import sessionInterceptor from 'api/interceptors/sessionInterceptor';
+import client from 'api/httpClient';
+import HttpStatuses from 'api/HttpResponses';
 
 sessionInterceptor();
 
 const ENDPOINTS = {
-  SIGN_UP: "/users",
-  LOGIN: "/users/sign_in",
-  PROFILE: "/users/",
-  LOGOUT: "/users/sign_out"
+  SIGN_UP: '/users',
+  LOGIN: '/users/sign_in',
+  PROFILE: '/users/',
+  LOGOUT: '/users/sign_out',
 };
 
 const setAuthTokens = (response) => {
@@ -21,11 +21,11 @@ const setAuthTokens = (response) => {
   sessionStorage.setItem('api-key-client', client);
   sessionStorage.setItem('api-key-uid', uid);
   sessionStorage.setItem('api-user', JSON.stringify(userData));
-}
+};
 
 const userData = () => {
   return JSON.parse(sessionStorage.getItem('api-user'));
-}
+};
 
 const handleApiResponse = (response) => {
   if (response.status === HttpStatuses.UNAUTHORIZED) {
@@ -37,8 +37,8 @@ const handleApiResponse = (response) => {
 };
 
 const validToken = () => {
-  return !!sessionStorage.getItem('api-key-access-token')
-}
+  return !!sessionStorage.getItem('api-key-access-token');
+};
 
 const UserService = {
   login: async (email, password) => {
@@ -46,10 +46,10 @@ const UserService = {
       const response = await client.post(ENDPOINTS.LOGIN, {
         user: {
           email: email,
-          password: password
-        }
+          password: password,
+        },
       });
-  
+
       if (response.status === HttpStatuses.SUCCESS) {
         setAuthTokens(response);
         return true;
@@ -59,7 +59,6 @@ const UserService = {
     } catch (error) {
       return false;
     }
-    
   },
   signUp: async (request) => {
     const { data } = await client.post(ENDPOINTS.SIGN_UP, request);
@@ -97,7 +96,7 @@ const UserService = {
   },
   isLoggedIn: () => {
     return validToken();
-  }
+  },
 };
 
 export default UserService;

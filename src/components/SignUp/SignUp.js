@@ -1,29 +1,29 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
-import UserService from "services/UserService";
-import Navbar from "components/Navbar/Navbar";
-import FormInput from "components/FormInput/FormInput";
-import FormSelect from "components/FormSelect/FormSelect";
-import LandingVideo from "components/LandingVideo/LandingVideo";
-import SignUpConfirm from "components/SignUpConfirm/SignUpConfirm";
+import UserService from 'services/UserService';
+import Navbar from 'components/Navbar/Navbar';
+import FormInput from 'components/FormInput/FormInput';
+import FormSelect from 'components/FormSelect/FormSelect';
+import LandingVideo from 'components/LandingVideo/LandingVideo';
+import SignUpConfirm from 'components/SignUpConfirm/SignUpConfirm';
 
-import "components/SignUp/SignUp.scss";
+import 'components/SignUp/SignUp.scss';
 
 const SignUp = () => {
-  const GENDER_OPTIONS = ["male", "female"];
+  const GENDER_OPTIONS = ['male', 'female'];
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [gender, setGender] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const [gender, setGender] = useState('');
   const [success, setSuccess] = useState(false);
 
   async function handleSubmit(event) {
     event.preventDefault();
 
-    if(!event.target.checkValidity()) return;
+    if (!event.target.checkValidity()) return;
 
     const body = {
       user: {
@@ -31,18 +31,22 @@ const SignUp = () => {
         email: email,
         gender: gender,
         password: password,
-        password_confirmation: passwordConfirmation
-      }
+        password_confirmation: passwordConfirmation,
+      },
     };
 
     try {
       await UserService.signUp(body);
       setSuccess(true);
     } catch (error) {
-      const { response: {data: {errors}} } = error;
+      const {
+        response: {
+          data: { errors },
+        },
+      } = error;
       alert(errors.full_messages[0]);
     }
-  };
+  }
 
   if (success) {
     return <SignUpConfirm />;
@@ -115,7 +119,9 @@ const SignUp = () => {
           </button>
         </form>
 
-        <Link to="/" className="sign-up__email-login">Sign In</Link>
+        <Link to="/" className="sign-up__email-login">
+          Sign In
+        </Link>
       </section>
 
       <LandingVideo />

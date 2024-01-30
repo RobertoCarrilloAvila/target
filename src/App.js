@@ -1,17 +1,17 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import PublicPaths from "components/Constants/PublicPaths";
-import PrivatePaths from "components/Constants/PrivatePaths";
-import PrivateRoute from "components/PrivateRoute/PrivateRoute";
+import PublicPaths from 'components/Constants/PublicPaths';
+import PrivatePaths from 'components/Constants/PrivatePaths';
+import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 
-import "App.scss";
-import Login from "components/Login/Login";
-import SignUp from "components/SignUp/SignUp";
-import About from "components/About/About";
-import Home from "components/Home/Home";
+import 'App.scss';
+import Login from 'components/Login/Login';
+import SignUp from 'components/SignUp/SignUp';
+import About from 'components/About/About';
+import Home from 'components/Home/Home';
 
 function App() {
-  return(
+  return (
     <BrowserRouter>
       <Routes>
         <Route path={PublicPaths.ROOT} element={<Login />} />

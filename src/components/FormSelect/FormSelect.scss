@@ -2,23 +2,22 @@
 
 .form-input {
   &__select {
-    -webkit-appearance: none;
     display: block;
     width: 100%;
-    margin-top: 3px;
-    font-size: 10px;
+    box-sizing: border-box;
     padding: 12px 2px;
+    border: 0.5px solid shared.$black-color;
+    margin-top: 3px;
+    appearance: none;
+    background-color: transparent;
+    color: shared.$black-color;
+    font-size: 10px;
+    font-weight: shared.$semibold;
+    letter-spacing: 1.5px;
     line-height: 12px;
     text-align: center;
-    border: 0.5px solid shared.$black-color;
-    letter-spacing: 1.5px;
-    font-weight: shared.$semibold;
-    box-sizing: border-box;
-    text-transform: uppercase;
-    color: shared.$black-color;
-    text-align: center;
-    background-color: transparent;
     text-align-last: center;
+    text-transform: uppercase;
 
     &::placeholder {
       color: shared.$gray-color;
@@ -26,7 +25,7 @@
     }
 
     option {
-      -webkit-appearance: none;
+      appearance: none;
       text-align: center;
     }
   }

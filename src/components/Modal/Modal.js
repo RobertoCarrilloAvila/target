@@ -1,18 +1,18 @@
-import { useEffect, useRef } from "react";
-import { createPortal } from "react-dom";
+import { useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 
-import smiles from "assets/smilies.svg";
-import close from "assets/icons/close.svg";
-import "components/Modal/Modal.scss";
+import smiles from 'assets/smilies.svg';
+import close from 'assets/icons/close.svg';
+import 'components/Modal/Modal.scss';
 
 const Modal = ({ children, title, toggleModal }) => {
   const elRef = useRef(null);
   if (!elRef.current) {
-    elRef.current = document.createElement("div");
+    elRef.current = document.createElement('div');
   }
 
   useEffect(() => {
-    const modalRoot = document.getElementById("modal");
+    const modalRoot = document.getElementById('modal');
     modalRoot.appendChild(elRef.current);
 
     return () => modalRoot.removeChild(elRef.current);
@@ -27,13 +27,12 @@ const Modal = ({ children, title, toggleModal }) => {
           </button>
           <img className="modal__header-img" src={smiles} alt="smiles" />
           <h2 className="modal__header-title">{title}</h2>
-          <div className="modal__body">
-            {children}
-          </div>
+          <div className="modal__body">{children}</div>
         </div>
       </div>
     </div>,
-    elRef.current);
-}
+    elRef.current
+  );
+};
 
 export default Modal;
