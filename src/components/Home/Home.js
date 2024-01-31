@@ -6,6 +6,7 @@ import Navbar from 'components/Navbar/Navbar';
 import MapSection from 'components/MapSection/MapSection';
 import Welcome from 'components/Welcome/Welcome';
 import Chat from 'components/Chat/Chat';
+import CreateTarget from 'components/CreateTarget/CreateTarget';
 
 const Home = () => {
   const [displayedComponent, setDisplayedComponent] = useState('Welcome');
@@ -14,20 +15,21 @@ const Home = () => {
   const Component = {
     Welcome,
     Chat,
+    CreateTarget,
   }[displayedComponent];
 
   return (
-      <MapContext.Provider value={{ selectedLocation, setSelectedLocation }}>
-    <div className="home">
+    <MapContext.Provider value={{ selectedLocation, setSelectedLocation }}>
+      <div className="home">
         <div className="home__container">
           <Navbar className="white" />
 
           <Component onContinue={setDisplayedComponent} />
         </div>
 
-        <MapSection />
-    </div>
-      </MapContext.Provider>
+        <MapSection onSelectLocation={setDisplayedComponent} />
+      </div>
+    </MapContext.Provider>
   );
 };
 
