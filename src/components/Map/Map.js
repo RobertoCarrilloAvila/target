@@ -18,7 +18,6 @@ const Map = ({ onSelectLocation }) => {
   });
 
   useEffect(() => {
-    console.log('Map useEffect mounted');
     navigator.geolocation.getCurrentPosition((position) => {
       setCurrentLocation({
         lat: position.coords.latitude,
