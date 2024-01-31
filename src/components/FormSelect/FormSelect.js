@@ -6,9 +6,9 @@ const FormSelect = ({
   value,
   options,
   name,
+  onChange,
   className = '',
   placeholder = '',
-  onChange,
   ...rest
 }) => {
   const handleChange = (event) => {
