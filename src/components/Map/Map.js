@@ -7,7 +7,7 @@ import MapContext from 'contexts/MapContext';
 import 'components/Map/Map.scss';
 import pin from 'assets/map/pin.png';
 
-const Map = () => {
+const Map = ({ onSelectLocation }) => {
   const {selectedLocation, setSelectedLocation} = useContext(MapContext);
   const [currentLocation, setCurrentLocation] = useState(
     MapConfig.defaultLocation
@@ -18,6 +18,7 @@ const Map = () => {
   });
 
   useEffect(() => {
+    console.log('Map useEffect mounted');
     navigator.geolocation.getCurrentPosition((position) => {
       setCurrentLocation({
         lat: position.coords.latitude,
@@ -28,6 +29,7 @@ const Map = () => {
 
   const handleMapClick = (e) => {
     setSelectedLocation({ lat: e.latLng.lat(), lng: e.latLng.lng() });
+    onSelectLocation('CreateTarget');
   };
 
   if (loadError) {
@@ -54,7 +56,7 @@ const Map = () => {
           selectedLocation && (
             <Marker
               position={selectedLocation}
-              icon={{ url: pin, ...MapConfig.markerIcon }}
+              icon={{ url: pin }}
             />
           )
         }

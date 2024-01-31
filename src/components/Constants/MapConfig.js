@@ -3,8 +3,7 @@ const MapConfig = {
   defaultZoom: 12,
   options: {
     draggableCursor: 'default'
-  },
-  markerIcon: { scaledSize: new window.google.maps.Size(44, 52) }
+  }
 };
 
 export default MapConfig;
