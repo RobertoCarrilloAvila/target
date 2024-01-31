@@ -1,4 +1,5 @@
 import httpClient from '../httpClient';
+import HttpStatuses from 'api/HttpResponses';
 
 const ACCESS_TOKEN = 'access-token';
 const UID = 'uid';
@@ -12,6 +13,15 @@ const headers = () => {
   };
 };
 
+const setAccessToken = (response) => {
+  const responseAccessToken = response.headers['access-token']
+  const sessionAccessToken = sessionStorage.getItem('api-key-access-token');
+
+  if (responseAccessToken && responseAccessToken !== sessionAccessToken) {
+    sessionStorage.setItem('api-key-access-token', responseAccessToken);
+  }
+};
+
 export default () => {
   httpClient.interceptors.request.use((request) => {
     request.headers = {
@@ -20,5 +30,16 @@ export default () => {
     };
 
     return request;
+  });
+
+  httpClient.interceptors.response.use((response) => {
+    setAccessToken(response);
+
+    if (response.status === HttpStatuses.UNAUTHORIZED) {
+      sessionStorage.clear();
+      window.location.href = '/';
+    }
+
+    return response;
   });
 };
