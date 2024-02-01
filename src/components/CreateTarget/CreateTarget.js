@@ -1,13 +1,15 @@
 import { useState, useEffect, useContext } from 'react';
 
-import TopicsService from 'services/TopicsService';
 import MapContext from 'contexts/MapContext';
+import TopicsService from 'services/TopicsService';
+import TargetsService from 'services/TargetsService';
+
 import FormInput from 'components/FormInput/FormInput';
 import FormSelect from 'components/FormSelect/FormSelect';
 import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
 
-const CreateTarget = () => {
+const CreateTarget = ({ onContinue }) => {
   const {selectedLocation} = useContext(MapContext);
 
   const [topicsList, setTopicsList] = useState([]);
@@ -31,16 +33,26 @@ const CreateTarget = () => {
     setTopicsList(formattedTopics);
   }
 
-  const createTarget = async (event) => {
-    event.preventDefault();
-    const target = {
+  const buildTargetRequest = () => {
+    return {
       title,
       radius,
       topic_id: topic,
       latitude: selectedLocation.lat,
       longitude: selectedLocation.lng
     }
-    console.log(target);
+  };
+
+  const createTarget = async (event) => {
+    event.preventDefault();
+    const target = buildTargetRequest();
+    
+    const created = await TargetsService.create(target);
+    if (created) {
+      onContinue('Chat');
+    } else {
+      alert('Error creating target');
+    }
   }
 
   return (
