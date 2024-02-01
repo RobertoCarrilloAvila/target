@@ -14,7 +14,7 @@ const CreateTarget = ({ onContinue }) => {
 
   const [topicsList, setTopicsList] = useState([]);
   const [radius, setRadius] = useState(0);
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
   const [topic, setTopic] = useState(null);
 
   useEffect(() => {
