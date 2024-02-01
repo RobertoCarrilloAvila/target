@@ -6,9 +6,9 @@ const FormSelect = ({
   value,
   options,
   name,
+  onChange,
   className = '',
   placeholder = '',
-  onChange,
   ...rest
 }) => {
   const handleChange = (event) => {
@@ -35,10 +35,10 @@ const FormSelect = ({
         <option value="" disabled>
           {placeholder}
         </option>
-        {options.map((value) => {
+        {options.map(({ key, value, label }) => {
           return (
-            <option key={value} value={value}>
-              {value}
+            <option key={key} value={value}>
+              {label}
             </option>
           );
         })}

@@ -2,10 +2,10 @@ import 'components/MapSection/MapSection.scss';
 
 import Map from 'components/Map/Map';
 
-const MapSection = () => {
+const MapSection = ({ onSelectLocation }) => {
   return (
     <div className="map-section">
-      <Map />
+      <Map onSelectLocation={onSelectLocation} />
     </div>
   );
 };
