@@ -35,37 +35,17 @@ const Navbar = ({ className, rightButton, leftButton }) => {
     }
   };
 
-  const renderRightButton = () => {
-    if (rightButton) return rightButton;
-
-    return (
-      <button>
-        <img
-          className="navbar__item navbar__pin"
-          src={blueNavbar ? pinWhite : pinBlack}
-          alt="pin"
-        />
-      </button>
-    );
-  };
-
-  const renderleftButton = () => {
-    if (leftButton) return leftButton;
-
-    return (
-      <button onClick={toggleMenu} data-target="navbar__collapsible-menu">
-        <img
-          className="navbar__item"
-          src={blueNavbar ? menuWhite : menuBlack}
-          alt="hamburger menu"
-        />
-      </button>
-    );
-  };
-
   return (
     <nav className={`navbar navbar--${className}`}>
-      {renderleftButton()}
+      {leftButton || (
+        <button onClick={toggleMenu} data-target="navbar__collapsible-menu">
+          <img
+            className="navbar__item"
+            src={blueNavbar ? menuWhite : menuBlack}
+            alt="hamburger menu"
+          />
+        </button>
+      )}
 
       {showmenu && (
         <div className="navbar__collapsible-menu">
@@ -95,7 +75,15 @@ const Navbar = ({ className, rightButton, leftButton }) => {
 
       <h1 className="navbar__item navbar__title">TARGET</h1>
 
-      {renderRightButton()}
+      {rightButton || (
+        <button>
+          <img
+            className="navbar__item navbar__pin"
+            src={blueNavbar ? pinWhite : pinBlack}
+            alt="pin"
+          />
+        </button>
+      )}
     </nav>
   );
 };
