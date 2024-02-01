@@ -13,8 +13,8 @@ const CreateTarget = ({ onContinue }) => {
   const { selectedLocation } = useContext(MapContext);
 
   const [topicsList, setTopicsList] = useState([]);
-  const [radius, setRadius] = useState(null);
-  const [title, setTitle] = useState(null);
+  const [radius, setRadius] = useState(0);
+  const [title, setTitle] = useState("");
   const [topic, setTopic] = useState(null);
 
   useEffect(() => {
@@ -22,26 +22,22 @@ const CreateTarget = ({ onContinue }) => {
   }, []);
 
   const fetchTopics = async () => {
-    const receiveTopics = await TopicsService.getTopics();
-    const formattedTopics = receiveTopics.map((elem) => {
-      return {
-        key: elem.topic.id,
-        value: elem.topic.id,
-        label: elem.topic.label,
-      };
-    });
+    const receivedTopics = await TopicsService.getTopics();
+    const formattedTopics = receivedTopics.map(({ topic }) => ({
+      key: topic.id,
+      value: topic.id,
+      label: topic.label,
+    }));
     setTopicsList(formattedTopics);
   };
 
-  const buildTargetRequest = () => {
-    return {
-      title,
-      radius,
-      topic_id: topic,
-      latitude: selectedLocation.lat,
-      longitude: selectedLocation.lng,
-    };
-  };
+  const buildTargetRequest = () => ({
+    title,
+    radius,
+    topic_id: topic,
+    latitude: selectedLocation.lat,
+    longitude: selectedLocation.lng,
+  });
 
   const createTarget = async (event) => {
     event.preventDefault();
@@ -67,7 +63,7 @@ const CreateTarget = ({ onContinue }) => {
             name="radius"
             className="create-target__input"
             label="specify area length"
-            required={true}
+            required
             onChange={setRadius}
           />
 
@@ -76,7 +72,7 @@ const CreateTarget = ({ onContinue }) => {
             name="title"
             className="create-target__input"
             label="target title"
-            required={true}
+            required
             onChange={setTitle}
           />
 
@@ -85,7 +81,7 @@ const CreateTarget = ({ onContinue }) => {
             name="topic"
             className="create-target__input"
             label="select a topic"
-            required={true}
+            required
             placeholder=""
             onChange={setTopic}
           />
