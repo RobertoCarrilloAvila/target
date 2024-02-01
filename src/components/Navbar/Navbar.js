@@ -46,7 +46,7 @@ const Navbar = ({ className, rightButton, leftButton }) => {
           alt="pin"
         />
       </button>
-    )
+    );
   };
 
   const renderleftButton = () => {
@@ -60,12 +60,12 @@ const Navbar = ({ className, rightButton, leftButton }) => {
           alt="hamburger menu"
         />
       </button>
-    )
+    );
   };
 
   return (
     <nav className={`navbar navbar--${className}`}>
-      { renderleftButton() }
+      {renderleftButton()}
 
       {showmenu && (
         <div className="navbar__collapsible-menu">
@@ -87,7 +87,6 @@ const Navbar = ({ className, rightButton, leftButton }) => {
                 </button>
               )}
             </li>
-            
           </ul>
         </div>
       )}
@@ -96,7 +95,7 @@ const Navbar = ({ className, rightButton, leftButton }) => {
 
       <h1 className="navbar__item navbar__title">TARGET</h1>
 
-      { renderRightButton() }
+      {renderRightButton()}
     </nav>
   );
 };

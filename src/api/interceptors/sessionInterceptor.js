@@ -14,7 +14,7 @@ const headers = () => {
 };
 
 const setAccessToken = (response) => {
-  const responseAccessToken = response.headers['access-token']
+  const responseAccessToken = response.headers['access-token'];
   const sessionAccessToken = sessionStorage.getItem('api-key-access-token');
 
   if (responseAccessToken && responseAccessToken !== sessionAccessToken) {

@@ -10,7 +10,7 @@ import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
 
 const CreateTarget = ({ onContinue }) => {
-  const {selectedLocation} = useContext(MapContext);
+  const { selectedLocation } = useContext(MapContext);
 
   const [topicsList, setTopicsList] = useState([]);
   const [radius, setRadius] = useState(null);
@@ -19,7 +19,7 @@ const CreateTarget = ({ onContinue }) => {
 
   useEffect(() => {
     fetchTopics();
-  }, [])
+  }, []);
 
   const fetchTopics = async () => {
     const receiveTopics = await TopicsService.getTopics();
@@ -27,11 +27,11 @@ const CreateTarget = ({ onContinue }) => {
       return {
         key: elem.topic.id,
         value: elem.topic.id,
-        label: elem.topic.label
-      }
+        label: elem.topic.label,
+      };
     });
     setTopicsList(formattedTopics);
-  }
+  };
 
   const buildTargetRequest = () => {
     return {
@@ -39,21 +39,21 @@ const CreateTarget = ({ onContinue }) => {
       radius,
       topic_id: topic,
       latitude: selectedLocation.lat,
-      longitude: selectedLocation.lng
-    }
+      longitude: selectedLocation.lng,
+    };
   };
 
   const createTarget = async (event) => {
     event.preventDefault();
     const target = buildTargetRequest();
-    
+
     const created = await TargetsService.create(target);
     if (created) {
       onContinue('Chat');
     } else {
       alert('Error creating target');
     }
-  }
+  };
 
   return (
     <div className="create-target">
@@ -100,7 +100,7 @@ const CreateTarget = ({ onContinue }) => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default CreateTarget;

@@ -8,7 +8,7 @@ import 'components/Map/Map.scss';
 import pin from 'assets/map/pin.png';
 
 const Map = ({ onSelectLocation }) => {
-  const {selectedLocation, setSelectedLocation} = useContext(MapContext);
+  const { selectedLocation, setSelectedLocation } = useContext(MapContext);
   const [currentLocation, setCurrentLocation] = useState(
     MapConfig.defaultLocation
   );
@@ -48,17 +48,11 @@ const Map = ({ onSelectLocation }) => {
         streetViewControl={false}
         options={MapConfig.options}
         clickableIcons={false}
-        onClick={ (e) => handleMapClick(e) }
+        onClick={(e) => handleMapClick(e)}
       >
-
-        { 
-          selectedLocation && (
-            <Marker
-              position={selectedLocation}
-              icon={{ url: pin }}
-            />
-          )
-        }
+        {selectedLocation && (
+          <Marker position={selectedLocation} icon={{ url: pin }} />
+        )}
       </GoogleMap>
     </div>
   );

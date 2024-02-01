@@ -12,7 +12,7 @@ const TopicsService = {
     } catch (error) {
       return [];
     }
-  }
-}
+  },
+};
 
 export default TopicsService;
