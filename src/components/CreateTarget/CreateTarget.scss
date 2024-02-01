@@ -1,0 +1,44 @@
+@use "../../shared.scss" as shared;
+
+.create-target {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 50px;
+    margin-top: 16px;
+  }
+
+  &__icon {
+    width: 30px;
+    height: auto;
+  }
+
+  &__title {
+    margin-top: 5px;
+    margin-bottom: 0;
+    color: shared.$black-color;
+    font-size: 11px;
+    font-weight: shared.$semibold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  &__form {
+    margin-top: 25px;
+
+    label {
+      text-align: left;
+    }
+  }
+
+  &__input {
+    margin-bottom: 11px;
+  }
+
+  &__submit {
+    display: block;
+    margin: 0 auto;
+  }
+}
