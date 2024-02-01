@@ -35,10 +35,10 @@ const FormSelect = ({
         <option value="" disabled>
           {placeholder}
         </option>
-        {options.map((option) => {
+        {options.map(({ key, value, label }) => {
           return (
-            <option key={option.key} value={option.value}>
-              {option.label}
+            <option key={key} value={value}>
+              {label}
             </option>
           );
         })}
