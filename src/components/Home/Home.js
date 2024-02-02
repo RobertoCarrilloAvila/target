@@ -21,7 +21,16 @@ const Home = () => {
   }[displayedComponent];
 
   return (
-    <MapContext.Provider value={{ selectedLocation, setSelectedLocation, selectedRadius, setSelectedRadius, targets, setTargets }}>
+    <MapContext.Provider
+      value={{
+        selectedLocation,
+        setSelectedLocation,
+        selectedRadius,
+        setSelectedRadius,
+        targets,
+        setTargets,
+      }}
+    >
       <div className="home">
         <div className="home__container">
           <Navbar className="white" />

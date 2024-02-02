@@ -1,5 +1,10 @@
 import { useState, useEffect, useContext } from 'react';
-import { GoogleMap, Marker, useLoadScript, Circle } from '@react-google-maps/api';
+import {
+  GoogleMap,
+  Marker,
+  useLoadScript,
+  Circle,
+} from '@react-google-maps/api';
 
 import TargetsService from 'services/TargetsService';
 import MapConfig from 'components/Constants/MapConfig';
@@ -9,7 +14,13 @@ import 'components/Map/Map.scss';
 import pin from 'assets/map/pin.png';
 
 const Map = ({ onSelectLocation }) => {
-  const { selectedLocation, setSelectedLocation, selectedRadius, targets, setTargets } = useContext(MapContext);
+  const {
+    selectedLocation,
+    setSelectedLocation,
+    selectedRadius,
+    targets,
+    setTargets,
+  } = useContext(MapContext);
   const [currentLocation, setCurrentLocation] = useState(
     MapConfig.defaultLocation
   );
@@ -35,7 +46,7 @@ const Map = ({ onSelectLocation }) => {
   const fetchTargets = async () => {
     const response = await TargetsService.getTargets();
     setTargets(response);
-  }
+  };
 
   const handleMapClick = (e) => {
     setSelectedLocation({ lat: e.latLng.lat(), lng: e.latLng.lng() });
@@ -64,11 +75,15 @@ const Map = ({ onSelectLocation }) => {
         {selectedLocation && (
           <>
             <Marker position={selectedLocation} icon={{ url: pin }} />
-            <Circle center={selectedLocation} radius={selectedRadius} options={MapConfig.selectedLocationOptions} />
+            <Circle
+              center={selectedLocation}
+              radius={selectedRadius}
+              options={MapConfig.selectedLocationOptions}
+            />
           </>
         )}
 
-        {targets.map(({ target: { id, latitude, longitude, radius }} ) => (
+        {targets.map(({ target: { id, latitude, longitude, radius } }) => (
           <Circle
             key={id}
             center={{ lat: latitude, lng: longitude }}

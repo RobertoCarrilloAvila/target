@@ -10,7 +10,8 @@ import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
 
 const CreateTarget = ({ onContinue }) => {
-  const { selectedLocation, selectedRadius, setSelectedRadius } = useContext(MapContext);
+  const { selectedLocation, selectedRadius, setSelectedRadius } =
+    useContext(MapContext);
 
   const [topicsList, setTopicsList] = useState([]);
   const [title, setTitle] = useState('');
@@ -63,7 +64,9 @@ const CreateTarget = ({ onContinue }) => {
             className="create-target__input"
             label="specify area length"
             required
-            onChange={(val) => {setSelectedRadius(parseInt(val))}}
+            onChange={(val) => {
+              setSelectedRadius(parseInt(val));
+            }}
             min="1"
           />
 
