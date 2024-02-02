@@ -83,14 +83,35 @@ const Map = ({ onSelectLocation }) => {
           </>
         )}
 
-        {targets.map(({ target: { id, latitude, longitude, radius } }) => (
-          <Circle
-            key={id}
-            center={{ lat: latitude, lng: longitude }}
-            radius={radius}
-            options={MapConfig.targetsOptions}
-          />
-        ))}
+        {targets.map(
+          ({
+            target: {
+              id,
+              latitude,
+              longitude,
+              radius,
+              topic: { icon },
+            },
+          }) => (
+            <>
+              <Marker
+                key={`marker-${id}`}
+                position={{ lat: latitude, lng: longitude }}
+                icon={{
+                  url: icon,
+                  scaledSize: new window.google.maps.Size(40, 40),
+                }}
+              />
+
+              <Circle
+                key={`circle-${id}`}
+                center={{ lat: latitude, lng: longitude }}
+                radius={radius}
+                options={MapConfig.targetsOptions}
+              />
+            </>
+          )
+        )}
       </GoogleMap>
     </div>
   );
