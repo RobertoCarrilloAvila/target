@@ -10,8 +10,7 @@ import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
 
 const CreateTarget = ({ onContinue }) => {
-  const { selectedLocation, selectedRadius, setSelectedRadius } =
-    useContext(MapContext);
+  const { mapProperties, setMapProperties } = useContext(MapContext);
 
   const [topicsList, setTopicsList] = useState([]);
   const [title, setTitle] = useState('');
@@ -33,10 +32,10 @@ const CreateTarget = ({ onContinue }) => {
 
   const buildTargetRequest = () => ({
     title,
-    radius: selectedRadius,
+    radius: mapProperties.selectedRadius,
     topic_id: topic,
-    latitude: selectedLocation.lat,
-    longitude: selectedLocation.lng,
+    latitude: mapProperties.selectedLocation.lat,
+    longitude: mapProperties.selectedLocation.lng,
   });
 
   const createTarget = async (event) => {
@@ -65,8 +64,9 @@ const CreateTarget = ({ onContinue }) => {
             label="specify area length"
             required
             onChange={(val) => {
-              setSelectedRadius(parseInt(val));
-            }}
+              setMapProperties({
+                ...mapProperties, selectedRadius: parseInt(val)
+              })}}
             min="1"
           />
 
@@ -92,7 +92,7 @@ const CreateTarget = ({ onContinue }) => {
           <button
             type="submit"
             className="create-target__submit btn"
-            disabled={!selectedRadius || !title || !topic}
+            disabled={!mapProperties.SelectedRadius || !title || !topic}
           >
             save target
           </button>

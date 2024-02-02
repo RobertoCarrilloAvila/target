@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useEffect, useContext } from 'react';
 import {
   GoogleMap,
   Marker,
@@ -14,17 +14,7 @@ import 'components/Map/Map.scss';
 import pin from 'assets/map/pin.png';
 
 const Map = ({ onSelectLocation }) => {
-  const {
-    selectedLocation,
-    setSelectedLocation,
-    selectedRadius,
-    targets,
-    setTargets,
-  } = useContext(MapContext);
-  const [currentLocation, setCurrentLocation] = useState(
-    MapConfig.defaultLocation
-  );
-
+  const { mapProperties, setMapProperties, targets, setTargets } = useContext(MapContext);
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
@@ -36,9 +26,12 @@ const Map = ({ onSelectLocation }) => {
 
   const fetchCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
-      setCurrentLocation({
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
+      setMapProperties({
+        ...mapProperties,
+        location: {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        }
       });
     });
   };
@@ -49,7 +42,10 @@ const Map = ({ onSelectLocation }) => {
   };
 
   const handleMapClick = (e) => {
-    setSelectedLocation({ lat: e.latLng.lat(), lng: e.latLng.lng() });
+    setMapProperties({
+      ...mapProperties,
+      selectedLocation: { lat: e.latLng.lat(), lng: e.latLng.lng() }
+    })
     onSelectLocation('CreateTarget');
   };
 
@@ -61,23 +57,24 @@ const Map = ({ onSelectLocation }) => {
     return <div className="map__loading">Loading maps</div>;
   }
 
+console.log('mapProperties', mapProperties);
   return (
     <div className="map">
       <GoogleMap
         mapContainerClassName="map__container"
-        center={currentLocation}
+        center={mapProperties.location}
         zoom={MapConfig.defaultZoom}
         streetViewControl={false}
         options={MapConfig.options}
         clickableIcons={false}
         onClick={(e) => handleMapClick(e)}
       >
-        {selectedLocation && (
+        {mapProperties.selectedLocation != null && (
           <>
-            <Marker position={selectedLocation} icon={{ url: pin }} />
+            <Marker position={mapProperties.selectedLocation} icon={{ url: pin }} />
             <Circle
-              center={selectedLocation}
-              radius={selectedRadius}
+              center={mapProperties.selectedLocation}
+              radius={mapProperties.selectedRadius}
               options={MapConfig.selectedLocationOptions}
             />
           </>

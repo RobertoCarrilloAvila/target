@@ -10,8 +10,7 @@ import CreateTarget from 'components/CreateTarget/CreateTarget';
 
 const Home = () => {
   const [displayedComponent, setDisplayedComponent] = useState('Welcome');
-  const [selectedLocation, setSelectedLocation] = useState(null);
-  const [selectedRadius, setSelectedRadius] = useState(1);
+  const [mapProperties, setMapProperties] = useState({});
   const [targets, setTargets] = useState([]);
 
   const Component = {
@@ -22,13 +21,7 @@ const Home = () => {
 
   return (
     <MapContext.Provider
-      value={{
-        selectedLocation,
-        setSelectedLocation,
-        selectedRadius,
-        setSelectedRadius,
-        targets,
-        setTargets,
+      value={{mapProperties, setMapProperties, targets, setTargets,
       }}
     >
       <div className="home">
