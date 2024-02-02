@@ -4,6 +4,19 @@ const MapConfig = {
   options: {
     draggableCursor: 'default',
   },
+  selectedLocationOptions: {
+    strokeColor: '#EFC638',
+    strokeOpacity: 0.7,
+    strokeWeight: 1,
+    fillColor: '#FFFFFF',
+    fillOpacity: 0.7,
+  },
+  targetsOptions: {
+    strokeColor: '#EFC638',
+    strokeOpacity: 0.7,
+    fillColor: '#EFC638',
+    fillOpacity: 0.7,
+  },
 };
 
 export default MapConfig;
