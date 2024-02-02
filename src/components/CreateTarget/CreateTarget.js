@@ -65,8 +65,10 @@ const CreateTarget = ({ onContinue }) => {
             required
             onChange={(val) => {
               setMapProperties({
-                ...mapProperties, selectedRadius: parseInt(val)
-              })}}
+                ...mapProperties,
+                selectedRadius: parseInt(val),
+              });
+            }}
             min="1"
           />
 

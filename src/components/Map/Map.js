@@ -14,7 +14,8 @@ import 'components/Map/Map.scss';
 import pin from 'assets/map/pin.png';
 
 const Map = ({ onSelectLocation }) => {
-  const { mapProperties, setMapProperties, targets, setTargets } = useContext(MapContext);
+  const { mapProperties, setMapProperties, targets, setTargets } =
+    useContext(MapContext);
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
@@ -31,7 +32,7 @@ const Map = ({ onSelectLocation }) => {
         location: {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
-        }
+        },
       });
     });
   };
@@ -44,8 +45,8 @@ const Map = ({ onSelectLocation }) => {
   const handleMapClick = (e) => {
     setMapProperties({
       ...mapProperties,
-      selectedLocation: { lat: e.latLng.lat(), lng: e.latLng.lng() }
-    })
+      selectedLocation: { lat: e.latLng.lat(), lng: e.latLng.lng() },
+    });
     onSelectLocation('CreateTarget');
   };
 
@@ -57,7 +58,7 @@ const Map = ({ onSelectLocation }) => {
     return <div className="map__loading">Loading maps</div>;
   }
 
-console.log('mapProperties', mapProperties);
+  console.log('mapProperties', mapProperties);
   return (
     <div className="map">
       <GoogleMap
@@ -71,7 +72,10 @@ console.log('mapProperties', mapProperties);
       >
         {mapProperties.selectedLocation != null && (
           <>
-            <Marker position={mapProperties.selectedLocation} icon={{ url: pin }} />
+            <Marker
+              position={mapProperties.selectedLocation}
+              icon={{ url: pin }}
+            />
             <Circle
               center={mapProperties.selectedLocation}
               radius={mapProperties.selectedRadius}

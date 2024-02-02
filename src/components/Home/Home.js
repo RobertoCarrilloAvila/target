@@ -21,8 +21,7 @@ const Home = () => {
 
   return (
     <MapContext.Provider
-      value={{mapProperties, setMapProperties, targets, setTargets,
-      }}
+      value={{ mapProperties, setMapProperties, targets, setTargets }}
     >
       <div className="home">
         <div className="home__container">
