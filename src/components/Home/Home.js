@@ -11,6 +11,8 @@ import CreateTarget from 'components/CreateTarget/CreateTarget';
 const Home = () => {
   const [displayedComponent, setDisplayedComponent] = useState('Welcome');
   const [selectedLocation, setSelectedLocation] = useState(null);
+  const [selectedRadius, setSelectedRadius] = useState(1);
+  const [targets, setTargets] = useState([]);
 
   const Component = {
     Welcome,
@@ -19,7 +21,7 @@ const Home = () => {
   }[displayedComponent];
 
   return (
-    <MapContext.Provider value={{ selectedLocation, setSelectedLocation }}>
+    <MapContext.Provider value={{ selectedLocation, setSelectedLocation, selectedRadius, setSelectedRadius, targets, setTargets }}>
       <div className="home">
         <div className="home__container">
           <Navbar className="white" />
