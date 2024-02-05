@@ -46,6 +46,15 @@ const Map = ({ onSelectLocation }) => {
     setMapProperties({
       ...mapProperties,
       selectedLocation: { lat: e.latLng.lat(), lng: e.latLng.lng() },
+      selectedTargetId: null,
+    });
+    onSelectLocation('CreateTarget');
+  };
+
+  const handleTargetClick = (targetId) => {
+    setMapProperties({
+      ...mapProperties,
+      selectedTargetId: targetId
     });
     onSelectLocation('CreateTarget');
   };
@@ -101,6 +110,7 @@ const Map = ({ onSelectLocation }) => {
                   url: icon,
                   scaledSize: new window.google.maps.Size(40, 40),
                 }}
+                onClick={() => handleTargetClick(id)}
               />
 
               <Circle
