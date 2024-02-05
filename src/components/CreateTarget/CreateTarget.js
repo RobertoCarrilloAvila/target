@@ -10,7 +10,7 @@ import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
 
 const CreateTarget = ({ onContinue }) => {
-  const { mapProperties, setMapProperties, targets } = useContext(MapContext);
+  const { mapProperties, setMapProperties, targets, setTargets } = useContext(MapContext);
 
   const [topicsList, setTopicsList] = useState([]);
   const [title, setTitle] = useState('');
@@ -28,7 +28,6 @@ const CreateTarget = ({ onContinue }) => {
     const { target } = targets.find(({ target }) => target.id == targetId );
     setTitle(target.title);
     setTopic(target.topic.id);
-    console.log(target);
     setMapProperties({
       ...mapProperties,
       selectedRadius: target.radius,
@@ -66,6 +65,17 @@ const CreateTarget = ({ onContinue }) => {
       onContinue('Chat');
     } else {
       alert('Error creating target');
+    }
+  };
+
+  const deleteTarget = async () => {
+    const { selectedTargetId } = mapProperties;
+    const deleted = await TargetsService.delete(selectedTargetId);
+    if (deleted) {
+      setTargets(targets.filter(({ target }) => target.id !== selectedTargetId));
+      onContinue('Chat');
+    } else {
+      alert('Error deleting target');
     }
   };
 
@@ -117,6 +127,7 @@ const CreateTarget = ({ onContinue }) => {
             <button
               type='button'
               className="create-target__delete btn"
+              onClick={deleteTarget}
             >
               delete
             </button>

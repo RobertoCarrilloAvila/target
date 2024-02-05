@@ -21,9 +21,11 @@ const Map = ({ onSelectLocation }) => {
   });
 
   useEffect(() => {
+    if (targets.length > 0) return;
+
     fetchCurrentLocation();
     fetchTargets();
-  }, []);
+  }, [targets]);
 
   const fetchCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -106,6 +108,7 @@ const Map = ({ onSelectLocation }) => {
               <Marker
                 key={`marker-${id}`}
                 position={{ lat: latitude, lng: longitude }}
+                clickable="true"
                 icon={{
                   url: icon,
                   scaledSize: new window.google.maps.Size(40, 40),
