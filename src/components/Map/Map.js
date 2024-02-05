@@ -58,7 +58,6 @@ const Map = ({ onSelectLocation }) => {
     return <div className="map__loading">Loading maps</div>;
   }
 
-  console.log('mapProperties', mapProperties);
   return (
     <div className="map">
       <GoogleMap
