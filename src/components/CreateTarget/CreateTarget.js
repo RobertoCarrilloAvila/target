@@ -10,7 +10,8 @@ import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
 
 const CreateTarget = ({ onContinue }) => {
-  const { mapProperties, setMapProperties, targets, setTargets } = useContext(MapContext);
+  const { mapProperties, setMapProperties, targets, setTargets } =
+    useContext(MapContext);
 
   const [topicsList, setTopicsList] = useState([]);
   const [title, setTitle] = useState('');
@@ -25,7 +26,7 @@ const CreateTarget = ({ onContinue }) => {
     const { selectedTargetId: targetId } = mapProperties;
     if (!targetId) return;
 
-    const { target } = targets.find(({ target }) => target.id == targetId );
+    const { target } = targets.find(({ target }) => target.id == targetId);
     setTitle(target.title);
     setTopic(target.topic.id);
     setMapProperties({
@@ -34,8 +35,8 @@ const CreateTarget = ({ onContinue }) => {
       selectedLocation: {
         lat: target.latitude,
         lng: target.longitude,
-      }
-    })
+      },
+    });
   };
 
   const fetchTopics = async () => {
@@ -72,7 +73,9 @@ const CreateTarget = ({ onContinue }) => {
     const { selectedTargetId } = mapProperties;
     const deleted = await TargetsService.delete(selectedTargetId);
     if (deleted) {
-      setTargets(targets.filter(({ target }) => target.id !== selectedTargetId));
+      setTargets(
+        targets.filter(({ target }) => target.id !== selectedTargetId)
+      );
       onContinue('Chat');
     } else {
       alert('Error deleting target');
@@ -125,7 +128,7 @@ const CreateTarget = ({ onContinue }) => {
 
           {mapProperties.selectedTargetId ? (
             <button
-              type='button'
+              type="button"
               className="create-target__delete btn"
               onClick={deleteTarget}
             >

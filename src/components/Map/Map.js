@@ -56,7 +56,7 @@ const Map = ({ onSelectLocation }) => {
   const handleTargetClick = (targetId) => {
     setMapProperties({
       ...mapProperties,
-      selectedTargetId: targetId
+      selectedTargetId: targetId,
     });
     onSelectLocation('CreateTarget');
   };
