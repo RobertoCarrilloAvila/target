@@ -27,15 +27,6 @@ const userData = () => {
   return JSON.parse(sessionStorage.getItem('api-user'));
 };
 
-const handleApiResponse = (response) => {
-  if (response.status === HttpStatuses.UNAUTHORIZED) {
-    sessionStorage.clear();
-    return false;
-  }
-
-  return true;
-};
-
 const validToken = () => {
   return !!sessionStorage.getItem('api-key-access-token');
 };
@@ -73,8 +64,6 @@ const UserService = {
         return true;
       }
 
-      handleApiResponse(response);
-
       return false;
     } catch (error) {
       return false;
@@ -88,7 +77,6 @@ const UserService = {
         return response.data;
       }
 
-      handleApiResponse(response);
       return false;
     } catch (error) {
       return false;

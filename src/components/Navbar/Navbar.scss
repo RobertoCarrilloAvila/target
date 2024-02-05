@@ -65,6 +65,10 @@
     text-decoration: none;
     text-transform: uppercase;
   }
+
+  &__pin {
+    display: block;
+  }
 }
 
 @media (min-width: #{shared.$md}) {
@@ -75,6 +79,10 @@
       &:first-child {
         display: block;
       }
+    }
+
+    &__pin {
+      display: none;
     }
 
     .navbar-collapsable-menu {
