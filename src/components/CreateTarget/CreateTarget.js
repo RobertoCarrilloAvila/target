@@ -10,7 +10,7 @@ import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
 
 const CreateTarget = ({ onContinue }) => {
-  const { mapProperties, setMapProperties } = useContext(MapContext);
+  const { mapProperties, setMapProperties, targets } = useContext(MapContext);
 
   const [topicsList, setTopicsList] = useState([]);
   const [title, setTitle] = useState('');
@@ -18,7 +18,26 @@ const CreateTarget = ({ onContinue }) => {
 
   useEffect(() => {
     fetchTopics();
-  }, []);
+    loadSelectedTarget();
+  }, [mapProperties.selectedTargetId]);
+
+  const loadSelectedTarget = () => {
+    const { selectedTargetId: targetId } = mapProperties;
+    if (!targetId) return;
+
+    const { target } = targets.find(({ target }) => target.id == targetId );
+    setTitle(target.title);
+    setTopic(target.topic.id);
+    console.log(target);
+    setMapProperties({
+      ...mapProperties,
+      selectedRadius: target.radius,
+      selectedLocation: {
+        lat: target.latitude,
+        lng: target.longitude,
+      }
+    })
+  };
 
   const fetchTopics = async () => {
     const receivedTopics = await TopicsService.getTopics();
@@ -70,6 +89,7 @@ const CreateTarget = ({ onContinue }) => {
               });
             }}
             min="1"
+            value={mapProperties.selectedRadius || ''}
           />
 
           <FormInput
@@ -79,6 +99,7 @@ const CreateTarget = ({ onContinue }) => {
             label="target title"
             required
             onChange={setTitle}
+            value={title}
           />
 
           <FormSelect
@@ -89,15 +110,25 @@ const CreateTarget = ({ onContinue }) => {
             required
             placeholder=""
             onChange={setTopic}
+            value={topic}
           />
 
-          <button
-            type="submit"
-            className="create-target__submit btn"
-            disabled={!mapProperties.SelectedRadius || !title || !topic}
-          >
-            save target
-          </button>
+          {mapProperties.selectedTargetId ? (
+            <button
+              type='button'
+              className="create-target__delete btn"
+            >
+              delete
+            </button>
+          ) : (
+            <button
+              type="submit"
+              className="create-target__submit btn"
+              disabled={!mapProperties.selectedRadius || !title || !topic}
+            >
+              save target
+            </button>
+          )}
         </form>
       </div>
     </div>
