@@ -10,7 +10,10 @@ import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
 
 const CreateTarget = ({ onContinue }) => {
-  const { mapProperties: { selectedRadius, selectedLocation }, setMapProperties } = useContext(MapContext);
+  const {
+    mapProperties: { selectedRadius, selectedLocation },
+    setMapProperties,
+  } = useContext(MapContext);
 
   const [topicsList, setTopicsList] = useState([]);
   const [title, setTitle] = useState('');

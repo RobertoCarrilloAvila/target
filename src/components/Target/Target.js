@@ -3,7 +3,6 @@ import { Marker, Circle } from '@react-google-maps/api';
 import MapConfig from 'components/Constants/MapConfig';
 
 const Target = ({ id, latitude, longitude, radius, icon }) => {
-
   return (
     <>
       <Marker
@@ -23,6 +22,6 @@ const Target = ({ id, latitude, longitude, radius, icon }) => {
       />
     </>
   );
-}
+};
 
 export default Target;

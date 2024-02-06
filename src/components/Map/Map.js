@@ -33,7 +33,7 @@ const Map = ({ onSelectLocation }) => {
         });
       });
     };
-  
+
     const fetchTargets = async () => {
       const response = await TargetsService.getTargets();
       setTargets(response);
