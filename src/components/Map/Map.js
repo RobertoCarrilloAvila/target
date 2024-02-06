@@ -21,26 +21,26 @@ const Map = ({ onSelectLocation }) => {
   });
 
   useEffect(() => {
+    const fetchCurrentLocation = () => {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setMapProperties({
+          ...mapProperties,
+          location: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          },
+        });
+      });
+    };
+  
+    const fetchTargets = async () => {
+      const response = await TargetsService.getTargets();
+      setTargets(response);
+    };
+
     fetchCurrentLocation();
     fetchTargets();
-  }, []);
-
-  const fetchCurrentLocation = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      setMapProperties({
-        ...mapProperties,
-        location: {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        },
-      });
-    });
-  };
-
-  const fetchTargets = async () => {
-    const response = await TargetsService.getTargets();
-    setTargets(response);
-  };
+  }, [mapProperties, setMapProperties, setTargets]);
 
   const handleMapClick = (e) => {
     setMapProperties({
