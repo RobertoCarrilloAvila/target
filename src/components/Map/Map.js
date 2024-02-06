@@ -63,7 +63,7 @@ const Map = ({ onSelectLocation }) => {
     <div className="map">
       <GoogleMap
         mapContainerClassName="map__container"
-        center={mapProperties.location}
+        center={mapProperties.location || MapConfig.defaultLocation}
         zoom={MapConfig.defaultZoom}
         streetViewControl={false}
         options={MapConfig.options}
