@@ -6,6 +6,7 @@ import {
   Circle,
 } from '@react-google-maps/api';
 
+import Target from 'components/Target/Target';
 import TargetsService from 'services/TargetsService';
 import MapConfig from 'components/Constants/MapConfig';
 import MapContext from 'contexts/MapContext';
@@ -40,7 +41,7 @@ const Map = ({ onSelectLocation }) => {
 
     fetchCurrentLocation();
     fetchTargets();
-  }, [mapProperties, setMapProperties, setTargets]);
+  }, []);
 
   const handleMapClick = (e) => {
     setMapProperties({
@@ -93,23 +94,14 @@ const Map = ({ onSelectLocation }) => {
               topic: { icon },
             },
           }) => (
-            <>
-              <Marker
-                key={`marker-${id}`}
-                position={{ lat: latitude, lng: longitude }}
-                icon={{
-                  url: icon,
-                  scaledSize: new window.google.maps.Size(40, 40),
-                }}
-              />
-
-              <Circle
-                key={`circle-${id}`}
-                center={{ lat: latitude, lng: longitude }}
-                radius={radius}
-                options={MapConfig.targetsOptions}
-              />
-            </>
+            <Target
+              key={id}
+              id={id}
+              latitude={latitude}
+              longitude={longitude}
+              radius={radius}
+              icon={icon}
+            />
           )
         )}
       </GoogleMap>
