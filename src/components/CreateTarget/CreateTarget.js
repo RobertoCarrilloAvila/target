@@ -31,14 +31,9 @@ const CreateTarget = ({ onContinue }) => {
       const { target } = targets.find(
         ({ target }) => target.id == selectedTargetId
       );
-      if (target.title !== title) {
-        console.log('title');
-        setTitle(target.title);
-      }
-      if (topicId !== target.topic.id) {
-        console.log('topic');
-        setTopicId(target.topic.id);
-      }
+
+      if (target.title !== title) setTitle(target.title);
+      if (topicId !== target.topic.id) setTopicId(target.topic.id);
 
       const newMapProperties = {
         ...mapProperties,
@@ -49,10 +44,8 @@ const CreateTarget = ({ onContinue }) => {
         },
       };
 
-      if (!isEqual(newMapProperties, mapProperties)) {
-        console.log('map');
+      if (!isEqual(newMapProperties, mapProperties))
         setMapProperties(newMapProperties);
-      }
     };
 
     loadSelectedTarget();
@@ -74,15 +67,7 @@ const CreateTarget = ({ onContinue }) => {
         label: topic.label,
       }));
 
-      if (!isEqual(formattedTopics, topicsList)) {
-        console.log(
-          'topics',
-          formattedTopics,
-          topicsList,
-          isEqual(formattedTopics, topicsList)
-        );
-        setTopicsList(formattedTopics);
-      }
+      if (!isEqual(formattedTopics, topicsList)) setTopicsList(formattedTopics);
     };
 
     fetchTopics();

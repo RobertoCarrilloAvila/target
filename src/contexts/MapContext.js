@@ -1,4 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
+import { isEqual } from 'lodash';
+
 import TargetsService from 'services/TargetsService';
 
 const MapContext = createContext();
@@ -24,12 +26,15 @@ const MapContextProvider = ({ children }) => {
 
     const fetchTargets = async () => {
       const response = await TargetsService.getTargets();
-      if (targets !== response) setTargets(response);
+      const targetsIds = targets.map(({ id }) => id).sort();
+      const responseIds = response.map(({ id }) => id).sort();
+
+      if (!isEqual(targetsIds, responseIds)) setTargets(response);
     };
 
     fetchCurrentLocation();
     fetchTargets();
-  }, [mapProperties]);
+  }, [mapProperties, targets]);
 
   return (
     <MapContext.Provider
