@@ -29,7 +29,7 @@ const MapContextProvider = ({ children }) => {
 
     fetchCurrentLocation();
     fetchTargets();
-  }, [mapProperties, targets]);
+  }, [mapProperties]);
 
   return (
     <MapContext.Provider

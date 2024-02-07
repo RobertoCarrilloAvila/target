@@ -61,21 +61,10 @@ const Map = ({ onSelectLocation }) => {
         )}
 
         {targets.map(
-          ({
-            target: {
-              id,
-              latitude,
-              longitude,
-              radius,
-              topic: { icon },
-            },
-          }) => (
+          ({target, target: { topic: { icon }}}) => (
             <Target
-              key={id}
-              id={id}
-              latitude={latitude}
-              longitude={longitude}
-              radius={radius}
+              key={target.id}
+              {...target}
               icon={icon}
             />
           )
