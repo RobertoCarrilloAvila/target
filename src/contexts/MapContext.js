@@ -32,10 +32,12 @@ const MapContextProvider = ({ children }) => {
   }, [mapProperties, targets]);
 
   return (
-    <MapContext.Provider value={{ mapProperties, setMapProperties, targets, setTargets }}>
+    <MapContext.Provider
+      value={{ mapProperties, setMapProperties, targets, setTargets }}
+    >
       {children}
     </MapContext.Provider>
-  )
+  );
 };
 
 export { MapContext, MapContextProvider };
