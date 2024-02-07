@@ -61,12 +61,13 @@ const Map = ({ onSelectLocation }) => {
         )}
 
         {targets.map(
-          ({target, target: { topic: { icon }}}) => (
-            <Target
-              key={target.id}
-              {...target}
-              icon={icon}
-            />
+          ({
+            target,
+            target: {
+              topic: { icon },
+            },
+          }) => (
+            <Target key={target.id} {...target} icon={icon} />
           )
         )}
       </GoogleMap>
