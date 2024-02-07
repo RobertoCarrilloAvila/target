@@ -7,7 +7,16 @@ import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
 
 const CreateTarget = ({ onContinue }) => {
-  const { setMapProperties, selectedLocation, selectedRadius, setTitle, topicsList, setTopic, topic, title } = useMap();
+  const {
+    setMapProperties,
+    selectedLocation,
+    selectedRadius,
+    setTitle,
+    topicsList,
+    setTopic,
+    topic,
+    title,
+  } = useMap();
   const buildTargetRequest = () => ({
     title,
     radius: selectedRadius,

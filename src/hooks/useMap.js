@@ -6,7 +6,8 @@ import TopicsService from 'services/TopicsService';
 const useMap = () => {
   const {
     mapProperties: { selectedRadius, selectedLocation },
-    setMapProperties, mapProperties,
+    setMapProperties,
+    mapProperties,
   } = useContext(MapContext);
 
   const [topicsList, setTopicsList] = useState([]);
@@ -38,7 +39,7 @@ const useMap = () => {
     setTitle,
     topic,
     setTopic,
-  }
-}
+  };
+};
 
 export default useMap;
