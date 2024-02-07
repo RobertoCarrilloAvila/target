@@ -7,41 +7,18 @@ import {
 } from '@react-google-maps/api';
 
 import Target from 'components/Target/Target';
-import TargetsService from 'services/TargetsService';
 import MapConfig from 'components/Constants/MapConfig';
-import MapContext from 'contexts/MapContext';
+import { MapContext } from 'contexts/MapContext';
 
 import 'components/Map/Map.scss';
 import pin from 'assets/map/pin.png';
 
 const Map = ({ onSelectLocation }) => {
-  const { mapProperties, setMapProperties, targets, setTargets } =
+  const { mapProperties, setMapProperties, targets } =
     useContext(MapContext);
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
-
-  useEffect(() => {
-    const fetchCurrentLocation = () => {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setMapProperties({
-          ...mapProperties,
-          location: {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          },
-        });
-      });
-    };
-
-    const fetchTargets = async () => {
-      const response = await TargetsService.getTargets();
-      setTargets(response);
-    };
-
-    fetchCurrentLocation();
-    fetchTargets();
-  }, []);
 
   const handleMapClick = (e) => {
     setMapProperties({

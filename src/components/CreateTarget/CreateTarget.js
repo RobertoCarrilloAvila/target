@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 
-import MapContext from 'contexts/MapContext';
+import { MapContext } from 'contexts/MapContext';
 import TopicsService from 'services/TopicsService';
 import TargetsService from 'services/TargetsService';
 
