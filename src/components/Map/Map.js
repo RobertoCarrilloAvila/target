@@ -1,4 +1,4 @@
-import { useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import {
   GoogleMap,
   Marker,
@@ -6,44 +6,19 @@ import {
   Circle,
 } from '@react-google-maps/api';
 
-import TargetsService from 'services/TargetsService';
+import Target from 'components/Target/Target';
+import { MapContext } from 'contexts/MapContext';
 import MapConfig from 'components/Constants/MapConfig';
-import MapContext from 'contexts/MapContext';
 import Components from 'components/Constants/Components';
 
 import 'components/Map/Map.scss';
 import pin from 'assets/map/pin.png';
 
 const Map = ({ onSelectLocation }) => {
-  const { mapProperties, setMapProperties, targets, setTargets } =
-    useContext(MapContext);
+  const { mapProperties, setMapProperties, targets } = useContext(MapContext);
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
-
-  useEffect(() => {
-    if (targets.length > 0) return;
-
-    fetchCurrentLocation();
-    fetchTargets();
-  }, [targets]);
-
-  const fetchCurrentLocation = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      setMapProperties({
-        ...mapProperties,
-        location: {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        },
-      });
-    });
-  };
-
-  const fetchTargets = async () => {
-    const response = await TargetsService.getTargets();
-    setTargets(response);
-  };
 
   const handleMapClick = (e) => {
     setMapProperties({
@@ -74,7 +49,7 @@ const Map = ({ onSelectLocation }) => {
     <div className="map">
       <GoogleMap
         mapContainerClassName="map__container"
-        center={mapProperties.location}
+        center={mapProperties.location || MapConfig.defaultLocation}
         zoom={MapConfig.defaultZoom}
         streetViewControl={false}
         options={MapConfig.options}
@@ -97,33 +72,16 @@ const Map = ({ onSelectLocation }) => {
 
         {targets.map(
           ({
+            target,
             target: {
-              id,
-              latitude,
-              longitude,
-              radius,
               topic: { icon },
             },
           }) => (
-            <>
-              <Marker
-                key={`marker-${id}`}
-                position={{ lat: latitude, lng: longitude }}
-                clickable
-                icon={{
-                  url: icon,
-                  scaledSize: new window.google.maps.Size(40, 40),
-                }}
-                onClick={() => handleTargetClick(id)}
-              />
-
-              <Circle
-                key={`circle-${id}`}
-                center={{ lat: latitude, lng: longitude }}
-                radius={radius}
-                options={MapConfig.targetsOptions}
-              />
-            </>
+            <Target
+              key={target.id}
+              icon={icon}
+              onClick={() => handleTargetClick(target.id)}
+              {...target} />
           )
         )}
       </GoogleMap>

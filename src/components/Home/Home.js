@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MapContext from 'contexts/MapContext';
+import { MapContextProvider } from 'contexts/MapContext';
 
 import 'components/Home/Home.scss';
 import Navbar from 'components/Navbar/Navbar';
@@ -11,8 +11,6 @@ import Components from 'components/Constants/Components';
 
 const Home = () => {
   const [displayedComponent, setDisplayedComponent] = useState(Components.WELCOME);
-  const [mapProperties, setMapProperties] = useState({});
-  const [targets, setTargets] = useState([]);
 
   const Component = {
     Welcome,
@@ -21,9 +19,7 @@ const Home = () => {
   }[displayedComponent];
 
   return (
-    <MapContext.Provider
-      value={{ mapProperties, setMapProperties, targets, setTargets }}
-    >
+    <MapContextProvider>
       <div className="home">
         <div className="home__container">
           <Navbar className="white" />
@@ -33,7 +29,7 @@ const Home = () => {
 
         <MapSection onSelectLocation={setDisplayedComponent} />
       </div>
-    </MapContext.Provider>
+    </MapContextProvider>
   );
 };
 

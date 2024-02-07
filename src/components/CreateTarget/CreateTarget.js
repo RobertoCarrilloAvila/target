@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 
-import MapContext from 'contexts/MapContext';
+import { MapContext } from 'contexts/MapContext';
 import TopicsService from 'services/TopicsService';
 import TargetsService from 'services/TargetsService';
 
@@ -11,8 +11,11 @@ import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
 
 const CreateTarget = ({ onContinue }) => {
-  const { mapProperties, setMapProperties, targets, setTargets } =
-    useContext(MapContext);
+  const {
+    mapProperties,
+    mapProperties: { selectedRadius, selectedLocation, selectedTargetId },
+    setMapProperties, targets, setTargets,
+  } = useContext(MapContext);
 
   const [topicsList, setTopicsList] = useState([]);
   const [title, setTitle] = useState('');
@@ -21,13 +24,12 @@ const CreateTarget = ({ onContinue }) => {
   useEffect(() => {
     fetchTopics();
     loadSelectedTarget();
-  }, [mapProperties.selectedTargetId]);
+  }, [selectedTargetId]);
 
   const loadSelectedTarget = () => {
-    const { selectedTargetId: targetId } = mapProperties;
-    if (!targetId) return;
+    if (!selectedTargetId) return;
 
-    const { target } = targets.find(({ target }) => target.id == targetId);
+    const { target } = targets.find(({ target }) => target.id == selectedTargetId);
     setTitle(target.title);
     setTopicId(target.topic.id);
     setMapProperties({
@@ -52,10 +54,10 @@ const CreateTarget = ({ onContinue }) => {
 
   const buildTargetRequest = () => ({
     title,
-    radius: mapProperties.selectedRadius,
+    radius: selectedRadius,
     topic_id: topicId,
-    latitude: mapProperties.selectedLocation.lat,
-    longitude: mapProperties.selectedLocation.lng,
+    latitude: selectedLocation.lat,
+    longitude: selectedLocation.lng,
   });
 
   const createTarget = async (event) => {
@@ -71,7 +73,6 @@ const CreateTarget = ({ onContinue }) => {
   };
 
   const deleteTarget = async () => {
-    const { selectedTargetId } = mapProperties;
     const deleted = await TargetsService.delete(selectedTargetId);
     if (deleted) {
       setTargets(
@@ -98,7 +99,7 @@ const CreateTarget = ({ onContinue }) => {
             required
             onChange={(val) => {
               setMapProperties({
-                ...mapProperties,
+                selectedLocation,
                 selectedRadius: parseInt(val),
               });
             }}
@@ -127,7 +128,7 @@ const CreateTarget = ({ onContinue }) => {
             value={topicId}
           />
 
-          {mapProperties.selectedTargetId ? (
+          {selectedTargetId ? (
             <button
               type="button"
               className="create-target__delete btn"
@@ -139,7 +140,7 @@ const CreateTarget = ({ onContinue }) => {
             <button
               type="submit"
               className="create-target__submit btn"
-              disabled={!mapProperties.selectedRadius || !title || !topicId}
+              disabled={!selectedRadius || !title || !topicId}
             >
               save target
             </button>
