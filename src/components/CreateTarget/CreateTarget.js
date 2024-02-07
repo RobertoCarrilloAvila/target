@@ -1,7 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
-
-import { MapContext } from 'contexts/MapContext';
-import TopicsService from 'services/TopicsService';
+import useMap from 'hooks/useMap';
 import TargetsService from 'services/TargetsService';
 
 import FormInput from 'components/FormInput/FormInput';
@@ -10,29 +7,7 @@ import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
 
 const CreateTarget = ({ onContinue }) => {
-  const {
-    mapProperties: { selectedRadius, selectedLocation },
-    setMapProperties,
-  } = useContext(MapContext);
-
-  const [topicsList, setTopicsList] = useState([]);
-  const [title, setTitle] = useState('');
-  const [topic, setTopic] = useState(null);
-
-  useEffect(() => {
-    fetchTopics();
-  }, []);
-
-  const fetchTopics = async () => {
-    const receivedTopics = await TopicsService.getTopics();
-    const formattedTopics = receivedTopics.map(({ topic }) => ({
-      key: topic.id,
-      value: topic.id,
-      label: topic.label,
-    }));
-    setTopicsList(formattedTopics);
-  };
-
+  const { setMapProperties, selectedLocation, selectedRadius, setTitle, topicsList, setTopic, topic, title } = useMap();
   const buildTargetRequest = () => ({
     title,
     radius: selectedRadius,
