@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
+import { isEqual } from 'lodash';
 
 import { MapContext } from 'contexts/MapContext';
 import TopicsService from 'services/TopicsService';
@@ -22,35 +23,54 @@ const CreateTarget = ({ onContinue }) => {
   const [topicId, setTopicId] = useState(null);
 
   useEffect(() => {
-    fetchTopics();
+    const loadSelectedTarget = () => {
+      if (!selectedTargetId) return;
+  
+      const { target } = targets.find(({ target }) => target.id == selectedTargetId);
+      if (target.title !== title) {
+        console.log('title');
+        setTitle(target.title);
+      }
+      if (topicId !== target.topic.id) {
+        console.log('topic');
+        setTopicId(target.topic.id);
+      }
+
+      const newMapProperties = {
+        ...mapProperties,
+        selectedRadius: target.radius,
+        selectedLocation: {
+          lat: target.latitude,
+          lng: target.longitude,
+        },
+      };
+
+      if (!isEqual(newMapProperties, mapProperties)) {
+        console.log('map');
+        setMapProperties(newMapProperties);
+      }
+    };
+
     loadSelectedTarget();
-  }, [selectedTargetId]);
+  }, [selectedTargetId, mapProperties, setMapProperties, targets, title, topicId]);
 
-  const loadSelectedTarget = () => {
-    if (!selectedTargetId) return;
+  useEffect(() => {
+    const fetchTopics = async () => {
+      const receivedTopics = await TopicsService.getTopics();
+      const formattedTopics = receivedTopics.map(({ topic }) => ({
+        key: topic.id,
+        value: topic.id,
+        label: topic.label,
+      }));
+  
+      if (!isEqual(formattedTopics, topicsList)) {
+        console.log('topics', formattedTopics, topicsList, isEqual(formattedTopics, topicsList));
+        setTopicsList(formattedTopics);
+      }
+    };
 
-    const { target } = targets.find(({ target }) => target.id == selectedTargetId);
-    setTitle(target.title);
-    setTopicId(target.topic.id);
-    setMapProperties({
-      ...mapProperties,
-      selectedRadius: target.radius,
-      selectedLocation: {
-        lat: target.latitude,
-        lng: target.longitude,
-      },
-    });
-  };
-
-  const fetchTopics = async () => {
-    const receivedTopics = await TopicsService.getTopics();
-    const formattedTopics = receivedTopics.map(({ topic }) => ({
-      key: topic.id,
-      value: topic.id,
-      label: topic.label,
-    }));
-    setTopicsList(formattedTopics);
-  };
+    fetchTopics();
+  }, [topicsList]);
 
   const buildTargetRequest = () => ({
     title,

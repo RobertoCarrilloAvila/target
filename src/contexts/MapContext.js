@@ -24,7 +24,7 @@ const MapContextProvider = ({ children }) => {
 
     const fetchTargets = async () => {
       const response = await TargetsService.getTargets();
-      setTargets(response);
+      if (targets !== response) setTargets(response);
     };
 
     fetchCurrentLocation();
