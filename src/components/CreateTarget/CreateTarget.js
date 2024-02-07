@@ -15,7 +15,7 @@ const CreateTarget = ({ onContinue }) => {
 
   const [topicsList, setTopicsList] = useState([]);
   const [title, setTitle] = useState('');
-  const [topic, setTopic] = useState(null);
+  const [topicId, setTopicId] = useState(null);
 
   useEffect(() => {
     fetchTopics();
@@ -28,7 +28,7 @@ const CreateTarget = ({ onContinue }) => {
 
     const { target } = targets.find(({ target }) => target.id == targetId);
     setTitle(target.title);
-    setTopic(target.topic.id);
+    setTopicId(target.topic.id);
     setMapProperties({
       ...mapProperties,
       selectedRadius: target.radius,
@@ -52,7 +52,7 @@ const CreateTarget = ({ onContinue }) => {
   const buildTargetRequest = () => ({
     title,
     radius: mapProperties.selectedRadius,
-    topic_id: topic,
+    topic_id: topicId,
     latitude: mapProperties.selectedLocation.lat,
     longitude: mapProperties.selectedLocation.lng,
   });
@@ -122,8 +122,8 @@ const CreateTarget = ({ onContinue }) => {
             label="select a topic"
             required
             placeholder=""
-            onChange={setTopic}
-            value={topic}
+            onChange={setTopicId}
+            value={topicId}
           />
 
           {mapProperties.selectedTargetId ? (
@@ -138,7 +138,7 @@ const CreateTarget = ({ onContinue }) => {
             <button
               type="submit"
               className="create-target__submit btn"
-              disabled={!mapProperties.selectedRadius || !title || !topic}
+              disabled={!mapProperties.selectedRadius || !title || !topicId}
             >
               save target
             </button>
