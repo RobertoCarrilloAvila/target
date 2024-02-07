@@ -9,6 +9,7 @@ import {
 import TargetsService from 'services/TargetsService';
 import MapConfig from 'components/Constants/MapConfig';
 import MapContext from 'contexts/MapContext';
+import Components from 'components/Constants/Components';
 
 import 'components/Map/Map.scss';
 import pin from 'assets/map/pin.png';
@@ -50,7 +51,7 @@ const Map = ({ onSelectLocation }) => {
       selectedLocation: { lat: e.latLng.lat(), lng: e.latLng.lng() },
       selectedTargetId: null,
     });
-    onSelectLocation('CreateTarget');
+    onSelectLocation(Components.CREATETARGET);
   };
 
   const handleTargetClick = (targetId) => {
@@ -58,7 +59,7 @@ const Map = ({ onSelectLocation }) => {
       ...mapProperties,
       selectedTargetId: targetId,
     });
-    onSelectLocation('CreateTarget');
+    onSelectLocation(Components.CREATETARGET);
   };
 
   if (loadError) {

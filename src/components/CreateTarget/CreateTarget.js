@@ -6,6 +6,7 @@ import TargetsService from 'services/TargetsService';
 
 import FormInput from 'components/FormInput/FormInput';
 import FormSelect from 'components/FormSelect/FormSelect';
+import Components from 'components/Constants/Components';
 import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
 
@@ -63,7 +64,7 @@ const CreateTarget = ({ onContinue }) => {
 
     const created = await TargetsService.create(target);
     if (created) {
-      onContinue('Chat');
+      onContinue(Components.CHAT);
     } else {
       alert('Error creating target');
     }
@@ -76,7 +77,7 @@ const CreateTarget = ({ onContinue }) => {
       setTargets(
         targets.filter(({ target }) => target.id !== selectedTargetId)
       );
-      onContinue('Chat');
+      onContinue(Components.CHAT);
     } else {
       alert('Error deleting target');
     }
