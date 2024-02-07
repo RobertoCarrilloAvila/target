@@ -62,12 +62,22 @@ const Map = ({ onSelectLocation }) => {
 
         {targets.map(
           ({
-            target,
             target: {
+              id,
+              latitude,
+              longitude,
+              radius,
               topic: { icon },
             },
           }) => (
-            <Target key={target.id} {...target} icon={icon} />
+            <Target
+              key={id}
+              id={id}
+              latitude={latitude}
+              longitude={longitude}
+              radius={radius}
+              icon={icon}
+            />
           )
         )}
       </GoogleMap>
