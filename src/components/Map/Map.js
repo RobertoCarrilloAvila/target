@@ -81,7 +81,8 @@ const Map = ({ onSelectLocation }) => {
               key={target.id}
               icon={icon}
               onClick={() => handleTargetClick(target.id)}
-              {...target} />
+              {...target}
+            />
           )
         )}
       </GoogleMap>

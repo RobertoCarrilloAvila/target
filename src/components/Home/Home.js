@@ -10,7 +10,9 @@ import CreateTarget from 'components/CreateTarget/CreateTarget';
 import Components from 'components/Constants/Components';
 
 const Home = () => {
-  const [displayedComponent, setDisplayedComponent] = useState(Components.WELCOME);
+  const [displayedComponent, setDisplayedComponent] = useState(
+    Components.WELCOME
+  );
 
   const Component = {
     Welcome,

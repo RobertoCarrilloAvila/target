@@ -15,7 +15,9 @@ const CreateTarget = ({ onContinue }) => {
   const {
     mapProperties,
     mapProperties: { selectedRadius, selectedLocation, selectedTargetId },
-    setMapProperties, targets, setTargets,
+    setMapProperties,
+    targets,
+    setTargets,
   } = useContext(MapContext);
 
   const [topicsList, setTopicsList] = useState([]);
@@ -25,8 +27,10 @@ const CreateTarget = ({ onContinue }) => {
   useEffect(() => {
     const loadSelectedTarget = () => {
       if (!selectedTargetId) return;
-  
-      const { target } = targets.find(({ target }) => target.id == selectedTargetId);
+
+      const { target } = targets.find(
+        ({ target }) => target.id == selectedTargetId
+      );
       if (target.title !== title) {
         console.log('title');
         setTitle(target.title);
@@ -52,7 +56,14 @@ const CreateTarget = ({ onContinue }) => {
     };
 
     loadSelectedTarget();
-  }, [selectedTargetId, mapProperties, setMapProperties, targets, title, topicId]);
+  }, [
+    selectedTargetId,
+    mapProperties,
+    setMapProperties,
+    targets,
+    title,
+    topicId,
+  ]);
 
   useEffect(() => {
     const fetchTopics = async () => {
@@ -62,9 +73,14 @@ const CreateTarget = ({ onContinue }) => {
         value: topic.id,
         label: topic.label,
       }));
-  
+
       if (!isEqual(formattedTopics, topicsList)) {
-        console.log('topics', formattedTopics, topicsList, isEqual(formattedTopics, topicsList));
+        console.log(
+          'topics',
+          formattedTopics,
+          topicsList,
+          isEqual(formattedTopics, topicsList)
+        );
         setTopicsList(formattedTopics);
       }
     };
