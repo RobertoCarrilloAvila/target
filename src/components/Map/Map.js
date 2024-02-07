@@ -1,33 +1,29 @@
-import { useState, useEffect, useContext } from 'react';
-import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
+import { useContext } from 'react';
+import {
+  GoogleMap,
+  Marker,
+  useLoadScript,
+  Circle,
+} from '@react-google-maps/api';
 
+import Target from 'components/Target/Target';
 import MapConfig from 'components/Constants/MapConfig';
-import MapContext from 'contexts/MapContext';
+import { MapContext } from 'contexts/MapContext';
 
 import 'components/Map/Map.scss';
 import pin from 'assets/map/pin.png';
 
 const Map = ({ onSelectLocation }) => {
-  const { selectedLocation, setSelectedLocation } = useContext(MapContext);
-  const [currentLocation, setCurrentLocation] = useState(
-    MapConfig.defaultLocation
-  );
-
+  const { mapProperties, setMapProperties, targets } = useContext(MapContext);
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      setCurrentLocation({
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      });
-    });
-  }, []);
-
   const handleMapClick = (e) => {
-    setSelectedLocation({ lat: e.latLng.lat(), lng: e.latLng.lng() });
+    setMapProperties({
+      ...mapProperties,
+      selectedLocation: { lat: e.latLng.lat(), lng: e.latLng.lng() },
+    });
     onSelectLocation('CreateTarget');
   };
 
@@ -43,15 +39,46 @@ const Map = ({ onSelectLocation }) => {
     <div className="map">
       <GoogleMap
         mapContainerClassName="map__container"
-        center={currentLocation}
+        center={mapProperties.location || MapConfig.defaultLocation}
         zoom={MapConfig.defaultZoom}
         streetViewControl={false}
         options={MapConfig.options}
         clickableIcons={false}
         onClick={(e) => handleMapClick(e)}
       >
-        {selectedLocation && (
-          <Marker position={selectedLocation} icon={{ url: pin }} />
+        {mapProperties.selectedLocation != null && (
+          <>
+            <Marker
+              position={mapProperties.selectedLocation}
+              icon={{ url: pin }}
+            />
+            <Circle
+              center={mapProperties.selectedLocation}
+              radius={mapProperties.selectedRadius}
+              options={MapConfig.selectedLocationOptions}
+            />
+          </>
+        )}
+
+        {targets.map(
+          ({
+            target: {
+              id,
+              latitude,
+              longitude,
+              radius,
+              topic: { icon },
+            },
+          }) => (
+            <Target
+              key={id}
+              id={id}
+              latitude={latitude}
+              longitude={longitude}
+              radius={radius}
+              icon={icon}
+            />
+          )
         )}
       </GoogleMap>
     </div>

@@ -1,7 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
-
-import MapContext from 'contexts/MapContext';
-import TopicsService from 'services/TopicsService';
+import useMap from 'hooks/useMap';
 import TargetsService from 'services/TargetsService';
 
 import FormInput from 'components/FormInput/FormInput';
@@ -10,30 +7,19 @@ import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
 
 const CreateTarget = ({ onContinue }) => {
-  const { selectedLocation } = useContext(MapContext);
-
-  const [topicsList, setTopicsList] = useState([]);
-  const [radius, setRadius] = useState(0);
-  const [title, setTitle] = useState('');
-  const [topic, setTopic] = useState(null);
-
-  useEffect(() => {
-    fetchTopics();
-  }, []);
-
-  const fetchTopics = async () => {
-    const receivedTopics = await TopicsService.getTopics();
-    const formattedTopics = receivedTopics.map(({ topic }) => ({
-      key: topic.id,
-      value: topic.id,
-      label: topic.label,
-    }));
-    setTopicsList(formattedTopics);
-  };
-
+  const {
+    setMapProperties,
+    selectedLocation,
+    selectedRadius,
+    setTitle,
+    topicsList,
+    setTopic,
+    topic,
+    title,
+  } = useMap();
   const buildTargetRequest = () => ({
     title,
-    radius,
+    radius: selectedRadius,
     topic_id: topic,
     latitude: selectedLocation.lat,
     longitude: selectedLocation.lng,
@@ -64,7 +50,13 @@ const CreateTarget = ({ onContinue }) => {
             className="create-target__input"
             label="specify area length"
             required
-            onChange={setRadius}
+            onChange={(val) => {
+              setMapProperties({
+                selectedLocation,
+                selectedRadius: parseInt(val),
+              });
+            }}
+            min="1"
           />
 
           <FormInput
@@ -89,7 +81,7 @@ const CreateTarget = ({ onContinue }) => {
           <button
             type="submit"
             className="create-target__submit btn"
-            disabled={!radius || !title || !topic}
+            disabled={!selectedRadius || !title || !topic}
           >
             save target
           </button>
