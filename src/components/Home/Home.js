@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { MapContextProvider } from 'contexts/MapContext';
+import ContentViewContext from 'contexts/ContentViewContext';
+import Components from 'components/Constants/Components';
 
 import 'components/Home/Home.scss';
 import Navbar from 'components/Navbar/Navbar';
@@ -7,12 +9,9 @@ import MapSection from 'components/MapSection/MapSection';
 import Welcome from 'components/Welcome/Welcome';
 import Chat from 'components/Chat/Chat';
 import CreateTarget from 'components/CreateTarget/CreateTarget';
-import Components from 'components/Constants/Components';
 
 const Home = () => {
-  const [displayedComponent, setDisplayedComponent] = useState(
-    Components.WELCOME
-  );
+  const [displayedComponent, setDisplayedComponent] = useState(Components.WELCOME);
 
   const Component = {
     Welcome,
@@ -22,15 +21,17 @@ const Home = () => {
 
   return (
     <MapContextProvider>
-      <div className="home">
-        <div className="home__container">
-          <Navbar className="white" />
+      <ContentViewContext.Provider value={{ displayedComponent, setDisplayedComponent }}>
+        <div className="home">
+          <div className="home__container">
+            <Navbar className="white" />
 
-          <Component onContinue={setDisplayedComponent} />
+            <Component onContinue={setDisplayedComponent} />
+          </div>
+
+          <MapSection />
         </div>
-
-        <MapSection onSelectLocation={setDisplayedComponent} />
-      </div>
+      </ContentViewContext.Provider>
     </MapContextProvider>
   );
 };
