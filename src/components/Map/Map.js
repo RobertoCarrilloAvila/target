@@ -26,7 +26,7 @@ const Map = ({ onSelectLocation }) => {
       selectedLocation: { lat: e.latLng.lat(), lng: e.latLng.lng() },
       selectedTargetId: null,
     });
-    onSelectLocation(Components.CREATETARGET);
+    onSelectLocation(Components.CREATE_TARGET);
   };
 
   const handleTargetClick = (targetId) => {
@@ -35,7 +35,7 @@ const Map = ({ onSelectLocation }) => {
       selectedTargetId: targetId,
       selectedLocation: null,
     });
-    onSelectLocation(Components.CREATETARGET);
+    onSelectLocation(Components.CREATE_TARGET);
   };
 
   if (loadError) {

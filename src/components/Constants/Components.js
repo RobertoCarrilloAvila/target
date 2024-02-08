@@ -1,7 +1,7 @@
 const Components = {
   WELCOME: 'Welcome',
   CHAT: 'Chat',
-  CREATETARGET: 'CreateTarget',
+  CREATE_TARGET: 'CreateTarget',
 };
 
 export default Components;
