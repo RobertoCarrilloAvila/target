@@ -33,6 +33,7 @@ const Map = ({ onSelectLocation }) => {
     setMapProperties({
       ...mapProperties,
       selectedTargetId: targetId,
+      selectedLocation: null,
     });
     onSelectLocation(Components.CREATETARGET);
   };
@@ -87,6 +88,7 @@ const Map = ({ onSelectLocation }) => {
               longitude={longitude}
               radius={radius}
               icon={icon}
+              onClick={() => handleTargetClick(id)}
             />
           )
         )}

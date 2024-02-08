@@ -9,15 +9,20 @@ import 'components/CreateTarget/CreateTarget.scss';
 
 const CreateTarget = ({ onContinue }) => {
   const {
-    // setMapProperties,
+    mapProperties,
+    setMapProperties,
     selectedLocation,
-    // selectedRadius,
-    // setTitle,
-    // topicsList,
-    // setTopicId,
-    // topicId,
+    selectedRadius,
+    selectedTargetId,
+    targets,
+    setTargets,
+    setTitle,
+    topicsList,
+    setTopicId,
+    topicId,
     title,
   } = useMap();
+
   const buildTargetRequest = () => ({
     title,
     radius: selectedRadius,
@@ -70,6 +75,7 @@ const CreateTarget = ({ onContinue }) => {
               });
             }}
             min="1"
+            value={mapProperties.selectedRadius || ''}
           />
 
           <FormInput
@@ -89,7 +95,7 @@ const CreateTarget = ({ onContinue }) => {
             label="select a topic"
             required
             placeholder=""
-            onChange={setTopicIdId}
+            onChange={setTopicId}
             value={topicId}
           />
 
