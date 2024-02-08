@@ -1,8 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
-import { isEqual } from 'lodash';
-
-import { MapContext } from 'contexts/MapContext';
-import TopicsService from 'services/TopicsService';
+import useMap from 'hooks/useMap';
 import TargetsService from 'services/TargetsService';
 
 import FormInput from 'components/FormInput/FormInput';
@@ -13,66 +9,15 @@ import 'components/CreateTarget/CreateTarget.scss';
 
 const CreateTarget = ({ onContinue }) => {
   const {
-    mapProperties,
-    mapProperties: { selectedRadius, selectedLocation, selectedTargetId },
-    setMapProperties,
-    targets,
-    setTargets,
-  } = useContext(MapContext);
-
-  const [topicsList, setTopicsList] = useState([]);
-  const [title, setTitle] = useState('');
-  const [topicId, setTopicId] = useState(null);
-
-  useEffect(() => {
-    const loadSelectedTarget = () => {
-      if (!selectedTargetId) return;
-
-      const { target } = targets.find(
-        ({ target }) => target.id == selectedTargetId
-      );
-
-      if (target.title !== title) setTitle(target.title);
-      if (topicId !== target.topic.id) setTopicId(target.topic.id);
-
-      const newMapProperties = {
-        ...mapProperties,
-        selectedRadius: target.radius,
-        selectedLocation: {
-          lat: target.latitude,
-          lng: target.longitude,
-        },
-      };
-
-      if (!isEqual(newMapProperties, mapProperties))
-        setMapProperties(newMapProperties);
-    };
-
-    loadSelectedTarget();
-  }, [
-    selectedTargetId,
-    mapProperties,
-    setMapProperties,
-    targets,
+    // setMapProperties,
+    selectedLocation,
+    // selectedRadius,
+    // setTitle,
+    // topicsList,
+    // setTopicId,
+    // topicId,
     title,
-    topicId,
-  ]);
-
-  useEffect(() => {
-    const fetchTopics = async () => {
-      const receivedTopics = await TopicsService.getTopics();
-      const formattedTopics = receivedTopics.map(({ topic }) => ({
-        key: topic.id,
-        value: topic.id,
-        label: topic.label,
-      }));
-
-      if (!isEqual(formattedTopics, topicsList)) setTopicsList(formattedTopics);
-    };
-
-    fetchTopics();
-  }, [topicsList]);
-
+  } = useMap();
   const buildTargetRequest = () => ({
     title,
     radius: selectedRadius,
@@ -125,7 +70,6 @@ const CreateTarget = ({ onContinue }) => {
               });
             }}
             min="1"
-            value={mapProperties.selectedRadius || ''}
           />
 
           <FormInput
@@ -145,7 +89,7 @@ const CreateTarget = ({ onContinue }) => {
             label="select a topic"
             required
             placeholder=""
-            onChange={setTopicId}
+            onChange={setTopicIdId}
             value={topicId}
           />
 

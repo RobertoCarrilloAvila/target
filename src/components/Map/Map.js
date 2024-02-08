@@ -72,16 +72,21 @@ const Map = ({ onSelectLocation }) => {
 
         {targets.map(
           ({
-            target,
             target: {
+              id,
+              latitude,
+              longitude,
+              radius,
               topic: { icon },
             },
           }) => (
             <Target
-              key={target.id}
+              key={id}
+              id={id}
+              latitude={latitude}
+              longitude={longitude}
+              radius={radius}
               icon={icon}
-              onClick={() => handleTargetClick(target.id)}
-              {...target}
             />
           )
         )}
