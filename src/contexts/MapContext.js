@@ -1,7 +1,4 @@
-import { createContext, useState, useEffect } from 'react';
-import { isEqual } from 'lodash';
-
-import TargetsService from 'services/TargetsService';
+import { createContext, useState } from 'react';
 
 const MapContext = createContext();
 
