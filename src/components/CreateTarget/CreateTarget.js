@@ -102,7 +102,7 @@ const CreateTarget = ({ onContinue }) => {
           {selectedTargetId ? (
             <button
               type="button"
-              className="create-target__delete btn"
+              className="create-target__delete btn create-target__btn-primary"
               onClick={deleteTarget}
             >
               delete
@@ -110,7 +110,7 @@ const CreateTarget = ({ onContinue }) => {
           ) : (
             <button
               type="submit"
-              className="create-target__submit btn"
+              className="create-target__submit btn create-target__btn-primary"
               disabled={!selectedRadius || !title || !topicId}
             >
               save target
