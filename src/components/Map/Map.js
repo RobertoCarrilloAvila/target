@@ -14,7 +14,13 @@ import 'components/Map/Map.scss';
 import pin from 'assets/map/pin.png';
 
 const Map = ({ onSelectLocation }) => {
-  const { mapProperties, targets, handleMapClick, handleTargetClick, isSelectedTargetStored } = useMap();
+  const {
+    mapProperties,
+    targets,
+    handleMapClick,
+    handleTargetClick,
+    isSelectedTargetStored,
+  } = useMap();
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });

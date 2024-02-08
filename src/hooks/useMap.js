@@ -133,7 +133,7 @@ const useMap = () => {
     setTopicId,
     handleMapClick,
     handleTargetClick,
-    isSelectedTargetStored
+    isSelectedTargetStored,
   };
 };
 
