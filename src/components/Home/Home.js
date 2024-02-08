@@ -26,7 +26,7 @@ const Home = () => {
           <div className="home__container">
             <Navbar className="white" />
 
-            <Component onContinue={setDisplayedComponent} />
+            <Component />
           </div>
 
           <MapSection />

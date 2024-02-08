@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import ContentViewContext from 'contexts/ContentViewContext';
 import useMap from 'hooks/useMap';
 import TargetsService from 'services/TargetsService';
 
@@ -7,7 +9,7 @@ import Components from 'components/Constants/Components';
 import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
 
-const CreateTarget = ({ onContinue }) => {
+const CreateTarget = () => {
   const {
     mapProperties,
     setMapProperties,
@@ -22,6 +24,7 @@ const CreateTarget = ({ onContinue }) => {
     topicId,
     title,
   } = useMap();
+  const { setDisplayedComponent } = useContext(ContentViewContext);
 
   const buildTargetRequest = () => ({
     title,
@@ -37,7 +40,7 @@ const CreateTarget = ({ onContinue }) => {
 
     const created = await TargetsService.create(target);
     if (created) {
-      onContinue(Components.CHAT);
+      setDisplayedComponent(Components.CHAT);
     } else {
       alert('Error creating target');
     }
@@ -49,7 +52,7 @@ const CreateTarget = ({ onContinue }) => {
       setTargets(
         targets.filter(({ target }) => target.id !== selectedTargetId)
       );
-      onContinue(Components.CHAT);
+      setDisplayedComponent(Components.CHAT);
     } else {
       alert('Error deleting target');
     }
