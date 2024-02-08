@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import {
   GoogleMap,
   Marker,
@@ -6,6 +7,7 @@ import {
 } from '@react-google-maps/api';
 
 import useMap from 'hooks/useMap';
+import ContentViewContext from 'contexts/ContentViewContext';
 import Target from 'components/Target/Target';
 import MapConfig from 'components/Constants/MapConfig';
 import Components from 'components/Constants/Components';
@@ -13,7 +15,7 @@ import Components from 'components/Constants/Components';
 import 'components/Map/Map.scss';
 import pin from 'assets/map/pin.png';
 
-const Map = ({ onSelectLocation }) => {
+const Map = () => {
   const {
     mapProperties,
     targets,
@@ -21,6 +23,8 @@ const Map = ({ onSelectLocation }) => {
     handleTargetClick,
     isSelectedTargetStored,
   } = useMap();
+  const {setDisplayedComponent} = useContext(ContentViewContext);
+
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
@@ -44,7 +48,7 @@ const Map = ({ onSelectLocation }) => {
         clickableIcons={false}
         onClick={(e) => {
           handleMapClick(e);
-          onSelectLocation(Components.CREATE_TARGET);
+          setDisplayedComponent(Components.CREATE_TARGET);
         }}
       >
         {!isSelectedTargetStored() && (
@@ -81,7 +85,7 @@ const Map = ({ onSelectLocation }) => {
               selected={mapProperties.selectedTargetId === id}
               onClick={() => {
                 handleTargetClick(id);
-                onSelectLocation(Components.CREATE_TARGET);
+                setDisplayedComponent(Components.CREATE_TARGET);
               }}
             />
           )
