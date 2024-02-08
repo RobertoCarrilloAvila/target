@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import {
   GoogleMap,
   Marker,
@@ -6,8 +5,8 @@ import {
   Circle,
 } from '@react-google-maps/api';
 
+import useMap from 'hooks/useMap';
 import Target from 'components/Target/Target';
-import { MapContext } from 'contexts/MapContext';
 import MapConfig from 'components/Constants/MapConfig';
 import Components from 'components/Constants/Components';
 
@@ -15,35 +14,10 @@ import 'components/Map/Map.scss';
 import pin from 'assets/map/pin.png';
 
 const Map = ({ onSelectLocation }) => {
-  const { mapProperties, setMapProperties, targets } = useContext(MapContext);
+  const { mapProperties, targets, handleMapClick, handleTargetClick, isSelectedTargetStored } = useMap();
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
-
-  const handleMapClick = (e) => {
-    setMapProperties({
-      ...mapProperties,
-      selectedLocation: { lat: e.latLng.lat(), lng: e.latLng.lng() },
-      selectedTargetId: null,
-    });
-    onSelectLocation(Components.CREATE_TARGET);
-  };
-
-  const handleTargetClick = (targetId) => {
-    setMapProperties({
-      ...mapProperties,
-      selectedTargetId: targetId,
-      selectedLocation: null,
-    });
-    onSelectLocation(Components.CREATE_TARGET);
-  };
-
-  const isSelectedTargetStored = () => {
-    return (
-      mapProperties.selectedLocation != null &&
-      mapProperties.selectedTargetId != null
-    );
-  };
 
   if (loadError) {
     return <div className="map__error">Error loading maps</div>;
@@ -62,7 +36,10 @@ const Map = ({ onSelectLocation }) => {
         streetViewControl={false}
         options={MapConfig.options}
         clickableIcons={false}
-        onClick={(e) => handleMapClick(e)}
+        onClick={(e) => {
+          handleMapClick(e);
+          onSelectLocation(Components.CREATE_TARGET);
+        }}
       >
         {!isSelectedTargetStored() && (
           <>
@@ -96,7 +73,10 @@ const Map = ({ onSelectLocation }) => {
               radius={radius}
               icon={icon}
               selected={mapProperties.selectedTargetId === id}
-              onClick={() => handleTargetClick(id)}
+              onClick={() => {
+                handleTargetClick(id);
+                onSelectLocation(Components.CREATE_TARGET);
+              }}
             />
           )
         )}

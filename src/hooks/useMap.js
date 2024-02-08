@@ -66,6 +66,29 @@ const useMap = () => {
     fetchTopics();
   }, [topicsList]);
 
+  const handleMapClick = (e) => {
+    setMapProperties({
+      ...mapProperties,
+      selectedLocation: { lat: e.latLng.lat(), lng: e.latLng.lng() },
+      selectedTargetId: null,
+    });
+  };
+
+  const handleTargetClick = (targetId) => {
+    setMapProperties({
+      ...mapProperties,
+      selectedTargetId: targetId,
+      selectedLocation: null,
+    });
+  };
+
+  const isSelectedTargetStored = () => {
+    return (
+      mapProperties.selectedLocation != null &&
+      mapProperties.selectedTargetId != null
+    );
+  };
+
   return {
     selectedRadius,
     selectedLocation,
@@ -80,6 +103,9 @@ const useMap = () => {
     setTitle,
     topicId,
     setTopicId,
+    handleMapClick,
+    handleTargetClick,
+    isSelectedTargetStored
   };
 };
 
