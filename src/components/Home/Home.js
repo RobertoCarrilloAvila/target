@@ -9,6 +9,7 @@ import MapSection from 'components/MapSection/MapSection';
 import Welcome from 'components/Welcome/Welcome';
 import Chat from 'components/Chat/Chat';
 import CreateTarget from 'components/CreateTarget/CreateTarget';
+import EditProfile from 'components/EditProfile/EditProfile';
 
 const Home = () => {
   const [displayedComponent, setDisplayedComponent] = useState(Components.WELCOME);
@@ -17,6 +18,7 @@ const Home = () => {
     Welcome,
     Chat,
     CreateTarget,
+    EditProfile,
   }[displayedComponent];
 
   return (
