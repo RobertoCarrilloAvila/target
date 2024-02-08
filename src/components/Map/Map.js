@@ -38,6 +38,10 @@ const Map = ({ onSelectLocation }) => {
     onSelectLocation(Components.CREATE_TARGET);
   };
 
+  const isSelectedTargetStored = () => {
+    return mapProperties.selectedLocation != null && mapProperties.selectedTargetId != null;
+  };
+
   if (loadError) {
     return <div className="map__error">Error loading maps</div>;
   }
@@ -57,7 +61,7 @@ const Map = ({ onSelectLocation }) => {
         clickableIcons={false}
         onClick={(e) => handleMapClick(e)}
       >
-        {mapProperties.selectedLocation != null && (
+        {!isSelectedTargetStored() && (
           <>
             <Marker
               position={mapProperties.selectedLocation}
@@ -88,6 +92,7 @@ const Map = ({ onSelectLocation }) => {
               longitude={longitude}
               radius={radius}
               icon={icon}
+              selected={mapProperties.selectedTargetId === id}
               onClick={() => handleTargetClick(id)}
             />
           )
