@@ -39,7 +39,10 @@ const Map = ({ onSelectLocation }) => {
   };
 
   const isSelectedTargetStored = () => {
-    return mapProperties.selectedLocation != null && mapProperties.selectedTargetId != null;
+    return (
+      mapProperties.selectedLocation != null &&
+      mapProperties.selectedTargetId != null
+    );
   };
 
   if (loadError) {
