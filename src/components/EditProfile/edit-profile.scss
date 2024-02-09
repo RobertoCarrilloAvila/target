@@ -20,11 +20,11 @@
 
   &__name {
     margin-top: 14px;
+    margin-bottom: 1.562rem;
     color: shared.$black-color;
     font-size: 14px;
     font-weight: shared.$normal;
     letter-spacing: 2.1px;
-    margin-bottom: 1.562rem;
   }
 
   &__input {
@@ -37,14 +37,14 @@
   }
 
   &__delete-account {
-    text-align: center;
     display: block;
+    border: none;
     margin: 1.687rem auto;
+    background: none;
     color: shared.$dark-gray-color;
     font-size: 11px;
     font-weight: shared.$semibold;
     letter-spacing: 1.65px;
-    background: none;
-    border: none;
+    text-align: center;
   }
 }
