@@ -34,12 +34,12 @@ export default () => {
 
   httpClient.interceptors.response.use((response) => {
     setAccessToken(response);
-
-    if (response.status === HttpStatuses.UNAUTHORIZED) {
+    return response;
+  }, (error) => {
+    if (error.response.status === HttpStatuses.UNAUTHORIZED) {
       sessionStorage.clear();
       window.location.href = '/';
     }
-
-    return response;
+    return Promise.reject(error);
   });
 };
