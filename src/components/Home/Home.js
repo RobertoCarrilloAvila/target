@@ -12,7 +12,9 @@ import CreateTarget from 'components/CreateTarget/CreateTarget';
 import EditProfile from 'components/EditProfile/EditProfile';
 
 const Home = () => {
-  const [displayedComponent, setDisplayedComponent] = useState(Components.WELCOME);
+  const [displayedComponent, setDisplayedComponent] = useState(
+    Components.WELCOME
+  );
 
   const Component = {
     Welcome,
@@ -23,7 +25,9 @@ const Home = () => {
 
   return (
     <MapContextProvider>
-      <ContentViewContext.Provider value={{ displayedComponent, setDisplayedComponent }}>
+      <ContentViewContext.Provider
+        value={{ displayedComponent, setDisplayedComponent }}
+      >
         <div className="home">
           <div className="home__container">
             <Navbar className="white" />

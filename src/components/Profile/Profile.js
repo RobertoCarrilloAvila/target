@@ -19,11 +19,7 @@ const Profile = () => {
             Edit
           </button>
           <span className="profile__slash">/</span>
-          <button
-            className="profile__logout profile__btn"
-          >
-            Logout
-          </button>
+          <button className="profile__logout profile__btn">Logout</button>
         </div>
       </div>
     </div>

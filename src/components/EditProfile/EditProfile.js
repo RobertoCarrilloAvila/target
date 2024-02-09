@@ -15,7 +15,7 @@ const EditProfile = () => {
     firstName: 'test name',
     lastName: 'test last name',
     username: 'test user',
-    gender: 'male'
+    gender: 'male',
   };
   const [email, setEmail] = useState(profile.email);
   const [firstName, setFirstName] = useState(profile.firstName);
@@ -39,8 +39,8 @@ const EditProfile = () => {
       first_name: firstName,
       last_name: lastName,
       username,
-      gender
-    }
+      gender,
+    },
   });
 
   return (

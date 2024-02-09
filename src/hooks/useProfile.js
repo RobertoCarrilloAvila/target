@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import UserService from "services/UserService";
+import { useState, useEffect } from 'react';
+import UserService from 'services/UserService';
 
 const updateProfile = async (data) => {
   await UserService.updateProfile(data);
@@ -30,7 +30,7 @@ const useProfile = () => {
     firstName,
     lastName,
     username,
-    gender
+    gender,
   };
 };
 

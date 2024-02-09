@@ -23,7 +23,7 @@ const Map = () => {
     handleTargetClick,
     isSelectedTargetStored,
   } = useMap();
-  const {setDisplayedComponent} = useContext(ContentViewContext);
+  const { setDisplayedComponent } = useContext(ContentViewContext);
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,

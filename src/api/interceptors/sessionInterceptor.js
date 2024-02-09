@@ -32,14 +32,17 @@ export default () => {
     return request;
   });
 
-  httpClient.interceptors.response.use((response) => {
-    setAccessToken(response);
-    return response;
-  }, (error) => {
-    if (error.response.status === HttpStatuses.UNAUTHORIZED) {
-      sessionStorage.clear();
-      window.location.href = '/';
+  httpClient.interceptors.response.use(
+    (response) => {
+      setAccessToken(response);
+      return response;
+    },
+    (error) => {
+      if (error.response.status === HttpStatuses.UNAUTHORIZED) {
+        sessionStorage.clear();
+        window.location.href = '/';
+      }
+      return Promise.reject(error);
     }
-    return Promise.reject(error);
-  });
+  );
 };
