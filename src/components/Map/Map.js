@@ -80,7 +80,7 @@ const Map = ({ onSelectLocation }) => {
               radius={radius}
               icon={icon}
               selected={mapProperties.selectedTargetId === id}
-              onClick={(event) => {
+              onClick={() => {
                 handleTargetClick(id);
                 onSelectLocation(Components.DELETE_TARGET);
               }}
