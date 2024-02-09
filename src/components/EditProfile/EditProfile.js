@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { updateProfile } from 'hooks/useProfile';
+import { toast } from 'react-toastify';
 import FormInput from 'components/FormInput/FormInput';
 import FormSelect from 'components/FormSelect/FormSelect';
 
@@ -24,7 +25,12 @@ const EditProfile = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateProfile(buildProfileRequest());
+    try {
+      updateProfile(buildProfileRequest());
+      toast.success('Profile updated');
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   const buildProfileRequest = () => ({
