@@ -49,7 +49,7 @@ const EditProfile = () => {
         <img src={profile_img} alt="avatar" className="edit-profile__avatar" />
         <h1 className="edit-profile__name">cbrum</h1>
 
-        <form className="edit-profile__form" onClick={handleSubmit}>
+        <form className="edit-profile__form" onSubmit={handleSubmit}>
           <FormInput
             type="email"
             name="email"
