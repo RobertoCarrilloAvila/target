@@ -1,25 +1,49 @@
 import { useState } from 'react';
+import { updateProfile } from 'hooks/useProfile';
 import FormInput from 'components/FormInput/FormInput';
 import FormSelect from 'components/FormSelect/FormSelect';
 
 import 'components/EditProfile/edit-profile.scss';
-import profile from 'assets/profile.png';
+import profile_img from 'assets/profile.png';
 import genders from 'components/Constants/genders';
 
 const EditProfile = () => {
-  const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [username, setUsername] = useState('');
-  const [gender, setGender] = useState('');
+  // const profile = useProfile();
+  const profile = {
+    email: 'roberto@test.com',
+    firstName: 'test name',
+    lastName: 'test last name',
+    username: 'test user',
+    gender: 'male'
+  };
+  const [email, setEmail] = useState(profile.email);
+  const [firstName, setFirstName] = useState(profile.firstName);
+  const [lastName, setLastName] = useState(profile.lastName);
+  const [username, setUsername] = useState(profile.username);
+  const [gender, setGender] = useState(profile.gender);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    updateProfile(buildProfileRequest());
+  };
+
+  const buildProfileRequest = () => ({
+    user: {
+      email,
+      first_name: firstName,
+      last_name: lastName,
+      username,
+      gender
+    }
+  });
 
   return (
     <div className="edit-profile">
       <div className="edit-profile__container">
-        <img src={profile} alt="avatar" className="edit-profile__avatar" />
+        <img src={profile_img} alt="avatar" className="edit-profile__avatar" />
         <h1 className="edit-profile__name">cbrum</h1>
 
-        <form className="edit-profile__form">
+        <form className="edit-profile__form" onClick={handleSubmit}>
           <FormInput
             type="email"
             name="email"
