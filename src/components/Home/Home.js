@@ -7,6 +7,7 @@ import MapSection from 'components/MapSection/MapSection';
 import Welcome from 'components/Welcome/Welcome';
 import Chat from 'components/Chat/Chat';
 import CreateTarget from 'components/CreateTarget/CreateTarget';
+import DeleteTarget from 'components/DeleteTarget/DeleteTarget';
 import Components from 'components/Constants/Components';
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
     Welcome,
     Chat,
     CreateTarget,
+    DeleteTarget,
   }[displayedComponent];
 
   return (

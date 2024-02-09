@@ -19,7 +19,7 @@ const Map = ({ onSelectLocation }) => {
     targets,
     handleMapClick,
     handleTargetClick,
-    isSelectedTargetStored,
+    isSelectedTargetStored
   } = useMap();
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -43,6 +43,7 @@ const Map = ({ onSelectLocation }) => {
         options={MapConfig.options}
         clickableIcons={false}
         onClick={(e) => {
+          console.log('handleMapClick');
           handleMapClick(e);
           onSelectLocation(Components.CREATE_TARGET);
         }}
@@ -79,9 +80,9 @@ const Map = ({ onSelectLocation }) => {
               radius={radius}
               icon={icon}
               selected={mapProperties.selectedTargetId === id}
-              onClick={() => {
+              onClick={(event) => {
                 handleTargetClick(id);
-                onSelectLocation(Components.CREATE_TARGET);
+                onSelectLocation(Components.DELETE_TARGET);
               }}
             />
           )
