@@ -34,7 +34,9 @@ const Home = () => {
           <div className={`home__container ${displayMap ? 'hide' : ''}`}>
             <Navbar className={navbarColor} />
 
-            <Component />
+            <div className="home__content">
+              <Component />
+            </div>
           </div>
 
           <MapSection className={displayMap ? 'open' : ''} />
