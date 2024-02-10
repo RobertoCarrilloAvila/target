@@ -1,5 +1,6 @@
+import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import ContentViewContext from 'contexts/ContentViewContext';
 
 import 'components/Navbar/Navbar.scss';
 import menuBlack from 'assets/icons/menu_black.svg';
@@ -12,6 +13,7 @@ import PublicPaths from 'components/Constants/PublicPaths';
 import UserService from 'services/UserService';
 
 const Navbar = ({ className, rightButton, leftButton }) => {
+  const { displayMap, setDisplayMap } = useContext(ContentViewContext);
   const [showmenu, setShowMenu] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isLoggedIn] = useState(UserService.isLoggedIn());
@@ -25,6 +27,10 @@ const Navbar = ({ className, rightButton, leftButton }) => {
   const toggleContactModal = () => {
     setShowMenu(false);
     setShowContactModal(!showContactModal);
+  };
+
+  const toogleMap = () => {
+    setDisplayMap(!displayMap);
   };
 
   const handleLogout = async () => {
@@ -76,7 +82,7 @@ const Navbar = ({ className, rightButton, leftButton }) => {
       <h1 className="navbar__item navbar__title">TARGET</h1>
 
       {rightButton || (
-        <button>
+        <button onClick={toogleMap}>
           <img
             className="navbar__item navbar__pin"
             src={blueNavbar ? pinWhite : pinBlack}

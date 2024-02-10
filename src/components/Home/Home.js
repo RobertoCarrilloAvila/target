@@ -13,6 +13,7 @@ import EditProfile from 'components/EditProfile/EditProfile';
 
 const Home = () => {
   const [displayMap, setDisplayMap] = useState(false);
+  const [navbarColor, setNavbarColor] = useState('white');
   const [displayedComponent, setDisplayedComponent] = useState(
     Components.WELCOME
   );
@@ -27,11 +28,11 @@ const Home = () => {
   return (
     <MapContextProvider>
       <ContentViewContext.Provider
-        value={{ displayedComponent, setDisplayedComponent, setDisplayMap }}
+        value={{ displayedComponent, setDisplayedComponent, displayMap, setDisplayMap, setNavbarColor }}
       >
         <div className="home">
           <div className={`home__container ${displayMap ? 'hide' : ''}`}>
-            <Navbar className="white" />
+            <Navbar className={navbarColor} />
 
             <Component />
           </div>
