@@ -8,11 +8,27 @@
     height: 100%;
     flex-grow: 1;
 
+    &.hide {
+      width: 0;
+      flex-grow: 0;
+
+      div {
+        display: none;
+      }
+    }
   }
 
   @media (min-width: #{shared.$md}) {
     &__container {
       flex-grow: 0;
+    }
+
+    .hide {
+      width: 357px;
+
+      div {
+        display: block;
+      }
     }
   }
 }

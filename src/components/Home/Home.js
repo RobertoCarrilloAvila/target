@@ -12,6 +12,7 @@ import CreateTarget from 'components/CreateTarget/CreateTarget';
 import EditProfile from 'components/EditProfile/EditProfile';
 
 const Home = () => {
+  const [displayMap, setDisplayMap] = useState(false);
   const [displayedComponent, setDisplayedComponent] = useState(
     Components.WELCOME
   );
@@ -26,16 +27,16 @@ const Home = () => {
   return (
     <MapContextProvider>
       <ContentViewContext.Provider
-        value={{ displayedComponent, setDisplayedComponent }}
+        value={{ displayedComponent, setDisplayedComponent, setDisplayMap }}
       >
         <div className="home">
-          <div className="home__container">
+          <div className={`home__container ${displayMap ? 'hide' : ''}`}>
             <Navbar className="white" />
 
             <Component />
           </div>
 
-          <MapSection />
+          <MapSection className={displayMap ? 'open' : ''} />
         </div>
       </ContentViewContext.Provider>
     </MapContextProvider>
