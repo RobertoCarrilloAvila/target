@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ContentViewContextProvider } from 'contexts/ContentViewContext';
 
 import PublicPaths from 'components/Constants/PublicPaths';
 import PrivatePaths from 'components/Constants/PrivatePaths';
@@ -24,7 +25,9 @@ function App() {
           path={PrivatePaths.HOME}
           element={
             <PrivateRoute>
-              <Home />
+              <ContentViewContextProvider>
+                <Home />
+              </ContentViewContextProvider>
             </PrivateRoute>
           }
         />

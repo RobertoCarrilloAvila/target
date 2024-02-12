@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { MapContextProvider } from 'contexts/MapContext';
-import ContentViewContext from 'contexts/ContentViewContext';
-import Components from 'components/Constants/Components';
+import useContentView from 'hooks/useContentView';
 
 import 'components/Home/Home.scss';
 import Navbar from 'components/Navbar/Navbar';
@@ -12,12 +10,7 @@ import CreateTarget from 'components/CreateTarget/CreateTarget';
 import EditProfile from 'components/EditProfile/EditProfile';
 
 const Home = () => {
-  const [displayMap, setDisplayMap] = useState(false);
-  const [navbarColor, setNavbarColor] = useState('white');
-  const [navbarLeftButton, setNavbarLeftButton] = useState('');
-  const [displayedComponent, setDisplayedComponent] = useState(
-    Components.WELCOME
-  );
+  const {displayedComponent, displayMap, navbarColor, navbarLeftButton} = useContentView();
 
   const Component = {
     Welcome,
@@ -26,32 +19,19 @@ const Home = () => {
     EditProfile,
   }[displayedComponent];
 
-  const contentViewFunctions = {
-    displayedComponent,
-    setDisplayedComponent,
-    displayMap,
-    setDisplayMap,
-    setNavbarColor,
-    setNavbarLeftButton,
-  };
-
   return (
     <MapContextProvider>
-      <ContentViewContext.Provider
-        value={contentViewFunctions}
-      >
-        <div className="home">
-          <div className={`home__container ${displayMap ? 'hide' : ''}`}>
-            <Navbar className={navbarColor} leftButton={navbarLeftButton} />
+      <div className="home">
+        <div className={`home__container ${displayMap ? 'hide' : ''}`}>
+          <Navbar className={navbarColor} leftButton={navbarLeftButton} />
 
-            <div className="home__content">
-              <Component />
-            </div>
+          <div className="home__content">
+            <Component />
           </div>
-
-          <MapSection className={displayMap ? 'open' : ''} />
         </div>
-      </ContentViewContext.Provider>
+
+        <MapSection className={displayMap ? 'open' : ''} />
+      </div>
     </MapContextProvider>
   );
 };
