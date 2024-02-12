@@ -23,7 +23,7 @@ const Home = () => {
     <MapContextProvider>
       <div className="home">
         <div className={`home__container ${displayMap ? 'hide' : ''}`}>
-          <Navbar className={navbarColor} leftButton={navbarLeftButton} />
+          <Navbar color={navbarColor} leftButton={navbarLeftButton} />
 
           <div className="home__content">
             <Component />

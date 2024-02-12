@@ -14,13 +14,19 @@ import Components from 'components/Constants/Components';
 
 import UserService from 'services/UserService';
 
-const Navbar = ({ className, rightButton, leftButton }) => {
+const backgroundColors = {
+  BLUE: 'blue',
+  WHITE: 'white',
+}
+
+const Navbar = ({ color, leftButton }) => {
   const { setDisplayedComponent, displayMap, setDisplayMap } = useContentView();
   const [showmenu, setShowMenu] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isLoggedIn] = useState(UserService.isLoggedIn());
   const navigate = useNavigate();
-  const blueNavbar = className.includes('blue');
+  const [leftAction, setLeftAction] = useState(leftButton);
+  const [backgroundColor, setBackgroundColor] = useState( color == backgroundColors.BLUE ? backgroundColors.BLUE : backgroundColors.WHITE);
 
   const toggleMenu = () => {
     setShowMenu(!showmenu);
@@ -31,8 +37,10 @@ const Navbar = ({ className, rightButton, leftButton }) => {
     setShowContactModal(!showContactModal);
   };
 
-  const toogleMap = () => {
-    setDisplayMap(!displayMap);
+  const showMap = () => {
+    setDisplayMap(true);
+    setBackgroundColor(backgroundColors.BLUE);
+    setLeftAction('back');
   };
 
   const handleLogout = async () => {
@@ -43,10 +51,24 @@ const Navbar = ({ className, rightButton, leftButton }) => {
     }
   };
 
+  const handleBackButton = () => {
+    if (displayMap) {
+      setDisplayMap(false);
+      setBackgroundColor(backgroundColors.WHITE);
+      setLeftAction('');
+    } else {
+      setDisplayedComponent(Components.CHAT)
+    }
+  };
+
+  const isNavbarBlue = () => {
+    return backgroundColor == backgroundColors.BLUE;
+  };
+
   const renderLeftButton = () => {
-    if (leftButton == 'back') {
+    if (leftAction == 'back') {
       return (
-        <button onClick={() => setDisplayedComponent(Components.CHAT)}>
+        <button onClick={handleBackButton}>
           <img
             className="navbar__item"
             src={backArrow}
@@ -54,14 +76,14 @@ const Navbar = ({ className, rightButton, leftButton }) => {
           />
         </button>
       );
-    } else if (leftButton == 'empty') {
+    } else if (leftAction == 'empty') {
       return <button></button>;
     } else {
       return (
         <button onClick={toggleMenu} data-target="navbar__collapsible-menu">
           <img
             className="navbar__item"
-            src={blueNavbar ? menuWhite : menuBlack}
+            src={isNavbarBlue() ? menuWhite : menuBlack}
             alt="hamburger menu"
           />
         </button>
@@ -70,7 +92,7 @@ const Navbar = ({ className, rightButton, leftButton }) => {
   };
 
   return (
-    <nav className={`navbar navbar--${className}`}>
+    <nav className={`navbar navbar--${backgroundColor}`}>
       {renderLeftButton()}
 
       {showmenu && (
@@ -100,16 +122,14 @@ const Navbar = ({ className, rightButton, leftButton }) => {
       {showContactModal && <ContactModal toggleModal={toggleContactModal} />}
 
       <h1 className="navbar__item navbar__title">TARGET</h1>
-
-      {rightButton || (
-        <button onClick={toogleMap}>
-          <img
-            className="navbar__item navbar__pin"
-            src={blueNavbar ? pinWhite : pinBlack}
-            alt="pin"
-          />
-        </button>
-      )}
+{console.log("displayMap", displayMap)}
+      <button onClick={showMap}>
+        <img
+          className={`navbar__item navbar__pin ${!displayMap ? '' : 'd-none'}`}
+          src={isNavbarBlue() ? pinWhite : pinBlack}
+          alt="pin"
+        />
+      </button>
     </nav>
   );
 };

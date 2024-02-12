@@ -48,7 +48,6 @@ const Map = () => {
         onClick={(e) => {
           handleMapClick(e);
           setDisplayedComponent(Components.CREATE_TARGET);
-          setNavbarColor('blue');
           setNavbarLeftButton('back');
         }}
       >
@@ -87,7 +86,6 @@ const Map = () => {
               onClick={() => {
                 handleTargetClick(id);
                 setDisplayedComponent(Components.CREATE_TARGET);
-                setNavbarColor('blue');
                 setNavbarLeftButton('back');
               }}
             />
