@@ -23,7 +23,7 @@ const Map = () => {
     handleTargetClick,
     isSelectedTargetStored,
   } = useMap();
-  const { setDisplayedComponent } = useContext(ContentViewContext);
+  const { setDisplayedComponent, setNavbarColor, setNavbarLeftButton } = useContext(ContentViewContext);
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -49,6 +49,8 @@ const Map = () => {
         onClick={(e) => {
           handleMapClick(e);
           setDisplayedComponent(Components.CREATE_TARGET);
+          setNavbarColor('blue');
+          setNavbarLeftButton('back');
         }}
       >
         {!isSelectedTargetStored() && (
@@ -86,6 +88,8 @@ const Map = () => {
               onClick={() => {
                 handleTargetClick(id);
                 setDisplayedComponent(Components.CREATE_TARGET);
+                setNavbarColor('blue');
+                setNavbarLeftButton('back');
               }}
             />
           )

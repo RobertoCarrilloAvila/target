@@ -7,13 +7,15 @@ import menuBlack from 'assets/icons/menu_black.svg';
 import menuWhite from 'assets/icons/menu_white.svg';
 import pinBlack from 'assets/icons/pin_black.svg';
 import pinWhite from 'assets/icons/pin_white.svg';
+import backArrow from 'assets/icons/back_arrow.svg';
 import ContactModal from 'components/ContactModal/ContactModal';
 import PublicPaths from 'components/Constants/PublicPaths';
+import Components from 'components/Constants/Components';
 
 import UserService from 'services/UserService';
 
 const Navbar = ({ className, rightButton, leftButton }) => {
-  const { displayMap, setDisplayMap } = useContext(ContentViewContext);
+  const { setDisplayedComponent, displayMap, setDisplayMap } = useContext(ContentViewContext);
   const [showmenu, setShowMenu] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isLoggedIn] = useState(UserService.isLoggedIn());
@@ -41,9 +43,21 @@ const Navbar = ({ className, rightButton, leftButton }) => {
     }
   };
 
-  return (
-    <nav className={`navbar navbar--${className}`}>
-      {leftButton || (
+  const renderLeftButton = () => {
+    if (leftButton == 'back') {
+      return (
+        <button onClick={() => setDisplayedComponent(Components.CHAT)}>
+          <img
+            className="navbar__item"
+            src={backArrow}
+            alt="back arrow"
+          />
+        </button>
+      );
+    } else if (leftButton == 'empty') {
+      return <button></button>;
+    } else {
+      return (
         <button onClick={toggleMenu} data-target="navbar__collapsible-menu">
           <img
             className="navbar__item"
@@ -51,7 +65,13 @@ const Navbar = ({ className, rightButton, leftButton }) => {
             alt="hamburger menu"
           />
         </button>
-      )}
+      );
+    }
+  };
+
+  return (
+    <nav className={`navbar navbar--${className}`}>
+      {renderLeftButton()}
 
       {showmenu && (
         <div className="navbar__collapsible-menu">

@@ -1,3 +1,5 @@
+import { useEffect, useContext } from 'react';
+import ContentViewContext from 'contexts/ContentViewContext';
 import Profile from 'components/Profile/Profile';
 
 import 'components/Chat/Chat.scss';
@@ -5,6 +7,12 @@ import world from 'assets/icons/world.svg';
 
 const Chat = () => {
   // TODO: load messages from API
+  const { setNavbarColor, setNavbarLeftButton } = useContext(ContentViewContext);
+
+  useEffect(() => {
+    setNavbarColor('white');
+    setNavbarLeftButton('');
+  }, [setNavbarColor]);
 
   return (
     <div className="chat">
