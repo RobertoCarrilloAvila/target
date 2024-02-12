@@ -1,6 +1,6 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import ContentViewContext from 'contexts/ContentViewContext';
+import useContentView from 'hooks/useContentView';
 
 import 'components/Navbar/Navbar.scss';
 import menuBlack from 'assets/icons/menu_black.svg';
@@ -15,7 +15,7 @@ import Components from 'components/Constants/Components';
 import UserService from 'services/UserService';
 
 const Navbar = ({ className, rightButton, leftButton }) => {
-  const { setDisplayedComponent, displayMap, setDisplayMap } = useContext(ContentViewContext);
+  const { setDisplayedComponent, displayMap, setDisplayMap } = useContentView();
   const [showmenu, setShowMenu] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isLoggedIn] = useState(UserService.isLoggedIn());

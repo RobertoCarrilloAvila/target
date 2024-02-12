@@ -1,5 +1,4 @@
-import { useContext } from 'react';
-import ContentViewContext from 'contexts/ContentViewContext';
+import useContentView from 'hooks/useContentView';
 import useMap from 'hooks/useMap';
 import TargetsService from 'services/TargetsService';
 
@@ -24,7 +23,7 @@ const CreateTarget = () => {
     topicId,
     title,
   } = useMap();
-  const { setDisplayedComponent } = useContext(ContentViewContext);
+  const { setDisplayedComponent } = useContentView();
 
   const buildTargetRequest = () => ({
     title,

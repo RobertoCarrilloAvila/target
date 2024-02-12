@@ -1,10 +1,9 @@
-import { useContext } from 'react';
-import ContentViewContext from 'contexts/ContentViewContext';
+import useContentView from 'hooks/useContentView';
 import 'components/Profile/Profile.scss';
 import profile from 'assets/profile.png';
 
 const Profile = () => {
-  const { setDisplayedComponent } = useContext(ContentViewContext);
+  const { setDisplayedComponent } = useContentView();
 
   return (
     <div className="profile">
