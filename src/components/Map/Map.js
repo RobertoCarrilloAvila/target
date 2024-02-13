@@ -22,7 +22,7 @@ const Map = () => {
     handleTargetClick,
     isSelectedTargetStored,
   } = useMap();
-  const { setDisplayedComponent, setNavbarColor, setNavbarLeftButton } = useContentView();
+  const { setDisplayedComponent, setNavbarLeftButton } = useContentView();
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,

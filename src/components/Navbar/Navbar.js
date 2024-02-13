@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useContentView from 'hooks/useContentView';
 
@@ -13,10 +13,11 @@ import PublicPaths from 'components/Constants/PublicPaths';
 import Components from 'components/Constants/Components';
 
 import UserService from 'services/UserService';
+import { set } from 'lodash';
 
 const backgroundColors = {
   BLUE: 'blue',
-  WHITE: 'white',
+  WHITE: 'white'
 }
 
 const Navbar = ({ color, leftButton }) => {
@@ -24,9 +25,22 @@ const Navbar = ({ color, leftButton }) => {
   const [showmenu, setShowMenu] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isLoggedIn] = useState(UserService.isLoggedIn());
+  const [leftAction, setLeftAction] = useState('');
+  const [backgroundColor, setBackgroundColor] = useState(color);
   const navigate = useNavigate();
-  const [leftAction, setLeftAction] = useState(leftButton);
-  const [backgroundColor, setBackgroundColor] = useState( color == backgroundColors.BLUE ? backgroundColors.BLUE : backgroundColors.WHITE);
+
+  useEffect(() => {
+    const assignBackgroundColor = () => {
+      if (color == backgroundColors.BLUE || leftButton == 'back') {
+        return backgroundColors.BLUE;
+      } else {
+        return backgroundColors.WHITE;
+      }
+    };
+
+    setBackgroundColor(assignBackgroundColor());
+    setLeftAction(leftButton);
+  }, [color, leftButton]);
 
   const toggleMenu = () => {
     setShowMenu(!showmenu);
@@ -54,10 +68,9 @@ const Navbar = ({ color, leftButton }) => {
   const handleBackButton = () => {
     if (displayMap) {
       setDisplayMap(false);
-      setBackgroundColor(backgroundColors.WHITE);
-      setLeftAction('');
     } else {
       setDisplayedComponent(Components.CHAT)
+      setBackgroundColor(backgroundColors.WHITE);
     }
   };
 
@@ -122,7 +135,6 @@ const Navbar = ({ color, leftButton }) => {
       {showContactModal && <ContactModal toggleModal={toggleContactModal} />}
 
       <h1 className="navbar__item navbar__title">TARGET</h1>
-{console.log("displayMap", displayMap)}
       <button onClick={showMap}>
         <img
           className={`navbar__item navbar__pin ${!displayMap ? '' : 'd-none'}`}

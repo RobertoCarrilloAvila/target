@@ -12,7 +12,7 @@ const Chat = () => {
   useEffect(() => {
     setNavbarColor('white');
     setNavbarLeftButton('');
-  }, [setNavbarColor]);
+  }, [setNavbarColor, setNavbarLeftButton]);
 
   return (
     <div className="chat">
