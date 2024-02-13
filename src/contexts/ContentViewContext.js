@@ -30,4 +30,4 @@ const ContentViewContextProvider = ({ children }) => {
   );
 };
 
-export {ContentViewContext, ContentViewContextProvider};
+export { ContentViewContext, ContentViewContextProvider };

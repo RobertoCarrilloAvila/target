@@ -10,7 +10,8 @@ import CreateTarget from 'components/CreateTarget/CreateTarget';
 import EditProfile from 'components/EditProfile/EditProfile';
 
 const Home = () => {
-  const {displayedComponent, displayMap, navbarColor, navbarLeftButton} = useContentView();
+  const { displayedComponent, displayMap, navbarColor, navbarLeftButton } =
+    useContentView();
 
   const Component = {
     Welcome,

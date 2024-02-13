@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { ContentViewContext } from "contexts/ContentViewContext";
+import { useContext } from 'react';
+import { ContentViewContext } from 'contexts/ContentViewContext';
 
 const useContentView = () => {
   const {
@@ -10,7 +10,7 @@ const useContentView = () => {
     navbarColor,
     setNavbarColor,
     navbarLeftButton,
-    setNavbarLeftButton
+    setNavbarLeftButton,
   } = useContext(ContentViewContext);
 
   return {
@@ -21,7 +21,7 @@ const useContentView = () => {
     navbarColor,
     setNavbarColor,
     navbarLeftButton,
-    setNavbarLeftButton
+    setNavbarLeftButton,
   };
 };
 

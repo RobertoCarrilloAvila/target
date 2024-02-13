@@ -13,12 +13,11 @@ import PublicPaths from 'components/Constants/PublicPaths';
 import Components from 'components/Constants/Components';
 
 import UserService from 'services/UserService';
-import { set } from 'lodash';
 
 const backgroundColors = {
   BLUE: 'blue',
-  WHITE: 'white'
-}
+  WHITE: 'white',
+};
 
 const Navbar = ({ color, leftButton }) => {
   const { setDisplayedComponent, displayMap, setDisplayMap } = useContentView();
@@ -69,7 +68,7 @@ const Navbar = ({ color, leftButton }) => {
     if (displayMap) {
       setDisplayMap(false);
     } else {
-      setDisplayedComponent(Components.CHAT)
+      setDisplayedComponent(Components.CHAT);
       setBackgroundColor(backgroundColors.WHITE);
     }
   };
@@ -82,11 +81,7 @@ const Navbar = ({ color, leftButton }) => {
     if (leftAction == 'back') {
       return (
         <button onClick={handleBackButton}>
-          <img
-            className="navbar__item"
-            src={backArrow}
-            alt="back arrow"
-          />
+          <img className="navbar__item" src={backArrow} alt="back arrow" />
         </button>
       );
     } else if (leftAction == 'empty') {
