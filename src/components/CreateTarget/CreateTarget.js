@@ -32,7 +32,7 @@ const CreateTarget = ({ onContinue }) => {
   const createTarget = async (event) => {
     event.preventDefault();
     if (targets.length >= MAX_TARGETS_AMOUNT) {
-      toast.error('You has reached the maximum amount of targets');
+      toast.error('You have reached the maximum amount of targets');
       return;
     }
 
