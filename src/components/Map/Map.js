@@ -43,7 +43,6 @@ const Map = ({ onSelectLocation }) => {
         options={MapConfig.options}
         clickableIcons={false}
         onClick={(e) => {
-          console.log('handleMapClick');
           handleMapClick(e);
           onSelectLocation(Components.CREATE_TARGET);
         }}
