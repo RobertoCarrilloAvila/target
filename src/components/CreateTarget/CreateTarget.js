@@ -1,5 +1,5 @@
 import useMap from 'hooks/useMap';
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
 
 import TargetsService from 'services/TargetsService';
 import FormInput from 'components/FormInput/FormInput';
