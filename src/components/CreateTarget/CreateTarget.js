@@ -1,10 +1,13 @@
 import useMap from 'hooks/useMap';
-import TargetsService from 'services/TargetsService';
+import { toast } from "react-toastify";
 
+import TargetsService from 'services/TargetsService';
 import FormInput from 'components/FormInput/FormInput';
 import FormSelect from 'components/FormSelect/FormSelect';
 import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
+
+const MAX_TARGETS_AMOUNT = 10;
 
 const CreateTarget = ({ onContinue }) => {
   const {
@@ -16,6 +19,7 @@ const CreateTarget = ({ onContinue }) => {
     setTopic,
     topic,
     title,
+    targets,
   } = useMap();
   const buildTargetRequest = () => ({
     title,
@@ -27,8 +31,12 @@ const CreateTarget = ({ onContinue }) => {
 
   const createTarget = async (event) => {
     event.preventDefault();
-    const target = buildTargetRequest();
+    if (targets.length >= MAX_TARGETS_AMOUNT) {
+      toast.error('You has reached the maximum amount of targets');
+      return;
+    }
 
+    const target = buildTargetRequest();
     const created = await TargetsService.create(target);
     if (created) {
       onContinue('Chat');

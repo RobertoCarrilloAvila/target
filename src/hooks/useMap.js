@@ -8,6 +8,8 @@ const useMap = () => {
     mapProperties: { selectedRadius, selectedLocation },
     setMapProperties,
     mapProperties,
+    targets,
+    setTargets,
   } = useContext(MapContext);
 
   const [topicsList, setTopicsList] = useState([]);
@@ -39,6 +41,8 @@ const useMap = () => {
     setTitle,
     topic,
     setTopic,
+    targets,
+    setTargets,
   };
 };
 
