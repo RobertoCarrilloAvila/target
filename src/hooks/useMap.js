@@ -15,7 +15,6 @@ const useMap = () => {
       location,
     },
     setMapProperties,
-    mapProperties,
     targets,
     setTargets,
   } = useContext(MapContext);
@@ -129,10 +128,6 @@ const useMap = () => {
     setTitle,
     topicId,
     setTopicId,
-    topic,
-    setTopic,
-    targets,
-    setTargets,
     handleMapClick,
     handleTargetClick,
     isSelectedTargetStored:

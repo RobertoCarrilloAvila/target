@@ -23,7 +23,6 @@ const CreateTarget = ({ onContinue }) => {
     setTopicId,
     topicId,
     title,
-    targets,
   } = useMap();
 
   const buildTargetRequest = () => ({
