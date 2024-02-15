@@ -8,7 +8,12 @@ import TargetsService from 'services/TargetsService';
 const useMap = () => {
   const {
     mapProperties,
-    mapProperties: { selectedRadius, selectedLocation, selectedTargetId },
+    mapProperties: {
+      selectedRadius,
+      selectedLocation,
+      selectedTargetId,
+      location,
+    },
     setMapProperties,
     targets,
     setTargets,
@@ -70,7 +75,7 @@ const useMap = () => {
   useEffect(() => {
     const fetchCurrentLocation = () => {
       navigator.geolocation.getCurrentPosition((position) => {
-        if (mapProperties.location) return;
+        if (location) return;
 
         setMapProperties({
           ...mapProperties,
@@ -92,7 +97,7 @@ const useMap = () => {
 
     fetchCurrentLocation();
     fetchTargets();
-  }, [mapProperties, targets, setMapProperties, setTargets]);
+  }, [mapProperties, targets, setMapProperties, setTargets, location]);
 
   const handleMapClick = (e) => {
     setMapProperties({
@@ -110,18 +115,10 @@ const useMap = () => {
     });
   };
 
-  const isSelectedTargetStored = () => {
-    return (
-      mapProperties.selectedLocation != null &&
-      mapProperties.selectedTargetId != null
-    );
-  };
-
   return {
     selectedRadius,
     selectedLocation,
     selectedTargetId,
-    mapProperties,
     setMapProperties,
     targets,
     setTargets,
@@ -133,7 +130,8 @@ const useMap = () => {
     setTopicId,
     handleMapClick,
     handleTargetClick,
-    isSelectedTargetStored,
+    isSelectedTargetStored:
+      !!mapProperties.selectedLocation && !!mapProperties.selectedTargetId,
   };
 };
 

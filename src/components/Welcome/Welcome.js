@@ -1,6 +1,8 @@
 import { useContext } from 'react';
+
 import ContentViewContext from 'contexts/ContentViewContext';
 import Components from 'components/Constants/Components';
+
 import smiles from 'assets/smilies.svg';
 import 'components/Welcome/Welcome.scss';
 

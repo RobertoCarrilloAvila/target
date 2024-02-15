@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { MapContextProvider } from 'contexts/MapContext';
 import ContentViewContext from 'contexts/ContentViewContext';
-import Components from 'components/Constants/Components';
 
 import 'components/Home/Home.scss';
 import Navbar from 'components/Navbar/Navbar';
@@ -10,6 +9,8 @@ import Welcome from 'components/Welcome/Welcome';
 import Chat from 'components/Chat/Chat';
 import CreateTarget from 'components/CreateTarget/CreateTarget';
 import EditProfile from 'components/EditProfile/EditProfile';
+import DeleteTarget from 'components/DeleteTarget/DeleteTarget';
+import Components from 'components/Constants/Components';
 
 const Home = () => {
   const [displayedComponent, setDisplayedComponent] = useState(
@@ -20,6 +21,7 @@ const Home = () => {
     Welcome,
     Chat,
     CreateTarget,
+    DeleteTarget,
     EditProfile,
   }[displayedComponent];
 

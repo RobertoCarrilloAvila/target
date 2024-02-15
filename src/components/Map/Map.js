@@ -17,14 +17,16 @@ import pin from 'assets/map/pin.png';
 
 const Map = () => {
   const {
-    mapProperties,
+    selectedLocation,
+    selectedRadius,
     targets,
     handleMapClick,
     handleTargetClick,
+    selectedTargetId,
     isSelectedTargetStored,
+    location,
   } = useMap();
   const { setDisplayedComponent } = useContext(ContentViewContext);
-
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
@@ -41,7 +43,7 @@ const Map = () => {
     <div className="map">
       <GoogleMap
         mapContainerClassName="map__container"
-        center={mapProperties.location || MapConfig.defaultLocation}
+        center={location || MapConfig.defaultLocation}
         zoom={MapConfig.defaultZoom}
         streetViewControl={false}
         options={MapConfig.options}
@@ -51,15 +53,12 @@ const Map = () => {
           setDisplayedComponent(Components.CREATE_TARGET);
         }}
       >
-        {!isSelectedTargetStored() && (
+        {!isSelectedTargetStored && (
           <>
-            <Marker
-              position={mapProperties.selectedLocation}
-              icon={{ url: pin }}
-            />
+            <Marker position={selectedLocation} icon={{ url: pin }} />
             <Circle
-              center={mapProperties.selectedLocation}
-              radius={mapProperties.selectedRadius}
+              center={selectedLocation}
+              radius={selectedRadius}
               options={MapConfig.selectedLocationOptions}
             />
           </>
@@ -82,7 +81,7 @@ const Map = () => {
               longitude={longitude}
               radius={radius}
               icon={icon}
-              selected={mapProperties.selectedTargetId === id}
+              selected={selectedTargetId === id}
               onClick={() => {
                 handleTargetClick(id);
                 setDisplayedComponent(Components.CREATE_TARGET);
