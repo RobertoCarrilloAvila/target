@@ -1,5 +1,7 @@
 import { useContext } from 'react';
+
 import ContentViewContext from 'contexts/ContentViewContext';
+
 import 'components/Profile/Profile.scss';
 import profile from 'assets/profile.png';
 
