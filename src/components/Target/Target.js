@@ -2,7 +2,15 @@ import { Marker, Circle } from '@react-google-maps/api';
 
 import MapConfig from 'components/Constants/MapConfig';
 
-const Target = ({ id, latitude: lat, longitude: lng, radius, icon }) => (
+const Target = ({
+  id,
+  latitude: lat,
+  longitude: lng,
+  radius,
+  icon,
+  selected,
+  onClick,
+}) => (
   <>
     <Marker
       key={`marker-${id}`}
@@ -11,12 +19,15 @@ const Target = ({ id, latitude: lat, longitude: lng, radius, icon }) => (
         url: icon,
         scaledSize: new window.google.maps.Size(40, 40),
       }}
+      onClick={onClick}
     />
     <Circle
       key={`circle-${id}`}
       center={{ lat: lat, lng: lng }}
       radius={radius}
-      options={MapConfig.targetsOptions}
+      options={
+        selected ? MapConfig.selectedTargetsOptions : MapConfig.targetsOptions
+      }
     />
   </>
 );

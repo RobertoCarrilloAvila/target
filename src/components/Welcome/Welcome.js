@@ -1,3 +1,4 @@
+import Components from 'components/Constants/Components';
 import smiles from 'assets/smilies.svg';
 import 'components/Welcome/Welcome.scss';
 
@@ -24,7 +25,7 @@ const Welcome = ({ onContinue }) => {
 
       <button
         className="welcome__button btn"
-        onClick={() => onContinue('Chat')}
+        onClick={() => onContinue(Components.CHAT)}
       >
         ok; got it!
       </button>

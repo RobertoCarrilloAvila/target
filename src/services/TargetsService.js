@@ -17,6 +17,14 @@ const TargetsService = {
       return [];
     }
   },
+  delete: async (targetId) => {
+    try {
+      await client.delete(`/targets/${targetId}`);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  },
 };
 
 export default TargetsService;

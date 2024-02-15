@@ -7,14 +7,19 @@ import MapSection from 'components/MapSection/MapSection';
 import Welcome from 'components/Welcome/Welcome';
 import Chat from 'components/Chat/Chat';
 import CreateTarget from 'components/CreateTarget/CreateTarget';
+import DeleteTarget from 'components/DeleteTarget/DeleteTarget';
+import Components from 'components/Constants/Components';
 
 const Home = () => {
-  const [displayedComponent, setDisplayedComponent] = useState('Welcome');
+  const [displayedComponent, setDisplayedComponent] = useState(
+    Components.WELCOME
+  );
 
   const Component = {
     Welcome,
     Chat,
     CreateTarget,
+    DeleteTarget,
   }[displayedComponent];
 
   return (

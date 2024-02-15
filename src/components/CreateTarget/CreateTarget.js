@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import TargetsService from 'services/TargetsService';
 import FormInput from 'components/FormInput/FormInput';
 import FormSelect from 'components/FormSelect/FormSelect';
+import Components from 'components/Constants/Components';
 import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
 
@@ -14,17 +15,20 @@ const CreateTarget = ({ onContinue }) => {
     setMapProperties,
     selectedLocation,
     selectedRadius,
+    selectedTargetId,
+    targets,
+    setTargets,
     setTitle,
     topicsList,
-    setTopic,
-    topic,
+    setTopicId,
+    topicId,
     title,
-    targets,
   } = useMap();
+
   const buildTargetRequest = () => ({
     title,
     radius: selectedRadius,
-    topic_id: topic,
+    topic_id: topicId,
     latitude: selectedLocation.lat,
     longitude: selectedLocation.lng,
   });
@@ -39,9 +43,21 @@ const CreateTarget = ({ onContinue }) => {
     const target = buildTargetRequest();
     const created = await TargetsService.create(target);
     if (created) {
-      onContinue('Chat');
+      onContinue(Components.CHAT);
     } else {
       alert('Error creating target');
+    }
+  };
+
+  const deleteTarget = async () => {
+    const deleted = await TargetsService.delete(selectedTargetId);
+    if (deleted) {
+      setTargets(
+        targets.filter(({ target }) => target.id !== selectedTargetId)
+      );
+      onContinue(Components.CHAT);
+    } else {
+      alert('Error deleting target');
     }
   };
 
@@ -65,6 +81,7 @@ const CreateTarget = ({ onContinue }) => {
               });
             }}
             min="1"
+            value={selectedRadius || ''}
           />
 
           <FormInput
@@ -74,6 +91,7 @@ const CreateTarget = ({ onContinue }) => {
             label="target title"
             required
             onChange={setTitle}
+            value={title}
           />
 
           <FormSelect
@@ -83,16 +101,27 @@ const CreateTarget = ({ onContinue }) => {
             label="select a topic"
             required
             placeholder=""
-            onChange={setTopic}
+            onChange={setTopicId}
+            value={topicId}
           />
 
-          <button
-            type="submit"
-            className="create-target__submit btn"
-            disabled={!selectedRadius || !title || !topic}
-          >
-            save target
-          </button>
+          {selectedTargetId ? (
+            <button
+              type="button"
+              className="create-target__delete btn create-target__btn-primary"
+              onClick={deleteTarget}
+            >
+              delete
+            </button>
+          ) : (
+            <button
+              type="submit"
+              className="create-target__submit btn create-target__btn-primary"
+              disabled={!selectedRadius || !title || !topicId}
+            >
+              save target
+            </button>
+          )}
         </form>
       </div>
     </div>

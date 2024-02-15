@@ -17,6 +17,12 @@ const MapConfig = {
     fillColor: '#EFC638',
     fillOpacity: 0.7,
   },
+  selectedTargetsOptions: {
+    strokeColor: '#2FBCF7',
+    strokeOpacity: 0.7,
+    fillColor: '#2FBCF7',
+    fillOpacity: 0.7,
+  },
 };
 
 export default MapConfig;

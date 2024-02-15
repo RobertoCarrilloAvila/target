@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import {
   GoogleMap,
   Marker,
@@ -6,26 +5,28 @@ import {
   Circle,
 } from '@react-google-maps/api';
 
+import useMap from 'hooks/useMap';
 import Target from 'components/Target/Target';
 import MapConfig from 'components/Constants/MapConfig';
-import { MapContext } from 'contexts/MapContext';
+import Components from 'components/Constants/Components';
 
 import 'components/Map/Map.scss';
 import pin from 'assets/map/pin.png';
 
 const Map = ({ onSelectLocation }) => {
-  const { mapProperties, setMapProperties, targets } = useContext(MapContext);
+  const {
+    selectedLocation,
+    selectedRadius,
+    targets,
+    handleMapClick,
+    handleTargetClick,
+    selectedTargetId,
+    isSelectedTargetStored,
+    location,
+  } = useMap();
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
-
-  const handleMapClick = (e) => {
-    setMapProperties({
-      ...mapProperties,
-      selectedLocation: { lat: e.latLng.lat(), lng: e.latLng.lng() },
-    });
-    onSelectLocation('CreateTarget');
-  };
 
   if (loadError) {
     return <div className="map__error">Error loading maps</div>;
@@ -39,22 +40,22 @@ const Map = ({ onSelectLocation }) => {
     <div className="map">
       <GoogleMap
         mapContainerClassName="map__container"
-        center={mapProperties.location || MapConfig.defaultLocation}
+        center={location || MapConfig.defaultLocation}
         zoom={MapConfig.defaultZoom}
         streetViewControl={false}
         options={MapConfig.options}
         clickableIcons={false}
-        onClick={(e) => handleMapClick(e)}
+        onClick={(e) => {
+          handleMapClick(e);
+          onSelectLocation(Components.CREATE_TARGET);
+        }}
       >
-        {mapProperties.selectedLocation != null && (
+        {!isSelectedTargetStored && (
           <>
-            <Marker
-              position={mapProperties.selectedLocation}
-              icon={{ url: pin }}
-            />
+            <Marker position={selectedLocation} icon={{ url: pin }} />
             <Circle
-              center={mapProperties.selectedLocation}
-              radius={mapProperties.selectedRadius}
+              center={selectedLocation}
+              radius={selectedRadius}
               options={MapConfig.selectedLocationOptions}
             />
           </>
@@ -77,6 +78,11 @@ const Map = ({ onSelectLocation }) => {
               longitude={longitude}
               radius={radius}
               icon={icon}
+              selected={selectedTargetId === id}
+              onClick={() => {
+                handleTargetClick(id);
+                onSelectLocation(Components.DELETE_TARGET);
+              }}
             />
           )
         )}
