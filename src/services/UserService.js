@@ -83,7 +83,7 @@ const UserService = {
     }
   },
   updateProfile: async (request) => {
-    await client.put(ENDPOINTS.PROFILE + userData().id, request);
+    await client.put(`${ENDPOINTS.PROFILE}${userData().id}`, request);
   },
   isLoggedIn: () => {
     return validToken();
