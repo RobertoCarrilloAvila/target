@@ -97,7 +97,7 @@ const useMap = () => {
 
     fetchCurrentLocation();
     fetchTargets();
-  }, [mapProperties, targets, setMapProperties, setTargets]);
+  }, [mapProperties, targets, setMapProperties, setTargets, location]);
 
   const handleMapClick = (e) => {
     setMapProperties({

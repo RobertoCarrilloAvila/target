@@ -9,7 +9,6 @@ import 'components/CreateTarget/CreateTarget.scss';
 
 const CreateTarget = ({ onContinue }) => {
   const {
-    mapProperties,
     setMapProperties,
     selectedLocation,
     selectedRadius,
