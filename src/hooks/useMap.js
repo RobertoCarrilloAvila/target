@@ -110,13 +110,6 @@ const useMap = () => {
     });
   };
 
-  const isSelectedTargetStored = () => {
-    return (
-      mapProperties.selectedLocation != null &&
-      mapProperties.selectedTargetId != null
-    );
-  };
-
   return {
     selectedRadius,
     selectedLocation,
@@ -133,7 +126,7 @@ const useMap = () => {
     setTopicId,
     handleMapClick,
     handleTargetClick,
-    isSelectedTargetStored,
+    isSelectedTargetStored: !!mapProperties.selectedLocation && !!mapProperties.selectedTargetId,
   };
 };
 

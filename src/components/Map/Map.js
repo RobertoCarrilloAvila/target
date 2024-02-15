@@ -47,7 +47,7 @@ const Map = ({ onSelectLocation }) => {
           onSelectLocation(Components.CREATE_TARGET);
         }}
       >
-        {!isSelectedTargetStored() && (
+        {!isSelectedTargetStored && (
           <>
             <Marker
               position={mapProperties.selectedLocation}
