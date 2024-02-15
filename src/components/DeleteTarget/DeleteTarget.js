@@ -9,7 +9,7 @@ import 'components/CreateTarget/CreateTarget.scss';
 
 const CreateTarget = ({ onContinue }) => {
   const {
-    mapProperties,
+    selectedRadius,
     selectedTargetId,
     targets,
     setTargets,
@@ -42,7 +42,7 @@ const CreateTarget = ({ onContinue }) => {
             name="radius"
             className="create-target__input"
             label="specify area length"
-            value={mapProperties.selectedRadius}
+            value={selectedRadius}
             disabled
           />
 

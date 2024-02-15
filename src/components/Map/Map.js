@@ -15,11 +15,14 @@ import pin from 'assets/map/pin.png';
 
 const Map = ({ onSelectLocation }) => {
   const {
-    mapProperties,
+    selectedLocation,
+    selectedRadius,
     targets,
     handleMapClick,
     handleTargetClick,
+    selectedTargetId,
     isSelectedTargetStored,
+    location,
   } = useMap();
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -37,7 +40,7 @@ const Map = ({ onSelectLocation }) => {
     <div className="map">
       <GoogleMap
         mapContainerClassName="map__container"
-        center={mapProperties.location || MapConfig.defaultLocation}
+        center={location || MapConfig.defaultLocation}
         zoom={MapConfig.defaultZoom}
         streetViewControl={false}
         options={MapConfig.options}
@@ -50,12 +53,12 @@ const Map = ({ onSelectLocation }) => {
         {!isSelectedTargetStored && (
           <>
             <Marker
-              position={mapProperties.selectedLocation}
+              position={selectedLocation}
               icon={{ url: pin }}
             />
             <Circle
-              center={mapProperties.selectedLocation}
-              radius={mapProperties.selectedRadius}
+              center={selectedLocation}
+              radius={selectedRadius}
               options={MapConfig.selectedLocationOptions}
             />
           </>
@@ -78,7 +81,7 @@ const Map = ({ onSelectLocation }) => {
               longitude={longitude}
               radius={radius}
               icon={icon}
-              selected={mapProperties.selectedTargetId === id}
+              selected={selectedTargetId === id}
               onClick={() => {
                 handleTargetClick(id);
                 onSelectLocation(Components.DELETE_TARGET);

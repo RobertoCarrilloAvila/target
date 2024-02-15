@@ -8,7 +8,7 @@ import TargetsService from 'services/TargetsService';
 const useMap = () => {
   const {
     mapProperties,
-    mapProperties: { selectedRadius, selectedLocation, selectedTargetId },
+    mapProperties: { selectedRadius, selectedLocation, selectedTargetId, location },
     setMapProperties,
     targets,
     setTargets,
@@ -70,7 +70,7 @@ const useMap = () => {
   useEffect(() => {
     const fetchCurrentLocation = () => {
       navigator.geolocation.getCurrentPosition((position) => {
-        if (mapProperties.location) return;
+        if (location) return;
 
         setMapProperties({
           ...mapProperties,
@@ -114,7 +114,6 @@ const useMap = () => {
     selectedRadius,
     selectedLocation,
     selectedTargetId,
-    mapProperties,
     setMapProperties,
     targets,
     setTargets,

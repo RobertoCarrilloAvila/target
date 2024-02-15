@@ -75,7 +75,7 @@ const CreateTarget = ({ onContinue }) => {
               });
             }}
             min="1"
-            value={mapProperties.selectedRadius || ''}
+            value={selectedRadius || ''}
           />
 
           <FormInput
