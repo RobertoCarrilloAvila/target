@@ -52,10 +52,7 @@ const Map = ({ onSelectLocation }) => {
       >
         {!isSelectedTargetStored && (
           <>
-            <Marker
-              position={selectedLocation}
-              icon={{ url: pin }}
-            />
+            <Marker position={selectedLocation} icon={{ url: pin }} />
             <Circle
               center={selectedLocation}
               radius={selectedRadius}

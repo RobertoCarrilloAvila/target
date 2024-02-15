@@ -8,7 +8,12 @@ import TargetsService from 'services/TargetsService';
 const useMap = () => {
   const {
     mapProperties,
-    mapProperties: { selectedRadius, selectedLocation, selectedTargetId, location },
+    mapProperties: {
+      selectedRadius,
+      selectedLocation,
+      selectedTargetId,
+      location,
+    },
     setMapProperties,
     targets,
     setTargets,
@@ -125,7 +130,8 @@ const useMap = () => {
     setTopicId,
     handleMapClick,
     handleTargetClick,
-    isSelectedTargetStored: !!mapProperties.selectedLocation && !!mapProperties.selectedTargetId,
+    isSelectedTargetStored:
+      !!mapProperties.selectedLocation && !!mapProperties.selectedTargetId,
   };
 };
 
