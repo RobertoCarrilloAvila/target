@@ -27,9 +27,9 @@ const useMap = () => {
     const loadSelectedTarget = () => {
       if (!selectedTargetId) return;
 
-      const { target } = targets.find(
-        ({ target }) => target.id == selectedTargetId
-      );
+      const { target } = targets.find(({ target }) => target.id == selectedTargetId) || {};
+
+      if (!target) return;
 
       if (target.title !== title) setTitle(target.title);
       if (topicId !== target.topic.id) setTopicId(target.topic.id);
