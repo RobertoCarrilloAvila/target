@@ -1,5 +1,6 @@
 import useContentView from 'hooks/useContentView';
 import Components from 'components/Constants/Components';
+
 import smiles from 'assets/smilies.svg';
 import 'components/Welcome/Welcome.scss';
 

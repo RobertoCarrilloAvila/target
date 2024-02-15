@@ -8,6 +8,7 @@ import Welcome from 'components/Welcome/Welcome';
 import Chat from 'components/Chat/Chat';
 import CreateTarget from 'components/CreateTarget/CreateTarget';
 import EditProfile from 'components/EditProfile/EditProfile';
+import DeleteTarget from 'components/DeleteTarget/DeleteTarget';
 
 const Home = () => {
   const { displayedComponent, displayMap, navbarColor, navbarLeftButton } =
@@ -17,6 +18,7 @@ const Home = () => {
     Welcome,
     Chat,
     CreateTarget,
+    DeleteTarget,
     EditProfile,
   }[displayedComponent];
 
