@@ -7,7 +7,9 @@ const MapSearchBox = ({ onPlaceSelected }) => {
 
   useEffect(() => {
     if (!inputRef.current) return;
-    const autocomplete = new window.google.maps.places.Autocomplete(inputRef.current);
+    const autocomplete = new window.google.maps.places.Autocomplete(
+      inputRef.current
+    );
     autocomplete.addListener('place_changed', () => {
       const place = autocomplete.getPlace();
       if (onPlaceSelected) {
@@ -16,7 +18,14 @@ const MapSearchBox = ({ onPlaceSelected }) => {
     });
   }, [onPlaceSelected]);
 
-  return <input className='map-search-box' ref={inputRef} type="text" placeholder="Search a location to add a target..." />;
+  return (
+    <input
+      className="map-search-box"
+      ref={inputRef}
+      type="text"
+      placeholder="Search a location to add a target..."
+    />
+  );
 };
 
 export default MapSearchBox;

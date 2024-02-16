@@ -116,7 +116,9 @@ const useMap = () => {
   };
 
   const handleSearchBoxPlaceSelected = (place) => {
-    const { geometry: { location } } = place;
+    const {
+      geometry: { location },
+    } = place;
 
     setMapProperties({
       ...mapProperties,
@@ -124,7 +126,7 @@ const useMap = () => {
       selectedLocation: {
         lat: location.lat(),
         lng: location.lng(),
-      }
+      },
     });
   };
 
