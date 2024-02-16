@@ -3,6 +3,9 @@ const MapConfig = {
   defaultZoom: 12,
   options: {
     draggableCursor: 'default',
+    streetViewControl: false,
+    mapTypeControl: false,
+    fullscreenControl: false,
   },
   selectedLocationOptions: {
     strokeColor: '#EFC638',
