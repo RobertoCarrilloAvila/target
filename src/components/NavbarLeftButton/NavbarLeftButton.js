@@ -5,7 +5,13 @@ import menuBlack from 'assets/icons/menu_black.svg';
 import menuWhite from 'assets/icons/menu_white.svg';
 import backArrow from 'assets/icons/back_arrow.svg';
 
-const NavbarLeftButton = ({ action, isNavbarBlue, backgroundColors, setNavbarBackgroundColor, toggleMenu }) => {
+const NavbarLeftButton = ({
+  action,
+  isNavbarBlue,
+  backgroundColors,
+  setNavbarBackgroundColor,
+  toggleMenu,
+}) => {
   const { goTo, isMapVisible, setIsMapVisible } = useContentView();
 
   const handleBackButton = () => {
@@ -17,7 +23,7 @@ const NavbarLeftButton = ({ action, isNavbarBlue, backgroundColors, setNavbarBac
     }
   };
 
-  if (action === "back") {
+  if (action === 'back') {
     return (
       <button className="navbar__back" onClick={handleBackButton}>
         <img className="navbar__item" src={backArrow} alt="back arrow" />
@@ -26,7 +32,7 @@ const NavbarLeftButton = ({ action, isNavbarBlue, backgroundColors, setNavbarBac
   }
 
   if (action == 'empty') {
-    return <button></button>; 
+    return <button></button>;
   }
 
   return (
