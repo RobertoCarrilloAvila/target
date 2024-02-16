@@ -20,7 +20,7 @@ const backgroundColors = {
 };
 
 const Navbar = ({ color, leftButton }) => {
-  const { setDisplayedComponent, displayMap, setDisplayMap } = useContentView();
+  const { setDisplayedComponent, isMapVisible, setIsMapVisible } = useContentView();
   const [showmenu, setShowMenu] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isLoggedIn] = useState(UserService.isLoggedIn());
@@ -51,7 +51,7 @@ const Navbar = ({ color, leftButton }) => {
   };
 
   const showMap = () => {
-    setDisplayMap(true);
+    setIsMapVisible(true);
     setBackgroundColor(backgroundColors.BLUE);
     setLeftAction('back');
   };
@@ -65,8 +65,8 @@ const Navbar = ({ color, leftButton }) => {
   };
 
   const handleBackButton = () => {
-    if (displayMap) {
-      setDisplayMap(false);
+    if (isMapVisible) {
+      setIsMapVisible(false);
     } else {
       setDisplayedComponent(Components.CHAT);
       setBackgroundColor(backgroundColors.WHITE);
@@ -132,7 +132,7 @@ const Navbar = ({ color, leftButton }) => {
       <h1 className="navbar__item navbar__title">TARGET</h1>
       <button onClick={showMap}>
         <img
-          className={`navbar__item navbar__pin ${!displayMap ? '' : 'd-none'}`}
+          className={`navbar__item navbar__pin ${!isMapVisible ? '' : 'd-none'}`}
           src={isNavbarBlue() ? pinWhite : pinBlack}
           alt="pin"
         />

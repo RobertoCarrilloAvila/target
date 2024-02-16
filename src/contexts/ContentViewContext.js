@@ -8,15 +8,15 @@ const ContentViewContextProvider = ({ children }) => {
   const [displayedComponent, setDisplayedComponent] = useState(
     Components.WELCOME
   );
-  const [displayMap, setDisplayMap] = useState(false);
+  const [isMapVisible, setIsMapVisible] = useState(false);
   const [navbarColor, setNavbarColor] = useState('white');
   const [navbarLeftButton, setNavbarLeftButton] = useState('');
 
   const contentViewFunctions = {
     displayedComponent,
     setDisplayedComponent,
-    displayMap,
-    setDisplayMap,
+    isMapVisible,
+    setIsMapVisible,
     navbarColor,
     setNavbarColor,
     navbarLeftButton,

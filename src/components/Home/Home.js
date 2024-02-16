@@ -11,7 +11,7 @@ import EditProfile from 'components/EditProfile/EditProfile';
 import DeleteTarget from 'components/DeleteTarget/DeleteTarget';
 
 const Home = () => {
-  const { displayedComponent, displayMap, navbarColor, navbarLeftButton } =
+  const { displayedComponent, isMapVisible, navbarColor, navbarLeftButton } =
     useContentView();
 
   const Component = {
@@ -25,7 +25,7 @@ const Home = () => {
   return (
     <MapContextProvider>
       <div className="home">
-        <div className={`home__container ${displayMap ? 'hide' : ''}`}>
+        <div className={`home__container ${isMapVisible ? 'hide' : ''}`}>
           <Navbar color={navbarColor} leftButton={navbarLeftButton} />
 
           <div className="home__content">
@@ -33,7 +33,7 @@ const Home = () => {
           </div>
         </div>
 
-        <MapSection className={displayMap ? 'open' : ''} />
+        <MapSection className={isMapVisible ? 'open' : ''} />
       </div>
     </MapContextProvider>
   );

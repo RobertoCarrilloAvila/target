@@ -1,8 +1,8 @@
 const useContentView = () => ({
   displayedComponent: 'Home',
   setDisplayedComponent: jest.fn(),
-  displayMap: false,
-  setDisplayMap: jest.fn(),
+  isMapVisible: false,
+  setIsMapVisible: jest.fn(),
   navbarColor: 'blue',
   setNavbarColor: jest.fn(),
   navbarLeftButton: 'back',
