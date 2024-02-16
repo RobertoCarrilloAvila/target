@@ -5,7 +5,7 @@ import Components from 'components/Constants/Components';
 const ContentViewContext = createContext();
 
 const ContentViewContextProvider = ({ children }) => {
-  const [displayedComponent, setDisplayedComponent] = useState(
+  const [displayedComponent, goTo] = useState(
     Components.WELCOME
   );
   const [isMapVisible, setIsMapVisible] = useState(false);
@@ -14,7 +14,7 @@ const ContentViewContextProvider = ({ children }) => {
 
   const contentViewFunctions = {
     displayedComponent,
-    setDisplayedComponent,
+    goTo,
     isMapVisible,
     setIsMapVisible,
     navbarColor,

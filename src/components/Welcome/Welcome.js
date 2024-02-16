@@ -5,7 +5,7 @@ import smiles from 'assets/smilies.svg';
 import 'components/Welcome/Welcome.scss';
 
 const Welcome = () => {
-  const { setDisplayedComponent } = useContentView();
+  const { goTo } = useContentView();
 
   return (
     <div className="welcome">
@@ -29,7 +29,7 @@ const Welcome = () => {
 
       <button
         className="welcome__button btn"
-        onClick={() => setDisplayedComponent(Components.CHAT)}
+        onClick={() => goTo(Components.CHAT)}
       >
         ok; got it!
       </button>

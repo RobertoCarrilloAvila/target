@@ -20,7 +20,7 @@ const backgroundColors = {
 };
 
 const Navbar = ({ color, leftButton }) => {
-  const { setDisplayedComponent, isMapVisible, setIsMapVisible } = useContentView();
+  const { goTo, isMapVisible, setIsMapVisible } = useContentView();
   const [showmenu, setShowMenu] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isLoggedIn] = useState(UserService.isLoggedIn());
@@ -68,7 +68,7 @@ const Navbar = ({ color, leftButton }) => {
     if (isMapVisible) {
       setIsMapVisible(false);
     } else {
-      setDisplayedComponent(Components.CHAT);
+      goTo(Components.CHAT);
       setBackgroundColor(backgroundColors.WHITE);
     }
   };
