@@ -10,9 +10,24 @@ test('has color', () => {
   expect(navbar).toHaveClass('navbar--blue');
 });
 
+test('has no color', () => {
+  render(<Navbar />, { wrapper: MemoryRouter });
+  const navbar = screen.getByRole('navigation');
+  expect(navbar).toHaveClass('navbar--white');
+});
+
+test('has back button', () => {
+  render(<Navbar leftButton="back" />, { wrapper: MemoryRouter });
+  const back = screen.getByAltText('back arrow');
+  expect(back).toBeInTheDocument();
+});
+
 test('has 2 images for mobile', () => {
   render(<Navbar color="blue" />, { wrapper: MemoryRouter });
   const images = screen.getAllByRole('img');
+  const navbar = screen.getByRole('navigation');
+
+  expect(navbar).toHaveClass('navbar--blue');
   expect(images).toHaveLength(2);
 });
 

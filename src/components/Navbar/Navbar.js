@@ -80,7 +80,7 @@ const Navbar = ({ color, leftButton }) => {
   const renderLeftButton = () => {
     if (leftAction == 'back') {
       return (
-        <button onClick={handleBackButton}>
+        <button className='navbar__back' onClick={handleBackButton}>
           <img className="navbar__item" src={backArrow} alt="back arrow" />
         </button>
       );
