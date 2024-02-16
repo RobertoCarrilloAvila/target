@@ -42,7 +42,7 @@ const Map = ({ onSelectLocation }) => {
 
   return (
     <div className="map">
-      <MapSearchBox onPlaceSelected={handleSearchBoxPlaceSelected} />
+      <MapSearchBox onPlaceSelected={handleSearchBoxPlaceSelected} goTo={onSelectLocation} />
       <GoogleMap
         mapContainerClassName="map__container"
         center={location || MapConfig.defaultLocation}
