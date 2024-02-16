@@ -115,6 +115,21 @@ const useMap = () => {
     });
   };
 
+  const handleSearchBoxPlaceSelected = (place) => {
+    const {
+      geometry: { location },
+    } = place;
+
+    setMapProperties({
+      ...mapProperties,
+      selectedTargetId: null,
+      selectedLocation: {
+        lat: location.lat(),
+        lng: location.lng(),
+      },
+    });
+  };
+
   return {
     selectedRadius,
     selectedLocation,
@@ -130,6 +145,7 @@ const useMap = () => {
     setTopicId,
     handleMapClick,
     handleTargetClick,
+    handleSearchBoxPlaceSelected,
     isSelectedTargetStored:
       !!mapProperties.selectedLocation && !!mapProperties.selectedTargetId,
   };

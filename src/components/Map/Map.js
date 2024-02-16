@@ -5,6 +5,7 @@ import {
   Circle,
 } from '@react-google-maps/api';
 
+import MapSearchBox from 'components/MapSearchBox/MapSearchBox';
 import useMap from 'hooks/useMap';
 import Target from 'components/Target/Target';
 import MapConfig from 'components/Constants/MapConfig';
@@ -20,12 +21,15 @@ const Map = ({ onSelectLocation }) => {
     targets,
     handleMapClick,
     handleTargetClick,
+    handleSearchBoxPlaceSelected,
     selectedTargetId,
     isSelectedTargetStored,
     location,
   } = useMap();
+
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    libraries: ['places'],
   });
 
   if (loadError) {
@@ -38,6 +42,10 @@ const Map = ({ onSelectLocation }) => {
 
   return (
     <div className="map">
+      <MapSearchBox
+        onPlaceSelected={handleSearchBoxPlaceSelected}
+        goTo={onSelectLocation}
+      />
       <GoogleMap
         mapContainerClassName="map__container"
         center={location || MapConfig.defaultLocation}
