@@ -1,0 +1,21 @@
+@use "../../shared.scss" as shared;
+
+.map-search-box {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  z-index: 1;
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+}
+
+@media (min-width: #{shared.$md}) {
+  .map-search-box {
+    max-width: 300px;
+  }
+}
