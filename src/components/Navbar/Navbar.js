@@ -80,7 +80,7 @@ const Navbar = ({ color, leftButton }) => {
   const renderLeftButton = () => {
     if (leftAction == 'back') {
       return (
-        <button className='navbar__back' onClick={handleBackButton}>
+        <button className="navbar__back" onClick={handleBackButton}>
           <img className="navbar__item" src={backArrow} alt="back arrow" />
         </button>
       );
@@ -132,7 +132,9 @@ const Navbar = ({ color, leftButton }) => {
       <h1 className="navbar__item navbar__title">TARGET</h1>
       <button onClick={showMap}>
         <img
-          className={`navbar__item navbar__pin ${!isMapVisible ? '' : 'd-none'}`}
+          className={`navbar__item navbar__pin ${
+            !isMapVisible ? '' : 'd-none'
+          }`}
           src={isNavbarBlue() ? pinWhite : pinBlack}
           alt="pin"
         />

@@ -5,9 +5,7 @@ import Components from 'components/Constants/Components';
 const ContentViewContext = createContext();
 
 const ContentViewContextProvider = ({ children }) => {
-  const [displayedComponent, goTo] = useState(
-    Components.WELCOME
-  );
+  const [displayedComponent, goTo] = useState(Components.WELCOME);
   const [isMapVisible, setIsMapVisible] = useState(false);
   const [navbarColor, setNavbarColor] = useState('white');
   const [navbarLeftButton, setNavbarLeftButton] = useState('');
