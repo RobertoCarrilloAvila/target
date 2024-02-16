@@ -1,18 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+
 import useContentView from 'hooks/useContentView';
+import UserService from 'services/UserService';
+import NavbarLeftButton from 'components/NavbarLeftButton/NavbarLeftButton';
 
 import 'components/Navbar/Navbar.scss';
-import menuBlack from 'assets/icons/menu_black.svg';
-import menuWhite from 'assets/icons/menu_white.svg';
 import pinBlack from 'assets/icons/pin_black.svg';
 import pinWhite from 'assets/icons/pin_white.svg';
-import backArrow from 'assets/icons/back_arrow.svg';
 import ContactModal from 'components/ContactModal/ContactModal';
 import PublicPaths from 'components/Constants/PublicPaths';
-import Components from 'components/Constants/Components';
-
-import UserService from 'services/UserService';
 
 const backgroundColors = {
   BLUE: 'blue',
@@ -20,7 +17,7 @@ const backgroundColors = {
 };
 
 const Navbar = ({ color, leftButton }) => {
-  const { goTo, isMapVisible, setIsMapVisible } = useContentView();
+  const { isMapVisible, setIsMapVisible } = useContentView();
   const [showmenu, setShowMenu] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isLoggedIn] = useState(UserService.isLoggedIn());
@@ -64,44 +61,19 @@ const Navbar = ({ color, leftButton }) => {
     }
   };
 
-  const handleBackButton = () => {
-    if (isMapVisible) {
-      setIsMapVisible(false);
-    } else {
-      goTo(Components.CHAT);
-      setBackgroundColor(backgroundColors.WHITE);
-    }
-  };
-
   const isNavbarBlue = () => {
     return backgroundColor == backgroundColors.BLUE;
   };
 
-  const renderLeftButton = () => {
-    if (leftAction == 'back') {
-      return (
-        <button className="navbar__back" onClick={handleBackButton}>
-          <img className="navbar__item" src={backArrow} alt="back arrow" />
-        </button>
-      );
-    } else if (leftAction == 'empty') {
-      return <button></button>;
-    } else {
-      return (
-        <button onClick={toggleMenu} data-target="navbar__collapsible-menu">
-          <img
-            className="navbar__item"
-            src={isNavbarBlue() ? menuWhite : menuBlack}
-            alt="hamburger menu"
-          />
-        </button>
-      );
-    }
-  };
-
   return (
     <nav className={`navbar navbar--${backgroundColor}`}>
-      {renderLeftButton()}
+      <NavbarLeftButton
+        action={leftAction}
+        isNavbarBlue={isNavbarBlue}
+        backgroundColors={backgroundColors}
+        setNavbarBackgroundColor={setBackgroundColor}
+        toggleMenu={toggleMenu}
+      />
 
       {showmenu && (
         <div className="navbar__collapsible-menu">
