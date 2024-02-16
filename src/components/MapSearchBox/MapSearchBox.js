@@ -18,7 +18,7 @@ const MapSearchBox = ({ onPlaceSelected, goTo }) => {
         goTo(Components.CREATE_TARGET);
       }
     });
-  }, [onPlaceSelected]);
+  }, [onPlaceSelected, goTo]);
 
   return (
     <input
