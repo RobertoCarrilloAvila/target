@@ -17,7 +17,7 @@ const useConversations = () => {
 
   useEffect(() => {
     fetchMatches();
-  }, [messages, fetchMatches]);
+  }, [fetchMatches]);
 
   return { messages };
 };
