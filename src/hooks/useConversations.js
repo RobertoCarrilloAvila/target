@@ -10,7 +10,7 @@ const useConversations = () => {
     const matches = await ConversationsService.matches();
     const messagesIds = messages.map(({ id }) => id).sort();
     const matchesIds = matches.map(({ id }) => id).sort();
-    
+
     if (isEqual(messagesIds, matchesIds)) return;
     setMessages(matches);
   }, [messages, setMessages]);
