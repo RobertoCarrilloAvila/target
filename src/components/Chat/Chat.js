@@ -1,10 +1,10 @@
+import useConversations from 'hooks/useConversations';
 import Profile from 'components/Profile/Profile';
 
 import 'components/Chat/Chat.scss';
-import world from 'assets/icons/world.svg';
 
 const Chat = () => {
-  // TODO: load messages from API
+  const { messages } = useConversations();
 
   return (
     <div className="chat">
@@ -13,23 +13,35 @@ const Chat = () => {
 
         <h1 className="chat__title">Chat</h1>
         <ul className="chat__list">
-          <li className="chat__message">
-            <img
-              src="https://picsum.photos/50/50"
-              alt="avatar"
-              className="chat__avatar"
-            />
-            <div className="chat__message-preview">
-              <span className="chat__message-author">José Gazzano</span>
-              <span className="chat__message-text">
-                ¡Hola! A dónde querés viajar?
-              </span>
-            </div>
-            <div className="chat__message-icon">
-              <img src={world} alt="world" />
-              <span className="chat__message-counter">1</span>
-            </div>
-          </li>
+          {messages.map(
+            ({
+              match_id,
+              last_message,
+              topic_icon,
+              unread_messages,
+              user: { small_thumb_url, full_name },
+            }) => (
+              <li className="chat__message" key={match_id}>
+                <img
+                  src={small_thumb_url || 'https://picsum.photos/50/50'}
+                  alt="avatar"
+                  className="chat__avatar"
+                />
+                <div className="chat__message-preview">
+                  <span className="chat__message-author">{full_name}</span>
+                  <span className="chat__message-text">{last_message}</span>
+                </div>
+                <div className="chat__message-icon">
+                  <img src={topic_icon} alt="world" />
+                  {unread_messages == 0 && (
+                    <span className="chat__message-counter">
+                      {unread_messages}
+                    </span>
+                  )}
+                </div>
+              </li>
+            )
+          )}
         </ul>
       </div>
     </div>
