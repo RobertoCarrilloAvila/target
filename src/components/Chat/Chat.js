@@ -1,26 +1,10 @@
-import { useState, useEffect } from 'react';
-import { isEqual } from 'lodash';
-
-import ConversationsService from 'services/ConversationsService';
+import useConversations from 'hooks/useConversations';
 import Profile from 'components/Profile/Profile';
 
 import 'components/Chat/Chat.scss';
 
 const Chat = () => {
-  const [messages, setMessages] = useState([]);
-
-  useEffect(() => {
-    const fetchMatches = async () => {
-      const matches = await ConversationsService.matches();
-      const messagesIds = messages.map(({ id }) => id).sort();
-      const matchesIds = matches.map(({ id }) => id).sort();
-      
-      if (isEqual(messagesIds, matchesIds)) return;
-      setMessages(matches);
-    };
-
-    fetchMatches();
-  }, [messages]);
+  const { messages } = useConversations();
 
   return (
     <div className="chat">
