@@ -13,33 +13,35 @@ const Chat = () => {
 
         <h1 className="chat__title">Chat</h1>
         <ul className="chat__list">
-          {messages.map(({ match_id, last_message, topic_icon, unread_messages, user: { small_thumb_url, full_name }  }) => (
-            <li className="chat__message" key={match_id}>
-              <img
-                src={
-                  small_thumb_url || 'https://picsum.photos/50/50'
-                }
-                alt="avatar"
-                className="chat__avatar"
-              />
-              <div className="chat__message-preview">
-                <span className="chat__message-author">
-                  {full_name}
-                </span>
-                <span className="chat__message-text">
-                  {last_message}
-                </span>
-              </div>
-              <div className="chat__message-icon">
-                <img src={topic_icon} alt="world" />
-                {unread_messages == 0 && (
-                  <span className="chat__message-counter">
-                    {unread_messages}
-                  </span>
-                )}
-              </div>
-            </li>
-          ))}
+          {messages.map(
+            ({
+              match_id,
+              last_message,
+              topic_icon,
+              unread_messages,
+              user: { small_thumb_url, full_name },
+            }) => (
+              <li className="chat__message" key={match_id}>
+                <img
+                  src={small_thumb_url || 'https://picsum.photos/50/50'}
+                  alt="avatar"
+                  className="chat__avatar"
+                />
+                <div className="chat__message-preview">
+                  <span className="chat__message-author">{full_name}</span>
+                  <span className="chat__message-text">{last_message}</span>
+                </div>
+                <div className="chat__message-icon">
+                  <img src={topic_icon} alt="world" />
+                  {unread_messages == 0 && (
+                    <span className="chat__message-counter">
+                      {unread_messages}
+                    </span>
+                  )}
+                </div>
+              </li>
+            )
+          )}
         </ul>
       </div>
     </div>
