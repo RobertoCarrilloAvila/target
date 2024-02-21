@@ -1,3 +1,4 @@
+import useContentView from 'hooks/useContentView';
 import useMap from 'hooks/useMap';
 import { toast } from 'react-toastify';
 
@@ -10,7 +11,7 @@ import 'components/CreateTarget/CreateTarget.scss';
 
 const MAX_TARGETS_AMOUNT = 10;
 
-const CreateTarget = ({ onContinue }) => {
+const CreateTarget = () => {
   const {
     setMapProperties,
     selectedLocation,
@@ -24,6 +25,7 @@ const CreateTarget = ({ onContinue }) => {
     topicId,
     title,
   } = useMap();
+  const { goTo } = useContentView();
 
   const buildTargetRequest = () => ({
     title,
@@ -43,7 +45,7 @@ const CreateTarget = ({ onContinue }) => {
     const target = buildTargetRequest();
     const created = await TargetsService.create(target);
     if (created) {
-      onContinue(Components.CHAT);
+      goTo(Components.CHAT);
     } else {
       alert('Error creating target');
     }
@@ -55,7 +57,7 @@ const CreateTarget = ({ onContinue }) => {
       setTargets(
         targets.filter(({ target }) => target.id !== selectedTargetId)
       );
-      onContinue(Components.CHAT);
+      goTo(Components.CHAT);
     } else {
       alert('Error deleting target');
     }

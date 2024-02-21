@@ -1,9 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 
-import 'components/MapSearchBox/MapSearchBox.scss';
 import Components from 'components/Constants/Components';
+import useContentView from 'hooks/useContentView';
 
-const MapSearchBox = ({ onPlaceSelected, goTo }) => {
+import 'components/MapSearchBox/MapSearchBox.scss';
+
+const MapSearchBox = ({ onPlaceSelected }) => {
+  const { goTo } = useContentView();
   const inputRef = useRef(null);
 
   useEffect(() => {

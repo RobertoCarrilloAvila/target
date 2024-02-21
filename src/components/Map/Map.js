@@ -7,6 +7,7 @@ import {
 
 import MapSearchBox from 'components/MapSearchBox/MapSearchBox';
 import useMap from 'hooks/useMap';
+import useContentView from 'hooks/useContentView';
 import Target from 'components/Target/Target';
 import MapConfig from 'components/Constants/MapConfig';
 import Components from 'components/Constants/Components';
@@ -14,7 +15,7 @@ import Components from 'components/Constants/Components';
 import 'components/Map/Map.scss';
 import pin from 'assets/map/pin.png';
 
-const Map = ({ onSelectLocation }) => {
+const Map = () => {
   const {
     selectedLocation,
     selectedRadius,
@@ -26,6 +27,7 @@ const Map = ({ onSelectLocation }) => {
     isSelectedTargetStored,
     location,
   } = useMap();
+  const { goTo, setNavbarLeftButton } = useContentView();
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -44,7 +46,6 @@ const Map = ({ onSelectLocation }) => {
     <div className="map">
       <MapSearchBox
         onPlaceSelected={handleSearchBoxPlaceSelected}
-        goTo={onSelectLocation}
       />
       <GoogleMap
         mapContainerClassName="map__container"
@@ -55,7 +56,8 @@ const Map = ({ onSelectLocation }) => {
         clickableIcons={false}
         onClick={(e) => {
           handleMapClick(e);
-          onSelectLocation(Components.CREATE_TARGET);
+          goTo(Components.CREATE_TARGET);
+          setNavbarLeftButton('back');
         }}
       >
         {!isSelectedTargetStored && (
@@ -89,7 +91,8 @@ const Map = ({ onSelectLocation }) => {
               selected={selectedTargetId === id}
               onClick={() => {
                 handleTargetClick(id);
-                onSelectLocation(Components.DELETE_TARGET);
+                goTo(Components.CREATE_TARGET);
+                setNavbarLeftButton('back');
               }}
             />
           )

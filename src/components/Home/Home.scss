@@ -8,11 +8,35 @@
     height: 100%;
     flex-grow: 1;
 
+    &.hide {
+      width: 0;
+      flex-grow: 0;
+
+      &__content {
+        display: none;
+      }
+    }
+  }
+
+  &__content {
+    margin-top: shared.$navbar-height;
   }
 
   @media (min-width: #{shared.$md}) {
     &__container {
       flex-grow: 0;
+    }
+
+    &__content {
+      margin-top: 0;
+    }
+
+    .hide {
+      width: 357px;
+
+      &__content {
+        display: block;
+      }
     }
   }
 }

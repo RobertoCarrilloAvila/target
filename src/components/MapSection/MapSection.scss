@@ -4,6 +4,10 @@
   display: none;
   height: 100vh;
   flex-grow: 1;
+
+  &.open {
+    display: block;
+  }
 }
 
 @media (min-width: #{shared.$md}) {

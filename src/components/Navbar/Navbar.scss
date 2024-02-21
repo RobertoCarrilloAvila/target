@@ -1,6 +1,11 @@
 @use "../../shared.scss" as shared;
 
 .navbar {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  left: 0;
   display: flex;
   height: shared.$navbar-height;
   align-content: center;
@@ -73,6 +78,8 @@
 
 @media (min-width: #{shared.$md}) {
   .navbar {
+    position: static;
+
     .navbar-item {
       display: none;
 
