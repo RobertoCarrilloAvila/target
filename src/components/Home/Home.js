@@ -9,6 +9,7 @@ import Chat from 'components/Chat/Chat';
 import CreateTarget from 'components/CreateTarget/CreateTarget';
 import EditProfile from 'components/EditProfile/EditProfile';
 import DeleteTarget from 'components/DeleteTarget/DeleteTarget';
+import Conversation from 'components/Conversation/Conversation';
 
 const Home = () => {
   const { displayedComponent, isMapVisible, navbarColor, navbarLeftButton } =
@@ -20,6 +21,7 @@ const Home = () => {
     CreateTarget,
     DeleteTarget,
     EditProfile,
+    Conversation,
   }[displayedComponent];
 
   return (
