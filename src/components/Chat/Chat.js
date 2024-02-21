@@ -29,11 +29,13 @@ const Chat = () => {
                 />
                 <div className="chat__message-preview">
                   <span className="chat__message-author">{full_name}</span>
-                  <span className="chat__message-text">{last_message}</span>
+                  <span className="chat__message-text">
+                    {last_message || 'Start matching to see your conversations here'}
+                  </span>
                 </div>
                 <div className="chat__message-icon">
                   <img src={topic_icon} alt="world" />
-                  {unread_messages == 0 && (
+                  {unread_messages > 0 && (
                     <span className="chat__message-counter">
                       {unread_messages}
                     </span>
