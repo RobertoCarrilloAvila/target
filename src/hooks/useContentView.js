@@ -9,7 +9,7 @@ const useContentView = () => {
     contentViewContext;
 
   useEffect(() => {
-    if (displayedComponent === Components.Chat) {
+    if (displayedComponent === Components.CHAT) {
       setNavbarColor('white');
       setNavbarLeftButton('');
     }
