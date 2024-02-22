@@ -82,6 +82,9 @@ const UserService = {
       return false;
     }
   },
+  updateProfile: async (request) => {
+    await client.put(`${ENDPOINTS.PROFILE}${userData().id}`, request);
+  },
   isLoggedIn: () => {
     return validToken();
   },
