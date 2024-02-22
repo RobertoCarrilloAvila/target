@@ -2,23 +2,23 @@
 
 .message {
   display: flex;
-  gap: 0.4375rem;
   align-items: flex-end;
+  gap: 0.4375rem;
   
   &__text {
     width: fit-content;
     max-width: 10.5rem;
     padding: 0.3125rem 0.5rem;
     border-radius: 6px;
+    margin: 0;
     color: shared.$black-color;
     font-size: 0.75rem;
     line-height: 0.875rem;
-    margin: 0;
   }
 
   &__time {
-    font-size: 0.5625rem;
     color: shared.$gray-color;
+    font-size: 0.5625rem;
   }
 
   &--received {
