@@ -1,0 +1,58 @@
+@use "../../shared.scss" as shared;
+
+.conversation {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0.875rem;
+    height: calc(100vh - shared.$navbar-height);
+  }
+
+  &__header {
+    display: flex;
+    gap: 3.75rem;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.875rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid shared.$black-color;
+
+    img {
+      width: 100%;
+      max-width: 25px;
+      height: auto;
+      max-height: 25px;
+    }
+
+    &::after {
+      content: "";
+      width: 25px;
+    }
+  }
+
+  &__partner-info {
+    h2 {
+      margin: 0 0 0.5rem 0;
+      font-size: 14px;
+      color: shared.$black-color;
+      text-align: center;
+      font-weight: shared.$semibold;
+      letter-spacing: 2.1px;
+    }
+
+    p {
+      font-size: 11px;
+      text-align: center;
+      color: shared.$gray-color;
+    }
+  }
+
+  &__messages {
+    background-color: shared.$white-color;
+    padding-top: 2.81rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 1rem;
+  }
+}
