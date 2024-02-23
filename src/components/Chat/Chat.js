@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-
 import useConversations from 'hooks/useConversations';
 import useContentView from 'hooks/useContentView';
 import Profile from 'components/Profile/Profile';

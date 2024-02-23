@@ -46,6 +46,7 @@ const Map = () => {
     <div className="map">
       <MapSearchBox
         onPlaceSelected={handleSearchBoxPlaceSelected}
+        goTo={goTo}
       />
       <GoogleMap
         mapContainerClassName="map__container"
