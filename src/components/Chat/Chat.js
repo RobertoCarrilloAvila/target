@@ -8,7 +8,12 @@ import 'components/Chat/Chat.scss';
 
 const Chat = () => {
   const { messages } = useConversations();
-  const { goTo, setNavbarColor, setNavbarLeftButton, setDisplayedComponentData } = useContentView();
+  const {
+    goTo,
+    setNavbarColor,
+    setNavbarLeftButton,
+    setDisplayedComponentData,
+  } = useContentView();
 
   useEffect(() => {
     setNavbarColor('white');
@@ -37,9 +42,7 @@ const Chat = () => {
               user: { small_thumb_url, full_name },
             }) => (
               <li className="chat__message" key={match_id}>
-                <button
-                  onClick={() => openConversation(match_id)}
-                >
+                <button onClick={() => openConversation(match_id)}>
                   <img
                     src={small_thumb_url || 'https://picsum.photos/50/50'}
                     alt="avatar"
@@ -48,7 +51,8 @@ const Chat = () => {
                   <div className="chat__message-preview">
                     <span className="chat__message-author">{full_name}</span>
                     <span className="chat__message-text">
-                      {last_message || 'Start matching to see your conversations here'}
+                      {last_message ||
+                        'Start matching to see your conversations here'}
                     </span>
                   </div>
                   <div className="chat__message-icon">
