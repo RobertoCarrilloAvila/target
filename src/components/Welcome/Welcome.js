@@ -1,13 +1,11 @@
-import { useContext } from 'react';
-
-import ContentViewContext from 'contexts/ContentViewContext';
+import useContentView from 'hooks/useContentView';
 import Components from 'components/Constants/Components';
 
 import smiles from 'assets/smilies.svg';
 import 'components/Welcome/Welcome.scss';
 
 const Welcome = () => {
-  const { setDisplayedComponent } = useContext(ContentViewContext);
+  const { goTo } = useContentView();
 
   return (
     <div className="welcome">
@@ -31,7 +29,7 @@ const Welcome = () => {
 
       <button
         className="welcome__button btn"
-        onClick={() => setDisplayedComponent(Components.CHAT)}
+        onClick={() => goTo(Components.CHAT)}
       >
         ok; got it!
       </button>

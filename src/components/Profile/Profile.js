@@ -1,12 +1,9 @@
-import { useContext } from 'react';
-
-import ContentViewContext from 'contexts/ContentViewContext';
-
+import useContentView from 'hooks/useContentView';
 import 'components/Profile/Profile.scss';
 import profile from 'assets/profile.png';
 
 const Profile = () => {
-  const { setDisplayedComponent } = useContext(ContentViewContext);
+  const { goTo } = useContentView();
 
   return (
     <div className="profile">
@@ -16,7 +13,7 @@ const Profile = () => {
         <div className="profile__actions">
           <button
             className="profile__edit profile__btn"
-            onClick={() => setDisplayedComponent('EditProfile')}
+            onClick={() => goTo('EditProfile')}
           >
             Edit
           </button>

@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import useContentView from 'hooks/useContentView';
 import useConversations from 'hooks/useConversations';
 import Profile from 'components/Profile/Profile';
 
@@ -5,6 +7,12 @@ import 'components/Chat/Chat.scss';
 
 const Chat = () => {
   const { messages } = useConversations();
+  const { setNavbarColor, setNavbarLeftButton } = useContentView();
+
+  useEffect(() => {
+    setNavbarColor('white');
+    setNavbarLeftButton('');
+  }, [setNavbarColor, setNavbarLeftButton]);
 
   return (
     <div className="chat">

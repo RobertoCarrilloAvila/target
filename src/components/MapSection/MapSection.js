@@ -2,9 +2,9 @@ import 'components/MapSection/MapSection.scss';
 
 import Map from 'components/Map/Map';
 
-const MapSection = () => {
+const MapSection = ({ className }) => {
   return (
-    <div className="map-section">
+    <div className={`map-section ${className}`}>
       <Map />
     </div>
   );

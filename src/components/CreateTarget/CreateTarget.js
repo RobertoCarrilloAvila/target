@@ -1,5 +1,4 @@
-import { useContext } from 'react';
-import ContentViewContext from 'contexts/ContentViewContext';
+import useContentView from 'hooks/useContentView';
 import useMap from 'hooks/useMap';
 import { toast } from 'react-toastify';
 
@@ -26,7 +25,7 @@ const CreateTarget = () => {
     topicId,
     title,
   } = useMap();
-  const { setDisplayedComponent } = useContext(ContentViewContext);
+  const { goTo } = useContentView();
 
   const buildTargetRequest = () => ({
     title,
@@ -46,7 +45,7 @@ const CreateTarget = () => {
     const target = buildTargetRequest();
     const created = await TargetsService.create(target);
     if (created) {
-      setDisplayedComponent(Components.CHAT);
+      goTo(Components.CHAT);
     } else {
       alert('Error creating target');
     }
@@ -58,7 +57,7 @@ const CreateTarget = () => {
       setTargets(
         targets.filter(({ target }) => target.id !== selectedTargetId)
       );
-      setDisplayedComponent(Components.CHAT);
+      goTo(Components.CHAT);
     } else {
       alert('Error deleting target');
     }

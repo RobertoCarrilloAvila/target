@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import {
   GoogleMap,
   Marker,
@@ -8,7 +7,7 @@ import {
 
 import MapSearchBox from 'components/MapSearchBox/MapSearchBox';
 import useMap from 'hooks/useMap';
-import ContentViewContext from 'contexts/ContentViewContext';
+import useContentView from 'hooks/useContentView';
 import Target from 'components/Target/Target';
 import MapConfig from 'components/Constants/MapConfig';
 import Components from 'components/Constants/Components';
@@ -28,7 +27,8 @@ const Map = () => {
     isSelectedTargetStored,
     location,
   } = useMap();
-  const { setDisplayedComponent } = useContext(ContentViewContext);
+  const { goTo, setNavbarLeftButton } = useContentView();
+
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries: ['places'],
@@ -46,7 +46,7 @@ const Map = () => {
     <div className="map">
       <MapSearchBox
         onPlaceSelected={handleSearchBoxPlaceSelected}
-        goTo={setDisplayedComponent}
+        goTo={goTo}
       />
       <GoogleMap
         mapContainerClassName="map__container"
@@ -57,7 +57,8 @@ const Map = () => {
         clickableIcons={false}
         onClick={(e) => {
           handleMapClick(e);
-          setDisplayedComponent(Components.CREATE_TARGET);
+          goTo(Components.CREATE_TARGET);
+          setNavbarLeftButton('back');
         }}
       >
         {!isSelectedTargetStored && (
@@ -91,7 +92,8 @@ const Map = () => {
               selected={selectedTargetId === id}
               onClick={() => {
                 handleTargetClick(id);
-                setDisplayedComponent(Components.CREATE_TARGET);
+                goTo(Components.CREATE_TARGET);
+                setNavbarLeftButton('back');
               }}
             />
           )

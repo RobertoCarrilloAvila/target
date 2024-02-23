@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import { MapContextProvider } from 'contexts/MapContext';
-import ContentViewContext from 'contexts/ContentViewContext';
+import useContentView from 'hooks/useContentView';
 
 import 'components/Home/Home.scss';
 import Navbar from 'components/Navbar/Navbar';
@@ -10,12 +9,10 @@ import Chat from 'components/Chat/Chat';
 import CreateTarget from 'components/CreateTarget/CreateTarget';
 import EditProfile from 'components/EditProfile/EditProfile';
 import DeleteTarget from 'components/DeleteTarget/DeleteTarget';
-import Components from 'components/Constants/Components';
 
 const Home = () => {
-  const [displayedComponent, setDisplayedComponent] = useState(
-    Components.WELCOME
-  );
+  const { displayedComponent, isMapVisible, navbarColor, navbarLeftButton } =
+    useContentView();
 
   const Component = {
     Welcome,
@@ -27,19 +24,17 @@ const Home = () => {
 
   return (
     <MapContextProvider>
-      <ContentViewContext.Provider
-        value={{ displayedComponent, setDisplayedComponent }}
-      >
-        <div className="home">
-          <div className="home__container">
-            <Navbar className="white" />
+      <div className="home">
+        <div className={`home__container ${isMapVisible ? 'hide' : ''}`}>
+          <Navbar color={navbarColor} leftButton={navbarLeftButton} />
 
+          <div className="home__content">
             <Component />
           </div>
-
-          <MapSection />
         </div>
-      </ContentViewContext.Provider>
+
+        <MapSection className={isMapVisible ? 'open' : ''} />
+      </div>
     </MapContextProvider>
   );
 };
