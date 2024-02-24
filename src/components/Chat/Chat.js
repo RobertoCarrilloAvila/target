@@ -20,8 +20,8 @@ const Chat = () => {
     setNavbarLeftButton('');
   }, [setNavbarColor, setNavbarLeftButton]);
 
-  const openConversation = (matchId) => {
-    setDisplayedComponentData({ conversationId: matchId });
+  const openConversation = (matchId, userName) => {
+    setDisplayedComponentData({ conversationId: matchId, userName });
     goTo(Components.CONVERSATION);
     setNavbarLeftButton('back');
   };
@@ -42,7 +42,7 @@ const Chat = () => {
               user: { small_thumb_url, full_name },
             }) => (
               <li className="chat__message" key={match_id}>
-                <button onClick={() => openConversation(match_id)}>
+                <button onClick={() => openConversation(match_id, full_name)}>
                   <img
                     src={small_thumb_url || 'https://picsum.photos/50/50'}
                     alt="avatar"
