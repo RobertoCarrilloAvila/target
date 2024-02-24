@@ -14,7 +14,7 @@ const Conversation = () => {
   const { conversationId, userName } = displayedComponentData;
 
   const fetchMessages = useCallback(async () => {
-    const fetchedMessages  = await ConversationsService.messages(conversationId);
+    const fetchedMessages = await ConversationsService.messages(conversationId);
 
     if (isEqual(messages, fetchedMessages)) return;
     setMessages(fetchedMessages);

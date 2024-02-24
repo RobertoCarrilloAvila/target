@@ -24,7 +24,10 @@ const ConversationsService = {
         const { content, date, user } = message;
         const time = format(parseISO(date), 'HH:mm a');
         const { id: currentUserId } = UserService.userData();
-        const deliveryStatus = user.id === currentUserId ? deliveryStatuses.SENT : deliveryStatuses.RECEIVED;
+        const deliveryStatus =
+          user.id === currentUserId
+            ? deliveryStatuses.SENT
+            : deliveryStatuses.RECEIVED;
 
         return { id, content, time, deliveryStatus, user };
       });
