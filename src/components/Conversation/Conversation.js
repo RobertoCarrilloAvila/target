@@ -1,12 +1,28 @@
+import { useCallback, useState, useEffect } from 'react';
+import { isEqual } from 'lodash';
+
 import useContentView from 'hooks/useContentView';
+import ConversationsService from 'services/ConversationsService';
 import Message from 'components/Message/Message';
 
 import 'components/Conversation/Conversation.scss';
 import world from 'assets/icons/world.svg';
 
 const Conversation = () => {
+  const [messages, setMessages] = useState([]);
   const { displayedComponentData } = useContentView();
-  const { conversationId } = displayedComponentData;
+  const { conversationId, userName } = displayedComponentData;
+
+  const fetchMessages = useCallback(async () => {
+    const fetchedMessages  = await ConversationsService.messages(conversationId);
+
+    if (isEqual(messages, fetchedMessages)) return;
+    setMessages(fetchedMessages);
+  }, [conversationId, messages]);
+
+  useEffect(() => {
+    fetchMessages();
+  }, [fetchMessages]);
 
   return (
     <div className="conversation">
@@ -15,29 +31,20 @@ const Conversation = () => {
           <img src={world} alt="world" />
 
           <div className="conversation__partner-info">
-            <h2>José Gazzano</h2>
+            <h2>{userName}</h2>
             <p>Teo va a Camboya</p>
           </div>
         </div>
 
         <section className="conversation__messages">
-          <Message
-            deliveryStatus="received"
-            text="¡Hola! A dónde querés viajar?"
-            time="10.15 pm"
-          />
-          <Message
-            deliveryStatus="received"
-            text="Estoy buscando compañero de viaje"
-            time="10.15 pm"
-          />
-
-          <Message
-            deliveryStatus="sent"
-            text="Hola! A mi me encantaría conocer Camboya"
-            time="10.15 pm"
-          />
-          <Message deliveryStatus="sent" text="Vos?" time="10.15 pm" />
+          {messages.map(({ id, content, deliveryStatus, time }) => (
+            <Message
+              key={id}
+              deliveryStatus={deliveryStatus}
+              text={content}
+              time={time}
+            />
+          ))}
         </section>
       </div>
     </div>
