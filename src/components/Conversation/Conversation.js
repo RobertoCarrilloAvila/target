@@ -15,9 +15,7 @@ const Conversation = () => {
 
   const fetchMessages = useCallback(async () => {
     const fetchedMessages = await ConversationsService.messages(conversationId);
-
-    if (isEqual(messages, fetchedMessages)) return;
-    setMessages(fetchedMessages);
+    if (!isEqual(messages, fetchedMessages)) setMessages(fetchedMessages);
   }, [conversationId, messages]);
 
   useEffect(() => {
