@@ -32,7 +32,6 @@ const Conversation = () => {
 
           <div className="conversation__partner-info">
             <h2>{userName}</h2>
-            <p>Teo va a Camboya</p>
           </div>
         </div>
 
