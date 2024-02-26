@@ -41,7 +41,7 @@ const Chat = () => {
                 </div>
                 <div className="chat__message-icon">
                   <img src={topic_icon} alt="world" />
-                  {unread_messages == 0 && (
+                  {unread_messages > 0 && (
                     <span className="chat__message-counter">
                       {unread_messages}
                     </span>
