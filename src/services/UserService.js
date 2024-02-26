@@ -67,7 +67,7 @@ const UserService = {
   },
   profile: async () => {
     try {
-      const response = await client.get(ENDPOINTS.PROFILE + self.userData().id);
+      const response = await client.get(ENDPOINTS.PROFILE + UserService.userData().id);
 
       if (response.status === HttpStatuses.SUCCESS) {
         return response.data;
@@ -79,7 +79,7 @@ const UserService = {
     }
   },
   updateProfile: async (request) => {
-    await client.put(`${ENDPOINTS.PROFILE}${self.userData().id}`, request);
+    await client.put(`${ENDPOINTS.PROFILE}${UserService.userData().id}`, request);
   },
   isLoggedIn: () => {
     return validToken();
