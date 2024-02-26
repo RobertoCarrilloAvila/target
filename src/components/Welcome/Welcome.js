@@ -1,5 +1,5 @@
 import useContentView from 'hooks/useContentView';
-import Components from 'components/Constants/Components';
+import COMPONENT_NAMES from 'components/Constants/Components';
 
 import smiles from 'assets/smilies.svg';
 import 'components/Welcome/Welcome.scss';
@@ -29,7 +29,7 @@ const Welcome = () => {
 
       <button
         className="welcome__button btn"
-        onClick={() => goTo(Components.CHAT)}
+        onClick={() => goTo(COMPONENT_NAMES.CHAT)}
       >
         ok; got it!
       </button>

@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { ContentViewContext } from 'contexts/ContentViewContext';
 
-import Components from 'components/Constants/Components';
+import COMPONENT_NAMES from 'components/Constants/Components';
 
 const useContentView = () => {
   const contentViewContext = useContext(ContentViewContext);
@@ -9,7 +9,7 @@ const useContentView = () => {
     contentViewContext;
 
   useEffect(() => {
-    if (displayedComponent === Components.CHAT) {
+    if (displayedComponent === COMPONENT_NAMES.CHAT) {
       setNavbarColor('white');
       setNavbarLeftButton('');
     }

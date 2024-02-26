@@ -3,7 +3,7 @@ import TargetsService from 'services/TargetsService';
 
 import FormInput from 'components/FormInput/FormInput';
 import FormSelect from 'components/FormSelect/FormSelect';
-import Components from 'components/Constants/Components';
+import COMPONENT_NAMES from 'components/Constants/Components';
 import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
 
@@ -24,7 +24,7 @@ const CreateTarget = ({ onContinue }) => {
       setTargets(
         targets.filter(({ target }) => target.id !== selectedTargetId)
       );
-      onContinue(Components.CHAT);
+      onContinue(COMPONENT_NAMES.CHAT);
     } else {
       alert('Error deleting target');
     }

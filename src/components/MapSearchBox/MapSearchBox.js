@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-import Components from 'components/Constants/Components';
+import COMPONENT_NAMES from 'components/Constants/Components';
 import useContentView from 'hooks/useContentView';
 
 import 'components/MapSearchBox/MapSearchBox.scss';
@@ -18,7 +18,7 @@ const MapSearchBox = ({ onPlaceSelected }) => {
       const place = autocomplete.getPlace();
       if (onPlaceSelected) {
         onPlaceSelected(place);
-        goTo(Components.CREATE_TARGET);
+        goTo(COMPONENT_NAMES.CREATE_TARGET);
       }
     });
   }, [onPlaceSelected, goTo]);

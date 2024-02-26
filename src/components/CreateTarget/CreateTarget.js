@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import TargetsService from 'services/TargetsService';
 import FormInput from 'components/FormInput/FormInput';
 import FormSelect from 'components/FormSelect/FormSelect';
-import Components from 'components/Constants/Components';
+import COMPONENT_NAMES from 'components/Constants/Components';
 import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
 
@@ -45,7 +45,7 @@ const CreateTarget = () => {
     const target = buildTargetRequest();
     const created = await TargetsService.create(target);
     if (created) {
-      goTo(Components.CHAT);
+      goTo(COMPONENT_NAMES.CHAT);
     } else {
       alert('Error creating target');
     }
@@ -57,7 +57,7 @@ const CreateTarget = () => {
       setTargets(
         targets.filter(({ target }) => target.id !== selectedTargetId)
       );
-      goTo(Components.CHAT);
+      goTo(COMPONENT_NAMES.CHAT);
     } else {
       alert('Error deleting target');
     }

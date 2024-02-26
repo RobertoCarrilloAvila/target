@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import useConversations from 'hooks/useConversations';
 import useContentView from 'hooks/useContentView';
 import Profile from 'components/Profile/Profile';
-import Components from 'components/Constants/Components';
+import COMPONENT_NAMES from 'components/Constants/Components';
 
 import 'components/Chat/Chat.scss';
 
@@ -22,7 +22,7 @@ const Chat = () => {
 
   const openConversation = (matchId, userName) => {
     setDisplayedComponentData({ conversationId: matchId, userName });
-    goTo(Components.CONVERSATION);
+    goTo(COMPONENT_NAMES.CONVERSATION);
     setNavbarLeftButton('back');
   };
 

@@ -1,4 +1,4 @@
-const Components = {
+const COMPONENT_NAMES = {
   WELCOME: 'Welcome',
   CHAT: 'Chat',
   CREATE_TARGET: 'CreateTarget',
@@ -7,4 +7,4 @@ const Components = {
   CONVERSATION: 'Conversation',
 };
 
-export default Components;
+export default COMPONENT_NAMES;

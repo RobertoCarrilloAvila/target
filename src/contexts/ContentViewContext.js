@@ -1,11 +1,11 @@
 import { createContext, useState } from 'react';
 
-import Components from 'components/Constants/Components';
+import COMPONENT_NAMES from 'components/Constants/Components';
 
 const ContentViewContext = createContext();
 
 const ContentViewContextProvider = ({ children }) => {
-  const [displayedComponent, goTo] = useState(Components.WELCOME);
+  const [displayedComponent, goTo] = useState(COMPONENT_NAMES.WELCOME);
   const [displayedComponentData, setDisplayedComponentData] = useState({});
   const [isMapVisible, setIsMapVisible] = useState(false);
   const [navbarColor, setNavbarColor] = useState('white');
