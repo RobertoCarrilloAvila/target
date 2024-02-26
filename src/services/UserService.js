@@ -23,10 +23,6 @@ const setAuthTokens = (response) => {
   sessionStorage.setItem('api-user', JSON.stringify(userData));
 };
 
-const userData = () => {
-  return JSON.parse(sessionStorage.getItem('api-user'));
-};
-
 const validToken = () => {
   return !!sessionStorage.getItem('api-key-access-token');
 };
@@ -71,7 +67,9 @@ const UserService = {
   },
   profile: async () => {
     try {
-      const response = await client.get(ENDPOINTS.PROFILE + userData().id);
+      const response = await client.get(
+        ENDPOINTS.PROFILE + UserService.userData().id
+      );
 
       if (response.status === HttpStatuses.SUCCESS) {
         return response.data;
@@ -83,10 +81,16 @@ const UserService = {
     }
   },
   updateProfile: async (request) => {
-    await client.put(`${ENDPOINTS.PROFILE}${userData().id}`, request);
+    await client.put(
+      `${ENDPOINTS.PROFILE}${UserService.userData().id}`,
+      request
+    );
   },
   isLoggedIn: () => {
     return validToken();
+  },
+  userData: () => {
+    return JSON.parse(sessionStorage.getItem('api-user'));
   },
 };
 

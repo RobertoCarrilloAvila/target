@@ -1,5 +1,5 @@
 import useContentView from 'hooks/useContentView';
-import Components from 'components/Constants/Components';
+import COMPONENT_NAMES from 'components/Constants/Components';
 
 import menuBlack from 'assets/icons/menu_black.svg';
 import menuWhite from 'assets/icons/menu_white.svg';
@@ -18,7 +18,7 @@ const NavbarLeftButton = ({
     if (isMapVisible) {
       setIsMapVisible(false);
     } else {
-      goTo(Components.CHAT);
+      goTo(COMPONENT_NAMES.CHAT);
       setNavbarBackgroundColor(backgroundColors.WHITE);
     }
   };

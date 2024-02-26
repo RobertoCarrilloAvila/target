@@ -1,4 +1,6 @@
 import useContentView from 'hooks/useContentView';
+import COMPONENT_NAMES from 'components/Constants/Components';
+
 import 'components/Profile/Profile.scss';
 import profile from 'assets/profile.png';
 
@@ -13,7 +15,7 @@ const Profile = () => {
         <div className="profile__actions">
           <button
             className="profile__edit profile__btn"
-            onClick={() => goTo('EditProfile')}
+            onClick={() => goTo(COMPONENT_NAMES.EDIT_PROFILE)}
           >
             Edit
           </button>

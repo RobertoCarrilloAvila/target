@@ -1,0 +1,44 @@
+@use "../../shared.scss" as shared;
+
+.message {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.4375rem;
+  
+  &__text {
+    width: fit-content;
+    max-width: 10.5rem;
+    padding: 0.3125rem 0.5rem;
+    border-radius: 6px;
+    margin: 0;
+    color: shared.$black-color;
+    font-size: 0.75rem;
+    line-height: 0.875rem;
+  }
+
+  &__time {
+    color: shared.$gray-color;
+    font-size: 0.5625rem;
+  }
+
+  &--received {
+    .message__text {
+      background-color: rgba(shared.$light-gray-color, 0.7);
+      text-align: left;
+    }
+  }
+
+  &--sent {
+    flex-direction: row-reverse;
+
+    .message__text {
+      background-color: rgba(shared.$orange-color, 0.7);
+      text-align: right;
+    }
+  }
+
+  &--received + &--received,
+  &--sent + &--sent {
+    margin-bottom: 5px;
+  }
+}

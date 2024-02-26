@@ -10,7 +10,7 @@ import useMap from 'hooks/useMap';
 import useContentView from 'hooks/useContentView';
 import Target from 'components/Target/Target';
 import MapConfig from 'components/Constants/MapConfig';
-import Components from 'components/Constants/Components';
+import COMPONENT_NAMES from 'components/Constants/Components';
 
 import 'components/Map/Map.scss';
 import pin from 'assets/map/pin.png';
@@ -57,7 +57,7 @@ const Map = () => {
         clickableIcons={false}
         onClick={(e) => {
           handleMapClick(e);
-          goTo(Components.CREATE_TARGET);
+          goTo(COMPONENT_NAMES.CREATE_TARGET);
           setNavbarLeftButton('back');
         }}
       >
@@ -92,7 +92,7 @@ const Map = () => {
               selected={selectedTargetId === id}
               onClick={() => {
                 handleTargetClick(id);
-                goTo(Components.CREATE_TARGET);
+                goTo(COMPONENT_NAMES.CREATE_TARGET);
                 setNavbarLeftButton('back');
               }}
             />
