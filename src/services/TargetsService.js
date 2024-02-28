@@ -3,8 +3,8 @@ import client from 'api/httpClient';
 const TargetsService = {
   create: async (request) => {
     try {
-      await client.post('/targets', request);
-      return true;
+      const response = await client.post('/targets', request);
+      return response.data;
     } catch (error) {
       return false;
     }
