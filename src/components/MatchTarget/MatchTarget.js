@@ -4,7 +4,8 @@ import COMPONENT_NAMES from 'components/Constants/Components';
 
 import 'components/MatchTarget/MatchTarget.scss';
 
-const MatchTarget = ({ toggleModal, matchId, avatar, name }) => {
+const MatchTarget = ({ toggleModal, matchId, matchedUser }) => {
+  const { name, avatar } = matchedUser;
   const { goTo, setDisplayedComponentData, setNavbarLeftButton } =
     useContentView();
 
@@ -27,7 +28,7 @@ const MatchTarget = ({ toggleModal, matchId, avatar, name }) => {
         <div className="match-target__profile">
           <img
             className="match-target__profile-avatar"
-            src={avatar || 'https://picsum.photos/50/50'}
+            src={avatar.normal_url || 'https://picsum.photos/50/50'}
             alt="profile"
           />
           <h3 className="match-target__profile-name">{name}</h3>

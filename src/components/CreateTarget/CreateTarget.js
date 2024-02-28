@@ -31,8 +31,7 @@ const CreateTarget = () => {
   const { goTo } = useContentView();
 
   const [showMatchModal, setShowMatchModal] = useState(false);
-  const [matchedAvatar, setMatchedAvatar] = useState(null);
-  const [matchedName, setMatchedName] = useState('');
+  const [matchedUser, setMatchedUser] = useState({});
   const [matchedId, setMatchedId] = useState(null);
 
   const buildTargetRequest = () => ({
@@ -56,8 +55,7 @@ const CreateTarget = () => {
 
     if (matched_user) {
       setShowMatchModal(true);
-      setMatchedAvatar(matched_user.avatar.normal_url);
-      setMatchedName(matched_user.name);
+      setMatchedUser(matched_user);
       setMatchedId(match_conversation.id);
       return;
     }
@@ -90,8 +88,7 @@ const CreateTarget = () => {
       {showMatchModal && (
         <MatchTarget
           toggleModal={hideModal}
-          avatar={matchedAvatar}
-          name={matchedName}
+          matchedUser={matchedUser}
           matchId={matchedId}
         />
       )}
