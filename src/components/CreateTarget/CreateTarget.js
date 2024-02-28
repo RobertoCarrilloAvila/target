@@ -51,9 +51,10 @@ const CreateTarget = () => {
     }
 
     const targetData = buildTargetRequest();
-    const { target, matched_user, match_conversation } = await TargetsService.create(targetData);
+    const { target, matched_user, match_conversation } =
+      await TargetsService.create(targetData);
 
-    if(matched_user) {
+    if (matched_user) {
       setShowMatchModal(true);
       setMatchedAvatar(matched_user.avatar.normal_url);
       setMatchedName(matched_user.name);
@@ -86,7 +87,14 @@ const CreateTarget = () => {
 
   return (
     <div className="create-target">
-      {showMatchModal && <MatchTarget toggleModal={hideModal} avatar={matchedAvatar} name={matchedName} matchId={matchedId}/>}
+      {showMatchModal && (
+        <MatchTarget
+          toggleModal={hideModal}
+          avatar={matchedAvatar}
+          name={matchedName}
+          matchId={matchedId}
+        />
+      )}
 
       <div className="create-target__container">
         <img src={target} alt="target" className="create-target__icon" />

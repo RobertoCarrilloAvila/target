@@ -26,7 +26,7 @@ function App() {
             path={PrivatePaths.HOME}
             element={
               <PrivateRoute>
-                  <Home />
+                <Home />
               </PrivateRoute>
             }
           />
