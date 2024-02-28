@@ -19,11 +19,11 @@ function App() {
           ))}
 
           {privateRoutes.map((route, index) => (
-            <Route key={index} path={route.path} element={
-              <PrivateRoute>
-                {route.element}
-              </PrivateRoute>
-            } />
+            <Route
+              key={index}
+              path={route.path}
+              element={<PrivateRoute>{route.element}</PrivateRoute>}
+            />
           ))}
         </Routes>
       </ContentViewContextProvider>
