@@ -3,33 +3,28 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ContentViewContextProvider } from 'contexts/ContentViewContext';
 
-import PublicPaths from 'components/Constants/PublicPaths';
-import PrivatePaths from 'components/Constants/PrivatePaths';
+import publicRoutes from 'routers/public_routes';
+import privateRoutes from 'routers/private_routes';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 
 import 'App.scss';
-import Login from 'components/Login/Login';
-import SignUp from 'components/SignUp/SignUp';
-import About from 'components/About/About';
-import Home from 'components/Home/Home';
 
 function App() {
   return (
     <BrowserRouter>
       <ContentViewContextProvider>
         <Routes>
-          <Route path={PublicPaths.ROOT} element={<Login />} />
-          <Route path={PublicPaths.ABOUT} element={<About />} />
-          <Route path={PublicPaths.SIGN_UP} element={<SignUp />} />
+          {publicRoutes.map((route, index) => (
+            <Route key={index} path={route.path} element={route.element} />
+          ))}
 
-          <Route
-            path={PrivatePaths.HOME}
-            element={
+          {privateRoutes.map((route, index) => (
+            <Route key={index} path={route.path} element={
               <PrivateRoute>
-                <Home />
+                {route.element}
               </PrivateRoute>
-            }
-          />
+            } />
+          ))}
         </Routes>
       </ContentViewContextProvider>
       <ToastContainer />
