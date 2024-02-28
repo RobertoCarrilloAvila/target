@@ -16,22 +16,22 @@ import Home from 'components/Home/Home';
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path={PublicPaths.ROOT} element={<Login />} />
-        <Route path={PublicPaths.ABOUT} element={<About />} />
-        <Route path={PublicPaths.SIGN_UP} element={<SignUp />} />
+      <ContentViewContextProvider>
+        <Routes>
+          <Route path={PublicPaths.ROOT} element={<Login />} />
+          <Route path={PublicPaths.ABOUT} element={<About />} />
+          <Route path={PublicPaths.SIGN_UP} element={<SignUp />} />
 
-        <Route
-          path={PrivatePaths.HOME}
-          element={
-            <PrivateRoute>
-              <ContentViewContextProvider>
-                <Home />
-              </ContentViewContextProvider>
-            </PrivateRoute>
-          }
-        />
-      </Routes>
+          <Route
+            path={PrivatePaths.HOME}
+            element={
+              <PrivateRoute>
+                  <Home />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </ContentViewContextProvider>
       <ToastContainer />
     </BrowserRouter>
   );
