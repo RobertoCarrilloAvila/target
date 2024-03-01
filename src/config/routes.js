@@ -1,13 +1,17 @@
 import Login from 'components/Login/Login';
 import SignUp from 'components/SignUp/SignUp';
 import About from 'components/About/About';
+import Home from 'components/Home/Home';
+import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 
 import PublicPaths from 'components/Constants/PublicPaths';
+import PrivatePaths from 'components/Constants/PrivatePaths';
 
-const publicRoutes = [
+const routes = [
   { path: PublicPaths.ROOT, element: <Login /> },
   { path: PublicPaths.ABOUT, element: <About /> },
   { path: PublicPaths.SIGN_UP, element: <SignUp /> },
+  { path: PrivatePaths.HOME, element: <PrivateRoute><Home /></PrivateRoute> },
 ];
 
-export default publicRoutes;
+export default routes;
