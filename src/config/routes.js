@@ -11,7 +11,14 @@ const routes = [
   { path: PublicPaths.ROOT, element: <Login /> },
   { path: PublicPaths.ABOUT, element: <About /> },
   { path: PublicPaths.SIGN_UP, element: <SignUp /> },
-  { path: PrivatePaths.HOME, element: <PrivateRoute><Home /></PrivateRoute> },
+  {
+    path: PrivatePaths.HOME,
+    element: (
+      <PrivateRoute>
+        <Home />
+      </PrivateRoute>
+    ),
+  },
 ];
 
 export default routes;
