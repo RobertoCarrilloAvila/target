@@ -50,12 +50,15 @@ const CreateTarget = () => {
     }
 
     const targetData = buildTargetRequest();
-    const { target, matched_user, match_conversation } =
-      await TargetsService.create(targetData);
+    const {
+      target,
+      matched_user: MatchedUserData,
+      match_conversation,
+    } = await TargetsService.create(targetData);
 
-    if (matched_user) {
+    if (MatchedUserData) {
       setShowMatchModal(true);
-      setMatchedUser(matched_user);
+      setMatchedUser(MatchedUserData);
       setMatchedId(match_conversation.id);
       return;
     }
