@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import useContentView from 'hooks/useContentView';
 import useMap from 'hooks/useMap';
 import { toast } from 'react-toastify';
@@ -5,6 +6,8 @@ import { toast } from 'react-toastify';
 import TargetsService from 'services/TargetsService';
 import FormInput from 'components/FormInput/FormInput';
 import FormSelect from 'components/FormSelect/FormSelect';
+import MatchTarget from 'components/MatchTarget/MatchTarget';
+
 import COMPONENT_NAMES from 'components/Constants/Components';
 import target from 'assets/icons/target.svg';
 import 'components/CreateTarget/CreateTarget.scss';
@@ -27,6 +30,10 @@ const CreateTarget = () => {
   } = useMap();
   const { goTo } = useContentView();
 
+  const [showMatchModal, setShowMatchModal] = useState(false);
+  const [matchedUser, setMatchedUser] = useState({});
+  const [matchedId, setMatchedId] = useState(null);
+
   const buildTargetRequest = () => ({
     title,
     radius: selectedRadius,
@@ -42,9 +49,21 @@ const CreateTarget = () => {
       return;
     }
 
-    const target = buildTargetRequest();
-    const created = await TargetsService.create(target);
-    if (created) {
+    const targetData = buildTargetRequest();
+    const {
+      target,
+      matched_user: matchedUserData,
+      match_conversation,
+    } = await TargetsService.create(targetData);
+
+    if (matchedUserData) {
+      setShowMatchModal(true);
+      setMatchedUser(matchedUserData);
+      setMatchedId(match_conversation.id);
+      return;
+    }
+
+    if (target) {
       goTo(COMPONENT_NAMES.CHAT);
     } else {
       alert('Error creating target');
@@ -63,8 +82,20 @@ const CreateTarget = () => {
     }
   };
 
+  const hideModal = () => {
+    setShowMatchModal(false);
+  };
+
   return (
     <div className="create-target">
+      {showMatchModal && (
+        <MatchTarget
+          toggleModal={hideModal}
+          matchedUser={matchedUser}
+          matchId={matchedId}
+        />
+      )}
+
       <div className="create-target__container">
         <img src={target} alt="target" className="create-target__icon" />
         <h1 className="create-target__title">create new target</h1>
