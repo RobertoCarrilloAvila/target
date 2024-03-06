@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import ActionCable from 'actioncable';
+import * as ActionCable from '@rails/actioncable';
 
 import UserService from 'services/UserService';
 
