@@ -25,8 +25,11 @@ const useActionCable = () => {
         {
           received: receivedHandler,
           send_message(content) {
-            return this.perform(ACTION_NAME, { content: content, match_conversation_id: 14 });
-          }
+            return this.perform(ACTION_NAME, {
+              content: content,
+              match_conversation_id: match_id,
+            });
+          },
         }
       );
     });

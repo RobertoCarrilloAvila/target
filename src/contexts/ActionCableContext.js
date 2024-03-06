@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from 'react';
 import ActionCable from 'actioncable';
 
 import UserService from 'services/UserService';
@@ -28,6 +28,6 @@ const ActionCableContextProvider = ({ children }) => {
       {children}
     </ActionCableContext.Provider>
   );
-}
+};
 
-export { ActionCableContext, ActionCableContextProvider }
+export { ActionCableContext, ActionCableContextProvider };
