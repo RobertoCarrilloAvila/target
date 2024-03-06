@@ -11,13 +11,8 @@ const useActionCable = () => {
   const { cable } = useContext(ActionCableContext);
   const { messages } = useConversations();
 
-  const findConversation = (id) => messages.find(({ match_id }) => match_id === id);
-
   const receivedHandler = (data) => {
-    const { content } = data;
-    const { content: messageContent, match_conversation_id: matchConversationId } = JSON.parse(content.replace(/=>/g, ':'));
-    console.log('selected conversation', findConversation(matchConversationId));
-    toast.success(data.content, {});
+    toast.success(data.content);
   };
 
   const createSubscriptions = useCallback(() => {
