@@ -40,5 +40,17 @@
     "gender": "gender",
     "save": "save changes",
     "deleteAccount": "Delete my TARGET account"
+  },
+  "login": {
+    "title": "Target MVD",
+    "subtitle": "Find people near you & Connect",
+    "description": "Create a target wherever on the map, specify your interest: Travel, Dating, Music, etc and start conecting with others who share your interest.",
+    "credentialError": "Invalid login credentials. Please try again.",
+    "email": "email",
+    "password": "password",
+    "signIn": "Sign In",
+    "forgotPassword": "Forgot your password?",
+    "facebookSignUp": "Connect with Facebook",
+    "signUp": "Sign up"
   }
 }
