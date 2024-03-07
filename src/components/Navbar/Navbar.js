@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import useContentView from 'hooks/useContentView';
 import UserService from 'services/UserService';
@@ -17,6 +18,7 @@ const backgroundColors = {
 };
 
 const Navbar = ({ color, leftButton }) => {
+  const { t } = useTranslation();
   const { isMapVisible, setIsMapVisible } = useContentView();
   const [showmenu, setShowMenu] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
@@ -80,18 +82,18 @@ const Navbar = ({ color, leftButton }) => {
           <ul className="navbar__menu">
             <li className="navbar__menu-item">
               <Link to="/about" className="navbar__link">
-                about
+                {t('navbar.about')}
               </Link>
             </li>
             <li className="navbar__menu-item">
               <button onClick={toggleContactModal} className="navbar__link">
-                contact
+                {t('navbar.contact')}
               </button>
             </li>
             <li className="navbar__menu-item">
               {isLoggedIn && (
                 <button className="navbar__link" onClick={handleLogout}>
-                  logout
+                  {t('navbar.logout')}
                 </button>
               )}
             </li>
