@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import useContentView from 'hooks/useContentView';
 import COMPONENT_NAMES from 'components/Constants/Components';
 
@@ -5,6 +7,7 @@ import 'components/Profile/Profile.scss';
 import profile from 'assets/profile.png';
 
 const Profile = () => {
+  const { t } = useTranslation();
   const { goTo } = useContentView();
 
   return (
@@ -17,10 +20,10 @@ const Profile = () => {
             className="profile__edit profile__btn"
             onClick={() => goTo(COMPONENT_NAMES.EDIT_PROFILE)}
           >
-            Edit
+            {t('profile.editProfile')}
           </button>
           <span className="profile__slash">/</span>
-          <button className="profile__logout profile__btn">Logout</button>
+          <button className="profile__logout profile__btn">{t('profile.logout')}</button>
         </div>
       </div>
     </div>

@@ -65,5 +65,9 @@
     "subtitle": "You have a match!",
     "startConversation": "Cool! Start chatting",
     "skip": "Skip"
+  },
+  "Profile": {
+    "editProfile": "Edit",
+    "logout": "Logout"
   }
 }
