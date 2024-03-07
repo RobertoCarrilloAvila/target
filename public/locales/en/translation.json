@@ -18,5 +18,16 @@
     "successTitle": "Thanks for getting in touch!",
     "successText": "We'll get back to you as soon as we can.",
     "submit": "Send"
+  },
+  "createTarget": {
+    "createError": "Error creating target",
+    "deleteError": "Error deleting target",
+    "limitReached": "You have reached the maximum amount of targets",
+    "title": "Create a new target",
+    "radiusLabel": "specify area length",
+    "titleLabel": "target title",
+    "topicLabel": "select a topic",
+    "deleteButton": "delete",
+    "saveButton": "save target"
   }
 }
