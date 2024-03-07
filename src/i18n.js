@@ -9,7 +9,7 @@ use(Backend)
 .use(initReactI18next)
 .init({
   fallbackLng: 'en',
-  debug: true,
+  debug: process.env.NODE_ENV === 'development',
 
   interpolation: {
     escapeValue: false, // not needed for react as it escapes by default
