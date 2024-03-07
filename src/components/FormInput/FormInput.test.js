@@ -21,7 +21,7 @@ test('formInput has an input', () => {
       name="test-input"
       id="test-id"
       placeholder="test-placeholder"
-    />
+    />,
   );
 
   const input = screen.getByRole('textbox');

@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import useContentView from 'hooks/useContentView';
 import Modal from 'components/Modal/Modal';
 import COMPONENT_NAMES from 'components/Constants/Components';
@@ -5,6 +7,7 @@ import COMPONENT_NAMES from 'components/Constants/Components';
 import 'components/MatchTarget/MatchTarget.scss';
 
 const MatchTarget = ({ toggleModal, matchId, matchedUser }) => {
+  const { t } = useTranslation();
   const { name, avatar } = matchedUser;
   const { goTo, setDisplayedComponentData, setNavbarLeftButton } =
     useContentView();
@@ -22,8 +25,8 @@ const MatchTarget = ({ toggleModal, matchId, matchedUser }) => {
   return (
     <Modal toggleModal={toggleModal} title="Match Target">
       <div className="match-target">
-        <h1 className="match-target__title">Yey!</h1>
-        <h2 className="match-target__subtitle">You have a match!</h2>
+        <h1 className="match-target__title">{t('matchTarget.title')}</h1>
+        <h2 className="match-target__subtitle">{t('matchTarget.subtitle')}</h2>
 
         <div className="match-target__profile">
           <img
@@ -38,10 +41,10 @@ const MatchTarget = ({ toggleModal, matchId, matchedUser }) => {
           onClick={openConversation}
           className="match-target__start-button btn"
         >
-          Cool! Start chatting
+          {t('matchTarget.startConversation')}
         </button>
         <button onClick={skipMatch} className="match-target__skip-button btn">
-          Skip
+          {t('matchTarget.skip')}
         </button>
       </div>
     </Modal>

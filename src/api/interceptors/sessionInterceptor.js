@@ -43,6 +43,6 @@ export default () => {
         window.location.href = '/';
       }
       return Promise.reject(error);
-    }
+    },
   );
 };

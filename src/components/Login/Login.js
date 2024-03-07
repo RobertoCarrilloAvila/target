@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import PrivatePaths from 'components/Constants/PrivatePaths';
 
@@ -11,6 +12,7 @@ import FormInput from 'components/FormInput/FormInput';
 import 'components/Login/Login.scss';
 
 const Login = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [hasAuthError, setHasAuthError] = useState(false);
@@ -48,19 +50,17 @@ const Login = () => {
 
         <div className="login__header-img">
           <img src={smiles} alt="smiles" />
-          <h2>Target MVD</h2>
+          <h2>{t('login.title')}</h2>
         </div>
 
         <p className="login__header-text">
-          <span>Find people near you & Connect</span>
-          Create a target wherever on the map, specify your interest: Travel,
-          Dating, Music, etc and start conecting with others who share your
-          interest.
+          <span>{t('login.subtitle')}</span>
+          {t('login.description')}
         </p>
 
         {hasAuthError && (
           <p className="login__header-error-message">
-            Invalid login credentials. Please try again.
+            {t('login.credentialError')}
           </p>
         )}
 
@@ -69,7 +69,7 @@ const Login = () => {
             type="email"
             id="email"
             name="email"
-            label="Email"
+            label={t('login.email')}
             onChange={handleEmailChange}
             value={email}
             error={hasAuthError}
@@ -79,26 +79,26 @@ const Login = () => {
             type="password"
             id="password"
             name="password"
-            label="Password"
+            label={t('login.password')}
             onChange={handlePasswordChange}
             value={password}
             error={hasAuthError}
           />
 
           <button type="submit" className="login__submit btn">
-            Sign In
+            {t('login.signIn')}
           </button>
         </form>
 
         <a className="login__forgot-password" href="/">
-          Forgot your password?
+          {t('login.forgotPassword')}
         </a>
 
         <a className="login__facebook-signup" href="/sign_up">
-          connect with facebook
+          {t('login.facebookSignUp')}
         </a>
         <a className="login__email-signup" href="/sign_up">
-          Sign up
+          {t('login.signUp')}
         </a>
       </section>
 

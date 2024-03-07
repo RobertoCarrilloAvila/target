@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import UserService from 'services/UserService';
 import Navbar from 'components/Navbar/Navbar';
@@ -10,9 +11,10 @@ import SignUpConfirm from 'components/SignUpConfirm/SignUpConfirm';
 
 import 'components/SignUp/SignUp.scss';
 
-const SignUp = () => {
-  const GENDER_OPTIONS = ['male', 'female'];
+const GENDER_OPTIONS = ['male', 'female'];
 
+const SignUp = () => {
+  const { t } = useTranslation();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -57,14 +59,14 @@ const SignUp = () => {
       <section className="sign-up__container">
         <Navbar className="white" />
 
-        <h1 className="sign-up__title">Sign Up</h1>
+        <h1 className="sign-up__title">{t('signUp.title')}</h1>
 
         <form className="sign-up__form" onSubmit={handleSubmit}>
           <FormInput
             type="text"
             id="name"
             name="name"
-            label="name"
+            label={t('signUp.name')}
             value={name}
             onChange={setName}
             required={true}
@@ -74,7 +76,7 @@ const SignUp = () => {
             type="email"
             id="email"
             name="email"
-            label="email"
+            label={t('signUp.email')}
             value={email}
             onChange={setEmail}
             required={true}
@@ -84,8 +86,8 @@ const SignUp = () => {
             type="password"
             id="password"
             name="password"
-            label="password"
-            placeholder="min. 6 characters long"
+            label={t('signUp.password')}
+            placeholder={t('signUp.passwordPlaceholder')}
             value={password}
             onChange={setPassword}
             minLength="6"
@@ -96,7 +98,7 @@ const SignUp = () => {
             type="password"
             id="password_confirmation"
             name="password_confirmation"
-            label="confirm password"
+            label={t('signUp.passwordConfirmation')}
             value={passwordConfirmation}
             onChange={setPasswordConfirmation}
             minLength="6"
@@ -106,21 +108,21 @@ const SignUp = () => {
           <FormSelect
             id="gender"
             name="gender"
-            label="gender"
+            label={t('signUp.gender')}
             options={GENDER_OPTIONS}
-            placeholder="select your gender"
+            placeholder={t('signUp.genderPlaceholder')}
             value={gender}
             onChange={setGender}
             required={true}
           />
 
           <button type="submit" className="sign-up__submit btn">
-            Sign Up
+            {t('signUp.submit')}
           </button>
         </form>
 
         <Link to="/" className="sign-up__email-login">
-          Sign In
+          {t('signUp.login')}
         </Link>
       </section>
 

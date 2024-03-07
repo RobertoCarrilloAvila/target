@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import 'components/ContactModal/ContactModal.scss';
 import QuestionsService from 'services/QuestionsService';
@@ -6,12 +7,13 @@ import Modal from 'components/Modal/Modal';
 import FormInput from 'components/FormInput/FormInput';
 
 const ContactModal = ({ toggleModal }) => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [success, setSuccess] = useState(false);
 
   const modalTitle = () => {
-    return !success ? "Don't be shy, drop us a line!" : null;
+    return !success ? t('contactModal.title') : null;
   };
 
   const handleEmailChange = (value) => {
@@ -50,10 +52,10 @@ const ContactModal = ({ toggleModal }) => {
       {success ? (
         <div className="contact-modal__success">
           <h2 className="contact-modal__success-title">
-            Thanks for getting in touch!
+            {t('contactModal.successTitle')}
           </h2>
           <p className="contact-modal__success-text">
-            We&apos;ll get back to you as soon as we can.
+            {t('contactModal.successText')}
           </p>
         </div>
       ) : (
@@ -62,7 +64,7 @@ const ContactModal = ({ toggleModal }) => {
             type="email"
             id="email"
             name="email"
-            label="Email *"
+            label={t('contactModal.email')}
             onChange={handleEmailChange}
             value={email}
             required={true}
@@ -72,14 +74,14 @@ const ContactModal = ({ toggleModal }) => {
             type="textarea"
             id="message"
             name="message"
-            label="Message *"
+            label={t('contactModal.message')}
             onChange={handleMessageChange}
             value={message}
             required={true}
           />
 
           <button type="submit" className="contact-modal__form-submit btn">
-            Send
+            {t('contactModal.submit')}
           </button>
         </form>
       )}

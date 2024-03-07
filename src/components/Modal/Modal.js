@@ -31,7 +31,7 @@ const Modal = ({ children, title, toggleModal }) => {
         </div>
       </div>
     </div>,
-    elRef.current
+    elRef.current,
   );
 };
 
