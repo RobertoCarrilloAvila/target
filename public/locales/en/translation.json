@@ -1,57 +1,52 @@
 {
-  "navbar": {
-    "about": "About",
-    "contact": "Contact",
-    "logout": "Logout"
-  },
   "about": {
-    "title": "What's TARGET?",
     "description": "Cat ipsum dolor sit amet, scratch the furniture. Spit up on light gray carpet instead of adjacent linoleum cough furball yet lounge in doorway but gnaw the corn cob and sit by the fire rub face on everything. Flop over under the bed, or immediately regret falling into bathtub but swat turds around the house. All of a sudden cat goes crazy bleghbleghvomit my furball really tie the room together for destroy couch. Need to chase tail inspect anything brought into the house, yet sleep on dog bed, force dog to sleep on floor. Cat snacks. Eat owner&apos;s food nap all day, for chase imaginary bugs, yet throwup on your pillow. Bleghbleghvomit my furball really tie the room together sun bathe attack the dog then pretend like nothing happened Gate keepers of hell and destroy couch, so find empty spot in cupboard and sleep all day groom yourself 4 hours - checked, have your beauty sleep 18 hours - checked, be fabulous for the rest of the day - checked!.",
-    "getStarted": "get started!"
+    "getStarted": "get started!",
+    "title": "What's TARGET?"
   },
   "chat": {
-    "title": "Chat",
-    "startMatching": "Start matching to see your conversations here"
+    "startMatching": "Start matching to see your conversations here",
+    "title": "Chat"
   },
   "contactModal": {
-    "title": "Don't be shy, drop us a line!",
-    "successTitle": "Thanks for getting in touch!",
-    "successText": "We'll get back to you as soon as we can.",
-    "submit": "Send",
     "email": "Email *",
-    "message": "Message *"
+    "message": "Message *",
+    "submit": "Send",
+    "successText": "We'll get back to you as soon as we can.",
+    "successTitle": "Thanks for getting in touch!",
+    "title": "Don't be shy, drop us a line!"
   },
   "createTarget": {
     "createError": "Error creating target",
+    "deleteButton": "delete",
     "deleteError": "Error deleting target",
     "limitReached": "You have reached the maximum amount of targets",
-    "title": "Create a new target",
     "radiusLabel": "specify area length",
+    "saveButton": "save target",
+    "title": "Create a new target",
     "titleLabel": "target title",
-    "topicLabel": "select a topic",
-    "deleteButton": "delete",
-    "saveButton": "save target"
+    "topicLabel": "select a topic"
   },
   "editProfile": {
+    "deleteAccount": "Delete my TARGET account",
     "email": "email",
     "firstName": "first-name",
-    "lastName": "last-name",
-    "username": "username",
     "gender": "gender",
+    "lastName": "last-name",
     "save": "save changes",
-    "deleteAccount": "Delete my TARGET account"
+    "username": "username"
   },
   "login": {
-    "title": "Target MVD",
-    "subtitle": "Find people near you & Connect",
-    "description": "Create a target wherever on the map, specify your interest: Travel, Dating, Music, etc and start conecting with others who share your interest.",
     "credentialError": "Invalid login credentials. Please try again.",
+    "description": "Create a target wherever on the map, specify your interest: Travel, Dating, Music, etc and start conecting with others who share your interest.",
     "email": "email",
+    "facebookSignUp": "Connect with Facebook",
+    "forgotPassword": "Forgot your password?",
     "password": "password",
     "signIn": "Sign In",
-    "forgotPassword": "Forgot your password?",
-    "facebookSignUp": "Connect with Facebook",
-    "signUp": "Sign up"
+    "signUp": "Sign up",
+    "subtitle": "Find people near you & Connect",
+    "title": "Target MVD"
   },
   "map": {
     "error": "Error loading maps",
@@ -61,40 +56,45 @@
     "placeholder": "Search a location to add a target..."
   },
   "matchTarget": {
-    "title": "Yey!",
-    "subtitle": "You have a match!",
+    "skip": "Skip",
     "startConversation": "Cool! Start chatting",
-    "skip": "Skip"
+    "subtitle": "You have a match!",
+    "title": "Yey!"
+  },
+  "navbar": {
+    "about": "About",
+    "contact": "Contact",
+    "logout": "Logout"
   },
   "profile": {
     "editProfile": "Edit",
     "logout": "Logout"
   },
   "signUp": {
-    "title": "Sign Up",
-    "name": "name",
     "email": "email",
-    "password": "password",
-    "passwordPlaceholder": "min. 6 characters long",
-    "passwordConfirmation": "confirm password",
     "gender": "gender",
     "genderPlaceholder": "select your gender",
+    "login": "Sign In",
+    "name": "name",
+    "password": "password",
+    "passwordConfirmation": "confirm password",
+    "passwordPlaceholder": "min. 6 characters long",
     "submit": "Sign Up",
-    "login": "Sign In"
+    "title": "Sign Up"
   },
   "signUpConfirm": {
-    "title": "Yey!",
+    "checkInbox": "Please check your inbox.",
+    "emailSent": "We’ve sent an email to confirm your account.",
     "step": "Only one more step to start enjoying",
     "target": "target",
-    "emailSent": "We’ve sent an email to confirm your account.",
-    "checkInbox": "Please check your inbox."
+    "title": "Yey!"
   },
   "welcome": {
-    "welcome": "Welcome to",
-    "target": "target",
-    "subtitle": "Find people near you & Connect",
     "instructions": "Create a target by clicking wherever on the map, specify the ratio and and a topic: Travel, Dating, Music, etc.",
     "instructions2": "will start a chat whenever you‘ve a match. You can always dismiss a conversation if you‘re not interested.",
-    "submit": "ok; got it!"
+    "submit": "ok; got it!",
+    "subtitle": "Find people near you & Connect",
+    "target": "target",
+    "welcome": "Welcome to"
   }
 }
