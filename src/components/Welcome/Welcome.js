@@ -14,16 +14,16 @@ const Welcome = () => {
     <div className="welcome">
       <img src={smiles} className="welcome__img" alt="smiles" />
       <h1 className="welcome__title">
-        {t('welcome.welcome')} <strong className="welcome--bold">{t('welcome.target')}</strong>
+        {t('welcome.welcome')}{' '}
+        <strong className="welcome--bold">{t('welcome.target')}</strong>
       </h1>
       <h2 className="welcome__subtitle">{t('welcome.subtitle')}</h2>
 
       <ul className="welcome__instructions-text">
+        <li>{t('welcome.instructions')}</li>
         <li>
-          {t('welcome.instructions')}
-        </li>
-        <li>
-          <strong className="welcome--bold">{t('welcome.target')}</strong> {t('welcome.instructions2')}
+          <strong className="welcome--bold">{t('welcome.target')}</strong>{' '}
+          {t('welcome.instructions2')}
         </li>
       </ul>
 

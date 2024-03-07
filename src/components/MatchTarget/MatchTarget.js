@@ -4,7 +4,6 @@ import useContentView from 'hooks/useContentView';
 import Modal from 'components/Modal/Modal';
 import COMPONENT_NAMES from 'components/Constants/Components';
 
-
 import 'components/MatchTarget/MatchTarget.scss';
 
 const MatchTarget = ({ toggleModal, matchId, matchedUser }) => {

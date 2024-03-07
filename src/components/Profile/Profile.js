@@ -23,7 +23,9 @@ const Profile = () => {
             {t('profile.editProfile')}
           </button>
           <span className="profile__slash">/</span>
-          <button className="profile__logout profile__btn">{t('profile.logout')}</button>
+          <button className="profile__logout profile__btn">
+            {t('profile.logout')}
+          </button>
         </div>
       </div>
     </div>

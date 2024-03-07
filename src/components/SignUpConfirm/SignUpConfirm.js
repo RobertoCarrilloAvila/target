@@ -17,9 +17,7 @@ const SignUpConfirm = () => {
         <div className="sign-up-confirm__content">
           <img src={smiles} alt="smiles" />
           <p className="sign-up-confirm__yey">{t('signUpConfirm.title')}</p>
-          <p className="sign-up-confirm__step">
-            {t('signUpConfirm.step')}
-          </p>
+          <p className="sign-up-confirm__step">{t('signUpConfirm.step')}</p>
           <p className="sign-up-confirm__title">{t('signUpConfirm.target')}</p>
           <p className="sign-up-confirm__account">
             {t('signUpConfirm.emailSent')}

@@ -54,8 +54,7 @@ const Chat = () => {
                   <div className="chat__message-preview">
                     <span className="chat__message-author">{full_name}</span>
                     <span className="chat__message-text">
-                      {last_message ||
-                        t('chat.startMatching')}
+                      {last_message || t('chat.startMatching')}
                     </span>
                   </div>
                   <div className="chat__message-icon">

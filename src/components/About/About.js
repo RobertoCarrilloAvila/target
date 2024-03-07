@@ -19,9 +19,13 @@ const About = () => {
           <h2>{t('about.title')}</h2>
         </div>
 
-        <p className="about__description" role="contentinfo">{t('about.description')}</p>
+        <p className="about__description" role="contentinfo">
+          {t('about.description')}
+        </p>
 
-        <Link to="/" className="btn about__get-start">{t('about.getStarted')}</Link>
+        <Link to="/" className="btn about__get-start">
+          {t('about.getStarted')}
+        </Link>
       </section>
 
       <LandingVideo />
