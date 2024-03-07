@@ -22,15 +22,7 @@ const useActionCable = () => {
           channel: CHANNEL,
           match_conversation_id: match_id,
         },
-        {
-          received: receivedHandler,
-          send_message(content) {
-            return this.perform(ACTION_NAME, {
-              content: content,
-              match_conversation_id: match_id,
-            });
-          },
-        }
+        { received: receivedHandler }
       );
     });
   }, [cable, messages]);
