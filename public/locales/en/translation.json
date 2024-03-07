@@ -31,5 +31,14 @@
     "topicLabel": "select a topic",
     "deleteButton": "delete",
     "saveButton": "save target"
+  },
+  "editProfile": {
+    "email": "email",
+    "firstName": "first-name",
+    "lastName": "last-name",
+    "username": "username",
+    "gender": "gender",
+    "save": "save changes",
+    "deleteAccount": "Delete my TARGET account"
   }
 }

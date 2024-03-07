@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { updateProfile } from 'hooks/useProfile';
 import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
+
 import FormInput from 'components/FormInput/FormInput';
 import FormSelect from 'components/FormSelect/FormSelect';
 
@@ -9,7 +11,7 @@ import profile_img from 'assets/profile.png';
 import genders from 'components/Constants/genders';
 
 const EditProfile = () => {
-  // const profile = useProfile();
+  const { t } = useTranslation();
   const profile = {
     email: 'roberto@test.com',
     firstName: 'test name',
@@ -54,7 +56,7 @@ const EditProfile = () => {
             type="email"
             name="email"
             className="edit-profile__input"
-            label="email"
+            label={t('editProfile.email')}
             value={email}
             onChange={setEmail}
           />
@@ -63,7 +65,7 @@ const EditProfile = () => {
             type="text"
             name="first-name"
             className="edit-profile__input"
-            label="first-name"
+            label={t('editProfile.firstName')}
             value={firstName}
             onChange={setFirstName}
           />
@@ -72,7 +74,7 @@ const EditProfile = () => {
             type="text"
             name="last-name"
             className="edit-profile__input"
-            label="last-name"
+            label={t('editProfile.lastName')}
             value={lastName}
             onChange={setLastName}
           />
@@ -81,7 +83,7 @@ const EditProfile = () => {
             type="text"
             name="username"
             className="edit-profile__input"
-            label="username"
+            label={t('editProfile.username')}
             value={username}
             onChange={setUsername}
           />
@@ -89,7 +91,7 @@ const EditProfile = () => {
           <FormSelect
             id="gender"
             name="gender"
-            label="gender"
+            label={t('editProfile.gender')}
             options={genders}
             className="edit-profile__input"
             placeholder="select your gender"
@@ -98,11 +100,11 @@ const EditProfile = () => {
           />
 
           <button type="submit" className="edit-profile__submit btn">
-            save changes
+            {t('editProfile.save')}
           </button>
 
           <button type="button" className="edit-profile__delete-account">
-            Delete my TARGET account
+            {t('editProfile.deleteAccount')}
           </button>
         </form>
       </div>
