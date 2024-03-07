@@ -52,5 +52,9 @@
     "forgotPassword": "Forgot your password?",
     "facebookSignUp": "Connect with Facebook",
     "signUp": "Sign up"
+  },
+  "map": {
+    "error": "Error loading maps",
+    "loading": "Loading maps"
   }
 }

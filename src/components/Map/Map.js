@@ -4,6 +4,7 @@ import {
   useLoadScript,
   Circle,
 } from '@react-google-maps/api';
+import { useTranslation } from 'react-i18next';
 
 import MapSearchBox from 'components/MapSearchBox/MapSearchBox';
 import useMap from 'hooks/useMap';
@@ -16,6 +17,7 @@ import 'components/Map/Map.scss';
 import pin from 'assets/map/pin.png';
 
 const Map = () => {
+  const { t } = useTranslation();
   const {
     selectedLocation,
     selectedRadius,
@@ -35,11 +37,11 @@ const Map = () => {
   });
 
   if (loadError) {
-    return <div className="map__error">Error loading maps</div>;
+    return <div className="map__error">{t('map.error')}</div>;
   }
 
   if (!isLoaded) {
-    return <div className="map__loading">Loading maps</div>;
+    return <div className="map__loading">{t('map.loading')}</div>;
   }
 
   return (
