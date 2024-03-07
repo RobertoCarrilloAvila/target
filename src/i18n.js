@@ -14,9 +14,9 @@ use(LanguageDetector)
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
-    resources: { 
-      en: { translation: en }
-    }
+    resources: {
+      en: { translation: en },
+    },
   });
 
 export default i18n;
