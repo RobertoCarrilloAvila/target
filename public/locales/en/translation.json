@@ -59,5 +59,11 @@
   },
   "mapSearchBox": {
     "placeholder": "Search a location to add a target..."
+  },
+  "matchTarget": {
+    "title": "Yey!",
+    "subtitle": "You have a match!",
+    "startConversation": "Cool! Start chatting",
+    "skip": "Skip"
   }
 }
