@@ -24,7 +24,7 @@ const ActionCableContextProvider = ({ children }) => {
   }, [socketUrl]);
 
   return (
-    <ActionCableContext.Provider value={{ cable, setCable }}>
+    <ActionCableContext.Provider value={{ cable }}>
       {children}
     </ActionCableContext.Provider>
   );
