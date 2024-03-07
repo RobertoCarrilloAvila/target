@@ -11,7 +11,10 @@ import EditProfile from 'components/EditProfile/EditProfile';
 import DeleteTarget from 'components/DeleteTarget/DeleteTarget';
 import Conversation from 'components/Conversation/Conversation';
 
+import useNotifications from 'hooks/useNotifications';
+
 const Home = () => {
+  useNotifications();
   const { displayedComponent, isMapVisible, navbarColor, navbarLeftButton } =
     useContentView();
 
