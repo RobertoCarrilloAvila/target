@@ -15,7 +15,7 @@ const ActionCableContextProvider = ({ children }) => {
   }, [userId, email]);
 
   useEffect(() => {
-    const cable = ActionCable.createConsumer(socketUrl());
+    const cable = ActionCable.createConsumer(socketUrl);
     setCable(cable);
 
     return () => {
