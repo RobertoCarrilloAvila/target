@@ -64,7 +64,7 @@ const ContactModal = ({ toggleModal }) => {
             type="email"
             id="email"
             name="email"
-            label="Email *"
+            label={t('contactModal.email')}
             onChange={handleEmailChange}
             value={email}
             required={true}
@@ -74,7 +74,7 @@ const ContactModal = ({ toggleModal }) => {
             type="textarea"
             id="message"
             name="message"
-            label="Message *"
+            label={t('contactModal.message')}
             onChange={handleMessageChange}
             value={message}
             required={true}

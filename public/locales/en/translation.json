@@ -17,7 +17,9 @@
     "title": "Don't be shy, drop us a line!",
     "successTitle": "Thanks for getting in touch!",
     "successText": "We'll get back to you as soon as we can.",
-    "submit": "Send"
+    "submit": "Send",
+    "email": "Email *",
+    "message": "Message *"
   },
   "createTarget": {
     "createError": "Error creating target",
