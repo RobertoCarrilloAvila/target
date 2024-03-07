@@ -12,5 +12,11 @@
   "chat": {
     "title": "Chat",
     "startMatching": "Start matching to see your conversations here"
+  },
+  "contactModal": {
+    "title": "Don't be shy, drop us a line!",
+    "successTitle": "Thanks for getting in touch!",
+    "successText": "We'll get back to you as soon as we can.",
+    "submit": "Send"
   }
 }
