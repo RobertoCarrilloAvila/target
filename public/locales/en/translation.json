@@ -81,5 +81,12 @@
     "genderPlaceholder": "select your gender",
     "submit": "Sign Up",
     "login": "Sign In"
+  },
+  "signUpConfirm": {
+    "title": "Yey!",
+    "step": "Only one more step to start enjoying",
+    "target": "target",
+    "emailSent": "We’ve sent an email to confirm your account.",
+    "checkInbox": "Please check your inbox."
   }
 }
