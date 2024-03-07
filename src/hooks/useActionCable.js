@@ -33,7 +33,7 @@ const useActionCable = () => {
     const subscriptions = createSubscriptions();
 
     return () => {
-      subscriptions.map((subscription) => subscription.unsubscribe());
+      subscriptions.each((subscription) => subscription.unsubscribe());
     };
   }, [cable, createSubscriptions]);
 
