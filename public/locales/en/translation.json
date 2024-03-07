@@ -69,5 +69,17 @@
   "Profile": {
     "editProfile": "Edit",
     "logout": "Logout"
+  },
+  "signUp": {
+    "title": "Sign Up",
+    "name": "name",
+    "email": "email",
+    "password": "password",
+    "passwordPlaceholder": "min. 6 characters long",
+    "passwordConfirmation": "confirm password",
+    "gender": "gender",
+    "genderPlaceholder": "select your gender",
+    "submit": "Sign Up",
+    "login": "Sign In"
   }
 }
