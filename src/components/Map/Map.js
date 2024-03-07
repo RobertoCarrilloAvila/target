@@ -98,7 +98,7 @@ const Map = () => {
                 setNavbarLeftButton('back');
               }}
             />
-          )
+          ),
         )}
       </GoogleMap>
     </div>

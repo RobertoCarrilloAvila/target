@@ -14,7 +14,7 @@ const MapSearchBox = ({ onPlaceSelected }) => {
   useEffect(() => {
     if (!inputRef.current) return;
     const autocomplete = new window.google.maps.places.Autocomplete(
-      inputRef.current
+      inputRef.current,
     );
     autocomplete.addListener('place_changed', () => {
       const place = autocomplete.getPlace();

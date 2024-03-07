@@ -22,7 +22,7 @@ const CreateTarget = ({ onContinue }) => {
     const deleted = await TargetsService.delete(selectedTargetId);
     if (deleted) {
       setTargets(
-        targets.filter(({ target }) => target.id !== selectedTargetId)
+        targets.filter(({ target }) => target.id !== selectedTargetId),
       );
       onContinue(COMPONENT_NAMES.CHAT);
     } else {

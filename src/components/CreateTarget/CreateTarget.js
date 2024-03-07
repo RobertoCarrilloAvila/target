@@ -76,7 +76,7 @@ const CreateTarget = () => {
     const deleted = await TargetsService.delete(selectedTargetId);
     if (deleted) {
       setTargets(
-        targets.filter(({ target }) => target.id !== selectedTargetId)
+        targets.filter(({ target }) => target.id !== selectedTargetId),
       );
       goTo(COMPONENT_NAMES.CHAT);
     } else {

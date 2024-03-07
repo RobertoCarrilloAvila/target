@@ -68,7 +68,7 @@ const UserService = {
   profile: async () => {
     try {
       const response = await client.get(
-        ENDPOINTS.PROFILE + UserService.userData().id
+        ENDPOINTS.PROFILE + UserService.userData().id,
       );
 
       if (response.status === HttpStatuses.SUCCESS) {
@@ -83,7 +83,7 @@ const UserService = {
   updateProfile: async (request) => {
     await client.put(
       `${ENDPOINTS.PROFILE}${UserService.userData().id}`,
-      request
+      request,
     );
   },
   isLoggedIn: () => {
