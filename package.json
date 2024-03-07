@@ -27,6 +27,7 @@
     "eslint-config-prettier": "^8.3.0",
     "postcss-scss": "^4.0.9",
     "prettier": "^3.2.5",
+    "prettier-plugin-sort-json": "^3.1.0",
     "stylelint": "^15.10.3",
     "stylelint-config-idiomatic-order": "^10.0.0",
     "stylelint-config-standard-scss": "^11.1.0"
@@ -36,8 +37,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject": "react-scripts eject",
-    "format": "prettier --check \"src/**/*.{js, jsx}\"",
-    "format:fix": "prettier --write \"src/**/*.{js, jsx}\"",
+    "format": "prettier --check \"src/**/*.{js, jsx}\" \"public/locales/**/*.json\"",
+    "format:fix": "prettier --write \"src/**/*.{js, jsx}\" \"public/locales/**/*.json\"",
     "lint": "eslint -c .eslintrc --ext .js,.jsx .",
     "lint:fix": "npm run lint -- --fix",
     "stylelint": "stylelint \"src/**/*.{css,scss}\"",
