@@ -6,7 +6,7 @@ import useConversations from 'hooks/useConversations';
 
 const CHANNEL = 'ChatChannel';
 
-const useActionCable = () => {
+const useNotifications = () => {
   const { cable } = useContext(ActionCableContext);
   const { messages } = useConversations();
 
@@ -39,4 +39,4 @@ const useActionCable = () => {
   return { cable };
 };
 
-export default useActionCable;
+export default useNotifications;
