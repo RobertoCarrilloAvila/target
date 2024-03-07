@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import useContentView from 'hooks/useContentView';
 import COMPONENT_NAMES from 'components/Constants/Components';
 
@@ -5,25 +7,23 @@ import smiles from 'assets/smilies.svg';
 import 'components/Welcome/Welcome.scss';
 
 const Welcome = () => {
+  const { t } = useTranslation();
   const { goTo } = useContentView();
 
   return (
     <div className="welcome">
       <img src={smiles} className="welcome__img" alt="smiles" />
       <h1 className="welcome__title">
-        Welcome to <strong className="welcome--bold">target</strong>
+        {t('welcome.welcome')} <strong className="welcome--bold">{t('welcome.target')}</strong>
       </h1>
-      <h2 className="welcome__subtitle">Find people near you & Connect</h2>
+      <h2 className="welcome__subtitle">{t('welcome.subtitle')}</h2>
 
       <ul className="welcome__instructions-text">
         <li>
-          Create a target by clicking wherever on the map, specify the ratio and
-          and a topic: Travel, Dating, Music, etc.{' '}
+          {t('welcome.instructions')}
         </li>
         <li>
-          <strong className="welcome--bold">target</strong> will start a chat
-          whenever you&lsquo;ve a match. You can always dismiss a conversation
-          if you&lsquo;re not interested.
+          <strong className="welcome--bold">{t('welcome.target')}</strong> {t('welcome.instructions2')}
         </li>
       </ul>
 
@@ -31,7 +31,7 @@ const Welcome = () => {
         className="welcome__button btn"
         onClick={() => goTo(COMPONENT_NAMES.CHAT)}
       >
-        ok; got it!
+        {t('welcome.submit')}
       </button>
     </div>
   );
