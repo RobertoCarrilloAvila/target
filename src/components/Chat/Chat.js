@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import useConversations from 'hooks/useConversations';
 import useContentView from 'hooks/useContentView';
 import Profile from 'components/Profile/Profile';
@@ -7,6 +9,7 @@ import COMPONENT_NAMES from 'components/Constants/Components';
 import 'components/Chat/Chat.scss';
 
 const Chat = () => {
+  const { t } = useTranslation();
   const { messages } = useConversations();
   const {
     goTo,
@@ -31,7 +34,7 @@ const Chat = () => {
       <div className="chat__container">
         <Profile />
 
-        <h1 className="chat__title">Chat</h1>
+        <h1 className="chat__title">{t('chat.title')}</h1>
         <ul className="chat__list">
           {messages.map(
             ({
@@ -52,7 +55,7 @@ const Chat = () => {
                     <span className="chat__message-author">{full_name}</span>
                     <span className="chat__message-text">
                       {last_message ||
-                        'Start matching to see your conversations here'}
+                        t('chat.startMatching')}
                     </span>
                   </div>
                   <div className="chat__message-icon">
