@@ -5,7 +5,6 @@ import { ActionCableContext } from 'contexts/ActionCableContext';
 import useConversations from 'hooks/useConversations';
 
 const CHANNEL = 'ChatChannel';
-const ACTION_NAME = 'send_message';
 
 const useActionCable = () => {
   const { cable } = useContext(ActionCableContext);
