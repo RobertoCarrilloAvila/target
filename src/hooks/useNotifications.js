@@ -21,7 +21,7 @@ const useNotifications = () => {
           channel: CHANNEL,
           match_conversation_id: match_id,
         },
-        { received: receivedHandler }
+        { received: receivedHandler },
       );
     });
   }, [cable, messages]);
