@@ -56,5 +56,8 @@
   "map": {
     "error": "Error loading maps",
     "loading": "Loading maps"
+  },
+  "mapSearchBox": {
+    "placeholder": "Search a location to add a target..."
   }
 }
