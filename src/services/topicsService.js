@@ -1,6 +1,6 @@
 import client from 'api/httpClient';
 
-const TopicsService = {
+const topicsService = {
   getTopics: async () => {
     try {
       const response = await client.get('/topics');
@@ -15,4 +15,4 @@ const TopicsService = {
   },
 };
 
-export default TopicsService;
+export default topicsService;

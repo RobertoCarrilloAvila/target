@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { isEqual } from 'lodash';
 
 import { MapContext } from 'contexts/MapContext';
-import TopicsService from 'services/TopicsService';
+import topicsService from 'services/topicsService';
 import targetsService from 'services/targetsService';
 
 const useMap = () => {
@@ -60,7 +60,7 @@ const useMap = () => {
 
   useEffect(() => {
     const fetchTopics = async () => {
-      const receivedTopics = await TopicsService.getTopics();
+      const receivedTopics = await topicsService.getTopics();
       const formattedTopics = receivedTopics.map(({ topic }) => ({
         key: topic.id,
         value: topic.id,
