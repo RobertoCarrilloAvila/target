@@ -1,6 +1,6 @@
 import sessionInterceptor from 'api/interceptors/sessionInterceptor';
 import client from 'api/httpClient';
-import HttpStatuses from 'api/HttpResponses';
+import httpStatuses from 'api/HttpResponses';
 
 sessionInterceptor();
 
@@ -37,7 +37,7 @@ const UserService = {
         },
       });
 
-      if (response.status === HttpStatuses.SUCCESS) {
+      if (response.status === httpStatuses.SUCCESS) {
         setAuthTokens(response);
         return true;
       }
@@ -55,7 +55,7 @@ const UserService = {
     try {
       const response = await client.delete(ENDPOINTS.LOGOUT);
 
-      if (response.status === HttpStatuses.SUCCESS) {
+      if (response.status === httpStatuses.SUCCESS) {
         sessionStorage.clear();
         return true;
       }
@@ -71,7 +71,7 @@ const UserService = {
         ENDPOINTS.PROFILE + UserService.userData().id,
       );
 
-      if (response.status === HttpStatuses.SUCCESS) {
+      if (response.status === httpStatuses.SUCCESS) {
         return response.data;
       }
 

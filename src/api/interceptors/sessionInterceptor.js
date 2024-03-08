@@ -1,5 +1,5 @@
 import httpClient from '../httpClient';
-import HttpStatuses from 'api/HttpResponses';
+import httpStatuses from 'api/HttpResponses';
 
 const ACCESS_TOKEN = 'access-token';
 const UID = 'uid';
@@ -38,7 +38,7 @@ export default () => {
       return response;
     },
     (error) => {
-      if (error.response.status === HttpStatuses.UNAUTHORIZED) {
+      if (error.response.status === httpStatuses.UNAUTHORIZED) {
         sessionStorage.clear();
         window.location.href = '/';
       }
