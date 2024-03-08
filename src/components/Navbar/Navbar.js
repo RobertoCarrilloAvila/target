@@ -6,7 +6,7 @@ import useContentView from 'hooks/useContentView';
 import UserService from 'services/UserService';
 import NavbarLeftButton from 'components/NavbarLeftButton/NavbarLeftButton';
 
-import 'components/Navbar/Navbar.scss';
+import './Navbar.scss';
 import pinBlack from 'assets/icons/pin_black.svg';
 import pinWhite from 'assets/icons/pin_white.svg';
 import ContactModal from 'components/ContactModal/ContactModal';

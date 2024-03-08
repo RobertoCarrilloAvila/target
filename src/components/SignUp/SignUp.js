@@ -9,7 +9,7 @@ import FormSelect from 'components/FormSelect/FormSelect';
 import LandingVideo from 'components/LandingVideo/LandingVideo';
 import SignUpConfirm from 'components/SignUpConfirm/SignUpConfirm';
 
-import 'components/SignUp/SignUp.scss';
+import './SignUp.scss';
 
 const GENDER_OPTIONS = ['male', 'female'];
 

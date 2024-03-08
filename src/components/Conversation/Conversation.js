@@ -5,7 +5,7 @@ import useContentView from 'hooks/useContentView';
 import ConversationsService from 'services/ConversationsService';
 import Message from 'components/Message/Message';
 
-import 'components/Conversation/Conversation.scss';
+import './Conversation.scss';
 import world from 'assets/icons/world.svg';
 
 const Conversation = () => {

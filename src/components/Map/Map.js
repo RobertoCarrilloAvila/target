@@ -13,7 +13,7 @@ import Target from 'components/Target/Target';
 import MapConfig from 'constants/MapConfig';
 import COMPONENT_NAMES from 'constants/Components';
 
-import 'components/Map/Map.scss';
+import './Map.scss';
 import pin from 'assets/map/pin.png';
 
 const Map = () => {

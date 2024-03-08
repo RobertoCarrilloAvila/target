@@ -6,7 +6,7 @@ import useContentView from 'hooks/useContentView';
 import Profile from 'components/Profile/Profile';
 import COMPONENT_NAMES from 'constants/Components';
 
-import 'components/Chat/Chat.scss';
+import './Chat.scss';
 
 const Chat = () => {
   const { t } = useTranslation();

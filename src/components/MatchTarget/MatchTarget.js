@@ -4,7 +4,7 @@ import useContentView from 'hooks/useContentView';
 import Modal from 'components/Modal/Modal';
 import COMPONENT_NAMES from 'constants/Components';
 
-import 'components/MatchTarget/MatchTarget.scss';
+import './MatchTarget.scss';
 
 const MatchTarget = ({ toggleModal, matchId, matchedUser }) => {
   const { t } = useTranslation();

@@ -9,7 +9,7 @@ import UserService from 'services/UserService';
 import Navbar from 'components/Navbar/Navbar';
 import LandingVideo from 'components/LandingVideo/LandingVideo';
 import FormInput from 'components/FormInput/FormInput';
-import 'components/Login/Login.scss';
+import './Login.scss';
 
 const Login = () => {
   const { t } = useTranslation();

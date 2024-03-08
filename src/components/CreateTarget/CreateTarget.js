@@ -11,7 +11,7 @@ import MatchTarget from 'components/MatchTarget/MatchTarget';
 
 import COMPONENT_NAMES from 'constants/Components';
 import target from 'assets/icons/target.svg';
-import 'components/CreateTarget/CreateTarget.scss';
+import './CreateTarget.scss';
 
 const MAX_TARGETS_AMOUNT = 10;
 

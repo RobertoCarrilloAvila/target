@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import FormInput from 'components/FormInput/FormInput';
 import FormSelect from 'components/FormSelect/FormSelect';
 
-import 'components/EditProfile/edit-profile.scss';
+import './EditProfile.scss';
 import profile_img from 'assets/profile.png';
 import genders from 'constants/genders';
 

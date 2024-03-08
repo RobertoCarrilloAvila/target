@@ -1,4 +1,4 @@
-import client from '../api/httpClient';
+import client from 'api/httpClient';
 
 const QuestionsService = {
   send_question: async (request) => {
