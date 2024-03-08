@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react';
 
-import COMPONENT_NAMES from 'components/Constants/Components';
+import COMPONENT_NAMES from 'constants/Components';
 
 const ContentViewContext = createContext();
 

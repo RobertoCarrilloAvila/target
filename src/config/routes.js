@@ -4,8 +4,8 @@ import About from 'components/About/About';
 import Home from 'components/Home/Home';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 
-import PublicPaths from 'components/Constants/PublicPaths';
-import PrivatePaths from 'components/Constants/PrivatePaths';
+import PublicPaths from 'constants/PublicPaths';
+import PrivatePaths from 'constants/PrivatePaths';
 
 const routes = [
   { path: PublicPaths.ROOT, element: <Login /> },

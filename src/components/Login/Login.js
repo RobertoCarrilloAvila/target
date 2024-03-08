@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import PrivatePaths from 'components/Constants/PrivatePaths';
+import PrivatePaths from 'constants/PrivatePaths';
 
 import smiles from 'assets/smilies.svg';
 import UserService from 'services/UserService';

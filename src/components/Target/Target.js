@@ -1,6 +1,6 @@
 import { Marker, Circle } from '@react-google-maps/api';
 
-import MapConfig from 'components/Constants/MapConfig';
+import MapConfig from 'constants/MapConfig';
 
 const Target = ({
   id,

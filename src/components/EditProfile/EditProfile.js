@@ -8,7 +8,7 @@ import FormSelect from 'components/FormSelect/FormSelect';
 
 import 'components/EditProfile/edit-profile.scss';
 import profile_img from 'assets/profile.png';
-import genders from 'components/Constants/genders';
+import genders from 'constants/genders';
 
 const EditProfile = () => {
   const { t } = useTranslation();

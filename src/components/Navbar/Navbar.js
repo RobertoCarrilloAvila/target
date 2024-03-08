@@ -10,7 +10,7 @@ import 'components/Navbar/Navbar.scss';
 import pinBlack from 'assets/icons/pin_black.svg';
 import pinWhite from 'assets/icons/pin_white.svg';
 import ContactModal from 'components/ContactModal/ContactModal';
-import PublicPaths from 'components/Constants/PublicPaths';
+import PublicPaths from 'constants/PublicPaths';
 
 const backgroundColors = {
   BLUE: 'blue',

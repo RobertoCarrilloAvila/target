@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import useContentView from 'hooks/useContentView';
-import COMPONENT_NAMES from 'components/Constants/Components';
+import COMPONENT_NAMES from 'constants/Components';
 
 import smiles from 'assets/smilies.svg';
 import 'components/Welcome/Welcome.scss';

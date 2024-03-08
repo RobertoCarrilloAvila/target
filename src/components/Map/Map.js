@@ -10,8 +10,8 @@ import MapSearchBox from 'components/MapSearchBox/MapSearchBox';
 import useMap from 'hooks/useMap';
 import useContentView from 'hooks/useContentView';
 import Target from 'components/Target/Target';
-import MapConfig from 'components/Constants/MapConfig';
-import COMPONENT_NAMES from 'components/Constants/Components';
+import MapConfig from 'constants/MapConfig';
+import COMPONENT_NAMES from 'constants/Components';
 
 import 'components/Map/Map.scss';
 import pin from 'assets/map/pin.png';

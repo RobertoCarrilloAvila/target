@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { ContentViewContext } from 'contexts/ContentViewContext';
 
-import COMPONENT_NAMES from 'components/Constants/Components';
+import COMPONENT_NAMES from 'constants/Components';
 
 const useContentView = () => {
   const contentViewContext = useContext(ContentViewContext);
