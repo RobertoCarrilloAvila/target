@@ -1,13 +1,13 @@
 import { useState, useEffect, useCallback } from 'react';
 import { isEqual } from 'lodash';
 
-import ConversationsService from 'services/ConversationsService';
+import conversationsService from 'services/conversationsService';
 
 const useConversations = () => {
   const [messages, setMessages] = useState([]);
 
   const fetchMatches = useCallback(async () => {
-    const matches = await ConversationsService.matches();
+    const matches = await conversationsService.matches();
     const messagesIds = messages.map(({ id }) => id).sort();
     const matchesIds = matches.map(({ id }) => id).sort();
 

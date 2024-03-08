@@ -8,7 +8,7 @@ const deliveryStatuses = {
   RECEIVED: 'received',
 };
 
-const ConversationsService = {
+const conversationsService = {
   matches: async () => {
     try {
       const response = await client.get('/match_conversations');
@@ -39,4 +39,4 @@ const ConversationsService = {
   },
 };
 
-export default ConversationsService;
+export default conversationsService;
