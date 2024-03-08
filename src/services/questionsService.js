@@ -1,10 +1,10 @@
 import client from 'api/httpClient';
 
-const QuestionsService = {
+const questionsService = {
   send_question: async (request) => {
     const { data } = await client.post('/questions', request);
     return data;
   },
 };
 
-export default QuestionsService;
+export default questionsService;
