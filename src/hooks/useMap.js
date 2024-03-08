@@ -3,7 +3,7 @@ import { isEqual } from 'lodash';
 
 import { MapContext } from 'contexts/MapContext';
 import TopicsService from 'services/TopicsService';
-import TargetsService from 'services/TargetsService';
+import targetsService from 'services/targetsService';
 
 const useMap = () => {
   const {
@@ -89,7 +89,7 @@ const useMap = () => {
     };
 
     const fetchTargets = async () => {
-      const response = await TargetsService.getTargets();
+      const response = await targetsService.getTargets();
       const targetsIds = targets.map(({ id }) => id).sort();
       const responseIds = response.map(({ id }) => id).sort();
 

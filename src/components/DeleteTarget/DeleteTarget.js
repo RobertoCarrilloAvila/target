@@ -1,5 +1,5 @@
 import useMap from 'hooks/useMap';
-import TargetsService from 'services/TargetsService';
+import targetsService from 'services/targetsService';
 
 import FormInput from 'components/FormInput/FormInput';
 import FormSelect from 'components/FormSelect/FormSelect';
@@ -19,7 +19,7 @@ const CreateTarget = ({ onContinue }) => {
   } = useMap();
 
   const deleteTarget = async () => {
-    const deleted = await TargetsService.delete(selectedTargetId);
+    const deleted = await targetsService.delete(selectedTargetId);
     if (deleted) {
       setTargets(
         targets.filter(({ target }) => target.id !== selectedTargetId),

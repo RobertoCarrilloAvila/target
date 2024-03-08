@@ -1,6 +1,6 @@
 import client from 'api/httpClient';
 
-const TargetsService = {
+const targetsService = {
   create: async (request) => {
     try {
       const response = await client.post('/targets', request);
@@ -27,4 +27,4 @@ const TargetsService = {
   },
 };
 
-export default TargetsService;
+export default targetsService;

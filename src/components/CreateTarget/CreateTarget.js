@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import useContentView from 'hooks/useContentView';
 import useMap from 'hooks/useMap';
-import TargetsService from 'services/TargetsService';
+import targetsService from 'services/targetsService';
 import FormInput from 'components/FormInput/FormInput';
 import FormSelect from 'components/FormSelect/FormSelect';
 import MatchTarget from 'components/MatchTarget/MatchTarget';
@@ -56,7 +56,7 @@ const CreateTarget = () => {
       target,
       matched_user: matchedUserData,
       match_conversation,
-    } = await TargetsService.create(targetData);
+    } = await targetsService.create(targetData);
 
     if (matchedUserData) {
       setShowMatchModal(true);
@@ -73,7 +73,7 @@ const CreateTarget = () => {
   };
 
   const deleteTarget = async () => {
-    const deleted = await TargetsService.delete(selectedTargetId);
+    const deleted = await targetsService.delete(selectedTargetId);
     if (deleted) {
       setTargets(
         targets.filter(({ target }) => target.id !== selectedTargetId),
