@@ -1,6 +1,6 @@
 import sessionInterceptor from 'api/interceptors/sessionInterceptor';
 import client from 'api/httpClient';
-import httpStatuses from 'api/HttpResponses';
+import httpStatuses from 'api/httpResponses';
 
 sessionInterceptor();
 

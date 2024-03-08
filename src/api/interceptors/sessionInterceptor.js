@@ -1,5 +1,5 @@
 import httpClient from '../httpClient';
-import httpStatuses from 'api/HttpResponses';
+import httpStatuses from 'api/httpResponses';
 
 const ACCESS_TOKEN = 'access-token';
 const UID = 'uid';
