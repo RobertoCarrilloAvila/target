@@ -32,7 +32,7 @@ const useNotifications = () => {
     const subscriptions = createSubscriptions();
 
     return () => {
-      subscriptions.map((subscription) => subscription.unsubscribe());
+      subscriptions.forEach((subscription) => subscription.unsubscribe());
     };
   }, [cable, createSubscriptions]);
 
