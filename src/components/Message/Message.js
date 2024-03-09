@@ -1,4 +1,4 @@
-import 'components/Message/Message.scss';
+import './Message.scss';
 
 const Message = ({ deliveryStatus = 'received', text, time }) => (
   <div className={`message message--${deliveryStatus}`}>

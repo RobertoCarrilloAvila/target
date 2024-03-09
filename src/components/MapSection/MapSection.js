@@ -1,4 +1,4 @@
-import 'components/MapSection/MapSection.scss';
+import './MapSection.scss';
 
 import Map from 'components/Map/Map';
 

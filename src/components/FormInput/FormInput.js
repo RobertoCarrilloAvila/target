@@ -1,4 +1,4 @@
-import 'components/FormInput/FormInput.scss';
+import './FormInput.scss';
 
 const FormInput = ({
   id,

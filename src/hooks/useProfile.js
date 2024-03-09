@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import UserService from 'services/UserService';
+import UserService from 'services/userService';
 
 const updateProfile = async (data) => {
   await UserService.updateProfile(data);

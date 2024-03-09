@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import COMPONENT_NAMES from 'components/Constants/Components';
+import COMPONENT_NAMES from 'constants/components';
 import useContentView from 'hooks/useContentView';
 
-import 'components/MapSearchBox/MapSearchBox.scss';
+import './MapSearchBox.scss';
 
 const MapSearchBox = ({ onPlaceSelected }) => {
   const { t } = useTranslation();

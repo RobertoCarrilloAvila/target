@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import 'components/ContactModal/ContactModal.scss';
-import QuestionsService from 'services/QuestionsService';
+import QuestionsService from 'services/questionsService';
 import Modal from 'components/Modal/Modal';
 import FormInput from 'components/FormInput/FormInput';
+
+import './ContactModal.scss';
 
 const ContactModal = ({ toggleModal }) => {
   const { t } = useTranslation();

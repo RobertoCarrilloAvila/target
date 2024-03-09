@@ -4,7 +4,7 @@ import smiles from 'assets/smilies.svg';
 import Navbar from 'components/Navbar/Navbar';
 import LandingVideo from 'components/LandingVideo/LandingVideo';
 
-import 'components/SignUpConfirm/SignUpConfirm.scss';
+import './SignUpConfirm.scss';
 
 const SignUpConfirm = () => {
   const { t } = useTranslation();

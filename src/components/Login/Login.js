@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import PrivatePaths from 'components/Constants/PrivatePaths';
+import privatePaths from 'constants/privatePaths';
 
 import smiles from 'assets/smilies.svg';
-import UserService from 'services/UserService';
+import UserService from 'services/userService';
 import Navbar from 'components/Navbar/Navbar';
 import LandingVideo from 'components/LandingVideo/LandingVideo';
 import FormInput from 'components/FormInput/FormInput';
-import 'components/Login/Login.scss';
+import './Login.scss';
 
 const Login = () => {
   const { t } = useTranslation();
@@ -20,7 +20,7 @@ const Login = () => {
 
   useEffect(() => {
     if (UserService.isLoggedIn()) {
-      navigate(PrivatePaths.HOME);
+      navigate(privatePaths.HOME);
     }
   }, [navigate]);
 
@@ -37,7 +37,7 @@ const Login = () => {
 
     const loggedIn = await UserService.login(email, password);
     if (loggedIn) {
-      navigate(PrivatePaths.HOME);
+      navigate(privatePaths.HOME);
     } else {
       setHasAuthError(true);
     }

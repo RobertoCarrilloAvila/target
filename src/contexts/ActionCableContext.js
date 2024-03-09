@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect, useMemo } from 'react';
 import * as ActionCable from '@rails/actioncable';
 
-import UserService from 'services/UserService';
+import UserService from 'services/userService';
 
 const ActionCableContext = createContext();
 

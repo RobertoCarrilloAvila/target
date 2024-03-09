@@ -3,14 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import useContentView from 'hooks/useContentView';
-import UserService from 'services/UserService';
+import UserService from 'services/userService';
 import NavbarLeftButton from 'components/NavbarLeftButton/NavbarLeftButton';
 
-import 'components/Navbar/Navbar.scss';
+import './Navbar.scss';
 import pinBlack from 'assets/icons/pin_black.svg';
 import pinWhite from 'assets/icons/pin_white.svg';
 import ContactModal from 'components/ContactModal/ContactModal';
-import PublicPaths from 'components/Constants/PublicPaths';
+import publicPaths from 'constants/publicPaths';
 
 const backgroundColors = {
   BLUE: 'blue',
@@ -57,7 +57,7 @@ const Navbar = ({ color, leftButton }) => {
 
   const handleLogout = async () => {
     if (await UserService.logOut()) {
-      navigate(PublicPaths.ROOT);
+      navigate(publicPaths.ROOT);
     } else {
       alert('Something went wrong. Please try again.');
     }

@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 
 import smiles from 'assets/smilies.svg';
 import close from 'assets/icons/close.svg';
-import 'components/Modal/Modal.scss';
+import './Modal.scss';
 
 const Modal = ({ children, title, toggleModal }) => {
   const elRef = useRef(null);

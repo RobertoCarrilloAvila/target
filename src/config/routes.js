@@ -4,15 +4,15 @@ import About from 'components/About/About';
 import Home from 'components/Home/Home';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 
-import PublicPaths from 'components/Constants/PublicPaths';
-import PrivatePaths from 'components/Constants/PrivatePaths';
+import publicPaths from 'constants/publicPaths';
+import privatePaths from 'constants/privatePaths';
 
 const routes = [
-  { path: PublicPaths.ROOT, element: <Login /> },
-  { path: PublicPaths.ABOUT, element: <About /> },
-  { path: PublicPaths.SIGN_UP, element: <SignUp /> },
+  { path: publicPaths.ROOT, element: <Login /> },
+  { path: publicPaths.ABOUT, element: <About /> },
+  { path: publicPaths.SIGN_UP, element: <SignUp /> },
   {
-    path: PrivatePaths.HOME,
+    path: privatePaths.HOME,
     element: (
       <PrivateRoute>
         <Home />

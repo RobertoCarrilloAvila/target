@@ -1,7 +1,7 @@
 import { MapContextProvider } from 'contexts/MapContext';
 import useContentView from 'hooks/useContentView';
 
-import 'components/Home/Home.scss';
+import './Home.scss';
 import Navbar from 'components/Navbar/Navbar';
 import MapSection from 'components/MapSection/MapSection';
 import Welcome from 'components/Welcome/Welcome';

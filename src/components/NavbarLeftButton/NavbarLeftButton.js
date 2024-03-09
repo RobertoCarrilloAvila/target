@@ -1,5 +1,5 @@
 import useContentView from 'hooks/useContentView';
-import COMPONENT_NAMES from 'components/Constants/Components';
+import COMPONENT_NAMES from 'constants/components';
 
 import menuBlack from 'assets/icons/menu_black.svg';
 import menuWhite from 'assets/icons/menu_white.svg';
