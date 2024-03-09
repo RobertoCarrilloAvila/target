@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import useContentView from 'hooks/useContentView';
-import UserService from 'services/UserService';
+import UserService from 'services/userService';
 import NavbarLeftButton from 'components/NavbarLeftButton/NavbarLeftButton';
 
 import './Navbar.scss';

@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom';
-import UserService from 'services/UserService';
+import UserService from 'services/userService';
 
 import PublicPaths from 'constants/PublicPaths';
 

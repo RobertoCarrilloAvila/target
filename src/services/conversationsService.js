@@ -1,6 +1,6 @@
 import { format, parseISO } from 'date-fns';
 
-import UserService from 'services/UserService';
+import UserService from 'services/userService';
 import client from 'api/httpClient';
 
 const deliveryStatuses = {

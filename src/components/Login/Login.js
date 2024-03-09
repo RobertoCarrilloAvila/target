@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import PrivatePaths from 'constants/PrivatePaths';
 
 import smiles from 'assets/smilies.svg';
-import UserService from 'services/UserService';
+import UserService from 'services/userService';
 import Navbar from 'components/Navbar/Navbar';
 import LandingVideo from 'components/LandingVideo/LandingVideo';
 import FormInput from 'components/FormInput/FormInput';
