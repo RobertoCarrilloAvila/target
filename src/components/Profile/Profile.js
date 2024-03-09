@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import useContentView from 'hooks/useContentView';
-import COMPONENT_NAMES from 'constants/Components';
+import COMPONENT_NAMES from 'constants/components';
 
 import './Profile.scss';
 import profile from 'assets/profile.png';

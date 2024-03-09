@@ -10,7 +10,7 @@ import './Navbar.scss';
 import pinBlack from 'assets/icons/pin_black.svg';
 import pinWhite from 'assets/icons/pin_white.svg';
 import ContactModal from 'components/ContactModal/ContactModal';
-import PublicPaths from 'constants/PublicPaths';
+import publicPaths from 'constants/publicPaths';
 
 const backgroundColors = {
   BLUE: 'blue',
@@ -57,7 +57,7 @@ const Navbar = ({ color, leftButton }) => {
 
   const handleLogout = async () => {
     if (await UserService.logOut()) {
-      navigate(PublicPaths.ROOT);
+      navigate(publicPaths.ROOT);
     } else {
       alert('Something went wrong. Please try again.');
     }

@@ -3,7 +3,7 @@ import targetsService from 'services/targetsService';
 
 import FormInput from 'components/FormInput/FormInput';
 import FormSelect from 'components/FormSelect/FormSelect';
-import COMPONENT_NAMES from 'constants/Components';
+import COMPONENT_NAMES from 'constants/components';
 
 import target from 'assets/icons/target.svg';
 

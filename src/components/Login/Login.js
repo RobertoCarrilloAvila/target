@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import PrivatePaths from 'constants/PrivatePaths';
+import privatePaths from 'constants/privatePaths';
 
 import smiles from 'assets/smilies.svg';
 import UserService from 'services/userService';
@@ -20,7 +20,7 @@ const Login = () => {
 
   useEffect(() => {
     if (UserService.isLoggedIn()) {
-      navigate(PrivatePaths.HOME);
+      navigate(privatePaths.HOME);
     }
   }, [navigate]);
 
@@ -37,7 +37,7 @@ const Login = () => {
 
     const loggedIn = await UserService.login(email, password);
     if (loggedIn) {
-      navigate(PrivatePaths.HOME);
+      navigate(privatePaths.HOME);
     } else {
       setHasAuthError(true);
     }

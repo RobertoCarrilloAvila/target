@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import COMPONENT_NAMES from 'constants/Components';
+import COMPONENT_NAMES from 'constants/components';
 import useContentView from 'hooks/useContentView';
 
 import './MapSearchBox.scss';
