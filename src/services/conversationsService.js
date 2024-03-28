@@ -1,6 +1,6 @@
 import { format, parseISO } from 'date-fns';
 
-import UserService from 'services/userService';
+import { userData } from 'services/userService';
 import client from 'api/httpClient';
 
 const deliveryStatuses = {
@@ -23,7 +23,7 @@ const conversationsService = {
       const messages = response.data.messages.map((message) => {
         const { content, date, user } = message;
         const time = format(parseISO(date), 'HH:mm a');
-        const { id: currentUserId } = UserService.userData();
+        const { id: currentUserId } = userData();
         const deliveryStatus =
           user.id === currentUserId
             ? deliveryStatuses.SENT

@@ -1,9 +1,5 @@
 import { useState, useEffect } from 'react';
-import UserService from 'services/userService';
-
-const updateProfile = async (data) => {
-  await UserService.updateProfile(data);
-};
+import { updateProfile, profile } from 'services/userService';
 
 const useProfile = () => {
   const [email, setEmail] = useState('');
@@ -17,7 +13,7 @@ const useProfile = () => {
   }, [email, firstName, lastName, username, gender]);
 
   const fetchProfile = async () => {
-    const { user } = await UserService.profile();
+    const { user } = await profile();
     setEmail(user.email);
     setFirstName(user['first_name']);
     setLastName(user['last_name']);
