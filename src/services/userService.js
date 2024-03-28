@@ -45,12 +45,12 @@ export const login = async (email, password) => {
   } catch (error) {
     return false;
   }
-}
+};
 
 export const signUp = async (request) => {
   const { data } = await client.post(ENDPOINTS.SIGN_UP, request);
   return data;
-}
+};
 
 export const logOut = async () => {
   try {
@@ -65,13 +65,11 @@ export const logOut = async () => {
   } catch (error) {
     return false;
   }
-}
+};
 
 export const profile = async () => {
   try {
-    const response = await client.get(
-      ENDPOINTS.PROFILE + userData().id,
-    );
+    const response = await client.get(ENDPOINTS.PROFILE + userData().id);
 
     if (response.status === httpStatuses.SUCCESS) {
       return response.data;
@@ -81,19 +79,16 @@ export const profile = async () => {
   } catch (error) {
     return false;
   }
-}
+};
 
 export const updateProfile = async (request) => {
-  await client.put(
-    `${ENDPOINTS.PROFILE}${userData().id}`,
-    request,
-  );
-}
+  await client.put(`${ENDPOINTS.PROFILE}${userData().id}`, request);
+};
 
 export const isLoggedIn = () => {
   return validToken();
-}
+};
 
 export const userData = () => {
   return JSON.parse(sessionStorage.getItem('api-user'));
-}
+};
