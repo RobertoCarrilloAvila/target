@@ -39,7 +39,7 @@ const Navbar = ({ color, leftButton }) => {
   }, [color, leftButton]);
 
   const refreshInert = useCallback(() => {
-    if(!aboutRef.current || !contactRef.current || !logoutRef.current) return;
+    if (!aboutRef.current || !contactRef.current || !logoutRef.current) return;
     if (!showmenu) {
       aboutRef.current.inert = true;
       contactRef.current.inert = true;
@@ -104,13 +104,21 @@ const Navbar = ({ color, leftButton }) => {
               </Link>
             </li>
             <li className="navbar__menu-item">
-              <button onClick={toggleContactModal} className="navbar__link" ref={contactRef}>
+              <button
+                onClick={toggleContactModal}
+                className="navbar__link"
+                ref={contactRef}
+              >
                 {t('navbar.contact')}
               </button>
             </li>
             <li className="navbar__menu-item">
               {isLoggedIn && (
-                <button className="navbar__link" onClick={handleLogout} ref={logoutRef}>
+                <button
+                  className="navbar__link"
+                  onClick={handleLogout}
+                  ref={logoutRef}
+                >
                   {t('navbar.logout')}
                 </button>
               )}
