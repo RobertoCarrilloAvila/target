@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -26,19 +26,37 @@ const Navbar = ({ color, leftButton }) => {
   const [leftAction, setLeftAction] = useState('');
   const [backgroundColor, setBackgroundColor] = useState(color);
   const navigate = useNavigate();
+  const aboutRef = useRef(null);
+  const contactRef = useRef(null);
+  const logoutRef = useRef(null);
+
+  const assignBackgroundColor = useCallback(() => {
+    if (color == backgroundColors.BLUE || leftButton == 'back') {
+      return backgroundColors.BLUE;
+    } else {
+      return backgroundColors.WHITE;
+    }
+  }, [color, leftButton]);
+
+  const refreshInert = useCallback(() => {
+    if(!aboutRef.current || !contactRef.current || !logoutRef.current) return;
+    if (!showmenu) {
+      aboutRef.current.inert = true;
+      contactRef.current.inert = true;
+      logoutRef.current.inert = true;
+      return;
+    }
+
+    aboutRef.current.inert = false;
+    contactRef.current.inert = false;
+    logoutRef.current.inert = isLoggedIn ? false : true;
+  }, [showmenu, isLoggedIn]);
 
   useEffect(() => {
-    const assignBackgroundColor = () => {
-      if (color == backgroundColors.BLUE || leftButton == 'back') {
-        return backgroundColors.BLUE;
-      } else {
-        return backgroundColors.WHITE;
-      }
-    };
-
     setBackgroundColor(assignBackgroundColor());
     setLeftAction(leftButton);
-  }, [color, leftButton]);
+    refreshInert();
+  }, [color, leftButton, assignBackgroundColor, refreshInert]);
 
   const toggleMenu = () => {
     setShowMenu(!showmenu);
@@ -81,18 +99,18 @@ const Navbar = ({ color, leftButton }) => {
         <div className="navbar__collapsible-menu">
           <ul className="navbar__menu">
             <li className="navbar__menu-item">
-              <Link to="/about" className="navbar__link">
+              <Link to="/about" className="navbar__link" ref={aboutRef}>
                 {t('navbar.about')}
               </Link>
             </li>
             <li className="navbar__menu-item">
-              <button onClick={toggleContactModal} className="navbar__link">
+              <button onClick={toggleContactModal} className="navbar__link" ref={contactRef}>
                 {t('navbar.contact')}
               </button>
             </li>
             <li className="navbar__menu-item">
               {isLoggedIn && (
-                <button className="navbar__link" onClick={handleLogout}>
+                <button className="navbar__link" onClick={handleLogout} ref={logoutRef}>
                   {t('navbar.logout')}
                 </button>
               )}
