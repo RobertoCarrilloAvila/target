@@ -2,8 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { isEqual } from 'lodash';
 
 import { MapContext } from 'contexts/MapContext';
-import topicsService from 'services/topicsService';
-import targetsService from 'services/targetsService';
+import { topicsService, targetsService } from 'services';
 
 const useMap = () => {
   const {

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import QuestionsService from 'services/questionsService';
+import QuestionsService from 'services';
 import Modal from 'components/Modal/Modal';
 import FormInput from 'components/FormInput/FormInput';
 
