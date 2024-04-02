@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import useContentView from 'hooks/useContentView';
-import { isLoggedIn, logOut } from 'services/userService';
+import { usersService } from 'services';
 import NavbarLeftButton from 'components/NavbarLeftButton/NavbarLeftButton';
 
 import './Navbar.scss';
@@ -22,7 +22,7 @@ const Navbar = ({ color, leftButton }) => {
   const { isMapVisible, setIsMapVisible } = useContentView();
   const [showmenu, setShowMenu] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
-  const [isUserLoggedIn] = useState(isLoggedIn());
+  const [isUserLoggedIn] = useState(usersService.isLoggedIn());
   const [leftAction, setLeftAction] = useState('');
   const [backgroundColor, setBackgroundColor] = useState(color);
   const navigate = useNavigate();
@@ -56,7 +56,7 @@ const Navbar = ({ color, leftButton }) => {
   };
 
   const handleLogout = async () => {
-    if (await logOut()) {
+    if (await usersService.logOut()) {
       navigate(publicPaths.ROOT);
     } else {
       alert('Something went wrong. Please try again.');

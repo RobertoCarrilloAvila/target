@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import privatePaths from 'constants/privatePaths';
 
 import smiles from 'assets/smilies.svg';
-import { isLoggedIn, login } from 'services/userService';
+import { usersService } from 'services';
 import Navbar from 'components/Navbar/Navbar';
 import LandingVideo from 'components/LandingVideo/LandingVideo';
 import FormInput from 'components/FormInput/FormInput';
@@ -19,7 +19,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isLoggedIn()) {
+    if (usersService.isLoggedIn()) {
       navigate(privatePaths.HOME);
     }
   }, [navigate]);
@@ -35,7 +35,7 @@ const Login = () => {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const loggedIn = await login(email, password);
+    const loggedIn = await usersService.login(email, password);
     if (loggedIn) {
       navigate(privatePaths.HOME);
     } else {
