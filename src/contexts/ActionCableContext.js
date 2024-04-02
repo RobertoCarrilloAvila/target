@@ -1,13 +1,13 @@
 import { createContext, useState, useEffect, useMemo } from 'react';
 import * as ActionCable from '@rails/actioncable';
 
-import UserService from 'services/UserService';
+import { userData } from 'services/userService';
 
 const ActionCableContext = createContext();
 
 const ActionCableContextProvider = ({ children }) => {
   const [cable, setCable] = useState(null);
-  const { id: userId, email } = UserService.userData() || {};
+  const { id: userId, email } = userData() || {};
 
   const socketUrl = useMemo(() => {
     const urlParams = new URLSearchParams({ user: userId, uid: email });

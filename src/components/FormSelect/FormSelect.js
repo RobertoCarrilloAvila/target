@@ -1,4 +1,4 @@
-import 'components/FormSelect/FormSelect.scss';
+import './FormSelect.scss';
 
 const FormSelect = ({
   id,

@@ -3,14 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import useContentView from 'hooks/useContentView';
-import UserService from 'services/UserService';
+import { isLoggedIn, logOut } from 'services/userService';
 import NavbarLeftButton from 'components/NavbarLeftButton/NavbarLeftButton';
 
-import 'components/Navbar/Navbar.scss';
+import './Navbar.scss';
 import pinBlack from 'assets/icons/pin_black.svg';
 import pinWhite from 'assets/icons/pin_white.svg';
 import ContactModal from 'components/ContactModal/ContactModal';
-import PublicPaths from 'components/Constants/PublicPaths';
+import publicPaths from 'constants/publicPaths';
 
 const backgroundColors = {
   BLUE: 'blue',
@@ -22,7 +22,7 @@ const Navbar = ({ color, leftButton }) => {
   const { isMapVisible, setIsMapVisible } = useContentView();
   const [showmenu, setShowMenu] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
-  const [isLoggedIn] = useState(UserService.isLoggedIn());
+  const [isUserLoggedIn] = useState(isLoggedIn());
   const [leftAction, setLeftAction] = useState('');
   const [backgroundColor, setBackgroundColor] = useState(color);
   const navigate = useNavigate();
@@ -56,8 +56,8 @@ const Navbar = ({ color, leftButton }) => {
   };
 
   const handleLogout = async () => {
-    if (await UserService.logOut()) {
-      navigate(PublicPaths.ROOT);
+    if (await logOut()) {
+      navigate(publicPaths.ROOT);
     } else {
       alert('Something went wrong. Please try again.');
     }
@@ -91,7 +91,7 @@ const Navbar = ({ color, leftButton }) => {
               </button>
             </li>
             <li className="navbar__menu-item">
-              {isLoggedIn && (
+              {isUserLoggedIn && (
                 <button className="navbar__link" onClick={handleLogout}>
                   {t('navbar.logout')}
                 </button>

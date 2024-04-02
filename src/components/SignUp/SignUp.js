@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import UserService from 'services/UserService';
+import { signUp } from 'services/userService';
 import Navbar from 'components/Navbar/Navbar';
 import FormInput from 'components/FormInput/FormInput';
 import FormSelect from 'components/FormSelect/FormSelect';
 import LandingVideo from 'components/LandingVideo/LandingVideo';
 import SignUpConfirm from 'components/SignUpConfirm/SignUpConfirm';
 
-import 'components/SignUp/SignUp.scss';
+import './SignUp.scss';
 
 const GENDER_OPTIONS = ['male', 'female'];
 
@@ -38,7 +38,7 @@ const SignUp = () => {
     };
 
     try {
-      await UserService.signUp(body);
+      await signUp(body);
       setSuccess(true);
     } catch (error) {
       const {
