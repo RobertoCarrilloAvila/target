@@ -1,5 +1,5 @@
 import useMap from 'hooks/useMap';
-import targetsService from 'services';
+import { targetsService } from 'services';
 
 import FormInput from 'components/FormInput/FormInput';
 import FormSelect from 'components/FormSelect/FormSelect';

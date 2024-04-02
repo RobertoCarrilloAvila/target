@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import QuestionsService from 'services';
+import { questionsService } from 'services';
 import Modal from 'components/Modal/Modal';
 import FormInput from 'components/FormInput/FormInput';
 
@@ -36,7 +36,7 @@ const ContactModal = ({ toggleModal }) => {
     };
 
     try {
-      await QuestionsService.send_question(body);
+      await questionsService.send_question(body);
       setSuccess(true);
     } catch (error) {
       const {
