@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { signUp } from 'services/userService';
+import { usersService } from 'services';
 import Navbar from 'components/Navbar/Navbar';
 import FormInput from 'components/FormInput/FormInput';
 import FormSelect from 'components/FormSelect/FormSelect';
@@ -38,7 +38,7 @@ const SignUp = () => {
     };
 
     try {
-      await signUp(body);
+      await usersService.signUp(body);
       setSuccess(true);
     } catch (error) {
       const {
