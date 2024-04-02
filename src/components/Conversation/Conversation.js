@@ -2,7 +2,7 @@ import { useCallback, useState, useEffect } from 'react';
 import { isEqual } from 'lodash';
 
 import useContentView from 'hooks/useContentView';
-import conversationsService from 'services'
+import conversationsService from 'services';
 import Message from 'components/Message/Message';
 
 import './Conversation.scss';

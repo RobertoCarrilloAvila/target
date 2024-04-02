@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { isEqual } from 'lodash';
 
-import conversationsService from 'services'
+import conversationsService from 'services';
 
 const useConversations = () => {
   const [messages, setMessages] = useState([]);
