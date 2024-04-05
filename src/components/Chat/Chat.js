@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 import useConversations from 'hooks/useConversations';
 import useContentView from 'hooks/useContentView';
 import Profile from 'components/Profile/Profile';
-import COMPONENT_NAMES from 'components/Constants/Components';
+import COMPONENT_NAMES from 'constants/components';
 
-import 'components/Chat/Chat.scss';
+import './Chat.scss';
 
 const Chat = () => {
   const { t } = useTranslation();

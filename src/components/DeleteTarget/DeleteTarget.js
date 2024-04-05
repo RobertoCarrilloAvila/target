@@ -1,11 +1,11 @@
 import useMap from 'hooks/useMap';
-import TargetsService from 'services/TargetsService';
+import { targetsService } from 'services';
 
 import FormInput from 'components/FormInput/FormInput';
 import FormSelect from 'components/FormSelect/FormSelect';
-import COMPONENT_NAMES from 'components/Constants/Components';
+import COMPONENT_NAMES from 'constants/components';
+
 import target from 'assets/icons/target.svg';
-import 'components/CreateTarget/CreateTarget.scss';
 
 const CreateTarget = ({ onContinue }) => {
   const {
@@ -19,7 +19,7 @@ const CreateTarget = ({ onContinue }) => {
   } = useMap();
 
   const deleteTarget = async () => {
-    const deleted = await TargetsService.delete(selectedTargetId);
+    const deleted = await targetsService.delete(selectedTargetId);
     if (deleted) {
       setTargets(
         targets.filter(({ target }) => target.id !== selectedTargetId),

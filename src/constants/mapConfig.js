@@ -1,4 +1,4 @@
-const MapConfig = {
+const mapConfig = {
   defaultLocation: { lat: 19.432, lng: -99.133 },
   defaultZoom: 12,
   options: {
@@ -28,4 +28,4 @@ const MapConfig = {
   },
 };
 
-export default MapConfig;
+export default mapConfig;

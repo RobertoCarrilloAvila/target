@@ -1,9 +1,9 @@
 import { Navigate } from 'react-router-dom';
-import UserService from 'services/UserService';
+import { usersService } from 'services';
 
-import PublicPaths from 'components/Constants/PublicPaths';
+import publicPaths from 'constants/publicPaths';
 
 const PrivateRoute = ({ children }) =>
-  UserService.isLoggedIn() ? children : <Navigate to={PublicPaths.ROOT} />;
+  usersService.isLoggedIn() ? children : <Navigate to={publicPaths.ROOT} />;
 
 export default PrivateRoute;

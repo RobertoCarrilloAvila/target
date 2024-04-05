@@ -1,6 +1,6 @@
 import { format, parseISO } from 'date-fns';
 
-import UserService from 'services/UserService';
+import { usersService } from 'services';
 import client from 'api/httpClient';
 
 const deliveryStatuses = {
@@ -8,7 +8,7 @@ const deliveryStatuses = {
   RECEIVED: 'received',
 };
 
-const ConversationsService = {
+const conversationsService = {
   matches: async () => {
     try {
       const response = await client.get('/match_conversations');
@@ -23,7 +23,7 @@ const ConversationsService = {
       const messages = response.data.messages.map((message) => {
         const { content, date, user } = message;
         const time = format(parseISO(date), 'HH:mm a');
-        const { id: currentUserId } = UserService.userData();
+        const { id: currentUserId } = usersService.userData();
         const deliveryStatus =
           user.id === currentUserId
             ? deliveryStatuses.SENT
@@ -39,4 +39,4 @@ const ConversationsService = {
   },
 };
 
-export default ConversationsService;
+export default conversationsService;

@@ -2,10 +2,10 @@ import { useCallback, useState, useEffect } from 'react';
 import { isEqual } from 'lodash';
 
 import useContentView from 'hooks/useContentView';
-import ConversationsService from 'services/ConversationsService';
+import { conversationsService } from 'services';
 import Message from 'components/Message/Message';
 
-import 'components/Conversation/Conversation.scss';
+import './Conversation.scss';
 import world from 'assets/icons/world.svg';
 
 const Conversation = () => {
@@ -14,7 +14,7 @@ const Conversation = () => {
   const { conversationId, userName } = displayedComponentData;
 
   const fetchMessages = useCallback(async () => {
-    const fetchedMessages = await ConversationsService.messages(conversationId);
+    const fetchedMessages = await conversationsService.messages(conversationId);
     if (!isEqual(messages, fetchedMessages)) setMessages(fetchedMessages);
   }, [conversationId, messages]);
 

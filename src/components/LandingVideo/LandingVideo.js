@@ -1,4 +1,4 @@
-import 'components/LandingVideo/LandingVideo.scss';
+import './LandingVideo.scss';
 
 import appstore from 'assets/appstore.png';
 import iphone6 from 'assets/iphone6.png';

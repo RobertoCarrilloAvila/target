@@ -10,10 +10,10 @@ import MapSearchBox from 'components/MapSearchBox/MapSearchBox';
 import useMap from 'hooks/useMap';
 import useContentView from 'hooks/useContentView';
 import Target from 'components/Target/Target';
-import MapConfig from 'components/Constants/MapConfig';
-import COMPONENT_NAMES from 'components/Constants/Components';
+import mapConfig from 'constants/mapConfig';
+import COMPONENT_NAMES from 'constants/components';
 
-import 'components/Map/Map.scss';
+import './Map.scss';
 import pin from 'assets/map/pin.png';
 
 const Map = () => {
@@ -52,10 +52,10 @@ const Map = () => {
       />
       <GoogleMap
         mapContainerClassName="map__container"
-        center={location || MapConfig.defaultLocation}
-        zoom={MapConfig.defaultZoom}
+        center={location || mapConfig.defaultLocation}
+        zoom={mapConfig.defaultZoom}
         streetViewControl={false}
-        options={MapConfig.options}
+        options={mapConfig.options}
         clickableIcons={false}
         onClick={(e) => {
           handleMapClick(e);
@@ -69,7 +69,7 @@ const Map = () => {
             <Circle
               center={selectedLocation}
               radius={selectedRadius}
-              options={MapConfig.selectedLocationOptions}
+              options={mapConfig.selectedLocationOptions}
             />
           </>
         )}
