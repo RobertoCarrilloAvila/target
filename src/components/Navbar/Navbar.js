@@ -83,19 +83,13 @@ const Navbar = ({ color, leftButton }) => {
               </Link>
             </li>
             <li className="navbar__menu-item">
-              <button
-                onClick={toggleContactModal}
-                className="navbar__link"
-              >
+              <button onClick={toggleContactModal} className="navbar__link">
                 {t('navbar.contact')}
               </button>
             </li>
             <li className="navbar__menu-item">
               {isLoggedIn && (
-                <button
-                  className="navbar__link"
-                  onClick={handleLogout}
-                >
+                <button className="navbar__link" onClick={handleLogout}>
                   {t('navbar.logout')}
                 </button>
               )}
@@ -107,7 +101,7 @@ const Navbar = ({ color, leftButton }) => {
       {showContactModal && <ContactModal toggleModal={toggleContactModal} />}
 
       <h1 className="navbar__item navbar__title">TARGET</h1>
-      <button onClick={showMap} className='navbar__pin'>
+      <button onClick={showMap} className="navbar__pin">
         <img
           className={`navbar__item`}
           src={isNavbarBlue() ? pinWhite : pinBlack}
