@@ -1,8 +1,7 @@
-import { useEffect, useState, useCallback, useRef } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import useContentView from 'hooks/useContentView';
 import UserService from 'services/UserService';
 import NavbarLeftButton from 'components/NavbarLeftButton/NavbarLeftButton';
 
@@ -19,16 +18,12 @@ const backgroundColors = {
 
 const Navbar = ({ color, leftButton }) => {
   const { t } = useTranslation();
-  const { isMapVisible, setIsMapVisible } = useContentView();
   const [showmenu, setShowMenu] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isLoggedIn] = useState(UserService.isLoggedIn());
   const [leftAction, setLeftAction] = useState('');
   const [backgroundColor, setBackgroundColor] = useState(color);
   const navigate = useNavigate();
-  const aboutRef = useRef(null);
-  const contactRef = useRef(null);
-  const logoutRef = useRef(null);
 
   const assignBackgroundColor = useCallback(() => {
     if (color == backgroundColors.BLUE || leftButton == 'back') {
@@ -38,25 +33,10 @@ const Navbar = ({ color, leftButton }) => {
     }
   }, [color, leftButton]);
 
-  const refreshInert = useCallback(() => {
-    if (!aboutRef.current || !contactRef.current || !logoutRef.current) return;
-    if (!showmenu) {
-      aboutRef.current.inert = true;
-      contactRef.current.inert = true;
-      logoutRef.current.inert = true;
-      return;
-    }
-
-    aboutRef.current.inert = false;
-    contactRef.current.inert = false;
-    logoutRef.current.inert = isLoggedIn ? false : true;
-  }, [showmenu, isLoggedIn]);
-
   useEffect(() => {
     setBackgroundColor(assignBackgroundColor());
     setLeftAction(leftButton);
-    refreshInert();
-  }, [color, leftButton, assignBackgroundColor, refreshInert]);
+  }, [color, leftButton, assignBackgroundColor]);
 
   const toggleMenu = () => {
     setShowMenu(!showmenu);
@@ -68,7 +48,6 @@ const Navbar = ({ color, leftButton }) => {
   };
 
   const showMap = () => {
-    setIsMapVisible(true);
     setBackgroundColor(backgroundColors.BLUE);
     setLeftAction('back');
   };
@@ -99,7 +78,7 @@ const Navbar = ({ color, leftButton }) => {
         <div className="navbar__collapsible-menu">
           <ul className="navbar__menu">
             <li className="navbar__menu-item">
-              <Link to="/about" className="navbar__link" ref={aboutRef}>
+              <Link to="/about" className="navbar__link">
                 {t('navbar.about')}
               </Link>
             </li>
@@ -107,7 +86,6 @@ const Navbar = ({ color, leftButton }) => {
               <button
                 onClick={toggleContactModal}
                 className="navbar__link"
-                ref={contactRef}
               >
                 {t('navbar.contact')}
               </button>
@@ -117,7 +95,6 @@ const Navbar = ({ color, leftButton }) => {
                 <button
                   className="navbar__link"
                   onClick={handleLogout}
-                  ref={logoutRef}
                 >
                   {t('navbar.logout')}
                 </button>
@@ -130,11 +107,9 @@ const Navbar = ({ color, leftButton }) => {
       {showContactModal && <ContactModal toggleModal={toggleContactModal} />}
 
       <h1 className="navbar__item navbar__title">TARGET</h1>
-      <button onClick={showMap}>
+      <button onClick={showMap} className='navbar__pin'>
         <img
-          className={`navbar__item navbar__pin ${
-            !isMapVisible ? '' : 'd-none'
-          }`}
+          className={`navbar__item`}
           src={isNavbarBlue() ? pinWhite : pinBlack}
           alt="pin"
         />

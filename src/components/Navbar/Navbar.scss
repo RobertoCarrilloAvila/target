@@ -72,7 +72,7 @@
   }
 
   &__pin {
-    display: block;
+    visibility: visible;
   }
 }
 
@@ -89,7 +89,7 @@
     }
 
     &__pin {
-      display: none;
+      visibility: hidden;
     }
 
     .navbar-collapsable-menu {
