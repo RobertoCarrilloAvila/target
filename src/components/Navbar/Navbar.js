@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import useContentView from 'hooks/useContentView';
 import { usersService } from 'services';
 import NavbarLeftButton from 'components/NavbarLeftButton/NavbarLeftButton';
 
@@ -19,7 +18,6 @@ const backgroundColors = {
 
 const Navbar = ({ color, leftButton }) => {
   const { t } = useTranslation();
-  const { isMapVisible, setIsMapVisible } = useContentView();
   const [showmenu, setShowMenu] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isUserLoggedIn] = useState(usersService.isLoggedIn());
@@ -27,18 +25,18 @@ const Navbar = ({ color, leftButton }) => {
   const [backgroundColor, setBackgroundColor] = useState(color);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const assignBackgroundColor = () => {
-      if (color == backgroundColors.BLUE || leftButton == 'back') {
-        return backgroundColors.BLUE;
-      } else {
-        return backgroundColors.WHITE;
-      }
-    };
+  const assignBackgroundColor = useCallback(() => {
+    if (color == backgroundColors.BLUE || leftButton == 'back') {
+      return backgroundColors.BLUE;
+    } else {
+      return backgroundColors.WHITE;
+    }
+  }, [color, leftButton]);
 
+  useEffect(() => {
     setBackgroundColor(assignBackgroundColor());
     setLeftAction(leftButton);
-  }, [color, leftButton]);
+  }, [color, leftButton, assignBackgroundColor]);
 
   const toggleMenu = () => {
     setShowMenu(!showmenu);
@@ -50,7 +48,6 @@ const Navbar = ({ color, leftButton }) => {
   };
 
   const showMap = () => {
-    setIsMapVisible(true);
     setBackgroundColor(backgroundColors.BLUE);
     setLeftAction('back');
   };
@@ -104,11 +101,9 @@ const Navbar = ({ color, leftButton }) => {
       {showContactModal && <ContactModal toggleModal={toggleContactModal} />}
 
       <h1 className="navbar__item navbar__title">TARGET</h1>
-      <button onClick={showMap}>
+      <button onClick={showMap} className="navbar__pin">
         <img
-          className={`navbar__item navbar__pin ${
-            !isMapVisible ? '' : 'd-none'
-          }`}
+          className={`navbar__item`}
           src={isNavbarBlue() ? pinWhite : pinBlack}
           alt="pin"
         />
