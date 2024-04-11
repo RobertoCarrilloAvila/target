@@ -1,89 +1,92 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import { default as userEvent } from '@testing-library/user-event';
-import { BrowserRouter  } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { MapContext, MapContextProvider } from 'contexts/MapContext';
 
 import CreateTarget from './CreateTarget';
 
 beforeAll(() => {
   global.navigator.geolocation = {
-    getCurrentPosition: jest.fn().mockImplementation((success) => 
-      Promise.resolve(success({
-        coords: {
-          latitude: 10,
-          longitude: 10,
-        }
-      }))
+    getCurrentPosition: jest.fn().mockImplementation((success) =>
+      Promise.resolve(
+        success({
+          coords: {
+            latitude: 10,
+            longitude: 10,
+          },
+        }),
+      ),
     ),
   };
 });
 
 jest.mock('services/topicsService', () => ({
-  getTopics: async () => ([
+  getTopics: async () => [
     {
-      "topic": {
-        "id": 1,
-        "label": "topic 1",
-        "icon": "/topic/icon/1/example.jpg"
-      }
+      topic: {
+        id: 1,
+        label: 'topic 1',
+        icon: '/topic/icon/1/example.jpg',
+      },
     },
     {
-      "topic": {
-        "id": 2,
-        "label": "topic 2",
-        "icon": "/topic/icon/2/example.jpg"
-      }
-    }
-  ])
+      topic: {
+        id: 2,
+        label: 'topic 2',
+        icon: '/topic/icon/2/example.jpg',
+      },
+    },
+  ],
 }));
 
 const mockCreateTarget = {
-  "target": {
-    "id": 9,
-    "title": "new target",
-    "lat": 27.5566,
-    "lng": 78.5566,
-    "radius": 27384.4,
-    "topic": {
-      "id": 3,
-      "icon": "/topic/icon/3/fc916c11-06f6-49a4-8d94-f70e55f977e9.jpeg",
-      "label": "Dogs"
-    }
-  }
+  target: {
+    id: 9,
+    title: 'new target',
+    lat: 27.5566,
+    lng: 78.5566,
+    radius: 27384.4,
+    topic: {
+      id: 3,
+      icon: '/topic/icon/3/fc916c11-06f6-49a4-8d94-f70e55f977e9.jpeg',
+      label: 'Dogs',
+    },
+  },
 };
 jest.mock('services/targetsService', () => ({
   create: async () => mockCreateTarget,
-  getTargets: async () => ([
+  getTargets: async () => [
     {
-      "target": {
-        "id": 3,
-        "title": "new target",
-        "latitude": -54.2874,
-        "longitude": 23.28394,
-        "radius": 234,
-        "topic": {
-          "id": 3,
-          "icon": "/topic/icon/3/fc916c11-06f6-49a4-8d94-f70e55f977e9.jpeg",
-          "label": "Dogs"
-        }
-      }
-    }
-  ])
+      target: {
+        id: 3,
+        title: 'new target',
+        latitude: -54.2874,
+        longitude: 23.28394,
+        radius: 234,
+        topic: {
+          id: 3,
+          icon: '/topic/icon/3/fc916c11-06f6-49a4-8d94-f70e55f977e9.jpeg',
+          label: 'Dogs',
+        },
+      },
+    },
+  ],
 }));
 
 const mockGoTo = jest.fn();
-jest.mock('hooks/useContentView', () => (() => ({
-  goTo: () => mockGoTo
-})));
+jest.mock('hooks/useContentView', () => () => ({
+  goTo: () => mockGoTo,
+}));
 
 test('has radius input', () => {
   render(
     <MapContextProvider>
       <CreateTarget />
     </MapContextProvider>,
-    { wrapper: BrowserRouter });
+    { wrapper: BrowserRouter },
+  );
 
-  const radius = screen.getByRole('spinbutton')
+  const radius = screen.getByRole('spinbutton');
   expect(radius).toBeInTheDocument();
 });
 
@@ -92,7 +95,8 @@ test('has title input', () => {
     <MapContextProvider>
       <CreateTarget />
     </MapContextProvider>,
-    { wrapper: BrowserRouter });
+    { wrapper: BrowserRouter },
+  );
 
   const title = screen.getByRole('textbox');
   expect(title).toBeInTheDocument();
@@ -103,7 +107,8 @@ test('has topic select and options', async () => {
     <MapContextProvider>
       <CreateTarget />
     </MapContextProvider>,
-    { wrapper: BrowserRouter });
+    { wrapper: BrowserRouter },
+  );
 
   const topic = screen.getByRole('combobox');
 
@@ -112,13 +117,21 @@ test('has topic select and options', async () => {
 });
 
 test('submit form', async () => {
-  const mapProperties = {selectedRadius: 100, selectedLocation: {lat: 10, lng: 10}}
-  const values = { mapProperties, setMapProperties: jest.fn(), targets: [], setTargets: jest.fn() }
+  const mapProperties = {
+    selectedRadius: 100,
+    selectedLocation: { lat: 10, lng: 10 },
+  };
+  const values = {
+    mapProperties,
+    setMapProperties: jest.fn(),
+    targets: [],
+    setTargets: jest.fn(),
+  };
   render(
     <MapContext.Provider value={values}>
       <CreateTarget />
     </MapContext.Provider>,
-    { wrapper: BrowserRouter }
+    { wrapper: BrowserRouter },
   );
 
   const user = userEvent.setup();

@@ -38,7 +38,7 @@ test('submit form', async () => {
   const emailInput = screen.getByLabelText('email');
   const passwordInput = screen.getByLabelText('password');
   const submitButton = screen.getByRole('button', { name: /sign in/i });
-  
+
   await user.type(emailInput, 'test@test.com');
   await user.type(passwordInput, 'password1234');
   await user.click(submitButton);
