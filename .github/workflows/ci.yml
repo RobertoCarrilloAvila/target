@@ -9,7 +9,7 @@ jobs:
     env:
       CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
       CI: true
-      REACT_APP_API_HOST: ${{ env.REACT_APP_API_HOST }}
+      REACT_APP_API_HOST: ${{ secrets.REACT_APP_API_HOST }}
 
     steps:
       - name: Checkout code
