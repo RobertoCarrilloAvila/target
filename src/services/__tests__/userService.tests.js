@@ -1,7 +1,7 @@
 import httpClient from 'api/httpClient';
 import MockAdapter from 'axios-mock-adapter';
 
-import { login, signUp, logOut } from 'services/userService';
+import { login, signUp, logOut, isLoggedIn } from 'services/userService';
 
 const mock = new MockAdapter(httpClient);
 
@@ -112,5 +112,24 @@ describe('logOut', () => {
 
     const result = await logOut();
     expect(result).toEqual(false);
+  });
+});
+
+describe('isLoggedIn', () => {
+  it('returns true when there is a valid token', () => {
+    const mockGetItem = jest.fn().mockReturnValue('123456');
+    Object.defineProperty(window, 'sessionStorage', {
+      value: {
+        getItem: mockGetItem,
+      },
+      writable: true,
+    });
+
+    console.log(isLoggedIn());
+    expect(isLoggedIn()).toEqual(true);
+  });
+
+  it('returns false when there is no valid token', () => {
+    expect(isLoggedIn()).toEqual(false);
   });
 });
