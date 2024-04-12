@@ -7,27 +7,27 @@ const mock = new MockAdapter(httpClient);
 
 describe('login', () => {
   const loginRequest = {
-    user: { 
-      email: "roberto@test.com", 
-      password: "password123",
-    }
+    user: {
+      email: 'roberto@test.com',
+      password: 'password123',
+    },
   };
 
   const loginResponse = {
-    "user": {
-      "id": 2,
-      "email": "roberto@test.com",
-      "first_name": "Roberto",
-      "last_name": "Carrillo",
-      "name": "Roberto Carrillo",
-      "username": "RobCar",
-      "gender": "male",
-      "avatar": {
-        "original_url": null,
-        "normal_url": null,
-        "small_thumb_url": null
-      }
-    }
+    user: {
+      id: 2,
+      email: 'roberto@test.com',
+      first_name: 'Roberto',
+      last_name: 'Carrillo',
+      name: 'Roberto Carrillo',
+      username: 'RobCar',
+      gender: 'male',
+      avatar: {
+        original_url: null,
+        normal_url: null,
+        small_thumb_url: null,
+      },
+    },
   };
 
   it('logs in successfully', async () => {
@@ -52,15 +52,15 @@ describe('login', () => {
 describe('signUp', () => {
   const signUpRequest = {
     user: {
-      first_name: "Roberto",
-      last_name: "Carrillo",
-      username: "RobCar",
-      email: "roberto@test.com",
-      gender: "male",
-      password: "password123",
-      password_confirmation: "password123"
-    }
-  }
+      first_name: 'Roberto',
+      last_name: 'Carrillo',
+      username: 'RobCar',
+      email: 'roberto@test.com',
+      gender: 'male',
+      password: 'password123',
+      password_confirmation: 'password123',
+    },
+  };
 
   const signUpResponse = {
     ...signUpRequest,
@@ -68,9 +68,9 @@ describe('signUp', () => {
     avatar: {
       original_url: null,
       normal_url: null,
-      small_thumb_url: null
-    }
-  }
+      small_thumb_url: null,
+    },
+  };
 
   it('signs up successfully', async () => {
     mock
