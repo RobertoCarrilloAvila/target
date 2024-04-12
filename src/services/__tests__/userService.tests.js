@@ -125,7 +125,6 @@ describe('isLoggedIn', () => {
       writable: true,
     });
 
-    console.log(isLoggedIn());
     expect(isLoggedIn()).toEqual(true);
   });
 
