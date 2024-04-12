@@ -145,6 +145,5 @@ test('submit form', async () => {
   await waitFor(() => user.selectOptions(topic, '1'));
   await user.click(submitButton);
 
-  console.log(mockGoTo.mock.calls);
   expect(mockGoTo).toHaveBeenCalled();
 });
