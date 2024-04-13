@@ -1,6 +1,8 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import { default as userEvent } from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
+
+import { mockGoTo } from 'hooks/useContentView';
 import { MapContext, MapContextProvider } from 'contexts/MapContext';
 
 import CreateTarget from './CreateTarget';
@@ -73,11 +75,6 @@ jest.mock('services/targetsService', () => ({
   ],
 }));
 
-const mockGoTo = jest.fn();
-jest.mock('hooks/useContentView', () => () => ({
-  goTo: () => mockGoTo,
-}));
-
 test('has radius input', () => {
   render(
     <MapContextProvider>
@@ -115,6 +112,8 @@ test('has topic select and options', async () => {
   expect(topic).toBeInTheDocument();
   await waitFor(() => expect(screen.getAllByRole('option')).toHaveLength(3));
 });
+
+jest.mock('hooks/useContentView');
 
 test('submit form', async () => {
   const mapProperties = {

@@ -1,6 +1,8 @@
+export const mockGoTo = jest.fn();
+
 const useContentView = () => ({
   displayedComponent: 'Home',
-  goTo: jest.fn(),
+  goTo: mockGoTo,
   isMapVisible: false,
   setIsMapVisible: jest.fn(),
   navbarColor: 'blue',
