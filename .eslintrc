@@ -43,5 +43,13 @@
     "es6": true, // Enable all ECMAScript 6 features except for modules.
     "jest": true, // Jest global variables like `it` etc.
     "node": true // Defines things like process.env when generating through node
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.test.js"],
+      "rules": {
+        "import/named": "warn"
+      }
+    }
+  ]
 }

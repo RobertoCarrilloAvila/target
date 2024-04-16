@@ -48,8 +48,12 @@ export const login = async (email, password) => {
 };
 
 export const signUp = async (request) => {
-  const { data } = await client.post(ENDPOINTS.SIGN_UP, request);
-  return data;
+  try {
+    const { data } = await client.post(ENDPOINTS.SIGN_UP, request);
+    return data;
+  } catch (error) {
+    return false;
+  }
 };
 
 export const logOut = async () => {

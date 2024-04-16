@@ -2,7 +2,16 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Navbar from 'components/Navbar/Navbar';
 
-jest.mock('hooks/useContentView');
+jest.mock('hooks/useContentView', () => () => ({
+  displayedComponent: 'Home',
+  goTo: jest.fn(),
+  isMapVisible: false,
+  setIsMapVisible: jest.fn(),
+  navbarColor: 'blue',
+  setNavbarColor: jest.fn(),
+  navbarLeftButton: 'back',
+  setNavbarLeftButton: jest.fn(),
+}));
 
 test('has color', () => {
   render(<Navbar color="blue" />, { wrapper: MemoryRouter });

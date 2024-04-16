@@ -2,6 +2,17 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import SignUp from './SignUp';
 
+jest.mock('hooks/useContentView', () => () => ({
+  displayedComponent: 'Home',
+  goTo: jest.fn(),
+  isMapVisible: false,
+  setIsMapVisible: jest.fn(),
+  navbarColor: 'blue',
+  setNavbarColor: jest.fn(),
+  navbarLeftButton: 'back',
+  setNavbarLeftButton: jest.fn(),
+}));
+
 test('has name input', () => {
   render(<SignUp />, { wrapper: MemoryRouter });
   const input = screen.getByLabelText('name');
