@@ -3,6 +3,17 @@ import { default as userEvent } from '@testing-library/user-event';
 import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import Login from './Login';
 
+jest.mock('hooks/useContentView', () => () => ({
+  displayedComponent: 'Home',
+  goTo: jest.fn(),
+  isMapVisible: false,
+  setIsMapVisible: jest.fn(),
+  navbarColor: 'blue',
+  setNavbarColor: jest.fn(),
+  navbarLeftButton: 'back',
+  setNavbarLeftButton: jest.fn(),
+}));
+
 const mockedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),

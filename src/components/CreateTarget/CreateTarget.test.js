@@ -2,10 +2,41 @@ import { render, screen, waitFor } from '@testing-library/react';
 import { default as userEvent } from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 
-import { mockGoTo } from 'hooks/useContentView';
-import { MapContext, MapContextProvider } from 'contexts/MapContext';
-
+import { MapContext } from 'contexts/MapContext';
 import CreateTarget from './CreateTarget';
+
+const mapProperties = {
+  selectedRadius: 100,
+  selectedLocation: { lat: 10, lng: 10 },
+};
+
+const values = {
+  mapProperties,
+  setMapProperties: jest.fn(),
+  targets: [],
+  setTargets: jest.fn(),
+};
+
+const mockGoTo = jest.fn();
+
+const useContentView = () => ({
+  displayedComponent: 'Home',
+  goTo: mockGoTo,
+  isMapVisible: false,
+  setIsMapVisible: jest.fn(),
+  navbarColor: 'blue',
+  setNavbarColor: jest.fn(),
+  navbarLeftButton: 'back',
+  setNavbarLeftButton: jest.fn(),
+});
+
+jest.mock('hooks/useContentView', () => useContentView);
+
+const CreateTargetHarness = ({values}) => (
+  <MapContext.Provider value={values}>
+    <CreateTarget />
+  </MapContext.Provider>
+);
 
 beforeAll(() => {
   global.navigator.geolocation = {
@@ -76,10 +107,7 @@ jest.mock('services/targetsService', () => ({
 }));
 
 test('has radius input', () => {
-  render(
-    <MapContextProvider>
-      <CreateTarget />
-    </MapContextProvider>,
+  render(<CreateTargetHarness values={values} />,
     { wrapper: BrowserRouter },
   );
 
@@ -88,32 +116,20 @@ test('has radius input', () => {
 });
 
 test('has title input', () => {
-  render(
-    <MapContextProvider>
-      <CreateTarget />
-    </MapContextProvider>,
-    { wrapper: BrowserRouter },
-  );
+  render(<CreateTargetHarness values={values} />, { wrapper: BrowserRouter });
 
   const title = screen.getByRole('textbox');
   expect(title).toBeInTheDocument();
 });
 
 test('has topic select and options', async () => {
-  render(
-    <MapContextProvider>
-      <CreateTarget />
-    </MapContextProvider>,
-    { wrapper: BrowserRouter },
-  );
+  render(<CreateTargetHarness values={values} />, { wrapper: BrowserRouter });
 
   const topic = screen.getByRole('combobox');
 
   expect(topic).toBeInTheDocument();
   await waitFor(() => expect(screen.getAllByRole('option')).toHaveLength(3));
 });
-
-jest.mock('hooks/useContentView');
 
 test('submit form', async () => {
   const mapProperties = {
@@ -126,12 +142,7 @@ test('submit form', async () => {
     targets: [],
     setTargets: jest.fn(),
   };
-  render(
-    <MapContext.Provider value={values}>
-      <CreateTarget />
-    </MapContext.Provider>,
-    { wrapper: BrowserRouter },
-  );
+  render(<CreateTargetHarness values={values} />, { wrapper: BrowserRouter });
 
   const user = userEvent.setup();
   const radius = screen.getByRole('spinbutton');

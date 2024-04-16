@@ -3,6 +3,17 @@ import MockAdapter from 'axios-mock-adapter';
 import { render, screen, waitFor } from '@testing-library/react';
 import Chat from './Chat';
 
+jest.mock('hooks/useContentView', () => () => ({
+  displayedComponent: 'Home',
+  goTo: jest.fn(),
+  isMapVisible: false,
+  setIsMapVisible: jest.fn(),
+  navbarColor: 'blue',
+  setNavbarColor: jest.fn(),
+  navbarLeftButton: 'back',
+  setNavbarLeftButton: jest.fn(),
+}));
+
 const mock = new MockAdapter(httpClient);
 
 const conversations = {
