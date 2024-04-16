@@ -13,15 +13,15 @@ describe('create target', () => {
     latitude: -94.5566,
     longitude: -94.5566,
   };
-  const createresponse = { target: createRequest };
+  const createResponse = { target: createRequest };
 
   it('creates a target successfully', async () => {
     mock
       .onPost(`${process.env.REACT_APP_API_HOST}/targets`, createRequest)
-      .reply(200, createresponse);
+      .reply(200, createResponse);
 
     const result = await targetsService.create(createRequest);
-    expect(result).toEqual(createresponse);
+    expect(result).toEqual(createResponse);
   });
 
   it('returns false when create target fails', async () => {
