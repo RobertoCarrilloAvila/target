@@ -32,7 +32,7 @@ const useContentView = () => ({
 
 jest.mock('hooks/useContentView', () => useContentView);
 
-const CreateTargetHarness = ({values}) => (
+const CreateTargetHarness = ({ values }) => (
   <MapContext.Provider value={values}>
     <CreateTarget />
   </MapContext.Provider>
@@ -107,9 +107,7 @@ jest.mock('services/targetsService', () => ({
 }));
 
 test('has radius input', () => {
-  render(<CreateTargetHarness values={values} />,
-    { wrapper: BrowserRouter },
-  );
+  render(<CreateTargetHarness values={values} />, { wrapper: BrowserRouter });
 
   const radius = screen.getByRole('spinbutton');
   expect(radius).toBeInTheDocument();
